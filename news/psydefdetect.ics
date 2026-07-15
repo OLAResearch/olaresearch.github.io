@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//OLAResearch//PsyDefDetect//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:psydefdetect-day1-20260703@olaresearch
+DTSTART:20260703T190000Z
+DTEND:20260703T191500Z
+SUMMARY:PsyDefDetect Shared Task Overview - BioNLP 2026
+DESCRIPTION:Overview of the PsyDefDetect Shared Task at BioNLP 2026: Detecting Levels of Psychological Defense Mechanisms in Supportive Conversations.\nMore info: https://psydefdetect-shared-task.github.io/
+LOCATION:San Diego, California, USA (BioNLP 2026 @ ACL 2026)
+END:VEVENT
+BEGIN:VEVENT
+UID:psydefdetect-day2-20260704@olaresearch
+DTSTART:20260704T210000Z
+DTEND:20260704T223000Z
+SUMMARY:PsyDefDetect Shared Task System Presentations - BioNLP 2026
+DESCRIPTION:Session 3: PsyDefDetect System Presentations.\n14:00 – 14:10 Overview recap\n14:10 – 14:20 UTS\n14:20 – 14:30 KCL-Cogstack\n14:30 – 14:40 Nürnberg NLP\nMore info: https://psydefdetect-shared-task.github.io/
+LOCATION:San Diego, California, USA (BioNLP 2026 @ ACL 2026)
+END:VEVENT
+END:VCALENDAR

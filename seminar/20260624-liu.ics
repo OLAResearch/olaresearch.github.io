@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//OLAR Research//TurkuNLP Research Seminar//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+SUMMARY:TurkuNLP Research Seminar: Crosslingual On-Policy Self-Distillation for Multilingual Reasoning
+UID:turkunlp-seminar-yihong-liu-20260624@olaresearch.github.io
+SEQUENCE:0
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+DTSTART:20260624T130000Z
+DTEND:20260624T140000Z
+DTSTAMP:20260618T131600Z
+LOCATION:Zoom (https://utu.zoom.us/j/68483580034)
+DESCRIPTION:Speaker: Yihong Liu (LMU Munich)\n\nAbstract: Large language models (LLMs) have achieved remarkable progress in mathematical reasoning\, but this ability is not equally accessible across languages. Especially low-resource languages exhibit much lower reasoning performance. To address this\, we propose Crosslingual On-Policy Self-Distillation (COPSD)\, which transfers a model's own high-resource reasoning behavior to low-resource languages. COPSD uses the same model as student and teacher: the student sees only the low-resource problem\, while the teacher receives privileged crosslingual context\, including the problem translation and reference solution in English. Training minimizes full-distribution token-level divergence on the student's own rollouts\, providing dense supervision while avoiding the sparsity and instability of outcome-only reinforcement learning (RL).\n\nJoin Zoom Link: https://utu.zoom.us/j/68483580034 (Meeting ID: 684 8358 0034)\n\nDetails: https://olaresearch.github.io/seminar/20260624-liu.html
+END:VEVENT
+END:VCALENDAR

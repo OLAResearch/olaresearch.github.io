@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Core Pages -->
+  <url><loc>https://www.olaresearch.org/</loc><priority>1.0</priority></url>
+  <url><loc>https://www.olaresearch.org/about.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.olaresearch.org/publications.html</loc><priority>0.9</priority></url>
+  <url><loc>https://www.olaresearch.org/join.html</loc><priority>0.7</priority></url>
+  <url><loc>https://www.olaresearch.org/alumnus.html</loc><priority>0.5</priority></url>
+  
+  <!-- Bio Pages -->
+  <url><loc>https://www.olaresearch.org/jis/</loc><priority>0.8</priority></url>
+  
+  <!-- Paper Pages -->
+  <url><loc>https://www.olaresearch.org/LingReason/</loc><priority>0.9</priority></url>
+  <url><loc>https://www.olaresearch.org/TTS4MT/</loc><priority>0.9</priority></url>
+  <url><loc>https://www.olaresearch.org/XMemTransfer/</loc><priority>0.9</priority></url>
+  
+  <!-- Research Directions -->
+  <url><loc>https://www.olaresearch.org/fine-health-foundry.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.olaresearch.org/ai4health.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.olaresearch.org/ai-mh.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.olaresearch.org/multilingual-nlp.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.olaresearch.org/nlp4health.html</loc><priority>0.7</priority></url>
+
+  <!-- News -->
+  <url><loc>https://www.olaresearch.org/news/</loc><priority>0.7</priority></url>
+  <url><loc>https://www.olaresearch.org/news/job-openings-foundation-health-models.html</loc><priority>0.7</priority></url>
+  <url><loc>https://www.olaresearch.org/news/psydefdetect.html</loc><priority>0.7</priority></url>
+  <url><loc>https://www.olaresearch.org/news/fineopus-lingua.html</loc><priority>0.7</priority></url>
+  <url><loc>https://www.olaresearch.org/news/fine-health-foundry.html</loc><priority>0.7</priority></url>
+
+  <!-- Seminars -->
+  <url><loc>https://www.olaresearch.org/seminar/</loc><priority>0.6</priority></url>
+  <url><loc>https://www.olaresearch.org/seminar/20260624-liu.html</loc><priority>0.6</priority></url>
+</urlset>

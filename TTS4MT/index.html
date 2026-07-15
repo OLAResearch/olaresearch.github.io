@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="Test-Time Scaling of Reasoning Models for Machine Translation - Omni Language AI Research">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Test-Time Scaling of Reasoning Models for Machine Translation | OLAResearch</title>
+
+  <!-- OpenGraph Metadata for AI Search & Social Previews -->
+  <meta property="og:title" content="Test-Time Scaling of Reasoning Models for Machine Translation">
+  <meta property="og:description" content="Investigating how scaling inference-time computation in reasoning models improves translation performance. We explore scaling strategies (such as parallel voting and sequential revision) and their efficacy.">
+  <meta property="og:image" content="https://www.olaresearch.org/TTS4MT/RM4MT.png">
+  <meta property="og:url" content="https://www.olaresearch.org/TTS4MT/">
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2026-03-01">
+  <meta property="article:author" content="Zihao Li">
+  <meta property="article:author" content="Shaoxiong Ji">
+  <meta property="article:author" content="Jörg Tiedemann">
+  <meta property="og:site_name" content="OLAResearch">
+
+  <!-- Twitter Card Metadata -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Test-Time Scaling of Reasoning Models for Machine Translation">
+  <meta name="twitter:description" content="Exploring inference-time scaling strategies for LLM-based machine translation.">
+  <meta name="twitter:image" content="https://www.olaresearch.org/TTS4MT/RM4MT.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="../static/css/index.css">
+  <link rel="icon" href="../images/logos/olar.svg">
+
+  <!-- Schema.org JSON-LD Structured Data for Publications (ScholarlyArticle) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Test-Time Scaling of Reasoning Models for Machine Translation",
+    "description": "We explore inference-time computation scaling strategies for machine translation, analyzing different methods like voting, revision, and scaling behavior across models.",
+    "image": "https://www.olaresearch.org/TTS4MT/RM4MT.png",
+    "datePublished": "2026-03-01",
+    "author": [
+      {
+        "@type": "Person",
+        "name": "Zihao Li",
+        "url": "https://www.zihao.cool"
+      },
+      {
+        "@type": "Person",
+        "name": "Shaoxiong Ji",
+        "url": "https://www.olaresearch.org/jis/"
+      },
+      {
+        "@type": "Person",
+        "name": "Jörg Tiedemann"
+      }
+    ],
+    "publisher": {
+      "@type": "ResearchOrganization",
+      "name": "Omni Language AI Research",
+      "url": "https://www.olaresearch.org/"
+    },
+    "mainEntityOfPage": "https://www.olaresearch.org/TTS4MT/",
+    "sameAs": "https://aclanthology.org/2026.eacl-long.133/"
+  }
+  </script>
+  <style>
+    @media (max-width: 768px) {
+      .navbar-menu {
+        display: flex !important;
+        gap: 1.5rem;
+      }
+    }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LHSMW4F3Y"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-5LHSMW4F3Y');
+  </script>
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../index.html">
+        <img src="../images/logos/olar.svg" alt="OLAR Home" style="height: 2rem;">
+      </a>
+</div>
+    <div class="navbar-menu">
+      <a class="navbar-item" href="../publications.html">Back to Publications</a>
+    </div>
+  </nav>
+
+  <header class="paper-hero">
+    <h1 class="title is-1 paper-title-small">Test-Time Scaling of Reasoning Models for Machine Translation</h1>
+
+    <div class="paper-meta">
+      <div class="meta-item">
+        <span class="meta-label">Authors</span>
+        <span class="meta-value">Zihao Li, Shaoxiong Ji, Jörg Tiedemann</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Venue</span>
+        <span class="meta-value">EACL 2026</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Date</span>
+        <span class="meta-value">March 2026</span>
+      </div>
+    </div>
+
+    <div class="hero-links-container is-centered">
+      <div class="hero-affiliations">
+        <a href="https://blogs.helsinki.fi/language-technology/" target="_blank"><img src="../images/logos/Helsinki-NLP.png" alt="Helsinki-NLP" class="hero-affiliation-logo"></a>
+        <a href="https://turkunlp.org" target="_blank"><img src="../images/logos/turkunlp.png" alt="TurkuNLP" class="hero-affiliation-logo"></a>
+        <a href="https://www.ellisinstitute.fi" target="_blank"><img
+            src="../images/logos/ellis-logo_horizontal_black_2023-FINLAND.png" alt="ELLIS"
+            class="hero-affiliation-logo"></a>
+        <a href="https://www.utu.fi/en" target="_blank"><img src="../images/logos/UTU_logo_EN_RGB.png" alt="UTU"
+            class="hero-affiliation-logo"></a>
+      </div>
+    </div>
+
+    <div class="action-buttons">
+      <a href="https://aclanthology.org/2026.eacl-long.133.pdf" class="btn-primary" target="_blank">Download PDF</a>
+      <a href="https://aclanthology.org/2026.eacl-long.133/" class="btn-secondary" target="_blank">ACL Anthology</a>
+    </div>
+
+  </header>
+  <main class="paper-content">
+    <h3 class="title is-3" style="font-size: 1.5rem; margin-bottom: 2rem;">Abstract</h3>
+    <p class="abstract-small">
+      Test-time scaling (TTS) has enhanced the performance of Reasoning Models (RMs) on various tasks such as math and
+      coding, yet its efficacy in machine translation (MT) remains underexplored. This paper investigates whether
+      increased inference-time computation improves translation quality. We evaluate 12 RMs across a diverse suite of MT
+      benchmarks spanning multiple domains, examining three scenarios: direct translation, forced-reasoning
+      extrapolation, and post-editing. Our findings show that for general-purpose RMs, TTS provides limited and
+      inconsistent benefits for direct translation, with performance quickly plateauing. However, the effectiveness of
+      TTS is unlocked by domain-specific fine-tuning, which aligns a model's reasoning process with task requirements,
+      leading to consistent improvements up to an optimal, self-determined reasoning depth. We also find that forcing a
+      model to reason beyond its natural stopping point consistently degrades translation quality. In contrast, TTS
+      proves highly effective in a post-editing context, reliably turning self-correction into a beneficial process.
+      These results indicate that the value of inference-time computation in MT lies not in enhancing single-pass
+      translation with general models, but in targeted applications like multi-step, self-correction workflows and in
+      conjunction with task-specialized models.
+    </p>
+
+    <div style="margin: 4rem 0;">
+      <figure style="text-align: center;">
+        <img src="./RM4MT.png" alt="Illustration of the effectiveness of test-time scaling in reasoning models for machine translation." style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid var(--border-color);">
+        <figcaption style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 1rem; text-align: left; line-height: 1.5;">
+          <strong>Figure 1:</strong> Illustration of the effectiveness of test-time scaling in reasoning models for machine translation. (1) TTS for general-purpose RMs yields only a small initial performance gain, quickly plateauing as inference cost increases. (2) Forcing RMs to reason beyond their natural stopping point degrades quality by introducing noise. (3) In contrast, TTS becomes effective when applied to RMs specifically developed for MT. (4) TTS shows improvements in post-editing workflows.
+        </figcaption>
+      </figure>
+    </div>
+
+    <h3 class="title is-3" style="font-size: 1.5rem; margin-bottom: 2rem;">Overview</h3>
+    <p>
+      This paper investigates the application of test-time scaling (TTS) to Reasoning Models (RMs) for Machine Translation. We distinguish between two TTS workflows: <strong>Direct Translation</strong> (single-pass Chain-of-Thought scaling) and <strong>Post-Editing</strong> (compute-scaled self-correction). We structure our investigation through three core research questions:
+    </p>
+    <ul class="info-list" style="margin-bottom: 3rem;">
+      <li><strong>RQ1: How effective is test-time scaling for MT?</strong> Examining whether increased inference computation reliably boosts translation quality across general-purpose and fine-tuned MT-specific RMs.</li>
+      <li><strong>RQ2: Does extrapolation by inserting "wait" forcibly help?</strong> Investigating if overriding models' natural stopping points to scale up computation enhances or hinders performance.</li>
+      <li><strong>RQ3: Does test-time scaling work in post-editing?</strong> Evaluating TTS in self-correction scenarios, assessing its role in refining initial translations with specific compute budgets.</li>
+    </ul>
+
+    <h3 class="title is-3" style="font-size: 1.5rem; margin-bottom: 2rem;">Key Findings</h3>
+    <div style="background: var(--surface-color); padding: 2.5rem; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 3rem;">
+      <ul style="list-style-type: none; padding: 0;">
+        <li style="margin-bottom: 1.5rem;">
+          <h4 style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; font-family: var(--font-sans);">1. General-Purpose Models Show Limited Gains</h4>
+          <span style="color: var(--text-secondary);">For general-purpose RMs without specific in-domain training, TTS provides limited and inconsistent benefits for direct machine translation. After small initial improvements at very low budgets, performance plateaus across metrics and datasets.</span>
+        </li>
+        <li style="margin-bottom: 1.5rem;">
+          <h4 style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; font-family: var(--font-sans);">2. In-Domain Fine-Tuning Unlocks TTS</h4>
+          <span style="color: var(--text-secondary);">The effectiveness of TTS is unlocked by domain-specific fine-tuning. For models fine-tuned on specific domain data, performance improves with budget and saturates once models naturally stop increasing their internal token usage, suggesting an emergent alignment between optimal reasoning depth and task demands.</span>
+        </li>
+        <li style="margin-bottom: 1.5rem;">
+          <h4 style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; font-family: var(--font-sans);">3. Forced Extrapolation Degrades Performance</h4>
+          <span style="color: var(--text-secondary);">Forcing a model to reason by inserting a single "wait" token beyond its natural stopping point consistently degrades translation quality, highlighting the importance of the model's intrinsic deliberation process.</span>
+        </li>
+        <li style="margin-bottom: 0;">
+          <h4 style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; font-family: var(--font-sans);">4. TTS is Highly Effective for Post-Editing</h4>
+          <span style="color: var(--text-secondary);">TTS is highly effective in a post-editing context. It reliably elevates translation quality above the original baseline, turning self-correction into a beneficial process, especially for mid-sized models paired with adequate computational budgets.</span>
+        </li>
+      </ul>
+    </div>
+
+    <section id="bibtex" style="margin-top: 6rem;">
+      <h3 class="title is-3" style="font-size: 1.5rem; margin-bottom: 2rem;">BibTeX</h3>
+      <div class="bibtex-container">
+        <button class="copy-button" onclick="copyBibTeX()">Copy</button>
+        <pre id="bibtex-code"
+          style="margin: 0; color: var(--text-primary); font-family: 'Courier New', monospace; font-size: 0.85rem;"><code style="color: var(--text-primary); background: transparent;">@inproceedings{li-etal-2026-test,
+    title = "Test-Time Scaling of Reasoning Models for Machine Translation",
+    author = {Li, Zihao  and Ji, Shaoxiong  and Tiedemann, J{\"o}rg},
+    editor = "Demberg, Vera  and Inui, Kentaro  and Marquez, Llu{\'i}s",
+    booktitle = "Proceedings of the 19th Conference of the {E}uropean Chapter of the {A}ssociation for {C}omputational {L}inguistics (Volume 1: Long Papers)",
+    month = mar,
+    year = "2026",
+    address = "Rabat, Morocco",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2026.eacl-long.133/",
+    doi = "10.18653/v1/2026.eacl-long.133",
+    pages = "2902--2917",
+    ISBN = "979-8-89176-380-7",
+    abstract = "Test-time scaling (TTS) has enhanced the performance of Reasoning Models (RMs) on various tasks such as math and coding, yet its efficacy in machine translation (MT) remains underexplored. This paper investigates whether increased inference-time computation improves translation quality. We evaluate 12 RMs across a diverse suite of MT benchmarks spanning multiple domains, examining three scenarios: direct translation, forced-reasoning extrapolation, and post-editing. Our findings show that for general-purpose RMs, TTS provides limited and inconsistent benefits for direct translation, with performance quickly plateauing. However, the effectiveness of TTS is unlocked by domain-specific fine-tuning, which aligns a model{'}s reasoning process with task requirements, leading to consistent improvements up to an optimal, self-determined reasoning depth. We also find that forcing a model to reason beyond its natural stopping point consistently degrades translation quality. In contrast, TTS proves highly effective in a post-editing context, reliably turning self-correction into a beneficial process. These results indicate that the value of inference-time computation in MT lies not in enhancing single-pass translation with general models, but in targeted applications like multi-step, self-correction workflows and in conjunction with task-specialized models."
+}</code></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>&copy; 2026 Omni Language AI Research.</div>
+    <div class="footer-logo-container">
+      <a href="https://turkunlp.org" target="_blank"><img src="../images/logos/turkunlp.png" alt="TurkuNLP"
+          class="footer-logo" title="TurkuNLP"></a>
+      <a href="https://www.ellisinstitute.fi" target="_blank"><img
+          src="../images/logos/ellis-logo_horizontal_black_2023-FINLAND.png" alt="ELLIS Institute Finland"
+          class="footer-logo" title="ELLIS Institute Finland"></a>
+      <a href="https://www.utu.fi/en" target="_blank"><img src="../images/logos/UTU_logo_EN_RGB.png"
+          alt="University of Turku" class="footer-logo" title="University of Turku"></a>
+    </div>
+    <a href="https://github.com/OLAResearch"
+      style="color: inherit; font-size: 1.5rem; transition: var(--transition-smooth);"><i class="fab fa-github"></i></a>
+  </footer>
+
+  <script src="../static/js/main.js"></script>
+
+</body>
+
+</html>

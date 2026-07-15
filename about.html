@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="About Our Research, Collaborators, and Funders - Omni Language AI Research">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About | Omni Language AI Research</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./images/logos/olar.svg">
+
+  <style>
+    /* Custom page styles for Collaborators section */
+    .collaborator-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem auto 0;
+      max-width: 1000px;
+    }
+
+    .collaborator-item-card {
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s ease;
+    }
+
+    .collaborator-item-card:hover {
+      background: var(--surface-color);
+      border-color: var(--border-color);
+    }
+
+    .collaborator-logo-container {
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      width: 100%;
+    }
+
+    .collaborator-logo-img {
+      max-height: 50px;
+      max-width: 100%;
+      height: auto;
+      width: auto;
+      object-fit: contain;
+      filter: grayscale(100%);
+      opacity: 0.6;
+      transition: all 0.3s ease;
+    }
+
+    .collaborator-item-card:hover .collaborator-logo-img {
+      filter: grayscale(0%);
+      opacity: 0.95;
+    }
+
+    @media (max-width: 768px) {
+      .navbar-menu {
+        display: flex !important;
+        gap: 1.5rem;
+      }
+    }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LHSMW4F3Y"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LHSMW4F3Y');
+  </script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="index.html">
+      <img src="./images/logos/olar.svg" alt="OLAR Home" style="height: 2rem;">
+    </a>
+</div>
+  <div class="navbar-menu">
+    <a class="navbar-item" href="index.html">Back to Home</a>
+  </div>
+</nav>
+
+<header class="project-hero" style="text-align: center; margin: 0 auto;">
+  <h1 class="title is-1 paper-title-small">About Our Research</h1>
+  <p class="subtitle">Understanding our mission, our collaborative network, and the organizations supporting our vision.</p>
+</header>
+
+<main class="container" style="padding: 4vw 4vw 8vw;">
+
+  <!-- Research Directions -->
+  <section class="narrative-section">
+    <div class="narrative-container">
+      <h2 class="title is-2" style="margin-bottom: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">Research Direction</h2>
+      <p class="lead" style="font-size: 1.2rem; color: var(--text-primary); margin-bottom: 2.5rem; font-family: var(--font-serif); font-style: italic;">
+        "We aim to build intelligent and versatile systems that address high-impact societal needs across language boundaries, multimodal contexts, and specialized domains."
+      </p>
+      
+      <p>
+        Omni Language AI Research is a dedicated research collective operating at the intersection of deep learning, linguistics, and multimodal intelligence. By blending rigorous academic methodology with modern engineering, we create systems that don't just process text but comprehend context, reason over complex modalities, and adapt dynamically to new domains.
+      </p>
+
+      <h3 class="title is-3" style="margin-top: 3.5rem;">Multilingual NLP & Reasoning</h3>
+      <p>
+        Large Language Models (LLMs) have demonstrated impressive capabilities, but scaling them globally requires addressing representation, alignment, and learning efficiency. We focus on bridging these challenges through:
+      </p>
+      <ul style="padding-left: 1.5rem; margin-bottom: 1.5rem;">
+        <li style="margin-bottom: 0.8rem;"><strong>Massively Multilingual NLP:</strong> Scaling and adapting systems to support a few hundred languages, ensuring equitable access to state-of-the-art AI for underrepresented communities.</li>
+        <li style="margin-bottom: 0.8rem;"><strong>Continual Learning:</strong> Investigating training paradigms and architectures that enable models to continuously learn new languages and tasks over time without catastrophic forgetting.</li>
+        <li style="margin-bottom: 0.8rem;"><strong>Reinforcement Learning:</strong> Applying reinforcement learning techniques to align models across diverse languages and optimize translation and reasoning performance.</li>
+        <li style="margin-bottom: 0.8rem;"><strong>Test-Time Scaling:</strong> Investigating how allocating additional compute during inference (e.g., via search and verification traces) affects translation quality and reasoning performance across diverse languages.</li>
+      </ul>
+      <div style="margin-bottom: 2.5rem;">
+        <a href="multilingual-nlp.html" style="font-family: var(--font-sans); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-earth); text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: var(--transition-smooth);"
+           onmouseover="this.style.color='var(--text-primary)'"
+           onmouseout="this.style.color='var(--accent-earth)'">
+          Explore Multilingual NLP <i class="fas fa-arrow-right" style="font-size: 0.7rem;"></i>
+        </a>
+      </div>
+
+      <h3 class="title is-3" style="margin-top: 3.5rem;">Clinical Intelligence & Health AI</h3>
+      <p>
+        AI has the potential to transform healthcare, but clinical environments demand extreme robustness, explainability, and multimodal integration. Our research focuses on:
+      </p>
+      <ul style="padding-left: 1.5rem; margin-bottom: 1.5rem;">
+        <li style="margin-bottom: 0.8rem;"><strong>Reinforcement Learning for Care:</strong> Designing RL algorithms that learn optimal, personalized treatment paths from historical patient data while respecting medical safety boundaries.</li>
+        <li style="margin-bottom: 0.8rem;"><strong>Mental Health and Well-being:</strong> Leveraging natural language interfaces and domain-specific LLMs to detect emotional changes and support mental health monitoring and psychotherapy.</li>
+        <li style="margin-bottom: 0.8rem;"><strong>Multimodal Pathology Models:</strong> Integrating gigapixel histopathology images with text and genomics to build diagnostic and prognostic models.</li>
+      </ul>
+      <div style="margin-bottom: 2.5rem; display: flex; gap: 1.5rem; flex-wrap: wrap;">
+        <a href="fine-health-foundry.html" style="font-family: var(--font-sans); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-earth); text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: var(--transition-smooth);"
+           onmouseover="this.style.color='var(--text-primary)'"
+           onmouseout="this.style.color='var(--accent-earth)'">
+          FINe-Health Foundry <i class="fas fa-arrow-right" style="font-size: 0.7rem;"></i>
+        </a>
+        <a href="ai4health.html" style="font-family: var(--font-sans); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-earth); text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: var(--transition-smooth);"
+           onmouseover="this.style.color='var(--text-primary)'"
+           onmouseout="this.style.color='var(--accent-earth)'">
+          AI for Health <i class="fas fa-arrow-right" style="font-size: 0.7rem;"></i>
+        </a>
+        <a href="ai-mh.html" style="font-family: var(--font-sans); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-earth); text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: var(--transition-smooth);"
+           onmouseover="this.style.color='var(--text-primary)'"
+           onmouseout="this.style.color='var(--accent-earth)'">
+          AI for Mental Health <i class="fas fa-arrow-right" style="font-size: 0.7rem;"></i>
+        </a>
+        <a href="nlp4health.html" style="font-family: var(--font-sans); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); opacity: 0.7; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: var(--transition-smooth);"
+           onmouseover="this.style.color='var(--text-primary)'; this.style.opacity='1';"
+           onmouseout="this.style.color='var(--text-secondary)'; this.style.opacity='0.7';">
+          NLP for Health (Archived) <i class="fas fa-arrow-right" style="font-size: 0.7rem;"></i>
+        </a>
+      </div>
+
+      <h3 class="title is-3" style="margin-top: 3.5rem;">Multimodal AI & Reasoning</h3>
+      <p>
+        Real-world applications require models to perceive, reason, and act across different data modalities. Our research in multimodal AI concentrates on:
+      </p>
+      <ul style="padding-left: 1.5rem; margin-bottom: 1.5rem;">
+        <li style="margin-bottom: 0.8rem;"><strong>Vision-Language Models:</strong> Developing unified architectures that seamlessly integrate visual and textual information to understand complex scenes, documents, and diagrams.</li>
+        <li style="margin-bottom: 0.8rem;"><strong>Multimodal Reasoning:</strong> Enabling systems to perform multi-step reasoning, cross-modal retrieval, and logical deduction using joint visual and textual contexts.</li>
+        <li style="margin-bottom: 0.8rem;"><strong>Evaluation and Benchmarking:</strong> Establishing rigorous benchmarks and metrics to assess the safety, robustness, and factual consistency of multimodal models in real-world environments.</li>
+      </ul>
+      <div>
+        <a href="publications.html" style="font-family: var(--font-sans); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-earth); text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: var(--transition-smooth);"
+           onmouseover="this.style.color='var(--text-primary)'"
+           onmouseout="this.style.color='var(--accent-earth)'">
+          View Publications <i class="fas fa-arrow-right" style="font-size: 0.7rem;"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Collaborators -->
+  <section class="narrative-section" style="margin-top: 6rem;">
+    <h2 class="title is-2" style="text-align: center; margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">Collaborators</h2>
+    <p class="subtitle" style="text-align: center; max-width: 600px; margin: 0 auto 3rem;">We work closely with leading research groups and academic institutions globally.</p>
+    
+    <div class="collaborator-grid">
+
+      <a href="https://www.ellisinstitute.fi" target="_blank" class="collaborator-item-card">
+        <div class="collaborator-logo-container">
+          <img src="images/logos/ellis-logo_horizontal_black_2023-FINLAND.png" alt="ELLIS Institute Finland" class="collaborator-logo-img">
+        </div>
+        <p class="collaborator-name">ELLIS Institute Finland</p>
+      </a>
+
+      <a href="https://turkunlp.org" target="_blank" class="collaborator-item-card">
+        <div class="collaborator-logo-container">
+          <img src="images/logos/turkunlp.png" alt="TurkuNLP" class="collaborator-logo-img">
+        </div>
+        <p>TurkuNLP</p>
+      </a>
+
+      <a href="https://blogs.helsinki.fi/language-technology/" target="_blank" class="collaborator-item-card">
+        <div class="collaborator-logo-container">
+          <img src="images/logos/Helsinki-NLP.png" alt="Helsinki-NLP" class="collaborator-logo-img">
+        </div>
+        <p>Helsinki-NLP</p>
+      </a>
+
+      <a href="https://www.lmu.de/en/" target="_blank" class="collaborator-item-card">
+        <div class="collaborator-logo-container">
+          <img src="images/logos/LMU_Muenchen_Logo.png" alt="LMU Munich" class="collaborator-logo-img">
+        </div>
+        <p>LMU Munich</p>
+      </a>
+
+      <a href="https://www.manchester.ac.uk" target="_blank" class="collaborator-item-card">
+        <div class="collaborator-logo-container">
+          <img src="images/logos/manchester.png" alt="University of Manchester" class="collaborator-logo-img">
+        </div>
+        <p>University of Manchester</p>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Funders & Support -->
+  <section class="narrative-section" style="margin-top: 6rem;">
+    <h2 class="title is-2" style="text-align: center; margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">Funders & Support</h2>
+    <p class="subtitle" style="text-align: center; max-width: 600px; margin: 0 auto 3rem;">We are grateful to the following institutions and funding bodies for supporting our research agenda and enabling scientific progress.</p>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 4rem; justify-items: center; align-items: flex-start; margin-top: 2rem; width: 100%;">
+      
+      <div style="flex: 1; min-width: 220px; max-width: 280px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.8rem;">
+        <a href="https://www.ellisinstitute.fi" target="_blank" style="height: 55px; display: flex; align-items: center; justify-content: center; text-decoration: none;">
+          <img src="images/logos/ellis-logo_horizontal_black_2023-FINLAND.png" alt="ELLIS Institute Finland" class="footer-logo" style="height: 35px; width: auto; object-fit: contain;">
+        </a>
+        <div style="font-size: 0.85rem; font-weight: 600; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.5rem;">ELLIS Institute Finland</div>
+        <p style="font-size: 0.8rem; color: var(--text-secondary); margin: 0; line-height: 1.4;">Academic funding and fostering machine learning networks.</p>
+      </div>
+
+      <div style="flex: 1; min-width: 220px; max-width: 280px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.8rem;">
+        <a href="https://www.utu.fi/en" target="_blank" style="height: 55px; display: flex; align-items: center; justify-content: center; text-decoration: none;">
+          <img src="images/logos/UTU_logo_EN_RGB.png" alt="University of Turku" class="footer-logo" style="height: 50px; width: auto; object-fit: contain;">
+        </a>
+        <div style="font-size: 0.85rem; font-weight: 600; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.5rem;">University of Turku</div>
+        <p style="font-size: 0.8rem; color: var(--text-secondary); margin: 0; line-height: 1.4;">Institutional support and research infrastructure.</p>
+      </div>
+
+      <div style="flex: 1; min-width: 220px; max-width: 280px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.8rem;">
+        <a href="https://foundationps.com" target="_blank" style="height: 55px; width: 100%; max-width: 220px; display: flex; align-items: center; justify-content: center; background: #292826; border-radius: 6px; padding: 0.5rem; text-decoration: none;">
+          <img src="images/logos/202505-Foundation-PS-Logo-White.svg" alt="Foundation PS" class="footer-logo" style="height: 40px; width: auto; object-fit: contain;">
+        </a>
+        <div style="font-size: 0.85rem; font-weight: 600; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.5rem;">Foundation PS</div>
+        <p style="font-size: 0.8rem; color: var(--text-secondary); margin: 0; line-height: 1.4;">Supporting AI research excellence and competitiveness.</p>
+      </div>
+
+      <div style="flex: 1; min-width: 220px; max-width: 280px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.8rem;">
+        <a href="https://haif.utu.fi" target="_blank" style="height: 55px; display: flex; align-items: center; justify-content: center; text-decoration: none;">
+          <img src="images/logos/EN_Co-fundedbytheEU_RGB_Monochrome-2048x457.png" alt="Co-funded by the European Union" class="footer-logo" style="height: 35px; width: auto; max-width: 100%; object-fit: contain;">
+        </a>
+        <div style="font-size: 0.85rem; font-weight: 600; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.5rem;">EU Horizon Europe / MSCA</div>
+        <p style="font-size: 0.8rem; color: var(--text-secondary); margin: 0; line-height: 1.4;">Supporting doctoral/postdoctoral training and researcher mobility via the HAIF program.</p>
+      </div>
+
+      <div style="flex: 1; min-width: 220px; max-width: 280px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.8rem;">
+        <a href="https://www.microsoft.com/en-us/research/group/ai-for-good-research-lab/" target="_blank" style="height: 55px; display: flex; align-items: center; justify-content: center; text-decoration: none;">
+          <img src="images/logos/Microsoft-logo.png" alt="Microsoft AI for Good Lab" class="footer-logo" style="height: 30px; width: auto; object-fit: contain;">
+        </a>
+        <div style="font-size: 0.85rem; font-weight: 600; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.5rem;">Microsoft AI for Good Lab</div>
+        <p style="font-size: 0.8rem; color: var(--text-secondary); margin: 0; line-height: 1.4;">Research collaboration and compute support under the LINGUA program.</p>
+      </div>
+
+      <div style="flex: 1; min-width: 220px; max-width: 280px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.8rem;">
+        <a href="https://www.businessfinland.fi/en" target="_blank" style="height: 55px; display: flex; align-items: center; justify-content: center; text-decoration: none;">
+          <img src="images/logos/Business_Finland.jpg" alt="Business Finland" class="footer-logo" style="height: 40px; width: auto; object-fit: contain;">
+        </a>
+        <div style="font-size: 0.85rem; font-weight: 600; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.5rem;">Business Finland</div>
+        <p style="font-size: 0.8rem; color: var(--text-secondary); margin: 0; line-height: 1.4;">Funding research, innovation, and technology partnerships.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div>&copy; 2026 Omni Language AI Research.</div>
+  <div class="footer-logo-container">
+    <a href="https://turkunlp.org" target="_blank"><img src="images/logos/turkunlp.png" alt="TurkuNLP" class="footer-logo" title="TurkuNLP"></a>
+    <a href="https://www.ellisinstitute.fi" target="_blank"><img src="images/logos/ellis-logo_horizontal_black_2023-FINLAND.png" alt="ELLIS Institute Finland" class="footer-logo" title="ELLIS Institute Finland"></a>
+    <a href="https://www.utu.fi/en" target="_blank"><img src="images/logos/UTU_logo_EN_RGB.png" alt="University of Turku" class="footer-logo" title="University of Turku"></a>
+  </div>
+  <a href="https://github.com/OLAResearch" style="color: inherit; font-size: 1.5rem; transition: var(--transition-smooth);"><i class="fab fa-github"></i></a>
+</footer>
+
+</body>
+</html>

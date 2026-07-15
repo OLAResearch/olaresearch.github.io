@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="AI for Mental Health: Computational Applications & Resources - Omni Language AI Research">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI for Mental Health | OLAResearch Project</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./images/logos/olar.svg">
+  <style>
+    @media (max-width: 768px) {
+      .navbar-menu {
+        display: flex !important;
+        gap: 1.5rem;
+      }
+    }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LHSMW4F3Y"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LHSMW4F3Y');
+  </script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="./index.html">
+      <img src="./images/logos/olar.svg" alt="OLAR Home" style="height: 2rem;">
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <a class="navbar-item" href="./index.html#projects">Back to Projects</a>
+  </div>
+</nav>
+
+<header class="project-hero">
+  <div class="status-badge">Active Direction</div>
+  <h1 class="title is-1 paper-title-small">AI for Mental Health: Early Detection and Psychological Counseling</h1>
+  <p class="subtitle">Developing psychologically-grounded scalableAI systems and resources for early detection and psychological counseling.</p>
+</header>
+
+<main class="container" style="padding: 4vw;">
+  
+  <!-- Featured Subproject: MentalBERT -->
+  <section class="narrative-section" style="background: var(--surface-color); border: 1px solid var(--border-color); padding: 4rem; border-radius: 12px; margin-bottom: 6rem;">
+    <div style="display: flex; gap: 4rem; align-items: flex-start; flex-wrap: wrap;">
+      <div style="flex: 2; min-width: 300px;">
+        <p class="lead" style="font-size: 1.1rem; margin-bottom: 1rem; margin-top: 0;">
+          Our work in <strong>AI for Mental Health (AI-MH)</strong> bridges the gap between raw social/conversational data and clinical utility through two major pillars: <strong>Foundation Modeling</strong> and <strong>Resource Building</strong>.
+        </p>
+        <p style="margin-bottom: 0; color: var(--text-secondary);">
+          Starting from the release of <strong>MentalBERT</strong>—the first domain-specific pre-trained model for mental healthcare—our mission is to build robust systems and datasets that support early intervention and counseling, providing healthcare professionals with computational tools for more efficient assessment.
+        </p>
+      </div>
+      <div style="flex: 1; min-width: 250px; display: flex; flex-direction: column; align-items: center; gap: 2rem;">
+        <img src="images/projects/AI-MH.jpg" alt="AI for Mental Health" style="width: 180px; border-radius: 12px; object-fit: cover; border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+        <a href="https://ai-mh.github.io/" class="btn-primary" target="_blank" style="padding: 0.6rem 1.5rem; font-size: 0.75rem;">Project Details</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Objectives -->
+  <section class="narrative-section">
+    <h2 class="title is-2" style="text-align: center;">Core Research Pillars</h2>
+    <div class="objective-grid">
+      <div class="objective-card">
+        <div class="icon"><i class="fas fa-brain"></i></div>
+        <h4>Domain-Specific Foundations</h4>
+        <p>Pre-training language models on massive-scale mental health corpora to capture the nuanced, colloquial language of distress that general models often miss.</p>
+      </div>
+      <div class="objective-card">
+        <div class="icon"><i class="fas fa-comment-medical"></i></div>
+        <h4>Emotion-Aware Analysis</h4>
+        <p>Leveraging LLMs with emotion-enhanced prompting strategies to better understand the subjective experiences of individuals in supportive conversations.</p>
+      </div>
+      <div class="objective-card">
+        <div class="icon"><i class="fas fa-database"></i></div>
+        <h4>Resources and Benchmarks</h4>
+        <p>Constructing datasets and benchmarks for emojis, psychological defenses, emotion support, psychological counseling, and suicide-related social content.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Resources -->
+  <section class="narrative-section">
+    <h2 class="title is-2" style="text-align: center;">Key Resources</h2>
+    <div class="objective-grid">
+      <a href="https://huggingface.co/datasets/AIMH/SWMH" target="_blank" class="objective-card" style="text-decoration: none; color: inherit; display: block;">
+        <div class="icon"><i class="fas fa-database"></i></div>
+        <h4>SWMH Dataset</h4>
+        <p>A comprehensive collection of data from Reddit's SuicideWatch and other mental health subreddits for suicide risk assessment.</p>
+      </a>
+      <a href="https://huggingface.co/collections/AIMH/mentalbert-series" target="_blank" class="objective-card" style="text-decoration: none; color: inherit; display: block;">
+        <div class="icon"><i class="fas fa-brain"></i></div>
+        <h4>MentalBERT Series</h4>
+        <p>Continue-pretrained encoder-only models for mental health based on BERT, RoBERTa and clinical variants.</p>
+      </a>
+      <a href="https://ai-mh.github.io/SQPsych.html" target="_blank" class="objective-card" style="text-decoration: none; color: inherit; display: block;">
+        <div class="icon"><i class="fas fa-comments"></i></div>
+        <h4>SQPsych</h4>
+        <p>Structured Questionnaire-based Psychotherapy framework that generates synthetic therapist-client conversations to train counseling chatbots.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Associated Publications -->
+  <section class="narrative-section">
+    <h2 class="title is-2">Publications</h2>
+    <div class="publication-list">
+      
+      <div class="publication-item">
+        <div class="publication-info">
+          <span class="venue">ACL Findings 2026</span>
+          <h5>You Never Know a Person, You Only Know Their Defenses: Detecting Levels of Psychological Defense Mechanisms in Supportive Conversations</h5>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">Hongbin Na, Zimu Wang, Zhaoming Chen, Peilin Zhou, Yining Hua, Grace Ziqi Zhou, Haiyang Zhang, Tao Shen, Wei Wang, John Torous, Shaoxiong Ji, and Ling Chen</p>
+        </div>
+        <a href="https://huggingface.co/datasets/AIMH/PsyDefConv" class="btn-secondary" target="_blank" style="padding: 0.5rem 1.2rem; font-size: 0.7rem;">Dataset</a>
+      </div>
+
+      <div class="publication-item">
+        <div class="publication-info">
+          <span class="venue">SIGIR 2024</span>
+          <h5>SuicidEmoji: Derived Emoji Dataset and Tasks for Suicide-Related Social Content</h5>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">Tianlin Zhang, Kailai Yang, Shaoxiong Ji, Boyang Liu, Qianqian Xie, and Sophia Ananiadou</p>
+        </div>
+        <a href="https://github.com/TianlinZhang668/SuicidEmoji" class="btn-secondary" target="_blank" style="padding: 0.5rem 1.2rem; font-size: 0.7rem;">Code & Data</a>
+      </div>
+
+      <div class="publication-item">
+        <div class="publication-info">
+          <span class="venue">EMNLP 2023</span>
+          <h5>Towards Explainable Mental Health Analysis with Large Language Models</h5>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">Kailai Yang, Shaoxiong Ji, Tianlin Zhang, Qianqian Xie, and Sophia Ananiadou</p>
+        </div>
+        <a href="https://arxiv.org/abs/2304.03347" class="btn-secondary" target="_blank" style="padding: 0.5rem 1.2rem; font-size: 0.7rem;">Read Paper</a>
+      </div>
+
+      <div class="publication-item">
+        <div class="publication-info">
+          <span class="venue">LREC 2022</span>
+          <h5>MentalBERT: Publicly Available Pretrained Language Models for Mental Healthcare</h5>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">Shaoxiong Ji, Tianlin Zhang, Luna Ansari, Jie Fu, Prayag Tiwari, and Erik Cambria</p>
+        </div>
+        <a href="https://huggingface.co/mental" class="btn-secondary" target="_blank" style="padding: 0.5rem 1.2rem; font-size: 0.7rem;">Models</a>
+      </div>
+
+      <div class="publication-item">
+        <div class="publication-info">
+          <span class="venue">npj Digital Medicine 2022</span>
+          <h5>Natural Language Processing Applied to Mental Illness Detection: A Narrative Review</h5>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">Tianlin Zhang, Annika Schoene, Shaoxiong Ji, and Sophia Ananiadou</p>
+        </div>
+        <a href="https://www.nature.com/articles/s41746-022-00589-7" class="btn-secondary" target="_blank" style="padding: 0.5rem 1.2rem; font-size: 0.7rem;">Read Review</a>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div>&copy; 2026 Omni Language AI Research.</div>
+  <div class="footer-logo-container">
+    <a href="https://turkunlp.org" target="_blank"><img src="./images/logos/turkunlp.png" alt="TurkuNLP" class="footer-logo" title="TurkuNLP"></a>
+    <a href="https://www.ellisinstitute.fi" target="_blank"><img src="./images/logos/ellis-logo_horizontal_black_2023-FINLAND.png" alt="ELLIS Institute Finland" class="footer-logo" title="ELLIS Institute Finland"></a>
+    <a href="https://www.utu.fi/en" target="_blank"><img src="./images/logos/UTU_logo_EN_RGB.png" alt="University of Turku" class="footer-logo" title="University of Turku"></a>
+  </div>
+  <a href="https://github.com/OLAResearch" style="color: inherit; font-size: 1.5rem; transition: var(--transition-smooth);"><i class="fab fa-github"></i></a>
+</footer>
+
+<script src="./static/js/main.js"></script>
+
+</body>
+</html>

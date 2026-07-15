@@ -1,0 +1,131 @@
+# Omni Language AI Research (OLAResearch)
+
+Omni Language AI Research (OLAResearch) develops scalable and multimodal AI systems tailored for real-world applications. The research collective operates at the intersection of deep learning, linguistics, and healthcare, with a strong focus on bridging the gap between high-resource and low-resource languages, ensuring equitable access to advanced AI.
+
+## Core Information
+- **Domain**: https://www.olaresearch.org
+- **GitHub**: https://github.com/OLAResearch
+- **Hugging Face**: https://huggingface.co/OLAResearchX
+- **Google Groups**: https://groups.google.com/g/omni-language-ai-research
+- **Affiliations**: TurkuNLP, ELLIS Institute Finland, University of Turku
+
+---
+
+## Research Directions
+
+### [FINe-Health Foundry](https://www.olaresearch.org/fine-health-foundry.html)
+Developing a nationwide, versatile foundation health model using Finland's national health databases for clinical decision support, individual disease prevention, and policy simulations. In collaboration with ELLIS Institute Finland, Aalto University, University of Helsinki, and University of Turku.
+
+### [AI for Health](https://www.olaresearch.org/ai4health.html)
+Developing next-generation AI systems for pathology, treatment optimization, and automated clinical decision-making.
+
+### [AI for Mental Health](https://www.olaresearch.org/ai-mh.html)
+Advancing automated mental health analysis through domain-specific LLMs, emotional analysis, and resource-driven modeling.
+
+### [Multilingual NLP](https://www.olaresearch.org/multilingual-nlp.html)
+Multilingual NLP for low-resource languages, ensuring global applicability of language technology.
+
+### [NLP for Health (Archived)](https://www.olaresearch.org/nlp4health.html)
+Advancing clinical information management through automated medical coding, patient outcome prediction, and biomedical reasoning.
+
+---
+
+## Selected Publications
+
+### 2026 Publications
+
+*   **[Reasoning over Grammar: Can Synthetic Linguistic Reasoning Traces Enhance Low-Resource Machine Translation?](https://www.olaresearch.org/LingReason/)**
+    *   *Authors*: Renhao Pei, Yihong Liu, Sampo Pyysalo, Hinrich Schuetze, Shaoxiong Ji
+    *   *Venue*: Preprint / arXiv 2606.03782
+    *   *Links*: [Paper URL](https://arxiv.org/abs/2606.03782) | [Code](https://github.com/OLAResearch/LingReason) | [Dataset](https://huggingface.co/datasets/OLAResearchX/LingReason)
+    *   *Summary*: Proposes a pipeline for automatically generating step-by-step linguistic reasoning traces from Universal Dependencies treebanks, dictionaries, and grammar-rule banks to improve low-resource machine translation.
+
+*   **[Cross-Model Memory Transfer via Target-Side Reader Adaptation](https://www.olaresearch.org/XMemTransfer/)**
+    *   *Authors*: Mingyuan Li, Guangsheng Yu, Xu Wang, Shaoxiong Ji
+    *   *Venue*: Preprint
+    *   *Links*: [Paper URL](https://www.olaresearch.org/XMemTransfer/paper.pdf) | [Code](https://github.com/OLAResearch/XMemTransfer) | [Models](https://huggingface.co/collections/OLAResearchX/xmemtransfer)
+    *   *Summary*: Investigates the portability of external memory structures (Engram) across different model backbones and tokenizers via target-side reader adaptation.
+
+*   **[Test-Time Scaling of Reasoning Models for Machine Translation](https://www.olaresearch.org/TTS4MT/)**
+    *   *Authors*: Zihao Li, Shaoxiong Ji, Jörg Tiedemann
+    *   *Venue*: EACL 2026 (Long Papers)
+    *   *Links*: [ACL Anthology](https://aclanthology.org/2026.eacl-long.133/)
+    *   *Summary*: Investigates the efficacy of test-time scaling (inference-time computation) in machine translation across diverse benchmarks.
+
+*   **Data-Centric Continual Pre-training for 500+ Languages: A New Bilingual Translation Corpus and Multilingual Models**
+    *   *Authors*: Shaoxiong Ji, Zihao Li, Jaakko Paavola, Hengyu Luo, Jörg Tiedemann
+    *   *Venue*: ACL 2026 Findings
+    *   *Links*: [ACL Anthology](https://aclanthology.org/2026.findings-acl.937/)
+
+*   **You Never Know a Person, You Only Know Their Defenses: Detecting Levels of Psychological Defense Mechanisms in Supportive Conversations**
+    *   *Authors*: Hongbin Na, Zimu Wang, Zhaoming Chen, Peilin Zhou, Yining Hua, Grace Ziqi Zhou, Haiyang Zhang, Tao Shen, Wei Wang, John Torous, Shaoxiong Ji, Ling Chen
+    *   *Venue*: ACL 2026 Findings
+    *   *Links*: [ACL Anthology](https://aclanthology.org/2026.findings-acl.708/)
+
+*   **Overview of the PsyDefDetect Shared Task at BioNLP 2026: Detecting Levels of Psychological Defense Mechanisms in Supportive Conversations**
+    *   *Authors*: Hongbin Na, Zimu Wang, Zhaoming Chen, Yining Hua, Rena Gao, Kailai Yang, Ling Chen, Wei Wang, Shaoxiong Ji, John Torous, Sophia Ananiadou
+    *   *Venue*: BioNLP 2026
+    *   *Links*: [ACL Anthology](https://aclanthology.org/2026.bionlp-1.75/)
+
+*   **A Parallel Cross-Lingual Benchmark for Multimodal Idiomaticity Understanding**
+    *   *Authors*: Dilara Torunoğlu-Selamet et al. (including Shaoxiong Ji)
+    *   *Venue*: LREC 2026
+    *   *Links*: [DOI Link](https://doi.org/10.63317/5cvnbcoktfo2)
+
+*   **Graph2text or Graph2token: A Perspective of Large Language Models for Graph Learning**
+    *   *Authors*: Shuo Yu, Yingbo Wang, Ruolin Li, Guchun Liu, Yanming Shen, Shaoxiong Ji, Bowen Li, Fengling Han, Xiuzhen Zhang, Feng Xia
+    *   *Venue*: ACM Transactions on Information Systems (TOIS 2026)
+    *   *Links*: [DOI Link](https://doi.org/10.1145/3786600)
+
+*   **XCR-Bench: A Multi-Task Benchmark for Evaluating Cultural Reasoning in LLMs**
+    *   *Authors*: Mohsinul Kabir, Tasnim Ahmed, Md Mezbaur Rahman, Shaoxiong Ji, Hassan Alhuzali, Sophia Ananiadou
+    *   *Venue*: arXiv 2601.14063
+
+*   **Psychologically-Grounded Graph Modeling for Interpretable Depression Detection**
+    *   *Authors*: Rishitej Reddy Vyalla, Kritarth Prasad, Avinash Anand, Erik Cambria, Shaoxiong Ji, Faten S Alamri, Zhengkui Wang
+    *   *Venue*: arXiv 2604.24126
+
+*   **Model-Based Quality Assessment for Massively Multilingual Parallel Data**
+    *   *Authors*: Abdelaziz Ibrahim, Zihao Li, Jörg Tiedemann, Shaoxiong Ji
+    *   *Venue*: arXiv 2606.00285
+
+### 2025 Publications
+
+*   **Rethinking Multilingual Continual Pretraining: Data Mixing for Adapting LLMs Across Languages and Resources**
+    *   *Authors*: Zihao Li, Shaoxiong Ji, Hengyu Luo, Jörg Tiedemann
+    *   *Venue*: Conference on Language Modeling (COLM 2025)
+    *   *Links*: [OpenReview](https://openreview.net/pdf?id=mpTIzK4Zca)
+
+*   **GlotEval: A Test Suite for Massively Multilingual Evaluation of Large Language Models**
+    *   *Authors*: Hengyu Luo, Zihao Li, Joseph Attieh et al. (including Shaoxiong Ji, Jörg Tiedemann)
+    *   *Venue*: EMNLP 2025 System Demonstrations
+    *   *Links*: [ACL Anthology](https://aclanthology.org/2025.emnlp-demos.43/)
+
+---
+
+## Core Team Members
+
+*   **[Shaoxiong Ji](https://www.olaresearch.org/jis/)** (Principal Investigator)
+    *   *Affiliations*: ELLIS Institute Finland & University of Turku
+    *   *Interests*: NLP & AI for Health
+*   **[Zihao Li](https://www.zihao.cool)** (Doctoral Researcher)
+    *   *Affiliations*: University of Helsinki (Co-supervision with Jörg Tiedemann)
+    *   *Interests*: Multilingual NLP
+*   **[Renhao Pei](https://peirh.github.io)** (Doctoral Researcher)
+    *   *Affiliations*: ELLIS Institute Finland & University of Turku
+    *   *Interests*: Multilingual NLP
+*   **[Mingyuan Li](https://www.utu.fi/en/people/mingyuan-li)** (Postdoctoral Researcher)
+    *   *Affiliations*: ELLIS Institute Finland & University of Turku
+    *   *Interests*: Machine Learning
+*   **[Md Mohsinul Kabir](https://scholar.google.com/citations?user=eVVCkREAAAAJ&hl=en)** (ELLIS PhD)
+    *   *Affiliations*: University of Manchester (co-advised with Sophia Ananiadou)
+    *   *Interests*: NLP
+*   **[Yicong Wu](https://www.utu.fi/fi/ihmiset/yicong-wu)** (Doctoral Researcher)
+    *   *Affiliations*: ELLIS Institute Finland & University of Turku
+    *   *Interests*: AI for Health
+*   **[Naveen Vakada](https://scholar.google.com/citations?user=8oHYRMcAAAAJ&hl=en)** (Doctoral Researcher)
+    *   *Affiliations*: ELLIS Institute Finland & University of Turku
+    *   *Interests*: Multimodal AI
+*   **[Zhibo Man](https://www.utu.fi/en/people/zhibo-man)** (Visiting Researcher)
+    *   *Affiliations*: ELLIS Institute Finland & University of Turku
+    *   *Interests*: NLP

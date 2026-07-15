@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="NLP for Health and Clinical Intelligence - Omni Language AI Research">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NLP for Health and Clinical Intelligence | OLAResearch Project</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./images/logos/olar.svg">
+  <style>
+    @media (max-width: 768px) {
+      .navbar-menu {
+        display: flex !important;
+        gap: 1.5rem;
+      }
+    }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LHSMW4F3Y"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LHSMW4F3Y');
+  </script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="./index.html">
+      <img src="./images/logos/olar.svg" alt="OLAR Home" style="height: 2rem;">
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <a class="navbar-item" href="./index.html#projects">Back to Projects</a>
+  </div>
+</nav>
+
+<header class="project-hero">
+  <div class="status-badge archived">Archived Project</div>
+  <h1 class="title is-1 paper-title-small">NLP for Health: NLP for Healthcare and Clinical Intelligence</h1>
+  <p class="subtitle">Advancing clinical information management through automated medical coding, patient outcome prediction, and biomedical reasoning.</p>
+</header>
+
+<main class="container" style="padding: 4vw;">
+  
+  <!-- Featured Subproject: NLP4Health -->
+  <section class="narrative-section" style="background: var(--surface-color); border: 1px solid var(--border-color); padding: 4rem; border-radius: 12px; margin-bottom: 6rem;">
+    <div style="display: flex; gap: 4rem; align-items: flex-start; flex-wrap: wrap;">
+      <!-- <div style="flex: 2; min-width: 300px;"> -->
+        <p class="lead" style="font-size: 1.1rem; margin-bottom: 0rem;">
+          Our research in <strong>NLP for Health</strong> focuses on transforming unstructured clinical documents into structured, actionable intelligence.
+        </p>
+        <p style="margin-bottom: 0; color: var(--text-secondary);">
+          We developed advanced deep learning architectures for automated medical coding, patient outcome prediction, and complex biomedical reasoning, ensuring that healthcare providers can leverage the full depth of electronic health records.
+        </p>
+      <!-- </div> -->
+    </div>
+  </section>
+
+  <!-- Key Objectives -->
+  <section class="narrative-section">
+    <h2 class="title is-2" style="text-align: center;">Key Objectives</h2>
+    <div class="objective-grid">
+      <div class="objective-card">
+        <div class="icon"><i class="fas fa-notes-medical"></i></div>
+        <h4>Automated Medical Coding</h4>
+        <p>Implementing state-of-the-art neural networks to map clinical notes to standardized ICD codes, addressing challenges like label imbalance and document noise.</p>
+      </div>
+      <div class="objective-card">
+        <div class="icon"><i class="fas fa-file-medical-alt"></i></div>
+        <h4>Information Extraction</h4>
+        <p>Leveraging graph embeddings and weak supervision to identify medical entities and detect adverse drug events across diverse clinical texts.</p>
+      </div>
+      <div class="objective-card">
+        <div class="icon"><i class="fas fa-brain"></i></div>
+        <h4>Biomedical Reasoning</h4>
+        <p>Developing logical query models and multitask hypernetworks to predict patient outcomes and reason about complex drug-drug interactions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Associated Publications -->
+  <section class="narrative-section">
+    <h2 class="title is-2">Publications</h2>
+    <div class="publication-list">
+      
+      <div class="publication-item">
+        <div class="publication-info">
+          <span class="venue">ACM Computing Surveys 2024</span>
+          <h5>A Unified Review of Deep Learning for Automated Medical Coding</h5>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">Shaoxiong Ji, Xiaobo Li, Wei Sun, Hang Dong, Ara Taalas, Yijia Zhang, Honghan Wu, Esa Pitkänen, and Pekka Marttinen</p>
+        </div>
+        <a href="https://doi.org/10.1145/3664615" class="btn-secondary" target="_blank" style="padding: 0.5rem 1.2rem; font-size: 0.7rem;">Read Paper</a>
+      </div>
+
+      <div class="publication-item">
+        <div class="publication-info">
+          <span class="venue">IEEE JBHI 2024</span>
+          <h5>TransFOL: A Logical Query Model for Complex Relational Reasoning in Drug-Drug Interaction</h5>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">Junkai Cheng, Yijia Zhang, Hengyi Zhang, Shaoxiong Ji, and Mingyu Lu</p>
+        </div>
+        <a href="https://doi.org/10.1109/JBHI.2024.3401035" class="btn-secondary" target="_blank" style="padding: 0.5rem 1.2rem; font-size: 0.7rem;">Read Paper</a>
+      </div>
+
+      <div class="publication-item">
+        <div class="publication-info">
+          <span class="venue">EACL 2023</span>
+          <h5>Patient Outcome and Zero-shot Diagnosis Prediction with Hypernetwork-guided Multitask Learning</h5>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">Shaoxiong Ji and Pekka Marttinen</p>
+        </div>
+        <a href="https://arxiv.org/abs/2109.03062" class="btn-secondary" target="_blank" style="padding: 0.5rem 1.2rem; font-size: 0.7rem;">Read Paper</a>
+      </div>
+
+      <div class="publication-item">
+        <div class="publication-info">
+          <span class="venue">ECML-PKDD 2023</span>
+          <h5>Weak Supervision and Clustering-Based Sample Selection for Clinical Named Entity Recognition</h5>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">Wei Sun, Shaoxiong Ji, Tuulia Denti, Hans Moen, Oleg Kerro, Antti Rannikko, Pekka Marttinen, and Miika Koskinen</p>
+        </div>
+        <a href="https://link.springer.com/chapter/10.1007/978-3-031-43427-3_27" class="btn-secondary" target="_blank" style="padding: 0.5rem 1.2rem; font-size: 0.7rem;">Read Paper</a>
+      </div>
+
+      <div class="publication-item">
+        <div class="publication-info">
+          <span class="venue">ACM TIST 2022</span>
+          <h5>Multitask Balanced and Recalibrated Network for Medical Code Prediction</h5>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">Wei Sun, Shaoxiong Ji, Erik Cambria, and Pekka Marttinen</p>
+        </div>
+        <a href="https://dl.acm.org/doi/10.1145/3563041" class="btn-secondary" target="_blank" style="padding: 0.5rem 1.2rem; font-size: 0.7rem;">Read Paper</a>
+      </div>
+
+      <div class="publication-item">
+        <div class="publication-info">
+          <span class="venue">npj Digital Medicine 2022</span>
+          <h5>Automated Clinical Coding: What, Why, and Where We Are?</h5>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">Hang Dong, Matúš Falis, William Whiteley, Beatrice Alex, Joshua Matterson, Shaoxiong Ji, Jiaoyan Chen, and Honghan Wu</p>
+        </div>
+        <a href="https://www.nature.com/articles/s41746-022-00705-7" class="btn-secondary" target="_blank" style="padding: 0.5rem 1.2rem; font-size: 0.7rem;">Read Paper</a>
+      </div>
+
+      <div class="publication-item">
+        <div class="publication-info">
+          <span class="venue">ECML-PKDD 2022</span>
+          <h5>Contextualized Graph Embeddings for Adverse Drug Event Detection</h5>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">Ya Gao, Shaoxiong Ji, Tongxuan Zhang, Prayag Tiwari, and Pekka Marttinen</p>
+        </div>
+        <a href="https://github.com/shireenxx/ADE-CGEM" class="btn-secondary" target="_blank" style="padding: 0.5rem 1.2rem; font-size: 0.7rem;">View Code</a>
+      </div>
+
+      <div class="publication-item">
+        <div class="publication-info">
+          <span class="venue">ACL Findings 2021</span>
+          <h5>Medical Code Assignment with Gated Convolution and Note-Code Interaction</h5>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">Shaoxiong Ji, Shirui Pan, and Pekka Marttinen</p>
+        </div>
+        <a href="https://aclanthology.org/2021.findings-acl.89" class="btn-secondary" target="_blank" style="padding: 0.5rem 1.2rem; font-size: 0.7rem;">Read Paper</a>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div>&copy; 2026 Omni Language AI Research.</div>
+  <div class="footer-logo-container">
+    <a href="https://turkunlp.org" target="_blank"><img src="./images/logos/turkunlp.png" alt="TurkuNLP" class="footer-logo" title="TurkuNLP"></a>
+    <a href="https://www.ellisinstitute.fi" target="_blank"><img src="./images/logos/ellis-logo_horizontal_black_2023-FINLAND.png" alt="ELLIS Institute Finland" class="footer-logo" title="ELLIS Institute Finland"></a>
+    <a href="https://www.utu.fi/en" target="_blank"><img src="./images/logos/UTU_logo_EN_RGB.png" alt="University of Turku" class="footer-logo" title="University of Turku"></a>
+  </div>
+  <a href="https://github.com/OLAResearch" style="color: inherit; font-size: 1.5rem; transition: var(--transition-smooth);"><i class="fab fa-github"></i></a>
+</footer>
+
+<script src="./static/js/main.js"></script>
+
+</body>
+</html>

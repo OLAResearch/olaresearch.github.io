@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="OLAR researchers co-organize the PsyDefDetect shared task at BioNLP 2026, focused on identifying psychological defense mechanisms in supportive dialogues.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PsyDefDetect Shared Task at BioNLP 2026: Detecting Psychological Defense Mechanisms | News | Omni Language AI Research</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="../static/css/index.css">
+  <link rel="icon" href="../images/logos/olar.svg">
+  <style>
+    @media (max-width: 768px) {
+      .navbar-menu {
+        display: flex !important;
+        gap: 1.5rem;
+      }
+    }
+
+    .info-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.5rem 0;
+    }
+
+    .info-list li {
+      margin-bottom: 0.8rem;
+      padding-left: 1.5rem;
+      position: relative;
+      font-size: 1.05rem;
+      line-height: 1.5;
+    }
+
+    .info-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent-earth);
+    }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LHSMW4F3Y"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LHSMW4F3Y');
+  </script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="../index.html">
+      <img src="../images/logos/olar.svg" alt="OLAR Home" style="height: 2rem;">
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <a class="navbar-item" href="index.html">Back to News</a>
+    <a class="navbar-item" href="../index.html">Home</a>
+  </div>
+</nav>
+
+<header class="project-hero" style="max-width: 800px; margin: 0 auto; text-align: center; padding: 6vw 4vw 2vw;">
+  <span class="status-badge" style="background: var(--accent-earth);">News</span>
+  <h1 class="title is-1 paper-title-small" style="font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.2; margin-top: 1rem;">PsyDefDetect Shared Task at BioNLP 2026: Detecting Psychological Defense Mechanisms in Conversations</h1>
+  <p class="subtitle" style="margin-top: 1.5rem; font-size: 1.05rem;">Published on June 30, 2026 &bull; Co-organized by University of Technology Sydney, Xi'an Jiaotong-Liverpool University, ELLIS Institute Finland, etc.</p>
+</header>
+
+<main class="container" style="padding: 2vw 4vw 8vw;">
+  <div class="narrative-container">
+    <p class="lead" style="font-size: 1.25rem; font-family: var(--font-serif); line-height: 1.7; color: var(--text-primary); margin-bottom: 2.5rem;">
+      The upcoming <a href="https://www.aclweb.org/aclwiki/BioNLP_Workshop" target="_blank" style="color: var(--accent-earth); text-decoration: underline;"><strong>BioNLP 2026</strong> </a> workshop (July 3–4, 2026) co-located with ACL 2026 in San Diego, California, United States, will feature the <a href="https://psydefdetect-shared-task.github.io/" target="_blank" style="color: var(--accent-earth); text-decoration: underline;"><strong>PsyDefDetect</strong></a> Shared Task. Co-organized by researchers from University of Technology Sydney, Xi'an Jiaotong-Liverpool University, University of Utah, Harvard University, University of Melbourne, University of Manchester, ELLIS Institute Finland, and University of Turku, the initiative addresses the challenge of identifying psychological defense mechanisms in emotional support conversations.
+    </p>
+
+    <p>
+      In emotional support dialogues, defense mechanisms shape how help-seekers disclose their feelings and accept or resist support. Despite progress in computational empathy and dialogue strategy modeling, the defensive function of seeker utterances has remained largely unmodeled. The shared task overview paper will be presented on <strong>Friday, July 3, 2026 (12:00 - 12:15 PDT / 19:00 - 19:15 UTC)</strong> during Session 2 (Shared Tasks Overviews). The shared task aims to bridge this gap by classifying seeker utterances into specific levels based on the <strong>Defense Mechanism Rating Scales (DMRS)</strong> framework, supporting research at the intersection of psychology and natural language processing.
+    </p>
+
+    <h3 class="title is-3" style="margin-top: 3rem;">The PsyDefConv Dataset & Task Challenge</h3>
+    <p>
+      Systems participating in the shared task are evaluated on the newly released <strong>PsyDefConv</strong> dataset, which consists of 200 dialogues and 2,336 seeker utterances annotated under the DMRS framework (4,709 utterances in total including supporter turns). 
+    </p>
+    <p>
+      A key technical challenge for participating systems is the pronounced class imbalance. The Level 7 High-Adaptive Defense class alone accounts for 51.8% of all annotated seeker utterances. Models that over-predict the majority class can easily attain high overall accuracy but suffer from poor recall on minority defense classes. The top-performing architectures are those that maintain a favorable balance between overall accuracy and minority-class recall.
+    </p>
+
+    <h3 class="title is-3" style="margin-top: 3rem;">Introducing the Participating Teams</h3>
+    <p>
+      The shared task attracted competitive solutions from across the global NLP community. Over the course of the evaluation period, the competition registered 172 participants who together produced 563 submissions to the leaderboard. By the final registration deadline,21 teams had officially submitted their results for inclusion in the ranking.
+    </p>
+    <p>
+    The participating teams will present their systems on <strong>Saturday, July 4, 2026</strong> during Session 3 (14:00 - 15:30 PDT / 21:00 - 22:30 UTC). Three featured team presentations include:
+    </p>
+
+    <ul class="info-list" style="margin-top: 1.5rem; margin-bottom: 2.5rem;">
+      <li style="margin-bottom: 1.2rem;">
+        <strong>Nürnberg NLP (1st Place, Macro-F1 = 0.4200) &bull; <em>Presentation: July 4, 14:30 - 14:40 PDT</em>:</strong> Philipp Steigerwald et al. constructed a 9-voter ensemble along three orthogonal axes---class granularity (9-class gatekeeper vs. 8-class specialists), training paradigm (generative vs. discriminative), and base model (Ministral vs. Phi-4)---with per-axis cross-validation folds.
+      </li>
+      <li style="margin-bottom: 1.2rem;">
+        <strong>UTS (2nd Place, Macro-F1 = 0.4055) &bull; <em>Presentation: July 4, 14:10 - 14:20 PDT</em>:</strong> Dima Galat et al. operated a multi-phase deliberative council of Gemini 2.5 agents in which class-specific advocates rate evidence strength rather than vote, augmented by a targeted override ensemble of three fine-tuned Qwen-family models. 
+      </li>
+      <li style="margin-bottom: 1.2rem;">
+        <strong>KCL-Cogstack (17th Place, Macro-F1 = 0.2278) &bull; <em>Presentation: July 4, 14:20 - 14:30 PDT</em>:</strong> Shubham Agarwal et al. contrasted flat fine-tuning, few-shot prompting, and a hierarchical coarse-to-fine classifier that exploits the DMRS label tree, finding the hierarchical design the most effective of the three.
+      </li>
+    </ul>
+
+    <p>
+      Overall, the shared task results demonstrate that while multi-model ensembling and deliberative-agent architectures lead the field, substantial headroom remains for future research to achieve robust clinical defense detection in emotion support dialogues.
+    </p>
+
+    <h3 class="title is-3" style="margin-top: 3rem;">Workshop Presentation Schedule</h3>
+    <p>
+      The shared task overview and team systems will be presented across two days. Add these events directly to your calendar or download the combined iCal event:
+    </p>
+
+    <ul class="info-list" style="margin-top: 1.5rem; margin-bottom: 2.5rem;">
+      <li style="margin-bottom: 1.2rem;">
+        <strong>Day 1: Shared Task Overview</strong> &bull; Friday, July 3, 2026 (12:00 - 12:15 PDT / 19:00 - 19:15 UTC)
+        <br>
+        <span style="font-size: 0.9rem;">
+          <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=PsyDefDetect%20Shared%20Task%20Overview%20-%20BioNLP%202026&dates=20260703T190000Z/20260703T191500Z&details=Overview%20of%20the%20PsyDefDetect%20Shared%20Task%20at%20BioNLP%202026%3A%20Detecting%20Levels%20of%20Psychological%20Defense%20Mechanisms%20in%20Supportive%20Conversations.%20More%20info%3A%20https%3A%2F%2Fpsydefdetect-shared-task.github.io%2F&location=San%20Diego%2C%20California%2C%20USA%20%28BioNLP%202026%20%40%20ACL%202026%29" target="_blank" style="color: var(--accent-earth); text-decoration: underline;"><i class="fab fa-google"></i> Add to Google Calendar</a> &bull; 
+          <a href="psydefdetect.ics" style="color: var(--accent-earth); text-decoration: underline;"><i class="far fa-calendar-alt"></i> Download iCal Event</a>
+        </span>
+      </li>
+      <li style="margin-bottom: 1.2rem;">
+        <strong>Day 2: System Presentations</strong> &bull; Saturday, July 4, 2026 (14:00 - 15:30 PDT / 21:00 - 22:30 UTC)
+        <br>
+        <span style="font-size: 0.9rem;">
+          <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=PsyDefDetect%20System%20Presentations%20-%20BioNLP%202026&dates=20260704T210000Z/20260704T223000Z&details=Session%203%3A%20PsyDefDetect%20System%20Presentations.%0A14%3A00%20-%2014%3A10%20Overview%20recap%0A14%3A10%20-%2014%3A20%20UTS%0A14%3A20%20-%2014%3A30%20KCL-Cogstack%0A14%3A30%20-%2014%3A40%20N%C3%BCrnberg%20NLP.%0AMore%20info%3A%20https%3A%2F%2Fpsydefdetect-shared-task.github.io%2F&location=San%20Diego%2C%20California%2C%20USA%20%28BioNLP%202026%20%40%20ACL%202026%29" target="_blank" style="color: var(--accent-earth); text-decoration: underline;"><i class="fab fa-google"></i> Add to Google Calendar</a> &bull; 
+          <a href="psydefdetect.ics" style="color: var(--accent-earth); text-decoration: underline;"><i class="far fa-calendar-alt"></i> Download iCal Event</a>
+        </span>
+      </li>
+    </ul>
+
+    <div style="margin-top: 4rem; border-top: 1px solid var(--border-color); padding-top: 2rem;">
+      <ul class="info-list">
+        <li>Visit the official <a href="https://psydefdetect-shared-task.github.io/" target="_blank" style="color: var(--accent-earth); text-decoration: underline; font-weight: 500;">PsyDefDetect Shared Task Website</a>.</li>
+        <li>Explore the <a href="https://www.aclweb.org/aclwiki/BioNLP_Workshop" target="_blank" style="color: var(--accent-earth); text-decoration: underline; font-weight: 500;">BioNLP Workshop Website</a>.</li>
+        <li>Read the task overview paper on <a href="https://arxiv.org/abs/2605.24907" target="_blank" style="color: var(--accent-earth); text-decoration: underline; font-weight: 500;">arXiv</a>.</li>
+      </ul>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div>&copy; 2026 Omni Language AI Research.</div>
+  <div class="footer-logo-container">
+    <a href="https://turkunlp.org" target="_blank"><img src="../images/logos/turkunlp.png" alt="TurkuNLP" class="footer-logo" title="TurkuNLP"></a>
+    <a href="https://www.ellisinstitute.fi" target="_blank"><img src="../images/logos/ellis-logo_horizontal_black_2023-FINLAND.png" alt="ELLIS Institute Finland" class="footer-logo" title="ELLIS Institute Finland"></a>
+    <a href="https://www.utu.fi/en" target="_blank"><img src="../images/logos/UTU_logo_EN_RGB.png" alt="University of Turku" class="footer-logo" title="University of Turku"></a>
+  </div>
+  <a href="https://github.com/OLAResearch" style="color: inherit; font-size: 1.5rem; transition: var(--transition-smooth);"><i class="fab fa-github"></i></a>
+</footer>
+
+</body>
+</html>

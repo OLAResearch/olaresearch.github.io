@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="FINe-Health Foundry: Nationwide Foundation Health Model - Omni Language AI Research">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FINe-Health Foundry | OLAResearch Project</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./images/logos/olar.svg">
+  <style>
+    @media (max-width: 768px) {
+      .navbar-menu {
+        display: flex !important;
+        gap: 1.5rem;
+      }
+    }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LHSMW4F3Y"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LHSMW4F3Y');
+  </script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="./index.html">
+      <img src="./images/logos/olar.svg" alt="OLAR Home" style="height: 2rem;">
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <a class="navbar-item" href="./index.html#projects">Back to Projects</a>
+  </div>
+</nav>
+
+<header class="project-hero">
+  <div class="status-badge">Active Project</div>
+  <h1 class="title is-1 paper-title-small">FINe-Health Foundry: Nationwide Foundation Health Model</h1>
+  <p class="subtitle">Developing a nationwide, versatile foundation health model using Finland's national health databases.</p>
+</header>
+
+<main class="container" style="padding: 4vw;">
+  
+  <!-- Featured Subproject -->
+  <section class="narrative-section" style="background: var(--surface-color); border: 1px solid var(--border-color); padding: 4rem; border-radius: 12px; margin-bottom: 6rem;">
+    <div style="display: flex; gap: 4rem; align-items: flex-start; flex-wrap: wrap;">
+      <div style="flex: 2; min-width: 300px;">
+        <p class="lead" style="font-size: 1.15rem; margin-bottom: 2rem; margin-top: 0; line-height: 1.7; font-family: var(--font-serif); font-style: italic;">
+          The FINe-Health Foundry is a major joint research initiative funded by Business Finland. It aims to develop a nationwide foundation health model capable of supporting clinical diagnostics, individual prevention, and population-level policy simulations.
+        </p>
+        <p style="margin-bottom: 0; color: var(--text-secondary);">
+          Led by the ELLIS Institute Finland in collaboration with Aalto University, the University of Helsinki, and the University of Turku, the project brings together top talent in machine learning, clinical NLP, and health informatics. The project has been awarded nearly five million euros for an initial three-year period under Business Finland's Rise to Challenge (Näytönpaikka) program.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Objectives -->
+  <section class="narrative-section">
+    <h2 class="title is-2" style="text-align: center; margin-bottom: 3rem;">Core Objectives</h2>
+    <div class="objective-grid">
+      <div class="objective-card">
+        <div class="icon"><i class="fas fa-user-md"></i></div>
+        <h4>Clinical Support</h4>
+        <p>Providing context-aware decision support to clinicians during patient care, integrating electronic health records with guidelines.</p>
+      </div>
+      <div class="objective-card">
+        <div class="icon"><i class="fas fa-heartbeat"></i></div>
+        <h4>Patient-Targeted Prevention</h4>
+        <p>Predicting individual disease risks for over 200 conditions for every resident, allowing early personalized interventions and prevention.</p>
+      </div>
+      <div class="objective-card">
+        <div class="icon"><i class="fas fa-brain"></i></div>
+        <h4>Causal Reasoning in AI</h4>
+        <p>Moving beyond basic pattern correlations to capture cause-and-effect clinical paths, helping doctors choose the most effective treatments.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="narrative-section" style="margin-top: 5rem;">
+    <div class="narrative-container">
+      <h3 class="title is-3">Our Group's Research Activities</h3>
+      <p>Our group contributes directly to the core research agenda of the FINe-Health Foundry. We focus on three critical pillars:</p>
+      
+      <p><strong>1. Pretraining Foundation Health Model:</strong> We study and build training pipelines for foundation models trained on nationwide health databases and structured longitudinal electronic health records, ensuring high representation across specialized clinical cohorts.</p>
+
+      <p><strong>2. Medical Reasoning and Grounding:</strong> We develop advanced post-training techniques to ensure foundation health models reason accurately over medical knowledge graphs, clinical instructions, and verify factuality and medical safety boundaries.</p>
+
+      <p><strong>3. Agentic Methods for Virtual Labs:</strong> We construct interactive "virtual laboratories" where expert medical professionals can interact with, audit, and provide expert feedback to LLM-powered medical agents to align their reasoning with clinical guidelines.</p>
+
+      <h3 class="title is-3" style="margin-top: 4rem;">Nationwide Ecosystem</h3>
+      <p>By leveraging Finland's unique, comprehensive, and centralized national health registers (such as Kanta and registry databases), the FINe-Health Foundry trains a secure and versatile foundation health model at a population scale, while respecting strict data privacy and ethics boundaries.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div>&copy; 2026 Omni Language AI Research.</div>
+  <div class="footer-logo-container">
+    <a href="https://turkunlp.org" target="_blank"><img src="./images/logos/turkunlp.png" alt="TurkuNLP" class="footer-logo" title="TurkuNLP"></a>
+    <a href="https://www.ellisinstitute.fi" target="_blank"><img src="./images/logos/ellis-logo_horizontal_black_2023-FINLAND.png" alt="ELLIS Institute Finland" class="footer-logo" title="ELLIS Institute Finland"></a>
+    <a href="https://www.utu.fi/en" target="_blank"><img src="./images/logos/UTU_logo_EN_RGB.png" alt="University of Turku" class="footer-logo" title="University of Turku"></a>
+  </div>
+  <a href="https://github.com/OLAResearch" style="color: inherit; font-size: 1.5rem; transition: var(--transition-smooth);"><i class="fab fa-github"></i></a>
+</footer>
+
+<script src="./static/js/main.js"></script>
+
+</body>
+</html>

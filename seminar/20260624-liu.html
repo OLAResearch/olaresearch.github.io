@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="TurkuNLP Research Seminar - Crosslingual On-Policy Self-Distillation for Multilingual Reasoning by Yihong Liu.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seminar Details | TurkuNLP Research Seminar</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="../static/css/index.css">
+  <link rel="icon" href="../images/logos/olar.svg">
+  <style>
+    /* Removed seminar-card styling as narrative layout is preferred */
+    
+    .seminar-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .meta-item {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+    
+    .meta-item i {
+      color: var(--accent-earth);
+      font-size: 1.15rem;
+      width: 1.25rem;
+      text-align: center;
+    }
+    
+    .zoom-callout {
+      background: rgba(179, 147, 113, 0.06);
+      border-left: 4px solid var(--accent-earth);
+      border-radius: 4px;
+      padding: 0.8rem 1.25rem;
+      margin: 1.5rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+    
+    .speaker-section {
+      display: flex;
+      gap: 2rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-color);
+    }
+    
+    .speaker-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: var(--text-secondary);
+      flex-shrink: 0;
+    }
+    
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--text-primary);
+      color: var(--bg-color);
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition-smooth);
+      font-size: 0.95rem;
+    }
+    
+    .btn-primary:hover {
+      background: var(--accent-earth);
+      transform: translateY(-2px);
+      color: var(--bg-color);
+    }
+
+    .btn-calendar {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--surface-color);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+      padding: 0.5rem 1.25rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.85rem;
+      transition: var(--transition-smooth);
+    }
+    
+    .btn-calendar:hover {
+      background: var(--accent-earth);
+      color: var(--bg-color) !important;
+      border-color: var(--accent-earth);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .navbar-menu {
+        display: flex !important;
+        gap: 1.5rem;
+      }
+      .seminar-card {
+        padding: 2rem 1.5rem;
+      }
+      .speaker-section {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .speaker-avatar {
+        align-self: center;
+      }
+    }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LHSMW4F3Y"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LHSMW4F3Y');
+  </script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="../index.html">
+      <img src="../images/logos/olar.svg" alt="OLAR Home" style="height: 2rem;">
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <a class="navbar-item" href="index.html">Back to Seminars</a>
+    <a class="navbar-item" href="../index.html">Home</a>
+  </div>
+</nav>
+
+<header class="project-hero" style="text-align: center; margin: 0 auto; padding: 6vw 4vw 2vw;">
+  <span class="status-badge" style="background: var(--accent-sage);">Seminar Session</span>
+  <h1 class="title is-1 paper-title-small" style="font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.2; margin-top: 1rem;">TurkuNLP Research Seminar</h1>
+  <p class="subtitle" style="margin-top: 1.5rem; font-size: 1.05rem;">A collaborative forum co-organized with TurkuNLP featuring distinguished talks in NLP and AI.</p>
+</header>
+
+<main class="container" style="padding: 2vw 4vw 8vw; max-width: 800px;">
+  <div class="narrative-container">
+    <span class="status-badge" style="background: var(--text-secondary); margin-bottom: 1rem; display: inline-block;">Past Seminar</span>
+    
+    <h2 class="title is-2" style="font-size: clamp(1.5rem, 3vw, 2.25rem); line-height: 1.3; margin-top: 0.5rem; margin-bottom: 1.5rem;">
+      Crosslingual On-Policy Self-Distillation for Multilingual Reasoning
+    </h2>
+    
+    <div class="seminar-meta">
+      <div class="meta-item">
+        <i class="fas fa-user"></i>
+        <span><strong>Speaker:</strong> Yihong Liu (LMU Munich)</span>
+      </div>
+      <div class="meta-item">
+        <i class="fas fa-calendar-alt"></i>
+        <span><strong>Time:</strong> June 24, 16:00 - 17:00 (UTC+3)</span>
+      </div>
+    </div>
+    
+    <h3 class="title is-3" style="margin-top: 2.5rem; margin-bottom: 1rem;">Abstract</h3>
+    <p style="line-height: 1.7; margin-bottom: 1.5rem; text-align: justify;">
+      Large language models (LLMs) have achieved remarkable progress in mathematical reasoning, but this ability is not equally accessible across languages. Especially low-resource languages exhibit much lower reasoning performance. To address this, we propose Crosslingual On-Policy Self-Distillation (COPSD), which transfers a model's own high-resource reasoning behavior to low-resource languages. COPSD uses the same model as student and teacher: the student sees only the low-resource problem, while the teacher receives privileged crosslingual context, including the problem translation and reference solution in English. Training minimizes full-distribution token-level divergence on the student's own rollouts, providing dense supervision while avoiding the sparsity and instability of outcome-only reinforcement learning (RL). Experiments on 17 low-resource African languages show that COPSD consistently improves low-resource mathematical reasoning across model sizes and substantially outperforms Group Relative Policy Optimization (GRPO). Further analyses show that COPSD improves answer-format adherence, strengthens test-time scaling, and generalizes to harder multilingual reasoning benchmarks, with especially large gains for lower-resource languages.
+    </p>
+    
+    <div style="margin-top: 2rem; margin-bottom: 2rem; display: flex; flex-wrap: wrap; gap: 1rem;">
+      <a href="https://arxiv.org/abs/2605.09548" target="_blank" class="btn-primary">
+        <i class="fas fa-file-pdf"></i> Read Paper on arXiv
+      </a>
+      <a href="slides/COPSD_slides.pdf" target="_blank" class="btn-calendar" style="padding: 0.75rem 1.5rem; font-size: 0.95rem;">
+        <i class="fas fa-file-pdf" style="color: var(--accent-earth); margin-right: 0.5rem;"></i> View Slides
+      </a>
+    </div>
+    
+    <div class="speaker-section">
+      <div class="speaker-avatar">
+        <i class="fas fa-user-tie"></i>
+      </div>
+      <div>
+        <h4 class="title is-4" style="margin-bottom: 0.5rem;">About the Speaker</h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-secondary); text-align: justify; margin: 0;">
+          <strong>Yihong Liu</strong> is a postdoctoral researcher at the Center for Information and Language Processing, LMU Munich, and is affiliated with the Munich Center for Machine Learning. His research focuses on natural language processing, large language models, and multilingual NLP, with broader interests in multilinguality, reasoning, post-training, pre-training, interpretability, and machine translation. His recent work focuses on multilingual reasoning, especially aligning reasoning capabilities across languages through post-training. He completed his PhD at LMU Munich under the supervision of Prof. Dr. Hinrich Schütze, after earning a master’s degree from the Technical University of Munich and a bachelor’s degree from Southwest University.
+        </p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div>&copy; 2026 Omni Language AI Research.</div>
+  <div class="footer-logo-container">
+    <a href="https://turkunlp.org" target="_blank"><img src="../images/logos/turkunlp.png" alt="TurkuNLP" class="footer-logo" title="TurkuNLP"></a>
+    <a href="https://www.ellisinstitute.fi" target="_blank"><img src="../images/logos/ellis-logo_horizontal_black_2023-FINLAND.png" alt="ELLIS Institute Finland" class="footer-logo" title="ELLIS Institute Finland"></a>
+    <a href="https://www.utu.fi/en" target="_blank"><img src="../images/logos/UTU_logo_EN_RGB.png" alt="University of Turku" class="footer-logo" title="University of Turku"></a>
+  </div>
+  <a href="https://github.com/OLAResearch" style="color: inherit; font-size: 1.5rem; transition: var(--transition-smooth);"><i class="fab fa-github"></i></a>
+</footer>
+
+<script src="../static/js/main.js"></script>
+
+</body>
+</html>

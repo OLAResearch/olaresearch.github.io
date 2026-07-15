@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Explore research articles, conference proceedings, and preprints by Omni Language AI Research (OLAResearch).">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Publications | Omni Language AI Research</title>
+
+  <!-- OpenGraph Metadata for AI Search & Social Previews -->
+  <meta property="og:title" content="Publications | Omni Language AI Research">
+  <meta property="og:description" content="Explore research articles, conference proceedings, and preprints by Omni Language AI Research (OLAResearch).">
+  <meta property="og:image" content="https://www.olaresearch.org/images/logos/olar.svg">
+  <meta property="og:url" content="https://www.olaresearch.org/publications.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="OLAResearch">
+
+  <!-- Twitter Card Metadata -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Publications | Omni Language AI Research">
+  <meta name="twitter:description" content="Research publications, preprints, and proceedings from OLAResearch.">
+  <meta name="twitter:image" content="https://www.olaresearch.org/images/logos/olar.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./images/logos/olar.svg">
+
+  <style>
+    /* Page-Scoped Premium Styles for Publications List */
+    .search-container {
+      max-width: 600px;
+      margin: 2rem auto;
+      position: relative;
+    }
+    .search-input {
+      width: 100%;
+      padding: 0.8rem 1.2rem;
+      padding-left: 2.8rem;
+      border: 1px solid var(--border-color);
+      border-radius: 30px;
+      background-color: var(--surface-color);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      outline: none;
+      transition: var(--transition-smooth);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.01);
+    }
+    .search-input:focus {
+      border-color: var(--accent-earth);
+      box-shadow: 0 10px 20px rgba(179, 147, 113, 0.05);
+    }
+    .search-icon {
+      position: absolute;
+      left: 1.1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-secondary);
+      font-size: 1rem;
+      pointer-events: none;
+    }
+    .filters-container {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 3.5rem;
+      flex-wrap: wrap;
+    }
+    .filter-pill {
+      padding: 0.5rem 1.25rem;
+      border: 1px solid var(--border-color);
+      background: var(--surface-color);
+      color: var(--text-secondary);
+      border-radius: 20px;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: var(--transition-smooth);
+      outline: none;
+    }
+    .filter-pill:hover {
+      border-color: var(--accent-earth);
+      color: var(--accent-earth);
+    }
+    .filter-pill.active {
+      background-color: var(--accent-earth);
+      border-color: var(--accent-earth);
+      color: var(--surface-color);
+    }
+    .year-group {
+      margin-bottom: 4rem;
+    }
+    .year-title {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.5rem;
+      margin-bottom: 2rem;
+      color: var(--text-primary);
+    }
+    .publication-list {
+      display: flex;
+      flex-direction: column;
+    }
+    .publication-item {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border-color);
+      gap: 1.5rem;
+      transition: var(--transition-smooth);
+    }
+    .publication-item:last-child {
+      border-bottom: none;
+    }
+    .publication-content {
+      flex: 1 1 500px;
+    }
+    .publication-title {
+      font-family: var(--font-sans);
+      font-size: 1.15rem;
+      font-weight: 600;
+      line-height: 1.4;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+    .publication-authors {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+      line-height: 1.4;
+    }
+    .publication-authors strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+    .publication-venue {
+      font-size: 0.9rem;
+      color: var(--accent-sage);
+      font-style: italic;
+    }
+    .publication-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      flex-shrink: 0;
+      width: 120px;
+      margin-top: 0.25rem;
+    }
+    .action-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.85rem;
+      border: 1px solid var(--border-color);
+      background: transparent;
+      color: var(--text-secondary);
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .action-btn:hover {
+      border-color: var(--accent-earth);
+      color: var(--accent-earth);
+      background-color: rgba(179, 147, 113, 0.03);
+    }
+    .bibtex-toggle-btn.active {
+      background-color: var(--accent-earth);
+      color: var(--surface-color);
+      border-color: var(--accent-earth);
+    }
+    .bibtex-box {
+      flex: 1 1 100%;
+      margin-top: 1rem;
+      background-color: #faf8f5;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      padding: 1.25rem;
+      position: relative;
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+    .bibtex-box.show {
+      display: block;
+    }
+    .bibtex-pre {
+      margin: 0;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.8rem;
+      line-height: 1.4;
+      color: var(--text-primary);
+      white-space: pre-wrap;
+      word-break: break-all;
+      overflow-x: auto;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .navbar-menu {
+        display: flex !important;
+        gap: 1.5rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .publication-item {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+      }
+      .publication-actions {
+        width: 100%;
+        max-width: 150px;
+      }
+    }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LHSMW4F3Y"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LHSMW4F3Y');
+  </script>
+</head>
+<body>
+
+  <nav class="navbar" role="navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="index.html">
+        <img src="./images/logos/olar.svg" alt="OLAR Home" style="height: 2rem;">
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <a class="navbar-item" href="about.html">About</a>
+      <a class="navbar-item" href="index.html#projects">Projects</a>
+      <a class="navbar-item" href="publications.html" style="color: var(--accent-earth);">Publications</a>
+      <a class="navbar-item" href="index.html#people">People</a>
+      <a class="navbar-item" href="seminar/index.html">Seminars</a>
+      <a class="navbar-item" href="news/index.html">News</a>
+    </div>
+  </nav>
+
+  <header class="project-hero" style="text-align: center; margin: 0 auto; padding: 6vw 4vw 2vw;">
+    <h1 class="title is-1">Publications</h1>
+    <p class="subtitle">Research articles, conference proceedings, and preprints by Omni Language AI Research.</p>
+  </header>
+
+  <main class="container" style="padding: 2vw 4vw 8vw;">
+    
+    <div class="search-container">
+      <i class="fas fa-search search-icon"></i>
+      <input type="text" id="pub-search" class="search-input" placeholder="Search by title, author, venue, or year...">
+    </div>
+
+    <div class="filters-container">
+      <button class="filter-pill active" data-filter="all">All Years</button>
+      <button class="filter-pill" data-filter="2026">2026</button>
+      <button class="filter-pill" data-filter="2025">2025</button>
+    </div>
+
+    <div id="publications-list">
+    <div class="year-group" data-year="2026">
+      <h3 class="year-title">2026</h3>
+      <div class="publication-list">
+      <div class="publication-item" data-title="Model-Based Quality Assessment for Massively Multilingual Parallel Data" data-authors="Abdelaziz Ibrahim, Zihao Li, Jörg Tiedemann, Shaoxiong Ji" data-venue="arXiv preprint arXiv:2606.00285" data-year="2026">
+        <div class="publication-content">
+          <div class="publication-title">Model-Based Quality Assessment for Massively Multilingual Parallel Data</div>
+          <div class="publication-authors">Abdelaziz Ibrahim, <strong>Zihao Li</strong>, Jörg Tiedemann, and <strong>Shaoxiong Ji</strong></div>
+          <div class="publication-venue">arXiv preprint arXiv:2606.00285, 2026</div>
+        </div>
+        <div class="publication-actions">
+          <button id="btn-ibrahim2026model" onclick="toggleBibtex('ibrahim2026model')" class="action-btn bibtex-toggle-btn"><i class="fas fa-quote-right"></i> BibTeX</button>
+        </div>
+        <div id="bib-ibrahim2026model" class="bibtex-box">
+          <pre id="code-ibrahim2026model" class="bibtex-pre">@article{ibrahim2026model,
+  title   = {Model-Based Quality Assessment for Massively Multilingual Parallel Data},
+  author  = {Ibrahim, Abdelaziz and Li, Zihao and Tiedemann, J{\"o}rg and Ji, Shaoxiong},
+  journal = {arXiv preprint arXiv:2606.00285},
+  year    = {2026}
+}</pre>
+        </div>
+      </div>
+
+      <div class="publication-item" data-title="Data-Centric Continual Pre-training for 500+ Languages: A New Bilingual Translation Corpus and Multilingual Models" data-authors="Shaoxiong Ji, Zihao Li, Jaakko Paavola, Hengyu Luo, Jörg Tiedemann" data-venue="Findings of the Association for Computational Linguistics: ACL 2026" data-year="2026">
+        <div class="publication-content">
+          <div class="publication-title">Data-Centric Continual Pre-training for 500+ Languages: A New Bilingual Translation Corpus and Multilingual Models</div>
+          <div class="publication-authors"><strong>Shaoxiong Ji</strong>, <strong>Zihao Li</strong>, Jaakko Paavola, Hengyu Luo, and Jörg Tiedemann</div>
+          <div class="publication-venue">Findings of the Association for Computational Linguistics: ACL 2026, pp. 18776–18807, 2026</div>
+        </div>
+        <div class="publication-actions">
+          <a href="https://aclanthology.org/2026.findings-acl.937/" target="_blank" class="action-btn"><i class="fas fa-external-link-alt"></i> Paper</a>
+          <button id="btn-ji-etal-2026-data" onclick="toggleBibtex('ji-etal-2026-data')" class="action-btn bibtex-toggle-btn"><i class="fas fa-quote-right"></i> BibTeX</button>
+        </div>
+        <div id="bib-ji-etal-2026-data" class="bibtex-box">
+          <pre id="code-ji-etal-2026-data" class="bibtex-pre">@inproceedings{ji-etal-2026-data,
+  title     = {Data-Centric Continual Pre-training for 500+ Languages: A New Bilingual Translation Corpus and Multilingual Models},
+  author    = {Ji, Shaoxiong  and
+               Li, Zihao  and
+               Paavola, Jaakko  and
+               Luo, Hengyu  and
+               Tiedemann, J{\"o}rg},
+  editor    = {Liakata, Maria  and
+               Moreira, Viviane P.  and
+               Zhang, Jiajun  and
+               Jurgens, David},
+  booktitle = {Findings of the {A}ssociation for {C}omputational {L}inguistics: {ACL} 2026},
+  month     = jul,
+  year      = {2026},
+  address   = {San Diego, California, United States},
+  publisher = {Association for Computational Linguistics},
+  url       = {https://aclanthology.org/2026.findings-acl.937/},
+  doi       = {10.18653/v1/2026.findings-acl.937},
+  pages     = {18776--18807},
+  isbn      = {979-8-89176-395-1}
+}</pre>
+        </div>
+      </div>
+
+      <div class="publication-item" data-title="XCR-Bench: A Multi-Task Benchmark for Evaluating Cultural Reasoning in LLMs" data-authors="Mohsinul Kabir, Tasnim Ahmed, Md Mezbaur Rahman, Shaoxiong Ji, Hassan Alhuzali, Sophia Ananiadou" data-venue="arXiv preprint arXiv:2601.14063" data-year="2026">
+        <div class="publication-content">
+          <div class="publication-title">XCR-Bench: A Multi-Task Benchmark for Evaluating Cultural Reasoning in LLMs</div>
+          <div class="publication-authors">Mohsinul Kabir, Tasnim Ahmed, Md Mezbaur Rahman, <strong>Shaoxiong Ji</strong>, Hassan Alhuzali, and Sophia Ananiadou</div>
+          <div class="publication-venue">arXiv preprint arXiv:2601.14063, 2026</div>
+        </div>
+        <div class="publication-actions">
+          <button id="btn-kabir2026xcr" onclick="toggleBibtex('kabir2026xcr')" class="action-btn bibtex-toggle-btn"><i class="fas fa-quote-right"></i> BibTeX</button>
+        </div>
+        <div id="bib-kabir2026xcr" class="bibtex-box">
+          <pre id="code-kabir2026xcr" class="bibtex-pre">@article{kabir2026xcr,
+  title   = {XCR-Bench: A Multi-Task Benchmark for Evaluating Cultural Reasoning in LLMs},
+  author  = {Kabir, Mohsinul and Ahmed, Tasnim and Rahman, Md Mezbaur and Ji, Shaoxiong and Alhuzali, Hassan and Ananiadou, Sophia},
+  journal = {arXiv preprint arXiv:2601.14063},
+  year    = {2026}
+}</pre>
+        </div>
+      </div>
+
+      <div class="publication-item" data-title="Cross-Model Memory Transfer via Target-Side Reader Adaptation" data-authors="Mingyuan Li, Guangsheng Yu, Xu Wang, Shaoxiong Ji" data-venue="arXiv preprint arXiv:2607.xxxxx" data-year="2026">
+        <div class="publication-content">
+          <div class="publication-title">Cross-Model Memory Transfer via Target-Side Reader Adaptation</div>
+          <div class="publication-authors"><strong>Mingyuan Li</strong>, Guangsheng Yu, Xu Wang, and <strong>Shaoxiong Ji</strong></div>
+          <div class="publication-venue">arXiv preprint arXiv:2607.xxxxx, 2026</div>
+        </div>
+        <div class="publication-actions">
+          <a href="https://olaresearch.org/XMemTransfer" target="_blank" class="action-btn"><i class="fas fa-external-link-alt"></i> Paper</a>
+          <button id="btn-li2026cross" onclick="toggleBibtex('li2026cross')" class="action-btn bibtex-toggle-btn"><i class="fas fa-quote-right"></i> BibTeX</button>
+        </div>
+        <div id="bib-li2026cross" class="bibtex-box">
+          <pre id="code-li2026cross" class="bibtex-pre">@article{li2026cross,
+  title   = {Cross-Model Memory Transfer via Target-Side Reader Adaptation},
+  author  = {Li, Mingyuan and Yu, Guangsheng and Wang, Xu and Ji, Shaoxiong},
+  journal = {arXiv preprint arXiv:2607.xxxxx},
+  url     = {https://olaresearch.org/XMemTransfer},
+  year    = {2026}
+}</pre>
+        </div>
+      </div>
+
+      <div class="publication-item" data-title="Test-Time Scaling of Reasoning Models for Machine Translation" data-authors="Zihao Li, Shaoxiong Ji, Jörg Tiedemann" data-venue="Proceedings of the 19th Conference of the European Chapter of the Association for Computational Linguistics (Volume 1: Long Papers)" data-year="2026">
+        <div class="publication-content">
+          <div class="publication-title">Test-Time Scaling of Reasoning Models for Machine Translation</div>
+          <div class="publication-authors"><strong>Zihao Li</strong>, <strong>Shaoxiong Ji</strong>, and Jörg Tiedemann</div>
+          <div class="publication-venue">Proceedings of the 19th Conference of the European Chapter of the Association for Computational Linguistics (Volume 1: Long Papers), pp. 2902–2917, 2026</div>
+        </div>
+        <div class="publication-actions">
+          <a href="https://aclanthology.org/2026.eacl-long.133/" target="_blank" class="action-btn"><i class="fas fa-external-link-alt"></i> Paper</a>
+          <button id="btn-li-etal-2026-test" onclick="toggleBibtex('li-etal-2026-test')" class="action-btn bibtex-toggle-btn"><i class="fas fa-quote-right"></i> BibTeX</button>
+        </div>
+        <div id="bib-li-etal-2026-test" class="bibtex-box">
+          <pre id="code-li-etal-2026-test" class="bibtex-pre">@inproceedings{li-etal-2026-test,
+  title     = {Test-Time Scaling of Reasoning Models for Machine Translation},
+  author    = {Li, Zihao  and
+               Ji, Shaoxiong  and
+               Tiedemann, J{\"o}rg},
+  editor    = {Demberg, Vera  and
+               Inui, Kentaro  and
+               Marquez, Llu{\'i}s},
+  booktitle = {Proceedings of the 19th Conference of the {E}uropean Chapter of the {A}ssociation for {C}omputational {L}inguistics (Volume 1: Long Papers)},
+  month     = mar,
+  year      = {2026},
+  address   = {Rabat, Morocco},
+  publisher = {Association for Computational Linguistics},
+  url       = {https://aclanthology.org/2026.eacl-long.133/},
+  doi       = {10.18653/v1/2026.eacl-long.133},
+  pages     = {2902--2917},
+  isbn      = {979-8-89176-380-7}
+}</pre>
+        </div>
+      </div>
+
+      <div class="publication-item" data-title="Overview of the PsyDefDetect Shared Task at BioNLP 2026: Detecting Levels of Psychological Defense Mechanisms in Supportive Conversations" data-authors="Hongbin Na, Zimu Wang, Zhaoming Chen, Yining Hua, Rena Gao, Kailai Yang, Ling Chen, Wei Wang, Shaoxiong Ji, John Torous, Sophia Ananiadou" data-venue="BioNLP 2026" data-year="2026">
+        <div class="publication-content">
+          <div class="publication-title">Overview of the PsyDefDetect Shared Task at BioNLP 2026: Detecting Levels of Psychological Defense Mechanisms in Supportive Conversations</div>
+          <div class="publication-authors">Hongbin Na, Zimu Wang, Zhaoming Chen, Yining Hua, Rena Gao, Kailai Yang, Ling Chen, Wei Wang, <strong>Shaoxiong Ji</strong>, John Torous, and Sophia Ananiadou</div>
+          <div class="publication-venue">BioNLP 2026, pp. 932–943, 2026</div>
+        </div>
+        <div class="publication-actions">
+          <a href="https://aclanthology.org/2026.bionlp-1.75/" target="_blank" class="action-btn"><i class="fas fa-external-link-alt"></i> Paper</a>
+          <button id="btn-na-etal-2026-overview" onclick="toggleBibtex('na-etal-2026-overview')" class="action-btn bibtex-toggle-btn"><i class="fas fa-quote-right"></i> BibTeX</button>
+        </div>
+        <div id="bib-na-etal-2026-overview" class="bibtex-box">
+          <pre id="code-na-etal-2026-overview" class="bibtex-pre">@inproceedings{na-etal-2026-overview,
+  title     = {Overview of the {P}sy{D}ef{D}etect Shared Task at {B}io{NLP} 2026: Detecting Levels of Psychological Defense Mechanisms in Supportive Conversations},
+  author    = {Na, Hongbin  and
+               Wang, Zimu  and
+               Chen, Zhaoming  and
+               Hua, Yining  and
+               Gao, Rena  and
+               Yang, Kailai  and
+               Chen, Ling  and
+               Wang, Wei  and
+               Ji, Shaoxiong  and
+               Torous, John  and
+               Ananiadou, Sophia},
+  editor    = {Demner-Fushman, Dina  and
+               Ananiadou, Sophia  and
+               Roberts, Kirk  and
+               Tsujii, Junichi},
+  booktitle = {{B}io{NLP} 2026},
+  month     = jul,
+  year      = {2026},
+  address   = {San Diego, California},
+  publisher = {Association for Computational Linguistics},
+  url       = {https://aclanthology.org/2026.bionlp-1.75/},
+  doi       = {10.18653/v1/2026.bionlp-1.75},
+  pages     = {932--943},
+  isbn      = {979-8-89176-434-7}
+}</pre>
+        </div>
+      </div>
+
+      <div class="publication-item" data-title="You Never Know a Person, You Only Know Their Defenses: Detecting Levels of Psychological Defense Mechanisms in Supportive Conversations" data-authors="Hongbin Na, Zimu Wang, Zhaoming Chen, Peilin Zhou, Yining Hua, Grace Ziqi Zhou, Haiyang Zhang, Tao Shen, Wei Wang, John Torous, Shaoxiong Ji, Ling Chen" data-venue="Findings of the Association for Computational Linguistics: ACL 2026" data-year="2026">
+        <div class="publication-content">
+          <div class="publication-title">You Never Know a Person, You Only Know Their Defenses: Detecting Levels of Psychological Defense Mechanisms in Supportive Conversations</div>
+          <div class="publication-authors">Hongbin Na, Zimu Wang, Zhaoming Chen, Peilin Zhou, Yining Hua, Grace Ziqi Zhou, Haiyang Zhang, Tao Shen, Wei Wang, John Torous, <strong>Shaoxiong Ji</strong>, and Ling Chen</div>
+          <div class="publication-venue">Findings of the Association for Computational Linguistics: ACL 2026, pp. 14428–14448, 2026</div>
+        </div>
+        <div class="publication-actions">
+          <a href="https://aclanthology.org/2026.findings-acl.708/" target="_blank" class="action-btn"><i class="fas fa-external-link-alt"></i> Paper</a>
+          <button id="btn-na-etal-2026-never" onclick="toggleBibtex('na-etal-2026-never')" class="action-btn bibtex-toggle-btn"><i class="fas fa-quote-right"></i> BibTeX</button>
+        </div>
+        <div id="bib-na-etal-2026-never" class="bibtex-box">
+          <pre id="code-na-etal-2026-never" class="bibtex-pre">@inproceedings{na-etal-2026-never,
+  title     = {You Never Know a Person, You Only Know Their Defenses: Detecting Levels of Psychological Defense Mechanisms in Supportive Conversations},
+  author    = {Na, Hongbin  and
+               Wang, Zimu  and
+               Chen, Zhaoming  and
+               Zhou, Peilin  and
+               Hua, Yining  and
+               Zhou, Grace Ziqi  and
+               Zhang, Haiyang  and
+               Shen, Tao  and
+               Wang, Wei  and
+               Torous, John  and
+               Ji, Shaoxiong  and
+               Chen, Ling},
+  editor    = {Liakata, Maria  and
+               Moreira, Viviane P.  and
+               Zhang, Jiajun  and
+               Jurgens, David},
+  booktitle = {Findings of the {A}ssociation for {C}omputational {L}inguistics: {ACL} 2026},
+  month     = jul,
+  year      = {2026},
+  address   = {San Diego, California, United States},
+  publisher = {Association for Computational Linguistics},
+  url       = {https://aclanthology.org/2026.findings-acl.708/},
+  doi       = {10.18653/v1/2026.findings-acl.708},
+  pages     = {14428--14448},
+  isbn      = {979-8-89176-395-1}
+}</pre>
+        </div>
+      </div>
+
+      <div class="publication-item" data-title="Reasoning over Grammar: Can Synthetic Linguistic Reasoning Traces Enhance Low-Resource Machine Translation?" data-authors="Renhao Pei, Yihong Liu, Sampo Pyysalo, Hinrich Schütze, Shaoxiong Ji" data-venue="arXiv preprint arXiv:2606.03782" data-year="2026">
+        <div class="publication-content">
+          <div class="publication-title">Reasoning over Grammar: Can Synthetic Linguistic Reasoning Traces Enhance Low-Resource Machine Translation?</div>
+          <div class="publication-authors"><strong>Renhao Pei</strong>, Yihong Liu, Sampo Pyysalo, Hinrich Schütze, and <strong>Shaoxiong Ji</strong></div>
+          <div class="publication-venue">arXiv preprint arXiv:2606.03782, 2026</div>
+        </div>
+        <div class="publication-actions">
+          <button id="btn-pei2026reasoning" onclick="toggleBibtex('pei2026reasoning')" class="action-btn bibtex-toggle-btn"><i class="fas fa-quote-right"></i> BibTeX</button>
+        </div>
+        <div id="bib-pei2026reasoning" class="bibtex-box">
+          <pre id="code-pei2026reasoning" class="bibtex-pre">@article{pei2026reasoning,
+  title   = {Reasoning over Grammar: Can Synthetic Linguistic Reasoning Traces Enhance Low-Resource Machine Translation?},
+  author  = {Pei, Renhao and Liu, Yihong and Pyysalo, Sampo and Sch{\"u}tze, Hinrich and Ji, Shaoxiong},
+  journal = {arXiv preprint arXiv:2606.03782},
+  year    = {2026}
+}</pre>
+        </div>
+      </div>
+
+      <div class="publication-item" data-title="Are LLMs Ready to Assist Physicians? PhysAssistBench for Interactive Doctor-Patient-EHR Assistance" data-authors="Tianming Du, Peijie Yu, Sihan Shang, Danli Shi, My Linh Nguyen, Shengbo Gao, Guangyuan Li, Yinghong Yu, Yan Jiang, Qianlong Zhao, Behzad Bozorgtabar, Shaoxiong Ji, Jiazhen Pan, Daniel Rueckert, Jiancheng Yang" data-venue="arXiv preprint arXiv:2606.18613" data-year="2026">
+        <div class="publication-content">
+          <div class="publication-title">Are LLMs Ready to Assist Physicians? PhysAssistBench for Interactive Doctor-Patient-EHR Assistance</div>
+          <div class="publication-authors">Tianming Du, Peijie Yu, Sihan Shang, Danli Shi, My Linh Nguyen, Shengbo Gao, Guangyuan Li, Yinghong Yu, Yan Jiang, Qianlong Zhao, Behzad Bozorgtabar, <strong>Shaoxiong Ji</strong>, Jiazhen Pan, Daniel Rueckert, and Jiancheng Yang</div>
+          <div class="publication-venue">arXiv preprint arXiv:2606.18613, 2026</div>
+        </div>
+        <div class="publication-actions">
+          <button id="btn-du2026llms" onclick="toggleBibtex('du2026llms')" class="action-btn bibtex-toggle-btn"><i class="fas fa-quote-right"></i> BibTeX</button>
+        </div>
+        <div id="bib-du2026llms" class="bibtex-box">
+          <pre id="code-du2026llms" class="bibtex-pre">@article{du2026llms,
+  title   = {Are LLMs Ready to Assist Physicians? PhysAssistBench for Interactive Doctor-Patient-EHR Assistance},
+  author  = {Tianming Du and Peijie Yu and Sihan Shang and Danli Shi and My Linh Nguyen and Shengbo Gao and Guangyuan Li and Yinghong Yu and Yan Jiang and Qianlong Zhao and Behzad Bozorgtabar and Shaoxiong Ji and Jiazhen Pan and Daniel Rueckert and Jiancheng Yang},
+  journal = {arXiv preprint arXiv:2606.18613},
+  year    = {2026}
+}</pre>
+        </div>
+      </div>
+
+      <div class="publication-item" data-title="A Parallel Cross-Lingual Benchmark for Multimodal Idiomaticity Understanding" data-authors="Dilara Torunoğlu-Selamet, Doğukan Arslan, Rodrigo Wilkens, Wei He, Doruk Eryiğit, Thomas Pickard, Adriana S. Pagano, Aline Villavicencio, Gülşen Eryiğit, Ágnes Abuczki, Aida Cardoso, Alesia Lazarenka, Dina Almassova, Amália Mendes, Anna Kanellopoulou, Antoni Brosa-Rodriguez, Baiba Valkovska, Beata Wojtowicz, Bolette Pedersen, Carlos Manuel Hidalgo-Ternero, Chaya Liebeskind, Danka Jokić, Diego Alves, Eleni Triantafyllidi, Erik Velldal, Fred Philippy, Giedre Valunaite Oleskeviciene, Ieva Rizgeliene, Inguna Skadina, Irina Lobzhanidze, Isabell Stinessen Haugen, Jauza Akbar Krito, Jelena M. Marković, Johanna Monti, Josue Alejandro Sauca, Kaja Dobrovoljc, Kingsley O. Ugwuanyi, Laura Rituma, Lilja Øvrelid, Maha Tufail Agro, Manzura Abjalova, Maria Chatzigrigoriou, María del Mar Sánchez Ramos, Marija Pendevska, Masoumeh Seyyedrezaei, Mehrnoush Shamsfard, Momina Ahsan, Muhammad Ahsan Riaz Khan, Nathalie Carmen Hau Norman, Nilay Erdem Ayyıldız, Nina Hosseini-Kivanani, Noémi Ligeti-Nagy, Numaan Naeem, Olha Kanishcheva, Olha Yatsyshyna, Daniil Orel, Petra Giommarelli, Petya Osenova, Radovan Garabik, Regina E. Semou, Rozane Rebechi, Salsabila Zahirah Pranida, Samia Touileb, Sanni Nimb, Sarfraz Ahmad, Sarvinoz Sharipova, Shahar Golan, Shaoxiong Ji, Sopuruchi Christian Aboh, Srdjan Sucur, Stella Markantonatou, Sussi Olsen, Vahide Tajalli, Veronika Lipp, Voula Giouli, Yelda Yeşildal Eraydın, Zahra Saaberi, Zhuohan Xie" data-venue="Proceedings of the Fifteenth Language Resources and Evaluation Conference (LREC 2026)" data-year="2026">
+        <div class="publication-content">
+          <div class="publication-title">A Parallel Cross-Lingual Benchmark for Multimodal Idiomaticity Understanding</div>
+          <div class="publication-authors">Dilara Torunoğlu-Selamet, Doğukan Arslan, Rodrigo Wilkens, Wei He, Doruk Eryiğit, Thomas Pickard, Adriana S. Pagano, Aline Villavicencio, Gülşen Eryiğit, Ágnes Abuczki, Aida Cardoso, Alesia Lazarenka, Dina Almassova, Amália Mendes, Anna Kanellopoulou, Antoni Brosa-Rodriguez, Baiba Valkovska, Beata Wojtowicz, Bolette Pedersen, Carlos Manuel Hidalgo-Ternero, Chaya Liebeskind, Danka Jokić, Diego Alves, Eleni Triantafyllidi, Erik Velldal, Fred Philippy, Giedre Valunaite Oleskeviciene, Ieva Rizgeliene, Inguna Skadina, Irina Lobzhanidze, Isabell Stinessen Haugen, Jauza Akbar Krito, Jelena M. Marković, Johanna Monti, Josue Alejandro Sauca, Kaja Dobrovoljc, Kingsley O. Ugwuanyi, Laura Rituma, Lilja Øvrelid, Maha Tufail Agro, Manzura Abjalova, Maria Chatzigrigoriou, María del Mar Sánchez Ramos, Marija Pendevska, Masoumeh Seyyedrezaei, Mehrnoush Shamsfard, Momina Ahsan, Muhammad Ahsan Riaz Khan, Nathalie Carmen Hau Norman, Nilay Erdem Ayyıldız, Nina Hosseini-Kivanani, Noémi Ligeti-Nagy, Numaan Naeem, Olha Kanishcheva, Olha Yatsyshyna, Daniil Orel, Petra Giommarelli, Petya Osenova, Radovan Garabik, Regina E. Semou, Rozane Rebechi, Salsabila Zahirah Pranida, Samia Touileb, Sanni Nimb, Sarfraz Ahmad, Sarvinoz Sharipova, Shahar Golan, <strong>Shaoxiong Ji</strong>, Sopuruchi Christian Aboh, Srdjan Sucur, Stella Markantonatou, Sussi Olsen, Vahide Tajalli, Veronika Lipp, Voula Giouli, Yelda Yeşildal Eraydın, Zahra Saaberi, and Zhuohan Xie</div>
+          <div class="publication-venue">Proceedings of the Fifteenth Language Resources and Evaluation Conference (LREC 2026), pp. 9434–9448, 2026</div>
+        </div>
+        <div class="publication-actions">
+          <button id="btn-torunoluselamet-etal-2026-parallel" onclick="toggleBibtex('torunoluselamet-etal-2026-parallel')" class="action-btn bibtex-toggle-btn"><i class="fas fa-quote-right"></i> BibTeX</button>
+        </div>
+        <div id="bib-torunoluselamet-etal-2026-parallel" class="bibtex-box">
+          <pre id="code-torunoluselamet-etal-2026-parallel" class="bibtex-pre">@inproceedings{torunoluselamet-etal-2026-parallel,
+  title     = {A Parallel Cross-Lingual Benchmark for Multimodal Idiomaticity Understanding},
+  author    = {Torunoğlu-Selamet, Dilara and Arslan, Doğukan and Wilkens, Rodrigo and He, Wei and Eryiğit, Doruk and Pickard, Thomas and Pagano, Adriana S. and Villavicencio, Aline and Eryiğit, Gülşen and Abuczki, Ágnes and Cardoso, Aida and Lazarenka, Alesia and Almassova, Dina and Mendes, Amália and Kanellopoulou, Anna and Brosa-Rodriguez, Antoni and Valkovska, Baiba and Wojtowicz, Beata and Pedersen, Bolette and Hidalgo-Ternero, Carlos Manuel and Liebeskind, Chaya and Jokić, Danka and Alves, Diego and Triantafyllidi, Eleni and Velldal, Erik and Philippy, Fred and Oleskeviciene, Giedre Valunaite and Rizgeliene, Ieva and Skadina, Inguna and Lobzhanidze, Irina and Haugen, Isabell Stinessen and Krito, Jauza Akbar and Marković, Jelena M. and Monti, Johanna and Sauca, Josue Alejandro and Dobrovoljc, Kaja and Ugwuanyi, Kingsley O. and Rituma, Laura and Øvrelid, Lilja and Agro, Maha Tufail and Abjalova, Manzura and Chatzigrigoriou, Maria and Ramos, María del Mar Sánchez and Pendevska, Marija and Seyyedrezaei, Masoumeh and Shamsfard, Mehrnoush and Ahsan, Momina and Khan, Muhammad Ahsan Riaz and Norman, Nathalie Carmen Hau and Ayyıldız, Nilay Erdem and Hosseini-Kivanani, Nina and Ligeti-Nagy, Noémi and Naeem, Numaan and Kanishcheva, Olha and Yatsyshyna, Olha and Orel, Daniil and Giommarelli, Petra and Osenova, Petya and Garabik, Radovan and Semou, Regina E. and Rebechi, Rozane and Pranida, Salsabila Zahirah and Touileb, Samia and Nimb, Sanni and Ahmad, Sarfraz and Sharipova, Sarvinoz and Golan, Shahar and Ji, Shaoxiong and Aboh, Sopuruchi Christian and Sucur, Srdjan and Markantonatou, Stella and Olsen, Sussi and Tajalli, Vahide and Lipp, Veronika and Giouli, Voula and Eraydın, Yelda Yeşildal and Saaberi, Zahra and Xie, Zhuohan},
+  booktitle = {Proceedings of the Fifteenth Language Resources and Evaluation Conference (LREC 2026)},
+  month     = {May},
+  year      = {2026},
+  pages     = {9434--9448},
+  address   = {Palma, Mallorca, Spain},
+  publisher = {European Language Resources Association (ELRA)},
+  editor    = {Piperidis, Stelios and Bel, Núria and van den Heuvel, Henk and Ide, Nancy and Krek, Simon and Toral, Antonio},
+  doi       = {10.63317/5cvnbcoktfo2},
+  abstract  = {Potentially idiomatic expressions (PIEs) carry meanings inherently tied to the everyday experience of a given language community. As such, they constitute an interesting challenge for assessing the linguistic (and to some extent cultural) capabilities of NLP systems. In this paper, we present XMPIE, a parallel multilingual and multimodal dataset of potentially idiomatic expressions. The dataset, containing 34 languages and over ten thousand items, allows comparative analyses of idiomatic patterns among language-specific realisations and preferences in order to gather insights about shared cultural aspects. This parallel dataset allows evaluation of language model performance for a given PIE in different languages and whether idiomatic understanding in one language can be transferred to another. Moreover, the dataset supports the study of PIEs across textual and visual modalities, to measure to what extent PIE understanding in one modality transfers or implies in understanding in another modality (text vs. image). The data was created by language experts, with both textual and visual components crafted under multilingual guidelines, and each PIE is accompanied by five images representing a spectrum from idiomatic to literal meanings, including semantically related and random distractors. The result is a high-quality benchmark for evaluating multilingual and multimodal idiomatic language understanding.}
+}</pre>
+        </div>
+      </div>
+
+      <div class="publication-item" data-title="Psychologically-Grounded Graph Modeling for Interpretable Depression Detection" data-authors="Rishitej Reddy Vyalla, Kritarth Prasad, Avinash Anand, Erik Cambria, Shaoxiong Ji, Faten S Alamri, Zhengkui Wang" data-venue="arXiv preprint arXiv:2604.24126" data-year="2026">
+        <div class="publication-content">
+          <div class="publication-title">Psychologically-Grounded Graph Modeling for Interpretable Depression Detection</div>
+          <div class="publication-authors">Rishitej Reddy Vyalla, Kritarth Prasad, Avinash Anand, Erik Cambria, <strong>Shaoxiong Ji</strong>, Faten S Alamri, and Zhengkui Wang</div>
+          <div class="publication-venue">arXiv preprint arXiv:2604.24126, 2026</div>
+        </div>
+        <div class="publication-actions">
+          <button id="btn-vyalla2026psychologically" onclick="toggleBibtex('vyalla2026psychologically')" class="action-btn bibtex-toggle-btn"><i class="fas fa-quote-right"></i> BibTeX</button>
+        </div>
+        <div id="bib-vyalla2026psychologically" class="bibtex-box">
+          <pre id="code-vyalla2026psychologically" class="bibtex-pre">@article{vyalla2026psychologically,
+  title   = {Psychologically-Grounded Graph Modeling for Interpretable Depression Detection},
+  author  = {Vyalla, Rishitej Reddy and Prasad, Kritarth and Anand, Avinash and Cambria, Erik and Ji, Shaoxiong and Alamri, Faten S and Wang, Zhengkui},
+  journal = {arXiv preprint arXiv:2604.24126},
+  year    = {2026}
+}</pre>
+        </div>
+      </div>
+
+      <div class="publication-item" data-title="Graph2text or Graph2token: A Perspective of Large Language Models for Graph Learning" data-authors="Shuo Yu, Yingbo Wang, Ruolin Li, Guchun Liu, Yanming Shen, Shaoxiong Ji, Bowen Li, Fengling Han, Xiuzhen Zhang, Feng Xia" data-venue="ACM Trans. Inf. Syst." data-year="2026">
+        <div class="publication-content">
+          <div class="publication-title">Graph2text or Graph2token: A Perspective of Large Language Models for Graph Learning</div>
+          <div class="publication-authors">Shuo Yu, Yingbo Wang, Ruolin Li, Guchun Liu, Yanming Shen, <strong>Shaoxiong Ji</strong>, Bowen Li, Fengling Han, Xiuzhen Zhang, and Feng Xia</div>
+          <div class="publication-venue">ACM Trans. Inf. Syst., 2026</div>
+        </div>
+        <div class="publication-actions">
+          <a href="https://doi.org/10.1145/3786600" target="_blank" class="action-btn"><i class="fas fa-external-link-alt"></i> Paper</a>
+          <button id="btn-yu2025graph2text" onclick="toggleBibtex('yu2025graph2text')" class="action-btn bibtex-toggle-btn"><i class="fas fa-quote-right"></i> BibTeX</button>
+        </div>
+        <div id="bib-yu2025graph2text" class="bibtex-box">
+          <pre id="code-yu2025graph2text" class="bibtex-pre">@article{yu2025graph2text,
+  author     = {Yu, Shuo and Wang, Yingbo and Li, Ruolin and Liu, Guchun and Shen, Yanming and Ji, Shaoxiong and Li, Bowen and Han, Fengling and Zhang, Xiuzhen and Xia, Feng},
+  title      = {Graph2text or Graph2token: A Perspective of Large Language Models for Graph Learning},
+  year       = {2026},
+  issue_date = {March 2026},
+  publisher  = {Association for Computing Machinery},
+  address    = {New York, NY, USA},
+  volume     = {44},
+  number     = {3},
+  issn       = {1046-8188},
+  url        = {https://doi.org/10.1145/3786600},
+  doi        = {10.1145/3786600},
+  abstract   = {Graphs are prevalent in numerous real-world applications. Previous methods directly model graph structures and achieve significant success. However, these methods encounter bottlenecks due to the inherent irregularity of graphs. An innovative solution is converting graphs into textual representations, thereby harnessing the powerful capabilities of Large Language Models (LLMs) to process and comprehend graphs. In this article, we present a comprehensive review of methodologies for applying LLMs to graphs, termed LLM4graph. The core of LLM4graph lies in transforming graphs into texts for LLMs to understand and analyze. Thus, we propose a novel taxonomy of LLM4graph methods from the view of the transformation. Specifically, existing methods can be divided into two paradigms: Graph2text and Graph2token, which transform graphs into texts or tokens as the input of LLMs, respectively. We point out four challenges during the transformation to systematically present existing methods from a problem-oriented perspective. For practical concerns, we provide a guideline for researchers on selecting appropriate models and LLMs for different graphs and hardware constraints. To empirically evaluate our taxonomy and different technical choices, we conduct experiments with representative methods in Graph2text and Graph2token. We also identify five future research directions for LLM4graph.},
+  journal    = {ACM Trans. Inf. Syst.},
+  month      = feb,
+  articleno  = {57},
+  numpages   = {49},
+  keywords   = {Graph data, Large language model, Graph to text, Graph to token, Graph learning}
+}</pre>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <div class="year-group" data-year="2025">
+      <h3 class="year-title">2025</h3>
+      <div class="publication-list">
+      <div class="publication-item" data-title="Roleplaying with Structure: Synthetic Therapist-Client Conversation Generation from Questionnaires" data-authors="Doan Nam Long Vu, Rui Tan, Lena Moench, Svenja Jule Francke, Daniel Woiwod, Florian Thomas-Odenthal, Sanna Stroth, Tilo Kircher, Christiane Hermann, Udo Dannlowski, Hamidreza Jamalabadi, Shaoxiong Ji" data-venue="arXiv preprint arXiv:2510.25384" data-year="2025">
+        <div class="publication-content">
+          <div class="publication-title">Roleplaying with Structure: Synthetic Therapist-Client Conversation Generation from Questionnaires</div>
+          <div class="publication-authors">Doan Nam Long Vu, Rui Tan, Lena Moench, Svenja Jule Francke, Daniel Woiwod, Florian Thomas-Odenthal, Sanna Stroth, Tilo Kircher, Christiane Hermann, Udo Dannlowski, Hamidreza Jamalabadi, and <strong>Shaoxiong Ji</strong></div>
+          <div class="publication-venue">arXiv preprint arXiv:2510.25384, 2025</div>
+        </div>
+        <div class="publication-actions">
+          <button id="btn-vu2025roleplaying" onclick="toggleBibtex('vu2025roleplaying')" class="action-btn bibtex-toggle-btn"><i class="fas fa-quote-right"></i> BibTeX</button>
+        </div>
+        <div id="bib-vu2025roleplaying" class="bibtex-box">
+          <pre id="code-vu2025roleplaying" class="bibtex-pre">@article{vu2025roleplaying,
+  title   = {Roleplaying with Structure: Synthetic Therapist-Client Conversation Generation from Questionnaires},
+  author  = {Doan Nam Long Vu and Rui Tan and Lena Moench and Svenja Jule Francke and Daniel Woiwod and Florian Thomas-Odenthal and Sanna Stroth and Tilo Kircher and Christiane Hermann and Udo Dannlowski and Hamidreza Jamalabadi and Shaoxiong Ji},
+  journal = {arXiv preprint arXiv:2510.25384},
+  year    = {2025}
+}</pre>
+        </div>
+      </div>
+
+      <div class="publication-item" data-title="Rethinking Multilingual Continual Pretraining: Data Mixing for Adapting LLMs Across Languages and Resources" data-authors="Zihao Li, Shaoxiong Ji, Hengyu Luo, Jörg Tiedemann" data-venue="Conference on Language Modeling (COLM)" data-year="2025">
+        <div class="publication-content">
+          <div class="publication-title">Rethinking Multilingual Continual Pretraining: Data Mixing for Adapting LLMs Across Languages and Resources</div>
+          <div class="publication-authors"><strong>Zihao Li</strong>, <strong>Shaoxiong Ji</strong>, Hengyu Luo, and Jörg Tiedemann</div>
+          <div class="publication-venue">Conference on Language Modeling (COLM), 2025</div>
+        </div>
+        <div class="publication-actions">
+          <a href="https://openreview.net/pdf?id=mpTIzK4Zca" target="_blank" class="action-btn"><i class="fas fa-file-pdf"></i> Paper</a>
+          <button id="btn-li2025rethinking" onclick="toggleBibtex('li2025rethinking')" class="action-btn bibtex-toggle-btn"><i class="fas fa-quote-right"></i> BibTeX</button>
+        </div>
+        <div id="bib-li2025rethinking" class="bibtex-box">
+          <pre id="code-li2025rethinking" class="bibtex-pre">@inproceedings{li2025rethinking,
+  title     = {Rethinking Multilingual Continual Pretraining: Data Mixing for Adapting {LLMs} Across Languages and Resources},
+  author    = {Li, Zihao and Ji, Shaoxiong and Luo, Hengyu and Tiedemann, J{\"o}rg},
+  booktitle = {Conference on Language Modeling ({COLM})},
+  year      = {2025},
+  url       = {https://openreview.net/pdf?id=mpTIzK4Zca}
+}</pre>
+        </div>
+      </div>
+
+      <div class="publication-item" data-title="GlotEval: A Test Suite for Massively Multilingual Evaluation of Large Language Models" data-authors="Hengyu Luo, Zihao Li, Joseph Attieh, Sawal Devkota, Ona de Gibert, Xu Huang, Shaoxiong Ji, Peiqin Lin, Bhavani Sai Praneeth Varma Mantina, Ananda Sreenidhi, Raúl Vázquez, Mengjie Wang, Samea Yusofi, Fei Yuan, Jörg Tiedemann" data-venue="Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing: System Demonstrations" data-year="2025">
+        <div class="publication-content">
+          <div class="publication-title">GlotEval: A Test Suite for Massively Multilingual Evaluation of Large Language Models</div>
+          <div class="publication-authors">Hengyu Luo, <strong>Zihao Li</strong>, Joseph Attieh, Sawal Devkota, Ona de Gibert, Xu Huang, <strong>Shaoxiong Ji</strong>, Peiqin Lin, Bhavani Sai Praneeth Varma Mantina, Ananda Sreenidhi, Raúl Vázquez, Mengjie Wang, Samea Yusofi, Fei Yuan, and Jörg Tiedemann</div>
+          <div class="publication-venue">Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing: System Demonstrations, pp. 602–614, 2025</div>
+        </div>
+        <div class="publication-actions">
+          <a href="https://aclanthology.org/2025.emnlp-demos.43/" target="_blank" class="action-btn"><i class="fas fa-external-link-alt"></i> Paper</a>
+          <button id="btn-luo2025gloteval" onclick="toggleBibtex('luo2025gloteval')" class="action-btn bibtex-toggle-btn"><i class="fas fa-quote-right"></i> BibTeX</button>
+        </div>
+        <div id="bib-luo2025gloteval" class="bibtex-box">
+          <pre id="code-luo2025gloteval" class="bibtex-pre">@inproceedings{luo2025gloteval,
+  title     = {{G}lot{E}val: A Test Suite for Massively Multilingual Evaluation of Large Language Models},
+  author    = {Luo, Hengyu and Li, Zihao and Attieh, Joseph and Devkota, Sawal and de Gibert, Ona and Huang, Xu and Ji, Shaoxiong and Lin, Peiqin and Mantina, Bhavani Sai Praneeth Varma and Sreenidhi, Ananda and V{\'a}zquez, Ra{\'u}l and Wang, Mengjie and Yusofi, Samea and Yuan, Fei and Tiedemann, J{\"o}rg},
+  booktitle = {Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing: System Demonstrations},
+  pages     = {602--614},
+  year      = {2025},
+  doi       = {10.18653/v1/2025.emnlp-demos.43},
+  url       = {https://aclanthology.org/2025.emnlp-demos.43/}
+}</pre>
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div>&copy; 2026 Omni Language AI Research.</div>
+    <div class="footer-logo-container">
+      <a href="https://turkunlp.org" target="_blank"><img src="images/logos/turkunlp.png" alt="TurkuNLP" class="footer-logo" title="TurkuNLP"></a>
+      <a href="https://www.ellisinstitute.fi" target="_blank"><img src="images/logos/ellis-logo_horizontal_black_2023-FINLAND.png" alt="ELLIS Institute Finland" class="footer-logo" title="ELLIS Institute Finland"></a>
+      <a href="https://www.utu.fi/en" target="_blank"><img src="images/logos/UTU_logo_EN_RGB.png" alt="University of Turku" class="footer-logo" title="University of Turku"></a>
+    </div>
+    <a href="https://github.com/OLAResearch" style="color: inherit; font-size: 1.5rem; transition: var(--transition-smooth);"><i class="fab fa-github"></i></a>
+  </footer>
+
+  <script src="./static/js/main.js"></script>
+</body>
+</html>

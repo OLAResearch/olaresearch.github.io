@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Omni Language AI Research (OLAResearch) develops scalable and multimodal AI systems tailored for real-world applications in linguistics, deep learning, and healthcare.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Omni Language AI Research</title>
+
+  <!-- OpenGraph Metadata for AI Search & Social Previews -->
+  <meta property="og:title" content="Omni Language AI Research (OLAResearch)">
+  <meta property="og:description" content="Distilling the essence of human language into artificial intelligence.">
+  <meta property="og:image" content="https://www.olaresearch.org/images/logos/olar.svg">
+  <meta property="og:url" content="https://www.olaresearch.org/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="OLAResearch">
+
+  <!-- Twitter Card Metadata -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Omni Language AI Research">
+  <meta name="twitter:description" content="Distilling the essence of human language into artificial intelligence.">
+  <meta name="twitter:image" content="https://www.olaresearch.org/images/logos/olar.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./images/logos/olar.svg">
+
+  <!-- Schema.org JSON-LD Structured Data for AI Search Engines & Agents -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ResearchOrganization",
+    "name": "Omni Language AI Research",
+    "alternateName": "OLAResearch",
+    "url": "https://www.olaresearch.org/",
+    "logo": "https://www.olaresearch.org/images/logos/olar.svg",
+    "sameAs": [
+      "https://github.com/OLAResearch",
+      "https://huggingface.co/OLAResearchX"
+    ],
+    "member": [
+      {
+        "@type": "OrganizationRole",
+        "member": {
+          "@type": "Person",
+          "name": "Shaoxiong Ji",
+          "jobTitle": "Principal Investigator",
+          "url": "https://www.olaresearch.org/jis/"
+        },
+        "roleName": "Principal Investigator"
+      },
+      {
+        "@type": "OrganizationRole",
+        "member": {
+          "@type": "Person",
+          "name": "Zihao Li",
+          "jobTitle": "Doctoral Researcher",
+          "url": "https://www.zihao.cool"
+        },
+        "roleName": "Doctoral Researcher"
+      },
+      {
+        "@type": "OrganizationRole",
+        "member": {
+          "@type": "Person",
+          "name": "Renhao Pei",
+          "jobTitle": "Doctoral Researcher",
+          "url": "https://peirh.github.io"
+        },
+        "roleName": "Doctoral Researcher"
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* Custom styles for hero section links layout */
+    .hero-links-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.25rem;
+    }
+    .hero-social-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .hero-social-links a {
+      display: inline-flex;
+      align-items: center;
+      height: 20px;
+      text-decoration: none;
+    }
+    .hero-social-label {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-right: 0.25rem;
+    }
+    .hero-social-logo {
+      height: 20px;
+      opacity: 0.5;
+      filter: grayscale(100%);
+      transition: var(--transition-smooth);
+    }
+    .hero-social-logo:hover {
+      opacity: 1;
+      filter: grayscale(0%);
+    }
+    .hero-social-icon {
+      font-size: 20px;
+      color: var(--text-primary);
+      opacity: 0.5;
+      transition: var(--transition-smooth);
+      height: 20px;
+      line-height: 1;
+    }
+    .hero-social-icon:hover {
+      opacity: 1;
+      color: var(--text-primary);
+    }
+    @media (max-width: 768px) {
+      .hero-links-container {
+        align-items: center;
+      }
+      .hero-social-links {
+        justify-content: center;
+      }
+      .hero-social-links a {
+        height: 16px;
+      }
+      .hero-social-logo {
+        height: 16px;
+      }
+      .hero-social-icon {
+        font-size: 16px;
+        height: 16px;
+      }
+    }
+
+    /* Mobile Navigation Override */
+    .navbar-burger {
+      display: none;
+    }
+    @media (max-width: 768px) {
+      .navbar-brand {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      }
+      .navbar-burger {
+        display: block;
+        background: none;
+        border: none;
+        color: var(--text-primary);
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        outline: none;
+        transition: var(--transition-smooth);
+      }
+      .navbar-burger:hover {
+        color: var(--accent-earth);
+      }
+      .navbar-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: rgba(253, 252, 249, 0.98);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border-color);
+        padding: 1.5rem 4vw;
+        gap: 1.5rem;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+      }
+      .navbar-menu.is-active {
+        display: flex !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="index.html">
+        <img src="./images/logos/olar.svg" alt="OLAR Home" style="height: 2rem;">
+      </a>
+      <button class="navbar-burger" aria-label="toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+    <div class="navbar-menu">
+      <a class="navbar-item" href="about.html">About</a>
+      <a class="navbar-item" href="#projects">Projects</a>
+      <a class="navbar-item" href="#papers">Publications</a>
+      <a class="navbar-item" href="#people">People</a>
+      <a class="navbar-item" href="seminar/index.html">Seminars</a>
+      <a class="navbar-item" href="news/index.html">News</a>
+    </div>
+  </nav>
+
+  <header class="section hero">
+    <div class="hero-shape"></div>
+    <div class="container hero-content">
+      <img src="./images/logos/olar.svg" alt="OLAR Logo" class="hero-logo">
+      <h1 class="title is-1">Distilling the essence of human language into artificial intelligence.</h1>
+      <p class="subtitle">Omni Language AI Research develops scalable and multimodal AI systems tailored for real-world
+        applications.</p>
+
+      <div class="hero-links-container">
+        <div class="hero-affiliations">
+          <a href="https://turkunlp.org" target="_blank"><img src="images/logos/turkunlp.png" alt="TurkuNLP"
+              class="hero-affiliation-logo" title="TurkuNLP"></a>
+          <a href="https://www.ellisinstitute.fi" target="_blank"><img
+               src="images/logos/ellis-logo_horizontal_black_2023-FINLAND.png" alt="ELLIS"
+              class="hero-affiliation-logo" title="ELLIS Institute Finland"></a>
+          <a href="https://www.utu.fi/en" target="_blank"><img src="images/logos/UTU_logo_EN_RGB.png" alt="UTU"
+              class="hero-affiliation-logo" title="University of Turku"></a>
+        </div>
+        <br>
+        <br>
+        <br>
+
+        <span class="hero-social-label">Follow Us:</span>
+        <div class="hero-social-links">
+          <a href="https://groups.google.com/g/omni-language-ai-research" target="_blank"><img
+              src="images/logos/google-groups-icon.png" alt="Google Groups"
+              class="hero-social-logo" title="Google Groups"></a>
+          <a href="https://huggingface.co/OLAResearchX" target="_blank"><img
+              src="images/logos/huggingface-logo.svg" alt="Hugging Face"
+              class="hero-social-logo" title="Hugging Face"></a>
+          <a href="https://github.com/OLAResearch" target="_blank" class="hero-social-icon" title="GitHub"><i class="fab fa-github"></i></a>
+          </div>
+        <div class="hero-social-links" style="margin-top: 0.25rem;">
+          <a href="join.html" style="font-family: var(--font-sans); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-earth); text-decoration: none; transition: var(--transition-smooth); display: inline-flex; align-items: center;"
+            onmouseover="this.style.color='var(--text-primary)'"
+            onmouseout="this.style.color='var(--accent-earth)'">
+            Join Us <i class="fas fa-arrow-right" style="font-size: 0.75rem; margin-left: 0.4rem;"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </header>
+
+  <section id="about" class="section">
+    <div class="container editorial-grid">
+      <div class="editorial-text">
+        <h2 class="title is-2">A natural approach to complex problems.</h2>
+        <p>We are a dedicated research collective operating at the intersection of deep learning, linguistics, and
+          healthcare. Our mission is to bridge the gap between high-resource and low-resource languages, ensuring
+          equitable access to advanced AI.</p>
+        <p>By blending rigorous academic methodology with modern engineering, we create systems that don't just process
+          text, but comprehend context, nuance, and intent at an unprecedented scale.</p>
+        <div style="margin-top: 2.5rem;">
+          <a href="about.html" class="btn-secondary">More About Our Research</a>
+        </div>
+      </div>
+      <div class="editorial-image-placeholder">
+        <div
+          style="width:100%; height:100%; background: url('images/unsplash/emilipothese-FTfjMijq-Ws-unsplash.jpg') center/cover; opacity: 0.9; mix-blend-mode: multiply; border-radius: 4px;">
+        </div>
+        <p style="font-size: 0.7rem; color: var(--text-secondary); margin-top: 0.5rem; text-align: right;">
+          Photo by <a
+            href="https://unsplash.com/@emilipothese?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+            target="_blank" style="color: inherit; text-decoration: underline;">Emilipothèse</a> on <a
+            href="https://unsplash.com/photos/gray-and-white-robot-illustration-FTfjMijq-Ws?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+            target="_blank" style="color: inherit; text-decoration: underline;">Unsplash</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="section" style="background-color: var(--surface-color);">
+    <div class="container">
+      <h2 class="title is-2">Research Directions</h2>
+      <div class="research-grid">
+        <a href="fine-health-foundry.html" class="research-card">
+          <span class="tag">Active Project</span>
+          <h3>FINe-Health Foundry</h3>
+          <p>Developing a nationwide, versatile foundation health model using Finland's national health databases for clinical decision support, individual disease prevention, and policy simulations.</p>
+          <div class="card-arrow">Check Details <i class="fas fa-arrow-right"></i></div>
+        </a>
+
+        <a href="ai4health.html" class="research-card">
+          <span class="tag">Active Direction</span>
+          <h3>AI for Health</h3>
+          <p>Developing next-generation AI systems for pathology, treatment optimization, and automated clinical decision-making.</p>
+          <div class="card-arrow">Check Details <i class="fas fa-arrow-right"></i></div>
+        </a>
+
+        <a href="ai-mh.html" class="research-card">
+          <span class="tag">Active Direction</span>
+          <h3>AI for Mental Health</h3>
+          <p>Advancing automated mental health analysis through domain-specific LLMs, emotional analysis, and resource-driven modeling.</p>
+          <div class="card-arrow">Check Details <i class="fas fa-arrow-right"></i></div>
+        </a>
+
+        <a href="multilingual-nlp.html" class="research-card">
+          <span class="tag">Active Direction</span>
+          <h3>Multilingual NLP</h3>
+          <p>Multilingual NLP for low-resource languages, ensuring global applicability of language technology.</p>
+          <div class="card-arrow">Check Details <i class="fas fa-arrow-right"></i></div>
+        </a>
+
+        <a href="nlp4health.html" class="research-card">
+          <span class="tag">Archived Project</span>
+          <h3>NLP for Health</h3>
+          <p>Advancing clinical information management through automated medical coding, patient outcome prediction, and biomedical reasoning.</p>
+          <div class="card-arrow">Check Details <i class="fas fa-arrow-right"></i></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="papers" class="section">
+    <div class="container">
+      <h2 class="title is-2">Selected Publications</h2>
+      <div class="research-grid">
+
+        <a href="LingReason/" class="research-card">
+          <span class="tag">arXiv 2026</span>
+          <h3>Reasoning over Grammar</h3>
+          <p>Generating synthetic linguistic reasoning traces from UD treebanks, dictionaries, and grammar rules for low-resource machine translation.</p>
+          <div class="card-arrow">Read Paper <i class="fas fa-arrow-right"></i></div>
+        </a>
+
+        <a href="TTS4MT/" class="research-card">
+          <span class="tag">EACL 2026</span>
+          <h3>Test-Time Scaling of Reasoning Models for Machine Translation</h3>
+          <p>Investigating the efficacy of inference-time computation in machine translation across diverse benchmarks and reasoning scenarios.</p>
+          <div class="card-arrow">Read Paper <i class="fas fa-arrow-right"></i></div>
+        </a>
+      </div>
+      <div style="text-align: center; margin-top: 5rem;">
+        <a href="publications.html" class="research-card"
+          style="display: inline-block; padding: 2rem 4rem; max-width: 450px; text-decoration: none;">
+          <h3 style="margin-bottom: 0.5rem;">More Publications</h3>
+          <p>Explore our complete list of publications, search research papers, and download BibTeX citations.</p>
+          <div class="card-arrow" style="margin-top: 1.5rem;">View Full List <i class="fas fa-arrow-right"></i></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="people" class="section">
+    <div class="container">
+      <h2 class="title is-2" style="text-align: center;">Our Team</h2>
+
+      <h3 class="title is-3" style="margin-top: 4rem;">Researchers</h3>
+      <div class="team-grid">
+        <div class="team-member">
+          <a href="./jis/" target="_blank"><img src="images/people/sji.jpeg"
+              alt="Shaoxiong Ji"></a>
+          <h5><a href="./jis/" target="_blank"
+              style="color: inherit; text-decoration: none;">Shaoxiong Ji</a></h5>
+          <p>Principal Investigator</p>
+          <p style="font-size: 0.75rem; color: var(--accent-sage); margin-top: 0.2rem;">ELLIS Institute Finland &
+            University of Turku</p>
+          <p style="font-size: 0.8rem; font-style: italic; margin-top: 0.5rem;">NLP & AI for Health</p>
+        </div>
+        <div class="team-member">
+          <a href="https://www.zihao.cool" target="_blank"><img src="images/people/zihao.jpg" alt="Zihao Li"></a>
+          <h5><a href="https://www.zihao.cool" target="_blank" style="color: inherit; text-decoration: none;">Zihao
+              Li</a></h5>
+          <p>Doctoral Researcher</p>
+          <p style="font-size: 0.75rem; color: var(--accent-sage); margin-top: 0.2rem;">University of Helsinki
+            (Co-supervision with Jörg Tiedemann)</p>
+          <p style="font-size: 0.8rem; font-style: italic; margin-top: 0.5rem;">Multilingual NLP</p>
+        </div>
+        <div class="team-member">
+          <a href="https://peirh.github.io" target="_blank"><img
+              src="images/people/renhao.jpeg" alt="Renhao Pei"></a>
+          <h5><a href="https://peirh.github.io" target="_blank"
+              style="color: inherit; text-decoration: none;">Renhao Pei</a></h5>
+          <p>Doctoral Researcher</p>
+          <p style="font-size: 0.75rem; color: var(--accent-sage); margin-top: 0.2rem;">ELLIS Institute Finland &
+            University of Turku</p>
+          <p style="font-size: 0.8rem; font-style: italic; margin-top: 0.5rem;">Multilingual NLP</p>
+        </div>
+        <div class="team-member">
+          <a href="https://www.utu.fi/en/people/mingyuan-li" target="_blank"><img src="images/people/default-avatar.png"
+              alt="Mingyuan Li"></a>
+          <h5><a href="https://www.utu.fi/en/people/mingyuan-li" target="_blank"
+              style="color: inherit; text-decoration: none;">Mingyuan Li</a></h5>
+          <p>Postdoc Researcher</p>
+          <p style="font-size: 0.75rem; color: var(--accent-sage); margin-top: 0.2rem;">ELLIS Institute Finland &
+            University of Turku</p>
+          <p style="font-size: 0.8rem; font-style: italic; margin-top: 0.5rem;">Machine Learning</p>
+        </div>
+        <div class="team-member">
+          <a href="https://scholar.google.com/citations?user=eVVCkREAAAAJ&hl=en" target="_blank"><img
+              src="images/people/kabir.jpeg" alt="Md Mohsinul Kabir"></a>
+          <h5><a href="https://scholar.google.com/citations?user=eVVCkREAAAAJ&hl=en" target="_blank"
+              style="color: inherit; text-decoration: none;">Md Mohsinul Kabir</a></h5>
+          <p>ELLIS PhD</p>
+          <p style="font-size: 0.75rem; color: var(--accent-sage); margin-top: 0.2rem;">University of Manchester
+            (co-advised with Sophia Ananiadou)</p>
+          <p style="font-size: 0.8rem; font-style: italic; margin-top: 0.5rem;">NLP</p>
+        </div>
+        <div class="team-member">
+          <a href="https://www.utu.fi/fi/ihmiset/yicong-wu" target="_blank"><img src="images/people/default-avatar.png"
+              alt="Yicong Wu"></a>
+          <h5><a href="https://www.utu.fi/fi/ihmiset/yicong-wu" target="_blank"
+              style="color: inherit; text-decoration: none;">Yicong Wu</a></h5>
+          <p>Doctoral Researcher</p>
+          <p style="font-size: 0.75rem; color: var(--accent-sage); margin-top: 0.2rem;">ELLIS Institute Finland &
+            University of Turku</p>
+          <p style="font-size: 0.8rem; font-style: italic; margin-top: 0.5rem;">AI for Health</p>
+        </div>
+        <div class="team-member">
+          <a href="https://scholar.google.com/citations?user=8oHYRMcAAAAJ&hl=en" target="_blank"><img
+              src="images/people/naveen.jpeg" alt="Naveen Vakada"></a>
+          <h5><a href="https://scholar.google.com/citations?user=8oHYRMcAAAAJ&hl=en" target="_blank"
+              style="color: inherit; text-decoration: none;">Naveen Vakada</a></h5>
+          <p>Doctoral Researcher</p>
+          <p style="font-size: 0.75rem; color: var(--accent-sage); margin-top: 0.2rem;">ELLIS Institute Finland &
+            University of Turku</p>
+          <p style="font-size: 0.8rem; font-style: italic; margin-top: 0.5rem;">Multimodal AI</p>
+        </div>
+        <div class="team-member">
+          <a href="https://www.utu.fi/en/people/zhibo-man" target="_blank"><img src="images/people/zhibo-man.jpeg"
+              alt="Zhibo Man"></a>
+          <h5><a href="https://www.utu.fi/en/people/zhibo-man" target="_blank"
+              style="color: inherit; text-decoration: none;">Zhibo Man</a></h5>
+          <p>Visiting Researcher</p>
+          <p style="font-size: 0.75rem; color: var(--accent-sage); margin-top: 0.2rem;">ELLIS Institute Finland &
+            University of Turku</p>
+          <p style="font-size: 0.8rem; font-style: italic; margin-top: 0.5rem;">NLP</p>
+        </div>
+      </div>
+
+      <h3 class="title is-3" style="margin-top: 6rem;">Students</h3>
+      <div class="team-grid">
+        <div class="team-member">
+          <img src="images/people/default-avatar.png" alt="Matti Hölttä">
+          <h5>Matti Hölttä</h5>
+          <p>MSc Student</p>
+          <p style="font-size: 0.75rem; color: var(--accent-sage); margin-top: 0.2rem;">Aalto University</p>
+          <p style="font-size: 0.8rem; font-style: italic; margin-top: 0.5rem;">AI for Health</p>
+        </div>
+        <div class="team-member">
+          <img src="images/people/default-avatar.png" alt="Miikael Mändmets">
+          <h5>Miikael Mändmets</h5>
+          <p>MSc Student</p>
+          <p style="font-size: 0.75rem; color: var(--accent-sage); margin-top: 0.2rem;">University of Turku</p>
+          <p style="font-size: 0.8rem; font-style: italic; margin-top: 0.5rem;">Multimodal AI</p>
+        </div>
+        <div class="team-member">
+          <img src="images/people/default-avatar.png" alt="Verneri Sirva">
+          <h5>Verneri Sirva</h5>
+          <p>MSc Student</p>
+          <p style="font-size: 0.75rem; color: var(--accent-sage); margin-top: 0.2rem;">University of Turku</p>
+          <p style="font-size: 0.8rem; font-style: italic; margin-top: 0.5rem;">AI Agents</p>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 6rem;">
+        <a href="alumnus.html" class="research-card"
+          style="display: inline-block; padding: 2rem 4rem; max-width: 400px; text-decoration: none;">
+          <h3 style="margin-bottom: 0.5rem;">Our Alumni</h3>
+          <p>See our full list of former members and where they are now.</p>
+          <div class="card-arrow" style="margin-top: 1rem;">View Alumni <i class="fas fa-arrow-right"></i></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div>&copy; 2026 Omni Language AI Research.</div>
+    <div class="footer-logo-container">
+      <a href="https://turkunlp.org" target="_blank"><img src="images/logos/turkunlp.png" alt="TurkuNLP"
+          class="footer-logo" title="TurkuNLP"></a>
+      <a href="https://www.ellisinstitute.fi" target="_blank"><img
+          src="images/logos/ellis-logo_horizontal_black_2023-FINLAND.png" alt="ELLIS Institute Finland"
+          class="footer-logo" title="ELLIS Institute Finland"></a>
+      <a href="https://www.utu.fi/en" target="_blank"><img src="images/logos/UTU_logo_EN_RGB.png"
+          alt="University of Turku" class="footer-logo" title="University of Turku"></a>
+    </div>
+    <a href="https://github.com/OLAResearch"
+      style="color: inherit; font-size: 1.5rem; transition: var(--transition-smooth);"><i class="fab fa-github"></i></a>
+  </footer>
+
+  <script src="./static/js/main.js"></script>
+</body>
+
+</html>

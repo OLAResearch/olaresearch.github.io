@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Multilingual NLP and Low-Resource LLMs - Omni Language AI Research">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Multilingual NLP and Low-Resource LLMs | OLAResearch Project</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./images/logos/olar.svg">
+  <style>
+    @media (max-width: 768px) {
+      .navbar-menu {
+        display: flex !important;
+        gap: 1.5rem;
+      }
+    }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LHSMW4F3Y"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LHSMW4F3Y');
+  </script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="./index.html">
+      <img src="./images/logos/olar.svg" alt="OLAR Home" style="height: 2rem;">
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <a class="navbar-item" href="./index.html#projects">Back to Projects</a>
+  </div>
+</nav>
+
+<header class="project-hero">
+  <div class="status-badge">Active Direction</div>
+  <h1 class="title is-1 paper-title-small">Multilingual NLP: Scaling Multilingual LLMs for Low-Resource Languages</h1>
+  <p class="subtitle">Bridging the digital divide through massive-scale resource construction, continual adaptation, and unified evaluation.</p>
+</header>
+
+<main class="container" style="padding: 4vw;">
+  
+  <!-- Featured Subproject: MaLA-LM -->
+  <section class="narrative-section" style="background: var(--surface-color); border: 1px solid var(--border-color); padding: 4rem; border-radius: 12px; margin-bottom: 6rem;">
+    <div style="display: flex; gap: 4rem; align-items: flex-start; flex-wrap: wrap;">
+      <div style="flex: 2; min-width: 300px;">
+    <!-- <h2 class="title is-2" style="text-align: center; margin-bottom: 1rem;">MaLA-LM</h2> -->
+        <p class="lead" style="font-size: 1.1rem; margin-bottom: 2rem; margin-top: 0;">
+          The <strong>MaLA-LM</strong> (Massive Language Adaptation of Large Language Models) initiative is our flagship effort to scale Large Language Models to hundreds of underrepresented languages. 
+        </p>
+        <p style="margin-bottom: 0; color: var(--text-secondary);">
+          MaLA-LM focuses on data-centric continual pre-training, developing the EMMA-500 suite of models, the MaLA corpus in 939 languages, and the MaLA translation corpus spanning over 2,500 language pairs.
+        </p>
+      </div>
+      <div style="flex: 1; min-width: 250px; display: flex; flex-direction: column; align-items: center; gap: 2rem;">
+        <img src="images/projects/MaLA-LM.jpeg" alt="MaLA-LM Logo" style="width: 160px; height: 160px; border-radius: 12px; object-fit: cover; border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+        <a href="https://mala-lm.github.io" class="btn-primary" target="_blank" style="padding: 0.6rem 1.5rem; font-size: 0.75rem;">Project Details</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Objectives -->
+  <section class="narrative-section">
+    <h2 class="title is-2" style="text-align: center;">Key Objectives</h2>
+    <div class="objective-grid">
+      <div class="objective-card">
+        <div class="icon"><i class="fas fa-database"></i></div>
+        <h4>Massive Resource Scaling</h4>
+        <p>Leveraging high-performance computing to build large-scale datasets like the MaLA corpus, covering 500+ languages to democratize access to advanced NLP.</p>
+      </div>
+      <div class="objective-card">
+        <div class="icon"><i class="fas fa-sync"></i></div>
+        <h4>Continual Multilingual Training</h4>
+        <p>Optimizing data mixing strategies and investigating the impact of parallel corpora to adapt foundational models to hundreds of languages while maintaining high performance across tasks.</p>
+      </div>
+      <div class="objective-card">
+        <div class="icon"><i class="fas fa-check-circle"></i></div>
+        <h4>Evaluation</h4>
+        <p>Establishing standardized frameworks like GlotEval for precise diagnosis across 1500+ languages and exploring test-time scaling to enhance multilingual reasoning.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Associated Publications -->
+  <section class="narrative-section">
+    <h2 class="title is-2">Publications</h2>
+    <div class="publication-list">
+      
+      <div class="publication-item">
+        <div class="publication-info">
+          <span class="venue">ACL Findings 2026</span>
+          <h5>Data-Centric Continual Pre-training for 500+ Languages: A New Bilingual Translation Corpus and Multilingual Models</h5>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">Shaoxiong Ji, Zihao Li, Jaakko Paavola, Hengyu Luo, and Jörg Tiedemann</p>
+        </div>
+        <a href="https://mala-lm.github.io/emma-500-gen2" class="btn-secondary" target="_blank" style="padding: 0.5rem 1.2rem; font-size: 0.7rem;">Read Paper</a>
+      </div>
+
+      <div class="publication-item">
+        <div class="publication-info">
+          <span class="venue">EACL 2026</span>
+          <h5>Test-Time Scaling of Reasoning Models for Machine Translation</h5>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">Zihao Li, Shaoxiong Ji, and Jörg Tiedemann</p>
+        </div>
+        <a href="TTS4MT/" class="btn-secondary" style="padding: 0.5rem 1.2rem; font-size: 0.7rem;">Read Paper</a>
+      </div>
+
+      <div class="publication-item">
+        <div class="publication-info">
+          <span class="venue">COLM 2025</span>
+          <h5>Rethinking Multilingual Continual Pretraining: Data Mixing for Adapting LLMs Across Languages and Resources</h5>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">Zihao Li, Shaoxiong Ji, Hengyu Luo, and Jörg Tiedemann</p>
+        </div>
+        <a href="https://mala-lm.github.io/MixCPT.html" class="btn-secondary" target="_blank" style="padding: 0.5rem 1.2rem; font-size: 0.7rem;">Read Paper</a>
+      </div>
+
+      <div class="publication-item">
+        <div class="publication-info">
+          <span class="venue">EMNLP Demo 2025</span>
+          <h5>GlotEval: A Test Suite for Massively Multilingual Evaluation of Large Language Models</h5>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">Hengyu Luo, Zihao Li, Joseph Attieh, Sawal Devkota, Ona de Gibert, Xu Huang, Shaoxiong Ji, Peiqin Lin, Bhavani Sai Praneeth Varma Mantina, Ananda Sreenidhi, Raúl Vázquez, Mengjie Wang, Samea Yusofi, Fei Yuan, Jörg Tiedemann</p>
+        </div>
+        <a href="https://mala-lm.github.io/GlotEval.html" class="btn-secondary" target="_blank" style="padding: 0.5rem 1.2rem; font-size: 0.7rem;">Read Paper</a>
+      </div>
+
+      <div class="publication-item">
+        <div class="publication-info">
+          <span class="venue">COLING 2025</span>
+          <h5>How Many Languages Make Good Multilingual Instruction Tuning? A Case Study on BLOOM</h5>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">Shaoxiong Ji and Pinzhen Chen</p>
+        </div>
+        <a href="https://arxiv.org/abs/2404.04850" class="btn-secondary" target="_blank" style="padding: 0.5rem 1.2rem; font-size: 0.7rem;">Read Paper</a>
+      </div>
+
+      <div class="publication-item">
+        <div class="publication-info">
+          <span class="venue">EMNLP 2024</span>
+          <h5>A Comparison of Language Modeling and Translation as Multilingual Pretraining Objectives</h5>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">Zihao Li, Shaoxiong Ji, Timothee Mickus, Vincent Segonne, and Jörg Tiedemann</p>
+        </div>
+        <a href="https://arxiv.org/abs/2407.15489" class="btn-secondary" target="_blank" style="padding: 0.5rem 1.2rem; font-size: 0.7rem;">Read Paper</a>
+      </div>
+
+      <div class="publication-item">
+        <div class="publication-info">
+          <span class="venue">LREC-COLING 2024</span>
+          <h5>Can Machine Translation Bridge Multilingual Pretraining and Cross-lingual Transfer Learning?</h5>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">Shaoxiong Ji, Timothee Mickus, Vincent Segonne, and Jörg Tiedemann</p>
+        </div>
+        <a href="https://aclanthology.org/2024.lrec-main.250" class="btn-secondary" target="_blank" style="padding: 0.5rem 1.2rem; font-size: 0.7rem;">Read Paper</a>
+      </div>
+
+      <div class="publication-item">
+        <div class="publication-info">
+          <span class="venue">EACL Findings 2024</span>
+          <h5>Monolingual or Multilingual Instruction Tuning: Which Makes a Better Alpaca</h5>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">Pinzhen Chen, Shaoxiong Ji, Nikolay Bogoychev, Andrey Kutuzov, Barry Haddow, and Kenneth Heafield</p>
+        </div>
+        <a href="https://aclanthology.org/2024.findings-eacl.90" class="btn-secondary" target="_blank" style="padding: 0.5rem 1.2rem; font-size: 0.7rem;">Read Paper</a>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div>&copy; 2026 Omni Language AI Research.</div>
+  <div class="footer-logo-container">
+    <a href="https://turkunlp.org" target="_blank"><img src="./images/logos/turkunlp.png" alt="TurkuNLP" class="footer-logo" title="TurkuNLP"></a>
+    <a href="https://www.ellisinstitute.fi" target="_blank"><img src="./images/logos/ellis-logo_horizontal_black_2023-FINLAND.png" alt="ELLIS Institute Finland" class="footer-logo" title="ELLIS Institute Finland"></a>
+    <a href="https://www.utu.fi/en" target="_blank"><img src="./images/logos/UTU_logo_EN_RGB.png" alt="University of Turku" class="footer-logo" title="University of Turku"></a>
+  </div>
+  <a href="https://github.com/OLAResearch" style="color: inherit; font-size: 1.5rem; transition: var(--transition-smooth);"><i class="fab fa-github"></i></a>
+</footer>
+
+<script src="./static/js/main.js"></script>
+
+</body>
+</html>
