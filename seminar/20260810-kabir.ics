@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//OLAR Research//TurkuNLP Research Seminar//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+SUMMARY:TurkuNLP Research Seminar: Cross-Cultural Reasoning in Large Language Models
+UID:turkunlp-seminar-mohsinul-kabir-20260810@olaresearch.github.io
+SEQUENCE:0
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+DTSTART:20260810T113000Z
+DTEND:20260810T123000Z
+DTSTAMP:20260718T101518Z
+LOCATION:Mänty & Honka, Agora, Turku or Zoom (https://utu.zoom.us/j/64044473478)
+DESCRIPTION:Speaker: Md Mohsinul Kabir (University of Manchester & University of Turku)\n\nAbstract: Large language models (LLMs) are now used across countries\, languages\, and communities. Though multilingual LLMs show remarkable proficiency in different languages\, it remains unclear what it actually means for these models to understand the culture of the corresponding language. Is recognising familiar foods\, festivals\, or expressions enough? Or should a culturally competent model also be able to identify the assumptions\, social norms\, and values that give those expressions meaning\, and adapt them appropriately in another cultural context?\n\nThis talk will address the difference between cultural knowledge and cross-cultural reasoning. The speaker will try to discuss benchmarks that test whether language models can recognise culturally specific meaning\, infer culturally appropriate expressions\, and adapt them across various cultural contexts.\n\nThe broader discussion will consider how cultural competence should be evaluated\, why conventional closed-form benchmarks may provide an incomplete picture\, and what is needed to build AI systems that communicate more reliably across cultural boundaries.\n\nJoin Zoom Link: https://utu.zoom.us/j/64044473478 (Meeting ID: 640 4447 3478)\n\nDetails: https://olaresearch.github.io/seminar/20260810-kabir.html
+END:VEVENT
+END:VCALENDAR
