@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="MaLA: A Corpus and Data Mix for Massive Language Adaptation of Large Language Models - Omni Language AI Research">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MaLA Corpus | OLAResearch</title>
+
+  <!-- OpenGraph Metadata for AI Search & Social Previews -->
+  <meta property="og:title"
+    content="MaLA: A Corpus and Data Mix for Massive Language Adaptation of Large Language Models">
+  <meta property="og:description"
+    content="Introducing the MaLA suite: a 74B-token corpus spanning 939 languages, a 136B pre-training mix, and the EMMA-500 model optimized for massively multilingual adaptation.">
+  <meta property="og:image" content="https://www.olaresearch.org/MaLA/figs/chart.png">
+  <meta property="og:url" content="https://www.olaresearch.org/MaLA/">
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2026-08-01">
+  <meta property="article:author" content="Shaoxiong Ji">
+  <meta property="article:author" content="Zihao Li">
+  <meta property="article:author" content="Jaakko Paavola">
+  <meta property="article:author" content="Peiqin Lin">
+  <meta property="article:author" content="Pinzhen Chen">
+  <meta property="article:author" content="Dayyán O'Brien">
+  <meta property="article:author" content="Hengyu Luo">
+  <meta property="article:author" content="Hinrich Schütze">
+  <meta property="article:author" content="Jörg Tiedemann">
+  <meta property="article:author" content="Barry Haddow">
+  <meta property="og:site_name" content="OLAResearch">
+
+  <!-- Twitter Card Metadata -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MaLA Corpus & EMMA-500 Model">
+  <meta name="twitter:description"
+    content="Massively multilingual adaptation for 500+ languages using the MaLA Corpus.">
+  <meta name="twitter:image" content="https://www.olaresearch.org/MaLA/figs/chart.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="../static/css/index.css">
+  <link rel="icon" href="../images/logos/olar.svg">
+
+  <!-- Schema.org JSON-LD Structured Data for Publications (ScholarlyArticle) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "MaLA: A Corpus and Data Mix for Massive Language Adaptation of Large Language Models",
+    "description": "We present the MaLA suite, a comprehensive collection of open-access resources designed to advance language technology across 546 languages, featuring a 74-billion-token dataset and the EMMA-500 model.",
+    "image": "https://www.olaresearch.org/MaLA/figs/chart.png",
+    "datePublished": "2026-08-01",
+    "author": [
+      {
+        "@type": "Person",
+        "name": "Shaoxiong Ji",
+        "url": "https://www.olaresearch.org/jis/"
+      },
+      {
+        "@type": "Person",
+        "name": "Zihao Li"
+      },
+      {
+        "@type": "Person",
+        "name": "Jaakko Paavola"
+      },
+      {
+        "@type": "Person",
+        "name": "Peiqin Lin"
+      },
+      {
+        "@type": "Person",
+        "name": "Pinzhen Chen"
+      },
+      {
+        "@type": "Person",
+        "name": "Dayyán O'Brien"
+      },
+      {
+        "@type": "Person",
+        "name": "Hengyu Luo"
+      },
+      {
+        "@type": "Person",
+        "name": "Hinrich Schütze"
+      },
+      {
+        "@type": "Person",
+        "name": "Jörg Tiedemann"
+      },
+      {
+        "@type": "Person",
+        "name": "Barry Haddow"
+      }
+    ],
+    "publisher": {
+      "@type": "ResearchOrganization",
+      "name": "Omni Language AI Research",
+      "url": "https://www.olaresearch.org/"
+    },
+    "mainEntityOfPage": "https://www.olaresearch.org/MaLA/",
+    "sameAs": "https://www.olaresearch.org/MaLA/"
+  }
+  </script>
+  <style>
+    @media (max-width: 768px) {
+      .navbar-menu {
+        display: flex !important;
+        gap: 1.5rem;
+      }
+    }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LHSMW4F3Y"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-5LHSMW4F3Y');
+  </script>
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../index.html">
+        <img src="../images/logos/olar.svg" alt="OLAR Home" style="height: 2rem;">
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <a class="navbar-item" href="../publications.html">Back to Publications</a>
+    </div>
+  </nav>
+
+  <header class="paper-hero">
+    <h1 class="title is-1 paper-title-small">MaLA: A Corpus and Data Mix for Massive Language Adaptation of Large
+      Language Models</h1>
+
+    <div class="paper-meta">
+      <div class="meta-item">
+        <span class="meta-label">Authors</span>
+        <span class="meta-value">Shaoxiong Ji, Zihao Li, Jaakko Paavola, Peiqin Lin, Pinzhen Chen, Dayyán O'Brien,
+          Hengyu Luo, Hinrich Schütze, Jörg Tiedemann, Barry Haddow</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Venue</span>
+        <span class="meta-value">COLM 2026</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Date</span>
+        <span class="meta-value">August 2026</span>
+      </div>
+    </div>
+
+    <div class="hero-links-container is-centered">
+      <div class="hero-affiliations">
+        <a href="https://www.ellisinstitute.fi" target="_blank"><img
+            src="../images/logos/ellis-logo_horizontal_black_2023-FINLAND.png" alt="ELLIS"
+            class="hero-affiliation-logo"></a>
+        <a href="https://www.utu.fi/en" target="_blank"><img src="../images/logos/UTU_logo_EN_RGB.png" alt="UTU"
+            class="hero-affiliation-logo"></a>
+        <a href="https://www.helsinki.fi/en" target="_blank"><img src="../images/logos/Helsinki-NLP.png"
+            alt="University of Helsinki" class="hero-affiliation-logo"></a>
+        <a href="https://www.lmu.de/en" target="_blank"><img src="../images/logos/LMU_Muenchen_Logo.png"
+            alt="LMU München" class="hero-affiliation-logo"></a>
+        <a href="https://www.ed.ac.uk" target="_blank"><img
+            src="../images/logos/University_of_Edinburgh_ceremonial_roundel.svg.png" alt="University of Edinburgh"
+            class="hero-affiliation-logo"></a>
+      </div>
+    </div>
+
+    <div class="action-buttons">
+      <a href="./mala-corpus.pdf" class="btn-primary" target="_blank">Read Paper</a>
+      <a href="https://github.com/MaLA-LM/emma-500" class="btn-secondary" target="_blank">Code</a>
+      <a href="https://huggingface.co/collections/MaLA-LM/mala-corpus-66e05127641a51de34d39529" class="btn-secondary"
+        target="_blank">Data</a>
+      <a href="https://huggingface.co/MaLA-LM/emma-500-llama2-7b" class="btn-secondary" target="_blank">Model</a>
+    </div>
+
+  </header>
+
+  <main class="paper-content">
+    <h3 class="title is-3" style="font-size: 1.5rem; margin-bottom: 2rem;">Abstract</h3>
+    <p class="abstract-small">
+      In this work, we present the <strong>MaLA</strong> (<strong>Ma</strong>ssively multilingual
+      <strong>L</strong>anguage <strong>A</strong>daptation) suite, a comprehensive collection of open-access resources
+      designed to advance language technology across 546 languages. The primary contribution is the <strong>MaLA
+        corpus</strong>, a 74-billion-token dataset specifically engineered for the continual pre-training of large
+      language models (LLMs). To ensure high utility and robustness for various tasks, we introduce a <strong>diverse
+        data mix</strong> that balances underrepresented languages with curated high-resource data. This mix includes:
+      (1) structured scientific literature; (2) literary archives; (3) multilingual instruction sets; and (4)
+      programming data. We document the corpus provenance and sampling strategies—upsampling low-resource and
+      downsampling high-resource languages—to reduce forgetting (particularly in code generation) while expanding
+      language capacity. Leveraging this resource, we release <strong>EMMA-500</strong>, a Llama 2-based model optimized
+      for cross-lingual transfer and language adaptability. Beyond the model weights, we provide the full suite of
+      scripts, processing pipelines, and model generations to support reproducibility and further experimentation in
+      multilingual indexing and retrieval. We release the MaLA suite, including the MaLA corpus, EMMA-500 model weights,
+      scripts, and model generations, under open licenses to provide the community with the testbeds and tools necessary
+      to evaluate and improve global information access.
+    </p>
+
+    <div style="margin: 4rem 0;">
+      <figure style="text-align: center;">
+        <img src="./figs/chart.png" alt="Evaluation results showing EMMA-500 wins across downstream tasks."
+          style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid var(--border-color); background: var(--surface-color);">
+        <figcaption
+          style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 1rem; text-align: left; line-height: 1.5;">
+          <strong>Figure 1:</strong> The number of wins, i.e., the number of times EMMA-500 achieves the best or
+          superior performance compared to other models in the same category across various evaluation tasks and
+          benchmarks.
+        </figcaption>
+      </figure>
+    </div>
+
+    <h3 class="title is-3" style="font-size: 1.5rem; margin: 4rem 0 2rem;">Overview</h3>
+    <p>
+      As the field of multilingual LLMs evolves, the role of data becomes increasingly critical in enhancing
+      performance, particularly for low-resource languages. The MaLA suite addresses the crucial need for high-quality,
+      diverse data in massively multilingual continual pre-training (CPT). It introduces a new 939-language corpus, a
+      136B-token training mix, and the EMMA-500 demonstration model. By diversifying text types (including code, books,
+      scientific papers, and instruction data), MaLA ensures robust adaptation across a wide array of linguistic
+      contexts without regressing on specialized capabilities like programming.
+    </p>
+
+    <h3 class="title is-3" style="font-size: 1.5rem; margin: 4rem 0 2rem;">Key Contributions</h3>
+    <div
+      style="background: var(--surface-color); padding: 2.5rem; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 4rem;">
+      <ul style="list-style-type: none; padding: 0; margin: 0;">
+        <li style="margin-bottom: 1.5rem;">
+          <div style="display: flex; gap: 1rem; align-items: flex-start;">
+            <span
+              style="background: var(--accent-earth); color: var(--surface-color); border-radius: 50%; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 600; flex-shrink: 0;">1</span>
+            <span style="color: var(--text-primary); line-height: 1.6;">We compile a massively multilingual corpus named
+              MaLA to facilitate continual training of large language models for enhanced language adaptation across a
+              wide range of linguistic contexts.</span>
+          </div>
+        </li>
+        <li style="margin-bottom: 1.5rem;">
+          <div style="display: flex; gap: 1rem; align-items: flex-start;">
+            <span
+              style="background: var(--accent-earth); color: var(--surface-color); border-radius: 50%; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 600; flex-shrink: 0;">2</span>
+            <span style="color: var(--text-primary); line-height: 1.6;">We extend the MaLA corpus by integrating
+              multiple curated datasets, creating a comprehensive and diverse data mix specifically for continual
+              pre-training.</span>
+          </div>
+        </li>
+        <li style="margin-bottom: 0;">
+          <div style="display: flex; gap: 1rem; align-items: flex-start;">
+            <span
+              style="background: var(--accent-earth); color: var(--surface-color); border-radius: 50%; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 600; flex-shrink: 0;">3</span>
+            <span style="color: var(--text-primary); line-height: 1.6;">We perform continual pre-training with the Llama
+              2 7B model on the multilingual corpus with 546 languages, resulting in the new EMMA-500 model. This model
+              is rigorously evaluated on a diverse set of tasks and benchmarks.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <h3 class="title is-3" style="font-size: 1.5rem; margin: 4rem 0 2rem;">The MaLA Corpus</h3>
+    <div
+      style="background: var(--surface-color); padding: 2.5rem; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 4rem;">
+      <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-style: italic;">
+        Our multilingual corpus features the following characteristics:
+      </p>
+      <ul style="list-style-type: none; padding: 0; margin: 0;">
+        <li style="margin-bottom: 1.5rem; display: flex; gap: 1rem; align-items: flex-start;">
+          <span
+            style="color: var(--accent-sage); font-weight: 600; font-size: 1.2rem; line-height: 1; flex-shrink: 0;">•</span>
+          <span style="color: var(--text-primary); line-height: 1.6;">It contains 939 languages, (546 of which are used
+            for training our EMMA-500 model) and 74 billion (B) whitespace delimited tokens in total.</span>
+        </li>
+        <li style="margin-bottom: 1.5rem; display: flex; gap: 1rem; align-items: flex-start;">
+          <span
+            style="color: var(--accent-sage); font-weight: 600; font-size: 1.2rem; line-height: 1; flex-shrink: 0;">•</span>
+          <span style="color: var(--text-primary); line-height: 1.6;">It has more than 300 languages with over 1 million
+            whitespace delimited tokens and 546 languages with over 100k tokens.</span>
+        </li>
+        <li style="margin-bottom: 1.5rem; display: flex; gap: 1rem; align-items: flex-start;">
+          <span
+            style="color: var(--accent-sage); font-weight: 600; font-size: 1.2rem; line-height: 1; flex-shrink: 0;">•</span>
+          <span style="color: var(--text-primary); line-height: 1.6;">It comes with four publicly available versions:
+            (1) noisy, (2) cleaned, (3) deduplicated, and (4) split. Rather than releasing a single opaque dump, this
+            staged release along with our processing scripts allows practitioners to inspect, reproduce, or construct
+            alternative custom mixes from the staged resources.</span>
+        </li>
+        <li style="margin-bottom: 0; display: flex; gap: 1rem; align-items: flex-start;">
+          <span
+            style="color: var(--accent-sage); font-weight: 600; font-size: 1.2rem; line-height: 1; flex-shrink: 0;">•</span>
+          <span style="color: var(--text-primary); line-height: 1.6;">Our augmentation to the MaLA corpus includes
+            different types of texts such as code, books, scientific papers and instruction data, leading to a data mix
+            with 100B+ whitespace delimited tokens.</span>
+        </li>
+      </ul>
+    </div>
+
+    <h3 class="title is-3" style="font-size: 1.5rem; margin: 4rem 0 2rem;">Data Inventory</h3>
+    <div
+      style="overflow-x: auto; margin-bottom: 4rem; border: 1px solid var(--border-color); border-radius: 8px; background: var(--surface-color);">
+      <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem;">
+        <thead>
+          <tr style="background-color: #faf8f5; border-bottom: 1px solid var(--border-color);">
+            <th
+              style="padding: 1.25rem; font-weight: 600; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; color: var(--text-primary); width: 280px; min-width: 280px;">
+              Dataset Repository</th>
+            <th
+              style="padding: 1.25rem; font-weight: 600; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; color: var(--text-primary); text-align: right;">
+              Size</th>
+            <th
+              style="padding: 1.25rem; font-weight: 600; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; color: var(--text-primary);">
+              Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 1.25rem;">
+              <a href="https://huggingface.co/datasets/MaLA-LM/mala-monolingual-integration" target="_blank"
+                style="font-weight: 500; color: var(--accent-earth); text-decoration: none;">
+                <img src="../images/logos/huggingface-logo.svg" alt="Hugging Face"
+                  style="height: 1.1rem; vertical-align: text-bottom; margin-right: 0.4rem;">
+                MaLA-LM/mala-monolingual-integration
+              </a>
+            </td>
+            <td
+              style="padding: 1.25rem; text-align: right; font-weight: 600; color: var(--text-primary); white-space: nowrap;">
+              2.14B</td>
+            <td style="padding: 1.25rem; color: var(--text-secondary); line-height: 1.5;">The MaLA monolingual corpus's
+              noisy version that integrates texts from different sources without cleaning.</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 1.25rem;">
+              <a href="https://huggingface.co/datasets/MaLA-LM/mala-monolingual-filter" target="_blank"
+                style="font-weight: 500; color: var(--accent-earth); text-decoration: none;">
+                <img src="../images/logos/huggingface-logo.svg" alt="Hugging Face"
+                  style="height: 1.1rem; vertical-align: text-bottom; margin-right: 0.4rem;">
+                MaLA-LM/mala-monolingual-filter
+              </a>
+            </td>
+            <td
+              style="padding: 1.25rem; text-align: right; font-weight: 600; color: var(--text-primary); white-space: nowrap;">
+              1.42B</td>
+            <td style="padding: 1.25rem; color: var(--text-secondary); line-height: 1.5;">The MaLA monolingual corpus's
+              filtered version that performs further data filtering.</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 1.25rem;">
+              <a href="https://huggingface.co/datasets/MaLA-LM/mala-monolingual-dedup" target="_blank"
+                style="font-weight: 500; color: var(--accent-earth); text-decoration: none;">
+                <img src="../images/logos/huggingface-logo.svg" alt="Hugging Face"
+                  style="height: 1.1rem; vertical-align: text-bottom; margin-right: 0.4rem;">
+                MaLA-LM/mala-monolingual-dedup
+              </a>
+            </td>
+            <td
+              style="padding: 1.25rem; text-align: right; font-weight: 600; color: var(--text-primary); white-space: nowrap;">
+              969M</td>
+            <td style="padding: 1.25rem; color: var(--text-secondary); line-height: 1.5;">The MaLA monolingual corpus's
+              deduplicated version that removes repeated data points.</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 1.25rem;">
+              <a href="https://huggingface.co/datasets/MaLA-LM/mala-monolingual-split" target="_blank"
+                style="font-weight: 500; color: var(--accent-earth); text-decoration: none;">
+                <img src="../images/logos/huggingface-logo.svg" alt="Hugging Face"
+                  style="height: 1.1rem; vertical-align: text-bottom; margin-right: 0.4rem;">
+                MaLA-LM/mala-monolingual-split
+              </a>
+            </td>
+            <td
+              style="padding: 1.25rem; text-align: right; font-weight: 600; color: var(--text-primary); white-space: nowrap;">
+              825M</td>
+            <td style="padding: 1.25rem; color: var(--text-secondary); line-height: 1.5;">The MaLA monolingual corpus's
+              final version is processed by splitting the filtered and deduplicated version into training and test sets.
+            </td>
+          </tr>
+          <tr style="border-bottom: none;">
+            <td style="padding: 1.25rem;">
+              <a href="https://huggingface.co/datasets/MaLA-LM/mala-code-reasoning" target="_blank"
+                style="font-weight: 500; color: var(--accent-earth); text-decoration: none;">
+                <img src="../images/logos/huggingface-logo.svg" alt="Hugging Face"
+                  style="height: 1.1rem; vertical-align: text-bottom; margin-right: 0.4rem;">
+                MaLA-LM/mala-code-reasoning
+              </a>
+            </td>
+            <td
+              style="padding: 1.25rem; text-align: right; font-weight: 600; color: var(--text-primary); white-space: nowrap;">
+              44.9M</td>
+            <td style="padding: 1.25rem; color: var(--text-secondary); line-height: 1.5;">The first version of the MaLA
+              code and reasoning dataset used for training <a href="https://huggingface.co/MaLA-LM/emma-500-llama2-7b"
+                target="_blank" style="color: var(--accent-earth); text-decoration: underline;">EMMA-500</a>.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="title is-3" style="font-size: 1.5rem; margin: 4rem 0 2rem;">Evaluation Results</h3>
+    <div
+      style="background: var(--surface-color); padding: 2.5rem; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 4rem;">
+      <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-style: italic;">
+        To evaluate downstream impact beyond intrinsic language modeling, we benchmark on a comprehensive suite of 9
+        task families across 15 benchmarks (including translation, classification, commonsense reasoning, natural
+        language inference, summarization, math, and code generation). In a comparison with decoder-only LLMs, our model
+        achieves strong results:
+      </p>
+      <ul style="list-style-type: none; padding: 0; margin: 0;">
+        <li style="margin-bottom: 1.5rem; display: flex; gap: 1rem; align-items: flex-start;">
+          <span
+            style="color: var(--accent-earth); font-weight: 600; font-size: 1.2rem; line-height: 1; flex-shrink: 0;">•</span>
+          <span style="color: var(--text-primary); line-height: 1.6;">Out of models with parameter sizes from 4.5B to
+            13B, our model with 7B parameters has the lowest negative log-likelihood according to an intrinsic
+            evaluation.</span>
+        </li>
+        <li style="margin-bottom: 1.5rem; display: flex; gap: 1rem; align-items: flex-start;">
+          <span
+            style="color: var(--accent-earth); font-weight: 600; font-size: 1.2rem; line-height: 1; flex-shrink: 0;">•</span>
+          <span style="color: var(--text-primary); line-height: 1.6;">Our model remarkably improves the performance of
+            commonsense reasoning, and machine translation over Llama 2-based models and multilingual baselines, and
+            outperforms the latest advanced models in many cases.</span>
+        </li>
+        <li style="margin-bottom: 1.5rem; display: flex; gap: 1rem; align-items: flex-start;">
+          <span
+            style="color: var(--accent-earth); font-weight: 600; font-size: 1.2rem; line-height: 1; flex-shrink: 0;">•</span>
+          <span style="color: var(--text-primary); line-height: 1.6;">Our model improves the performance of text
+            classification and natural language inference, outperforming all Llama 2-based models and LLMs designed to
+            be multilingual.</span>
+        </li>
+        <li style="margin-bottom: 1.5rem; display: flex; gap: 1rem; align-items: flex-start;">
+          <span
+            style="color: var(--accent-earth); font-weight: 600; font-size: 1.2rem; line-height: 1; flex-shrink: 0;">•</span>
+          <span style="color: var(--text-primary); line-height: 1.6;">While math and machine reading comprehension (MRC)
+            tasks are challenging for the Llama 2 7B model and other multilingual LLMs, our model remarkably enhances
+            the Llama 2 base model. Our model yields improved performance on MRC over the base model but still produces
+            quasi-random results similar to other multilingual baselines.</span>
+        </li>
+        <li style="margin-bottom: 0; display: flex; gap: 1rem; align-items: flex-start;">
+          <span
+            style="color: var(--accent-earth); font-weight: 600; font-size: 1.2rem; line-height: 1; flex-shrink: 0;">•</span>
+          <span style="color: var(--text-primary); line-height: 1.6;">We demonstrate that massively multilingual
+            continued pre-training does not necessarily lead to regressions in other areas, such as code generation, if
+            the data mix is carefully curated. Our model surpasses the Llama 2 7B base model's code generation
+            abilities.</span>
+        </li>
+      </ul>
+    </div>
+
+    <section id="bibtex" style="margin-top: 6rem;">
+      <h3 class="title is-3" style="font-size: 1.5rem; margin-bottom: 2rem;">BibTeX</h3>
+      <div class="bibtex-container">
+        <button class="copy-button" onclick="copyBibTeX()">Copy</button>
+        <pre id="bibtex-code"
+          style="margin: 0; color: var(--text-primary); font-family: 'Courier New', monospace; font-size: 0.85rem;"><code style="color: var(--text-primary); background: transparent;">@inproceedings{ji2026mala,
+  title     = {MaLA: A Corpus and Data Mix for Massive Language Adaptation of Large Language Models},
+  author    = {Ji, Shaoxiong and Li, Zihao and Paavola, Jaakko and Lin, Peiqin and Chen, Pinzhen and O'Brien, Dayy{\'a}n and Luo, Hengyu and Sch{\"u}tze, Hinrich and Tiedemann, J{\"o}rg and Haddow, Barry},
+  booktitle = {Proceedings of Conference on Language Modeling (COLM 2026)},
+  year      = {2026},
+  url       = {https://www.olaresearch.org/MaLA/}
+}</code></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>&copy; 2026 Omni Language AI Research.</div>
+    <div class="footer-logo-container">
+      <a href="https://www.ellisinstitute.fi" target="_blank"><img
+          src="../images/logos/ellis-logo_horizontal_black_2023-FINLAND.png" alt="ELLIS Institute Finland"
+          class="footer-logo" title="ELLIS Institute Finland"></a>
+      <a href="https://turkunlp.org" target="_blank"><img src="../images/logos/turkunlp.png" alt="TurkuNLP"
+          class="footer-logo" title="TurkuNLP"></a>
+      <a href="https://www.utu.fi/en" target="_blank"><img src="../images/logos/UTU_logo_EN_RGB.png"
+          alt="University of Turku" class="footer-logo" title="University of Turku"></a>
+    </div>
+    <a href="https://github.com/OLAResearch"
+      style="color: inherit; font-size: 1.5rem; transition: var(--transition-smooth);"><i class="fab fa-github"></i></a>
+  </footer>
+
+  <script src="../static/js/main.js"></script>
+
+</body>
+
+</html>

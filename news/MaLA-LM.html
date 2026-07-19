@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="The MaLA-LM project scales multilingual large language models (LLMs) to over 500 languages, addressing challenges in data collection, tokenization, and cross-lingual transfer.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scaling Multilingual Large Language Models to 500+ Languages | News | Omni Language AI Research</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="../static/css/index.css">
+  <link rel="icon" href="../images/logos/olar.svg">
+  <style>
+    @media (max-width: 768px) {
+      .navbar-menu {
+        display: flex !important;
+        gap: 1.5rem;
+      }
+    }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LHSMW4F3Y"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LHSMW4F3Y');
+  </script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="../index.html">
+      <img src="../images/logos/olar.svg" alt="OLAR Home" style="height: 2rem;">
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <a class="navbar-item" href="index.html">Back to News</a>
+    <a class="navbar-item" href="../index.html">Home</a>
+  </div>
+</nav>
+
+<header class="project-hero" style="max-width: 800px; margin: 0 auto; text-align: center; padding: 6vw 4vw 2vw;">
+  <span class="status-badge" style="background: var(--accent-earth);">News</span>
+  <h1 class="title is-1 paper-title-small" style="font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.2; margin-top: 1rem;">MaLA-LM: Massive Language Adaptation of Large Language Models to 500+ Languages</h1>
+  <p class="subtitle" style="margin-top: 1.5rem; font-size: 1.05rem;">Published on July 24, 2026 &bull; Shaoxiong Ji, MaLA-LM Team</p>
+</header>
+
+<main class="container" style="padding: 2vw 4vw 8vw;">
+  <div class="narrative-container">
+    <p class="lead" style="font-size: 1.25rem; font-family: var(--font-serif); line-height: 1.7; color: var(--text-primary); margin-bottom: 2.5rem;">
+      The rapid evolution of Large Language Models (LLMs) has transformed natural language processing. Yet, the benefits of these models remain concentrated in a handful of high-resource languages. The <a href="https://mala-lm.github.io" target="_blank" style="color: var(--accent-earth); text-decoration: underline; font-weight: 600;">MaLA-LM</a> initiative, a collaborative research team, is breaking these barriers by developing data-driven methods to scale multilingual language models to over 500 languages.
+    </p>
+
+    <p>
+      Historically, many human languages have been left behind in the AI revolution. Building state-of-the-art multilingual models requires navigating massive challenges in data collection, language adaptation, model training, and evaluation. The MaLA-LM team focuses on addressing these systematic bottlenecks, aiming to enable cross-lingual transfer that allows models to generalize from high-resource languages to minority or underrepresented ones.
+    </p>
+
+    <h3 class="title is-3" style="margin-top: 3.5rem; margin-bottom: 1.25rem;">The Landscape of Prior Endeavors</h3>
+    <p>
+      The quest to build massively multilingual models has seen several foundational milestones. In late 2022, projects like <strong>SERENGETI</strong> <a href="#ref-serengeti" style="color: var(--accent-earth); text-decoration: underline;">[1]</a> pioneered African language representation by training an encoder model covering 517 languages, taking a powerful step toward bridging the digital language divide.
+    </p>
+    <p>
+      This was followed by <strong>Glot500</strong> <a href="#ref-glot500" style="color: var(--accent-earth); text-decoration: underline;">[2]</a> in May 2023, which constructed massive corpora and continually pretrained the XLM-R encoder on over 500 languages. In September 2023, <strong>MADLAD-400</strong> <a href="#ref-madlad" style="color: var(--accent-earth); text-decoration: underline;">[3]</a> scaled decoder architectures using the modified UL2 framework <a href="#ref-ul2" style="color: var(--accent-earth); text-decoration: underline;">[4]</a>, prioritizing data quality via large, audited document-level datasets.
+    </p>
+    <p>
+      Despite these advances, scaling to hundreds of languages triggers the <em>"curse of multilinguality"</em> <a href="#ref-curse" style="color: var(--accent-earth); text-decoration: underline;">[5]</a>. As model capacity is shared across more languages, performance on individual languages can degrade. Mitigating this degradation requires careful representation alignment, specialized tokenization, and targeted data curation.
+    </p>
+
+    <h3 class="title is-3" style="margin-top: 3.5rem; margin-bottom: 1.25rem;">The MaLA-LM Journey</h3>
+    <p>
+      Tracing its trajectory back to 2023, I started the MaLA-LM project, which stands for massive language adaptation of language models. Thanks for the support from Jörg Tiedemann in University of Helsinki, I am able to start this journey and collaborate with researchers from LMU Munich (Peiqin Lin and Hinrich Schütze) on the first iteration of MaLA-LM model series, i.e., the MaLA-500 <a href="#ref-mala500" style="color: var(--accent-earth); text-decoration: underline;">[6]</a>. Our first MaLA-500 model was trained on the Glot500-c dataset and adopted a continual pretraining strategy with a vocabulary expansion mechanism to accommodate the linguistic diversity of 534 languages. The model demonstrated good results in cross-lingual transfer, particularly for low-resource languages, as evaluated on intrinsic and text classification tasks. The approach is not novel, and we never acknowledged it as a novel approach. We believed that the contribution of our work is to show that the continual pretraining strategy with vocabulary expansion is effective for low-resource languages, and we hope that our work can inspire future research in this area. However, it turns out that our work is premature. We later evaluated on more tasks and found that the continual pretraining strategy with vocabulary expansion is not effective for low-resource languages, especially for text generation tasks. 
+    </p>  
+    
+    <p>
+      We have published our findings in a new paper <a href="#ref-ourmodel" style="color: var(--accent-earth); text-decoration: underline;">[11]</a> and released the EMMA-500 Gen 2 model series, which is continually pretrained on up to 671B tokens and shows that including parallel data can improve performance, especially for low-resource languages.
+    </p>
+
+
+    <h4 class="title is-4" style="margin-top: 3.5rem; margin-bottom: 1.25rem;">Key Milestones</h4>
+
+    <p>
+      After hard work in a couple of years, the project has achieved several major breakthroughs in expanding linguistic coverage:
+    </p>
+    <ul style="padding-left: 1.5rem; margin-bottom: 2.5rem;">
+      <li style="margin-bottom: 0.8rem;">
+        <strong>MaLA-500:</strong> Introduced in early 2024, MaLA-500 <a href="#ref-mala500" style="color: var(--accent-earth); text-decoration: underline;">[6]</a> represents a massively multilingual adaptation of large language models, demonstrating efficient vocabulary and reader adaptation strategies for 534 languages.
+      </li>
+      <li style="margin-bottom: 0.8rem;">
+        <strong>MaLA Corpus:</strong> A broad-coverage pretraining dataset containing clean documents spanning 500+ underrepresented languages.
+      </li>
+      <li style="margin-bottom: 0.8rem;">
+        <strong>EMMA-500:</strong> Released in late 2024, EMMA-500 <a href="#ref-emma500" style="color: var(--accent-earth); text-decoration: underline;">[7]</a> (Enhancing Massively Multilingual Adaptation) further optimizes vocabulary allocation and continual pretraining regimes, establishing new benchmarks for low-resource language generation.
+      </li>
+      <li style="margin-bottom: 0.8rem;">
+        <strong>EMMA-500 Gen 2:</strong> Published in July 2026, this work introduces a new bilingual translation corpus named MaLA and the EMMA-500 Llama 3 suite of models. Continually pre-trained on up to 671B tokens, the work shows that including parallel data enhances performance, especially for low-resource languages <a href="#ref-ourmodel" style="color: var(--accent-earth); text-decoration: underline;">[11]</a>.
+      </li>
+    </ul>
+
+    <p>
+      At the core of these accomplishments is the alignment of representation spaces. By mapping different languages into a shared embedding structure, MaLA-LM enables cross-lingual knowledge transfer, ensuring that low-resource languages can benefit from the rich semantic concepts present in high-resource training corpora.
+    </p>
+
+    <h3 class="title is-3" style="margin-top: 3.5rem; margin-bottom: 1.25rem;">The Quest for Linguistic Universality</h3>
+    <p>
+      Concurrent initiatives across the broader AI ecosystem underscore the collective drive toward universal linguistic representation. Hugging Face's <strong>Scaling FineWeb to 1000+ Languages (FineTasks)</strong> <a href="#ref-fineweb" style="color: var(--accent-earth); text-decoration: underline;">[8]</a> aims to capture task signals in thousands of languages.
+    </p>
+    <p>
+      Similarly, the <strong>GlotCC</strong> project <a href="#ref-glotcc" style="color: var(--accent-earth); text-decoration: underline;">[9]</a> presents a broad-coverage CommonCrawl processing pipeline tailored for minority languages, while <strong>DCAD-2000</strong> <a href="#ref-dcad2000" style="color: var(--accent-earth); text-decoration: underline;">[10]</a> scales data cleaning up to 2,000+ languages using anomaly detection. Together, these open-source resources are rewriting the rules of multilingual AI representation.
+    </p>
+
+    TODO: FineOPUS
+
+
+    <h3 class="title is-3" style="margin-top: 3.5rem; margin-bottom: 1.25rem;">Join the Collaboration</h3>
+    <p>
+      The MaLA-LM project operates on a foundation of open collaboration and community engagement. If you are interested in contributing, analyzing dataset properties, or scaling models for underrepresented languages, we invite you to join our community Discord server:
+    </p>
+
+    <p style="margin-bottom: 2.5rem; display: flex; flex-wrap: wrap; gap: 1rem;">
+      <a href="https://discord.com/invite/F5mEb7U6we" target="_blank" style="display: inline-block; background: var(--accent-earth); color: white; padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: 500; text-decoration: none; transition: background 0.2s;"><i class="fab fa-discord" style="margin-right: 0.5rem;"></i> Join our Discord Server</a>
+      <a href="https://huggingface.co/MaLA-LM" target="_blank" style="display: inline-block; background: #ffda64; color: #333; padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: 500; text-decoration: none; transition: background 0.2s;">🤗 Hugging Face</a>
+      <a href="https://github.com/MaLA-LM" target="_blank" style="display: inline-block; background: #24292e; color: white; padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: 500; text-decoration: none; transition: background 0.2s;"><i class="fab fa-github" style="margin-right: 0.5rem;"></i> GitHub</a>
+    </p>
+
+    <h3 id="references" class="title is-3" style="margin-top: 4rem; border-top: 1px solid var(--border-color); padding-top: 2rem; margin-bottom: 1.25rem;">References</h3>
+    <ol class="references-list" style="padding-left: 1.5rem; font-size: 0.9rem; line-height: 1.6; color: var(--text-secondary);">
+      <li id="ref-serengeti" style="margin-bottom: 0.8rem;">
+        I. Adebara, A. Elmadany, M. Abdul-Mageed, and A. A. Inciarte. 2023. <a href="https://aclanthology.org/2023.findings-acl.97/" target="_blank" style="color: var(--accent-earth); text-decoration: underline;">SERENGETI: Massively Multilingual Language Models for Africa</a>. In <em>Findings of the Association for Computational Linguistics: ACL 2023</em>, pages 1498–1537, Toronto, Canada. Association for Computational Linguistics.
+      </li>
+      <li id="ref-glot500" style="margin-bottom: 0.8rem;">
+        A. Imani, P. Lin, A. H. Kargaran, S. Severini, M. J. Sabet, N. Kassner, C. Ma, H. Schmid, A. Martins, F. Yvon, and H. Schütze. 2023. <a href="https://aclanthology.org/2023.acl-long.61/" target="_blank" style="color: var(--accent-earth); text-decoration: underline;">Glot500: Scaling Multilingual Corpora and Language Models to 500 Languages</a>. In <em>Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)</em>, pages 1082–1117, Toronto, Canada. Association for Computational Linguistics.
+      </li>
+      <li id="ref-madlad" style="margin-bottom: 0.8rem;">
+        S. Kudugunta, I. R. Caswell, B. Zhang, X. Garcia, D. Xin, A. Kusupati, R. Stella, A. Bapna, and O. Firat. 2023. <a href="https://openreview.net/forum?id=Y45ZCxslFx" target="_blank" style="color: var(--accent-earth); text-decoration: underline;">MADLAD-400: A Multilingual And Document-Level Large Audited Dataset</a>. In <em>Thirty-seventh Conference on Neural Information Processing Systems Datasets and Benchmarks Track</em>.
+      </li>
+      <li id="ref-ul2" style="margin-bottom: 0.8rem;">
+        Y. Tay, M. Dehghani, V. Q. Tran, X. Garcia, J. Wei, X. Wang, H. W. Chung, D. Bahri, T. Schuster, S. Zheng, D. Zhou, N. Houlsby, and D. Metzler. 2023. <a href="https://openreview.net/forum?id=6ruVLB727MC" target="_blank" style="color: var(--accent-earth); text-decoration: underline;">UL2: Unifying Language Learning Paradigms</a>. In <em>The Eleventh International Conference on Learning Representations</em>.
+      </li>
+      <li id="ref-curse" style="margin-bottom: 0.8rem;">
+        A. Conneau, K. Khandelwal, N. Goyal, V. Chaudhary, G. Wenzek, F. Guzmán, E. Grave, M. Ott, L. Zettlemoyer, and V. Stoyanov. 2020. <a href="https://aclanthology.org/2020.acl-main.747/" target="_blank" style="color: var(--accent-earth); text-decoration: underline;">Unsupervised Cross-lingual Representation Learning at Scale</a>. In <em>Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics</em>, pages 8440–8451, Online. Association for Computational Linguistics.
+      </li>
+      <li id="ref-mala500" style="margin-bottom: 0.8rem;">
+        P. Lin, S. Ji, J. Tiedemann, A.F. Martins, and H. Schütze. 2024. <a href="https://arxiv.org/abs/2401.13303" target="_blank" style="color: var(--accent-earth); text-decoration: underline;">MaLA-500: Massive language adaptation of large language models</a>. <em>arXiv preprint arXiv:2401.13303</em>.
+      </li>
+      <li id="ref-emma500" style="margin-bottom: 0.8rem;">
+        S. Ji, Z. Li, I. Paul, J. Paavola, P. Lin, P. Chen, D. O'Brien, H. Luo, H. Schütze, J. Tiedemann, and B. Haddow. 2024. <a href="https://arxiv.org/abs/2409.17892" target="_blank" style="color: var(--accent-earth); text-decoration: underline;">EMMA-500: Enhancing massively multilingual adaptation of large language models</a>. <em>arXiv preprint arXiv:2409.17892</em>.
+      </li>
+      <li id="ref-fineweb" style="margin-bottom: 0.8rem;">
+        H. Kydlíček, G. Penedo, C. Fourier, N. Habib, and T. Wolf. 2024. <a href="https://huggingface.co/spaces/HuggingFaceFW/blogpost-fine-tasks" target="_blank" style="color: var(--accent-earth); text-decoration: underline;">FineTasks: Finding signal in a haystack of 200+ multilingual tasks</a>. <em>Hugging Face Spaces Blog</em>.
+      </li>
+      <li id="ref-glotcc" style="margin-bottom: 0.8rem;">
+        A.H. Kargaran, F. Yvon, and H. Schütze. 2024. <a href="https://arxiv.org/abs/2410.23825" target="_blank" style="color: var(--accent-earth); text-decoration: underline;">GlotCC: An Open Broad-Coverage CommonCrawl Corpus and Pipeline for Minority Languages</a>. <em>arXiv preprint arXiv:2410.23825</em>.
+      </li>
+      <li id="ref-dcad2000" style="margin-bottom: 0.8rem;">
+        Y. Shen, W. Lai, S. Wang, X. Zhang, K. Luo, A. Fraser, and M. Sun. 2025. <a href="https://arxiv.org/abs/2502.11546" target="_blank" style="color: var(--accent-earth); text-decoration: underline;">DCAD-2000: A Multilingual Dataset across 2000+ Languages with Data Cleaning as Anomaly Detection</a>. <em>arXiv preprint arXiv:2502.11546</em>.
+      </li>
+      <li id="ref-ourmodel" style="margin-bottom: 0.8rem;">
+        S. Ji, Z. Li, J. Paavola, H. Luo, and J. Tiedemann. 2026. <a href="https://aclanthology.org/2026.findings-acl.937/" target="_blank" style="color: var(--accent-earth); text-decoration: underline;">Data-Centric Continual Pre-training for 500+ Languages: A New Bilingual Translation Corpus and Multilingual Models</a>. In <em>Findings of the Association for Computational Linguistics: ACL 2026</em>, pages 18776–18807, San Diego, California, United States. Association for Computational Linguistics.
+      </li>
+    </ol>
+  </div>
+</main>
+
+<footer class="footer">
+  <div>&copy; 2026 Omni Language AI Research.</div>
+  <div class="footer-logo-container">
+    <a href="https://turkunlp.org" target="_blank"><img src="../images/logos/turkunlp.png" alt="TurkuNLP" class="footer-logo" title="TurkuNLP"></a>
+    <a href="https://www.ellisinstitute.fi" target="_blank"><img src="../images/logos/ellis-logo_horizontal_black_2023-FINLAND.png" alt="ELLIS Institute Finland" class="footer-logo" title="ELLIS Institute Finland"></a>
+    <a href="https://www.utu.fi/en" target="_blank"><img src="../images/logos/UTU_logo_EN_RGB.png" alt="University of Turku" class="footer-logo" title="University of Turku"></a>
+  </div>
+  <a href="https://github.com/OLAResearch" style="color: inherit; font-size: 1.5rem; transition: var(--transition-smooth);"><i class="fab fa-github"></i></a>
+</footer>
+
+<script src="../static/js/main.js"></script>
+
+</body>
+</html>

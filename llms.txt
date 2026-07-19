@@ -34,6 +34,12 @@ Advancing clinical information management through automated medical coding, pati
 
 ### 2026 Publications
 
+*   **[MaLA: A Corpus and Data Mix for Massive Language Adaptation of Large Language Models](https://www.olaresearch.org/MaLA/)**
+    *   *Authors*: Shaoxiong Ji, Zihao Li, Jaakko Paavola, Peiqin Lin, Pinzhen Chen, Dayyán O'Brien, Hengyu Luo, Hinrich Schütze, Jörg Tiedemann, Barry Haddow
+    *   *Venue*: COLM 2026
+    *   *Links*: [Paper URL](https://www.olaresearch.org/MaLA/mala-corpus.pdf) | [Code](https://github.com/MaLA-LM/emma-500) | [Data](https://huggingface.co/collections/MaLA-LM/mala-corpus-66e05127641a51de34d39529) | [Model](https://huggingface.co/MaLA-LM/emma-500-llama2-7b)
+    *   *Summary*: Introduces the MaLA suite: a 74B-token corpus across 939 languages, a balanced 136B training mix, and the EMMA-500 model optimized for cross-lingual transfer.
+
 *   **[Reasoning over Grammar: Can Synthetic Linguistic Reasoning Traces Enhance Low-Resource Machine Translation?](https://www.olaresearch.org/LingReason/)**
     *   *Authors*: Renhao Pei, Yihong Liu, Sampo Pyysalo, Hinrich Schuetze, Shaoxiong Ji
     *   *Venue*: Preprint / arXiv 2606.03782
@@ -52,10 +58,11 @@ Advancing clinical information management through automated medical coding, pati
     *   *Links*: [ACL Anthology](https://aclanthology.org/2026.eacl-long.133/)
     *   *Summary*: Investigates the efficacy of test-time scaling (inference-time computation) in machine translation across diverse benchmarks.
 
-*   **Data-Centric Continual Pre-training for 500+ Languages: A New Bilingual Translation Corpus and Multilingual Models**
+*   **[Data-Centric Continual Pre-training for 500+ Languages: A New Bilingual Translation Corpus and Multilingual Models](https://www.olaresearch.org/EMMA-500-Gen2/)**
     *   *Authors*: Shaoxiong Ji, Zihao Li, Jaakko Paavola, Hengyu Luo, Jörg Tiedemann
-    *   *Venue*: ACL 2026 Findings
-    *   *Links*: [ACL Anthology](https://aclanthology.org/2026.findings-acl.937/)
+    *   *Venue*: ACL Findings 2026
+    *   *Links*: [ACL Anthology](https://aclanthology.org/2026.findings-acl.937/) | [Code](https://github.com/MaLA-LM/emma-500) | [Data](https://huggingface.co/datasets/MaLA-LM/mala-bilingual-translation-corpus) | [Models](https://huggingface.co/collections/MaLA-LM/emma-500)
+    *   *Summary*: Investigates the impact of bilingual translation data for massively multilingual continual pre-training of the Llama 3 family of models to 500 languages, releasing the MaLA bilingual corpus and the EMMA Llama 3 models trained up to 671B tokens.
 
 *   **You Never Know a Person, You Only Know Their Defenses: Detecting Levels of Psychological Defense Mechanisms in Supportive Conversations**
     *   *Authors*: Hongbin Na, Zimu Wang, Zhaoming Chen, Peilin Zhou, Yining Hua, Grace Ziqi Zhou, Haiyang Zhang, Tao Shen, Wei Wang, John Torous, Shaoxiong Ji, Ling Chen

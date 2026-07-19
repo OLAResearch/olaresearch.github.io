@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="Data-Centric Continual Pre-training for 500+ Languages: A New Bilingual Translation Corpus and Multilingual Models - Omni Language AI Research">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EMMA-500 Gen2 | OLAResearch</title>
+
+  <!-- OpenGraph Metadata for AI Search & Social Previews -->
+  <meta property="og:title"
+    content="Data-Centric Continual Pre-training for 500+ Languages: A New Bilingual Translation Corpus and Multilingual Models">
+  <meta property="og:description"
+    content="Constructing the MaLA bilingual translation corpus across 2500+ language pairs, and training the EMMA Llama 3 suite of four massively multilingual models up to 671B tokens.">
+  <meta property="og:image" content="https://www.olaresearch.org/EMMA-500-Gen2/figs/mono-vs-bi-l3.png">
+  <meta property="og:url" content="https://www.olaresearch.org/EMMA-500-Gen2/">
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2026-05-01">
+  <meta property="article:author" content="Shaoxiong Ji">
+  <meta property="article:author" content="Zihao Li">
+  <meta property="article:author" content="Jaakko Paavola">
+  <meta property="article:author" content="Hengyu Luo">
+  <meta property="article:author" content="Jörg Tiedemann">
+  <meta property="og:site_name" content="OLAResearch">
+
+  <!-- Twitter Card Metadata -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="EMMA-500 Gen2 & MaLA Bilingual Corpus">
+  <meta name="twitter:description"
+    content="Enhancing massively multilingual adaptation of Llama 3 models to 500+ languages using parallel bilingual translation data.">
+  <meta name="twitter:image" content="https://www.olaresearch.org/EMMA-500-Gen2/figs/mono-vs-bi-l3.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="../static/css/index.css">
+  <link rel="icon" href="../images/logos/olar.svg">
+
+  <!-- Schema.org JSON-LD Structured Data for Publications (ScholarlyArticle) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Data-Centric Continual Pre-training for 500+ Languages: A New Bilingual Translation Corpus and Multilingual Models",
+    "description": "This paper investigates a critical design decision in massively multilingual continual pre-training --- the inclusion of parallel data, constructing the MaLA translation corpus and the EMMA Llama 3 suite of models.",
+    "image": "https://www.olaresearch.org/EMMA-500-Gen2/figs/mono-vs-bi-l3.png",
+    "datePublished": "2026-05-01",
+    "author": [
+      {
+        "@type": "Person",
+        "name": "Shaoxiong Ji"
+      },
+      {
+        "@type": "Person",
+        "name": "Zihao Li"
+      },
+      {
+        "@type": "Person",
+        "name": "Jaakko Paavola"
+      },
+      {
+        "@type": "Person",
+        "name": "Hengyu Luo"
+      },
+      {
+        "@type": "Person",
+        "name": "Jörg Tiedemann"
+      }
+    ],
+    "publisher": {
+      "@type": "ResearchOrganization",
+      "name": "Omni Language AI Research",
+      "url": "https://www.olaresearch.org/"
+    },
+    "mainEntityOfPage": "https://www.olaresearch.org/EMMA-500-Gen2/",
+    "sameAs": "https://www.olaresearch.org/EMMA-500-Gen2/"
+  }
+  </script>
+  <style>
+    @media (max-width: 768px) {
+      .navbar-menu {
+        display: flex !important;
+        gap: 1.5rem;
+      }
+    }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LHSMW4F3Y"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-5LHSMW4F3Y');
+  </script>
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../index.html">
+        <img src="../images/logos/olar.svg" alt="OLAR Home" style="height: 2rem;">
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <a class="navbar-item" href="../publications.html">Back to Publications</a>
+    </div>
+  </nav>
+
+  <header class="paper-hero">
+    <h1 class="title is-1 paper-title-small">Data-Centric Continual Pre-training for 500+ Languages: A New Bilingual
+      Translation Corpus and Multilingual Models</h1>
+
+    <div class="paper-meta">
+      <div class="meta-item">
+        <span class="meta-label">Authors</span>
+        <span class="meta-value">Shaoxiong Ji, Zihao Li, Jaakko Paavola, Hengyu Luo, Jörg Tiedemann</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Venue</span>
+        <span class="meta-value">ACL Findings 2026</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Date</span>
+        <span class="meta-value">May 2026</span>
+      </div>
+    </div>
+
+    <div class="hero-links-container is-centered">
+      <div class="hero-affiliations">
+        <a href="https://www.ellisinstitute.fi" target="_blank"><img
+            src="../images/logos/ellis-logo_horizontal_black_2023-FINLAND.png" alt="ELLIS"
+            class="hero-affiliation-logo"></a>
+        <a href="https://turkunlp.org" target="_blank"><img src="../images/logos/turkunlp.png" alt="TurkuNLP"
+            class="hero-affiliation-logo"></a>
+        <a href="https://www.utu.fi/en" target="_blank"><img src="../images/logos/UTU_logo_EN_RGB.png" alt="UTU"
+            class="hero-affiliation-logo"></a>
+        <a href="https://www.helsinki.fi/en" target="_blank"><img src="../images/logos/Helsinki-NLP.png"
+            alt="University of Helsinki" class="hero-affiliation-logo"></a>
+      </div>
+    </div>
+
+    <div class="action-buttons">
+      <a href="https://aclanthology.org/2026.findings-acl.937/" class="btn-primary" target="_blank">Read Paper</a>
+      <a href="https://github.com/MaLA-LM/emma-500" class="btn-secondary" target="_blank">Code</a>
+      <a href="https://huggingface.co/datasets/MaLA-LM/mala-bilingual-translation-corpus" class="btn-secondary"
+        target="_blank">Data</a>
+      <a href="https://huggingface.co/collections/MaLA-LM/emma-500" class="btn-secondary" target="_blank">Models</a>
+    </div>
+
+  </header>
+
+  <main class="paper-content">
+    <h3 class="title is-3" style="font-size: 1.5rem; margin-bottom: 2rem;">Abstract</h3>
+    <p class="abstract-small">
+      This paper investigates a critical design decision in the practice of massively multilingual continual
+      pre-training — the inclusion of parallel data. Specifically, we study the impact of bilingual translation data for
+      massively multilingual language adaptation of the Llama 3 family of models to 500 languages. To this end, we
+      construct a bilingual translation corpus named <strong>MaLA</strong>, containing data from more than 2,500
+      language pairs. Subsequently, we develop the <strong>EMMA Llama 3</strong> suite of four massively multilingual
+      models — continually pre-trained from the Llama 3 family of base models extensively on diverse data mixes up to
+      671B tokens — and explore the effect of continual pre-training with or without bilingual translation data.
+      Comprehensive evaluation across 7 tasks and 12 benchmarks demonstrates that bilingual data tends to enhance
+      language transfer and performance, particularly for low-resource languages. We open-source the MaLA translation
+      corpus, EMMA Llama 3 suite artefacts, code, and model generations.
+    </p>
+
+    <h3 class="title is-3" style="font-size: 1.5rem; margin: 4rem 0 2rem;">Overview</h3>
+    <p>
+      Multilingual language models pre-trained on massive data have promoted multilingual NLP. However, foundational
+      English-centric models like Llama 3 often struggle with low-resource languages. The EMMA Llama 3 suite addresses
+      this digital divide by scaling multilingual continual pre-training to over 500 languages. Specifically, we
+      investigate a key design choice: does CPT with structured parallel data yield superior task generalization and
+      multilingual robustness compared to training purely on monolingual mixes?
+    </p>
+
+    <h3 class="title is-3" style="font-size: 1.5rem; margin: 4rem 0 2rem;">Key Contributions</h3>
+    <div
+      style="background: var(--surface-color); padding: 2.5rem; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 4rem;">
+      <ul style="list-style-type: none; padding: 0; margin: 0;">
+        <li style="margin-bottom: 1.5rem;">
+          <div style="display: flex; gap: 1rem; align-items: flex-start;">
+            <span
+              style="background: var(--accent-earth); color: var(--surface-color); border-radius: 50%; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 600; flex-shrink: 0;">1</span>
+            <span style="color: var(--text-primary); line-height: 1.6;"><strong>Data:</strong> We compile a bilingual
+              translation corpus for Massive Language Adaptation in more than 2,500 language pairs and 500 languages,
+              namely the <strong>MaLA</strong> translation corpus.</span>
+          </div>
+        </li>
+        <li style="margin-bottom: 1.5rem;">
+          <div style="display: flex; gap: 1rem; align-items: flex-start;">
+            <span
+              style="background: var(--accent-earth); color: var(--surface-color); border-radius: 50%; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 600; flex-shrink: 0;">2</span>
+            <span style="color: var(--text-primary); line-height: 1.6;"><strong>Models:</strong> We train and release 4
+              models, namely <strong>EMMA Llama 3/3.1 Mono/Bi</strong>, by continually pre-training Llama 3 & 3.1 (8B)
+              using both monolingual and bilingual MaLA corpus augmented with diverse data types, up to 671B
+              tokens.</span>
+          </div>
+        </li>
+        <li style="margin-bottom: 0;">
+          <div style="display: flex; gap: 1rem; align-items: flex-start;">
+            <span
+              style="background: var(--accent-earth); color: var(--surface-color); border-radius: 50%; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 600; flex-shrink: 0;">3</span>
+            <span style="color: var(--text-primary); line-height: 1.6;"><strong>Evaluation:</strong> We conduct a
+              comprehensive evaluation across 7 tasks and 12 benchmarks, ablating the impact of the two diverse data
+              mixes and analyzing gains in task generalization and multilingual robustness.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <h3 class="title is-3" style="font-size: 1.5rem; margin: 4rem 0 2rem;">Data Mixing & Composition</h3>
+    <p style="margin-bottom: 2rem;">
+      We blend the bilingual data with multilingual monolingual texts, scientific papers, books, instruction datasets,
+      and code to create two distinct data mixes. The <strong>Bilingual Mix</strong> incorporates parallel bilingual
+      data across various language resource levels, while the <strong>Monolingual Mix</strong> acts as an ablation
+      baseline specifically omitting any bilingual data.
+    </p>
+
+    <div style="margin: 4rem 0;">
+      <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+        <figure style="flex: 1; min-width: 280px; text-align: center; margin: 0;">
+          <img src="./figs/mix-bilingual.png" alt="Bilingual mix composition"
+            style="max-width: 100%; border-radius: 8px; border: 1px solid var(--border-color); background: var(--surface-color); box-shadow: 0 4px 20px rgba(0,0,0,0.05); padding: 10px;">
+          <figcaption style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.8rem;">
+            <strong>(a) Data mix 1: Bilingual Mix</strong> includes monolingual text, bilingual parallel texts,
+            instruction datasets, books, papers, and code.
+          </figcaption>
+        </figure>
+        <figure style="flex: 1; min-width: 280px; text-align: center; margin: 0;">
+          <img src="./figs/mix-monolingual.png" alt="Monolingual mix composition"
+            style="max-width: 100%; border-radius: 8px; border: 1px solid var(--border-color); background: var(--surface-color); box-shadow: 0 4px 20px rgba(0,0,0,0.05); padding: 10px;">
+          <figcaption style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.8rem;">
+            <strong>(b) Data mix 2: Monolingual Mix</strong> is built on the same corpus but explicitly excludes the
+            bilingual parallel datasets.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <h3 class="title is-3" style="font-size: 1.5rem; margin: 4rem 0 2rem;">Continual Pre-trained Models & Settings</h3>
+    <div
+      style="overflow-x: auto; margin-bottom: 4rem; border: 1px solid var(--border-color); border-radius: 8px; background: var(--surface-color);">
+      <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem;">
+        <thead>
+          <tr style="background-color: #faf8f5; border-bottom: 1px solid var(--border-color);">
+            <th
+              style="padding: 1.25rem; font-weight: 600; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; color: var(--text-primary);">
+              Base Model</th>
+            <th
+              style="padding: 1.25rem; font-weight: 600; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; color: var(--text-primary);">
+              Data Mix</th>
+            <th
+              style="padding: 1.25rem; font-weight: 600; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; color: var(--text-primary);">
+              Model Name</th>
+            <th
+              style="padding: 1.25rem; font-weight: 600; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; color: var(--text-primary); text-align: right;">
+              Steps</th>
+            <th
+              style="padding: 1.25rem; font-weight: 600; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; color: var(--text-primary); text-align: right;">
+              Warmup</th>
+            <th
+              style="padding: 1.25rem; font-weight: 600; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; color: var(--text-primary); text-align: right;">
+              Tokens</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 1.25rem; font-weight: 500; color: var(--text-primary);">Llama 3 (8B)</td>
+            <td style="padding: 1.25rem; color: var(--text-secondary);">Monolingual</td>
+            <td style="padding: 1.25rem;">
+              <a href="https://huggingface.co/MaLA-LM/emma-500-llama3-8b-mono" target="_blank"
+                style="color: var(--accent-earth); font-weight: 500; text-decoration: none; display: inline-flex; align-items: center;">
+                <img src="../images/logos/huggingface-logo.svg" alt="Hugging Face"
+                  style="height: 1.1rem; margin-right: 0.5rem;">
+                EMMA Llama 3 Mono
+              </a>
+            </td>
+            <td style="padding: 1.25rem; text-align: right; color: var(--text-secondary);">25,000</td>
+            <td style="padding: 1.25rem; text-align: right; color: var(--text-secondary);">1,000</td>
+            <td style="padding: 1.25rem; text-align: right; font-weight: 600; color: var(--text-primary);">419B</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 1.25rem; font-weight: 500; color: var(--text-primary);">Llama 3 (8B)</td>
+            <td style="padding: 1.25rem; color: var(--text-secondary);">Bilingual</td>
+            <td style="padding: 1.25rem;">
+              <a href="https://huggingface.co/MaLA-LM/emma-500-llama3-8b-bi" target="_blank"
+                style="color: var(--accent-earth); font-weight: 500; text-decoration: none; display: inline-flex; align-items: center;">
+                <img src="../images/logos/huggingface-logo.svg" alt="Hugging Face"
+                  style="height: 1.1rem; margin-right: 0.5rem;">
+                EMMA Llama 3 Bi
+              </a>
+            </td>
+            <td style="padding: 1.25rem; text-align: right; color: var(--text-secondary);">40,000</td>
+            <td style="padding: 1.25rem; text-align: right; color: var(--text-secondary);">2,000</td>
+            <td style="padding: 1.25rem; text-align: right; font-weight: 600; color: var(--text-primary);">671B</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border-color);">
+            <td style="padding: 1.25rem; font-weight: 500; color: var(--text-primary);">Llama 3.1 (8B)</td>
+            <td style="padding: 1.25rem; color: var(--text-secondary);">Monolingual</td>
+            <td style="padding: 1.25rem;">
+              <a href="https://huggingface.co/MaLA-LM/emma-500-llama3.1-8b-mono" target="_blank"
+                style="color: var(--accent-earth); font-weight: 500; text-decoration: none; display: inline-flex; align-items: center;">
+                <img src="../images/logos/huggingface-logo.svg" alt="Hugging Face"
+                  style="height: 1.1rem; margin-right: 0.5rem;">
+                EMMA Llama 3.1 Mono
+              </a>
+            </td>
+            <td style="padding: 1.25rem; text-align: right; color: var(--text-secondary);">25,000</td>
+            <td style="padding: 1.25rem; text-align: right; color: var(--text-secondary);">1,000</td>
+            <td style="padding: 1.25rem; text-align: right; font-weight: 600; color: var(--text-primary);">419B</td>
+          </tr>
+          <tr style="border-bottom: none;">
+            <td style="padding: 1.25rem; font-weight: 500; color: var(--text-primary);">Llama 3.1 (8B)</td>
+            <td style="padding: 1.25rem; color: var(--text-secondary);">Bilingual</td>
+            <td style="padding: 1.25rem;">
+              <a href="https://huggingface.co/MaLA-LM/emma-500-llama3.1-8b-bi" target="_blank"
+                style="color: var(--accent-earth); font-weight: 500; text-decoration: none; display: inline-flex; align-items: center;">
+                <img src="../images/logos/huggingface-logo.svg" alt="Hugging Face"
+                  style="height: 1.1rem; margin-right: 0.5rem;">
+                EMMA Llama 3.1 Bi
+              </a>
+            </td>
+            <td style="padding: 1.25rem; text-align: right; color: var(--text-secondary);">40,000</td>
+            <td style="padding: 1.25rem; text-align: right; color: var(--text-secondary);">2,000</td>
+            <td style="padding: 1.25rem; text-align: right; font-weight: 600; color: var(--text-primary);">671B</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="title is-3" style="font-size: 1.5rem; margin: 4rem 0 2rem;">Evaluation Results</h3>
+
+    <h4 class="title is-4" style="font-size: 1.15rem; margin: 2rem 0 1rem; font-weight: 600;">Monolingual vs. Bilingual
+      Continual Pre-training</h4>
+    <p style="margin-bottom: 2rem;">
+      We ablate the performance impact of parallel bilingual texts on downstream tasks. Averaged across all evaluated
+      languages, CPT with bilingual parallel data consistently outperforms monolingual CPT, especially on translation
+      benchmarks (Flores200) and low-resource reasoning tasks.
+    </p>
+
+    <div style="margin: 4rem 0;">
+      <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+        <figure style="flex: 1; min-width: 280px; text-align: center; margin: 0;">
+          <img src="./figs/mono-vs-bi-l3.png" alt="Llama 3 Mono vs Bi"
+            style="max-width: 100%; border-radius: 8px; border: 1px solid var(--border-color); background: var(--surface-color); box-shadow: 0 4px 20px rgba(0,0,0,0.05); padding: 10px;">
+          <figcaption style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.8rem;">
+            <strong>(a) Llama 3 8B CPT comparison:</strong> Bilingual CPT leads to noticeable wins in machine
+            translation, commonsense reasoning, and reading comprehension.
+          </figcaption>
+        </figure>
+        <figure style="flex: 1; min-width: 280px; text-align: center; margin: 0;">
+          <img src="./figs/mono-vs-bi-l3.1.png" alt="Llama 3.1 Mono vs Bi"
+            style="max-width: 100%; border-radius: 8px; border: 1px solid var(--border-color); background: var(--surface-color); box-shadow: 0 4px 20px rgba(0,0,0,0.05); padding: 10px;">
+          <figcaption style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.8rem;">
+            <strong>(b) Llama 3.1 8B CPT comparison:</strong> Shows parallel trends with strong MT and classification
+            gains.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <h4 class="title is-4" style="font-size: 1.15rem; margin: 3rem 0 1rem; font-weight: 600;">Model Adaptability &
+      Challenges</h4>
+    <p style="margin-bottom: 2rem;">
+      We observe that highly optimized base models (such as Llama 3 and 3.1) are inherently more resistant to further
+      adaptation than Llama 2 base models. This creates a trade-off where adapting the model to many new low-resource
+      languages can sometimes degrade high-resource language performance.
+    </p>
+
+    <div style="margin: 4rem 0; text-align: center;">
+      <figure style="display: inline-block; max-width: 600px; margin: 0;">
+        <img src="./figs/delta-count.png" alt="Model Adaptability delta counts"
+          style="max-width: 100%; border-radius: 8px; border: 1px solid var(--border-color); background: var(--surface-color); box-shadow: 0 4px 20px rgba(0,0,0,0.08); padding: 10px;">
+        <figcaption style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 1rem; text-align: left;">
+          <strong>Figure 2:</strong> Model adaptability measured by the number of benchmarks on which CPT models are
+          worse than their corresponding base models. Llama 3 and 3.1 present greater challenges for CPT, particularly
+          for high-resource settings.
+        </figcaption>
+      </figure>
+    </div>
+
+    <h4 class="title is-4" style="font-size: 1.15rem; margin: 3rem 0 1rem; font-weight: 600;">Key Findings</h4>
+    <div
+      style="background: var(--surface-color); padding: 2.5rem; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 4rem;">
+      <ul style="list-style-type: none; padding: 0; margin: 0;">
+        <li style="margin-bottom: 1.5rem; display: flex; gap: 1rem; align-items: flex-start;">
+          <span
+            style="color: var(--accent-earth); font-weight: 600; font-size: 1.2rem; line-height: 1; flex-shrink: 0;">•</span>
+          <span style="color: var(--text-primary); line-height: 1.6;">CPT using a data mix with bilingual translation
+            data generally exhibits better multilingual performance than a monolingual mix, particularly in low-resource
+            languages and in machine translation tasks that directly benefit from parallel data.</span>
+        </li>
+        <li style="margin-bottom: 1.5rem; display: flex; gap: 1rem; align-items: flex-start;">
+          <span
+            style="color: var(--accent-earth); font-weight: 600; font-size: 1.2rem; line-height: 1; flex-shrink: 0;">•</span>
+          <span style="color: var(--text-primary); line-height: 1.6;">Heavily pre-trained models (e.g., Llama 3 and 3.1)
+            that consume more training tokens than English-centric models (e.g., Llama 2) are more resistant to further
+            adaptation when scaling to include many additional languages.</span>
+        </li>
+        <li style="margin-bottom: 1.5rem; display: flex; gap: 1rem; align-items: flex-start;">
+          <span
+            style="color: var(--accent-earth); font-weight: 600; font-size: 1.2rem; line-height: 1; flex-shrink: 0;">•</span>
+          <span style="color: var(--text-primary); line-height: 1.6;">As for overall performance, comparing to strong
+            baselines, our EMMA models are the best at machine translation (Flores200) and competitive at text
+            classification (Taxi1500 and SIB-200) and commonsense reasoning (XCOPA and XStoryCloze).</span>
+        </li>
+        <li style="margin-bottom: 0; display: flex; gap: 1rem; align-items: flex-start;">
+          <span
+            style="color: var(--accent-earth); font-weight: 600; font-size: 1.2rem; line-height: 1; flex-shrink: 0;">•</span>
+          <span style="color: var(--text-primary); line-height: 1.6;">EMMA CPT models exhibit a lower average accuracy
+            on the BELEBLE comprehension benchmark, but they outperform baselines across a greater number of
+            languages.</span>
+        </li>
+      </ul>
+    </div>
+
+    <section id="bibtex" style="margin-top: 6rem;">
+      <h3 class="title is-3" style="font-size: 1.5rem; margin-bottom: 2rem;">BibTeX</h3>
+      <div class="bibtex-container">
+        <button class="copy-button" onclick="copyBibTeX()">Copy</button>
+        <pre id="bibtex-code"
+          style="margin: 0; color: var(--text-primary); font-family: 'Courier New', monospace; font-size: 0.85rem;"><code style="color: var(--text-primary); background: transparent;">@inproceedings{ji-etal-2026-data,
+    title = "Data-Centric Continual Pre-training for 500+ Languages: A New Bilingual Translation Corpus and Multilingual Models",
+    author = {Ji, Shaoxiong  and
+      Li, Zihao  and
+      Paavola, Jaakko  and
+      Luo, Hengyu  and
+      Tiedemann, J{\"o}rg},
+    editor = "Liakata, Maria  and
+      Moreira, Viviane P.  and
+      Zhang, Jiajun  and
+      Jurgens, David",
+    booktitle = "Findings of the {A}ssociation for {C}omputational {L}inguistics: {ACL} 2026",
+    month = jul,
+    year = "2026",
+    address = "San Diego, California, United States",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2026.findings-acl.937/",
+    doi = "10.18653/v1/2026.findings-acl.937",
+    pages = "18776--18807",
+    ISBN = "979-8-89176-395-1",
+    abstract = "This paper investigates a critical design decision in the practice of massively multilingual continual pre-training {---} the inclusion of parallel data. Specifically, we study the impact of bilingual translation data for massively multilingual language adaptation of the Llama 3 family of models to 500 languages. To this end, we construct a bilingual translation corpus named MaLA, containing data from more than 2,500 language pairs. Subsequently, we develop the EMMA-500 Llama 3 suite of four massively multilingual models {---} continually pre-trained from the Llama 3 family of base models extensively on diverse data mixes up to 671B tokens {---} and explore the effect of continual pre-training with or without bilingual translation data. Comprehensive evaluation across 7 tasks and 12 benchmarks demonstrates that bilingual data tends to enhance language transfer and performance, particularly for low-resource languages. We open-source the MaLA corpus, EMMA-500 Llama 3 suite artifacts, code, and model generations."
+}</code></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>&copy; 2026 Omni Language AI Research.</div>
+    <div class="footer-logo-container">
+      <a href="https://www.ellisinstitute.fi" target="_blank"><img
+          src="../images/logos/ellis-logo_horizontal_black_2023-FINLAND.png" alt="ELLIS Institute Finland"
+          class="footer-logo" title="ELLIS Institute Finland"></a>
+      <a href="https://turkunlp.org" target="_blank"><img src="../images/logos/turkunlp.png" alt="TurkuNLP"
+          class="footer-logo" title="TurkuNLP"></a>
+      <a href="https://www.utu.fi/en" target="_blank"><img src="../images/logos/UTU_logo_EN_RGB.png"
+          alt="University of Turku" class="footer-logo" title="University of Turku"></a>
+    </div>
+    <a href="https://github.com/OLAResearch"
+      style="color: inherit; font-size: 1.5rem; transition: var(--transition-smooth);"><i class="fab fa-github"></i></a>
+  </footer>
+
+  <script src="../static/js/main.js"></script>
+
+</body>
+
+</html>
