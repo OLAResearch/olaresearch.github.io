@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Blog and News from Dr. Shaoxiong Ji">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog | Shaoxiong Ji</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="../../static/css/index.css">
+  <link rel="icon" href="../../images/logos/olar.svg">
+  <style>
+    @media (max-width: 768px) {
+      .navbar-menu {
+        display: flex !important;
+        gap: 1.5rem;
+      }
+    }
+    .blog-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .blog-item {
+      background: var(--surface-color, #fff);
+      border: 1px solid var(--border-color, #eee);
+      border-radius: 8px;
+      padding: 2rem;
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .blog-item:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transform: translateY(-2px);
+    }
+    .blog-date {
+      font-size: 0.85rem;
+      color: var(--accent-earth, #8b5a2b);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    .blog-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-family: var(--font-serif, 'Castoro', serif);
+    }
+    .blog-summary {
+      color: var(--text-secondary, #666);
+      line-height: 1.6;
+    }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LHSMW4F3Y"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LHSMW4F3Y');
+  </script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="../../index.html">
+      <img src="../../images/logos/olar.svg" alt="OLAR Home" style="height: 2rem;">
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <a class="navbar-item" href="../index.html" style="display: flex; align-items: center; gap: 0.5rem; font-weight: 500;"><i class="fas fa-home"></i> Back to Home</a>
+  </div>
+</nav>
+
+<main class="container section" style="padding: 4vw 4vw 8vw; max-width: 800px; margin: 0 auto;">
+  <h1 class="title is-1 paper-title-small" style="font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.2; margin-bottom: 3rem; text-align: center;">Blog</h1>
+
+  <div class="blog-list">
+    <a href="MaLA-LM.html" class="blog-item">
+      <span class="blog-date">July 24, 2026</span>
+      <h2 class="blog-title">The MaLA-LM Journey: Scaling Multilingual Large Language Models to 500+ Languages</h2>
+      <p class="blog-summary">The MaLA-LM project scales multilingual large language models (LLMs) to over 500 languages, addressing challenges in data collection, tokenization, and cross-lingual transfer.</p>
+    </a>
+  </div>
+</main>
+
+<footer class="footer">
+  <div>&copy; 2026 Omni Language AI Research.</div>
+  <div class="footer-logo-container">
+    <a href="https://turkunlp.org" target="_blank"><img src="../../images/logos/turkunlp.png" alt="TurkuNLP" class="footer-logo" title="TurkuNLP"></a>
+    <a href="https://www.ellisinstitute.fi" target="_blank"><img src="../../images/logos/ellis-logo_horizontal_black_2023-FINLAND.png" alt="ELLIS Institute Finland" class="footer-logo" title="ELLIS Institute Finland"></a>
+    <a href="https://www.utu.fi/en" target="_blank"><img src="../../images/logos/UTU_logo_EN_RGB.png" alt="University of Turku" class="footer-logo" title="University of Turku"></a>
+  </div>
+  <a href="https://github.com/OLAResearch" style="color: inherit; font-size: 1.5rem; transition: var(--transition-smooth);"><i class="fab fa-github"></i></a>
+</footer>
+
+<script src="../../static/js/main.js"></script>
+
+</body>
+</html>
