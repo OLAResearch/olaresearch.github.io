@@ -113,6 +113,7 @@ const handleNavigation = async (url, hash = '') => {
       } else {
         window.scrollTo(0, 0);
       }
+      if (typeof initMermaid === 'function') initMermaid();
     });
   } catch (err) {
     console.error('Navigation transition failed:', err);
@@ -289,3 +290,37 @@ document.addEventListener('click', (e) => {
     filterPublications();
   }
 });
+
+/* Mermaid initialization for SPA and initial load */
+async function initMermaid() {
+  if (document.querySelector('.mermaid')) {
+    try {
+      const { default: mermaid } = await import('https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs');
+      mermaid.initialize({
+        startOnLoad: false,
+        securityLevel: 'loose',
+        theme: 'base',
+        themeVariables: {
+          fontFamily: 'Inter, sans-serif',
+          fontSize: '18px',
+          primaryColor: '#fdfdfd',
+          primaryTextColor: '#333333',
+          primaryBorderColor: '#e2e8f0',
+          lineColor: '#cbd5e1',
+          secondaryColor: '#f8fafc',
+          tertiaryColor: '#ffffff',
+          cScale0: '#E6F4EA',
+          cScale1: '#FCE8E6',
+          cScale2: '#E8F0FE',
+          cScale3: '#FEF7E0',
+          cScale4: '#F3E8FD',
+          cScale5: '#E0F2F1'
+        }
+      });
+      await mermaid.run({ querySelector: '.mermaid' });
+    } catch (err) {
+      console.error('Mermaid init failed', err);
+    }
+  }
+}
+document.addEventListener('DOMContentLoaded', initMermaid);
