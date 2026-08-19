@@ -13,9 +13,9 @@
   <meta property="og:description"
     content="We study cross-model frozen-memory transfer, showing that target-side readers can extract and align representations across model architectures and tokenizers.">
   <meta property="og:image" content="https://www.olaresearch.org/XMemTransfer/overview.png">
-  <meta property="og:url" content="https://www.olaresearch.org/XMemTransfer/">
+  <meta property="og:url" content="https://arxiv.org/abs/2608.17050">
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2026-07-11">
+  <meta property="article:published_time" content="2026-08-17">
   <meta property="article:author" content="Mingyuan Li">
   <meta property="article:author" content="Guangsheng Yu">
   <meta property="article:author" content="Xu Wang">
@@ -45,7 +45,13 @@
     "headline": "Cross-Model Memory Transfer via Target-Side Reader Adaptation",
     "description": "We study cross-model frozen-memory transfer, showing that target-side readers can extract and align representations across model architectures and tokenizers.",
     "image": "https://www.olaresearch.org/XMemTransfer/overview.png",
-    "datePublished": "2026-07-11",
+    "datePublished": "2026-08-17",
+    "identifier": "arXiv:2608.17050",
+    "url": "https://arxiv.org/abs/2608.17050",
+    "sameAs": [
+      "https://arxiv.org/abs/2608.17050",
+      "https://github.com/OLAResearch/XMemTransfer"
+    ],
     "author": [
       {
         "@type": "Person",
@@ -71,8 +77,7 @@
       "name": "Omni Language AI Research",
       "url": "https://www.olaresearch.org/"
     },
-    "mainEntityOfPage": "https://www.olaresearch.org/XMemTransfer/",
-    "sameAs": "https://github.com/OLAResearch/XMemTransfer"
+    "mainEntityOfPage": "https://arxiv.org/abs/2608.17050"
   }
   </script>
   <style>
@@ -84,27 +89,18 @@
     }
   </style>
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LHSMW4F3Y"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-5LHSMW4F3Y');
-  </script>
 </head>
 
 <body>
 
   <nav class="navbar" role="navigation">
     <div class="navbar-brand">
-      <a class="navbar-item" href="../index.html">
+      <a class="navbar-item" href="https://www.olaresearch.org/">
         <img src="../images/logos/olar.svg" alt="OLAR Home" style="height: 2rem;">
       </a>
     </div>
     <div class="navbar-menu">
-      <a class="navbar-item" href="../publications.html" style="display: flex; align-items: center; gap: 0.5rem; font-weight: 500;"><i class="fas fa-arrow-left"></i> Back to Publications</a>
+      <a class="navbar-item" href="https://www.olaresearch.org/publications.html" style="display: flex; align-items: center; gap: 0.5rem; font-weight: 500;"><i class="fas fa-arrow-left"></i> Back to Publications</a>
     </div>
   </nav>
 
@@ -139,7 +135,7 @@
     </div>
 
     <div class="action-buttons">
-      <a href="./paper-XMemTransfer.pdf" class="btn-primary" target="_blank">Download PDF</a>
+      <a href="https://arxiv.org/abs/2608.17050" class="btn-primary" target="_blank" rel="noopener">Read Paper</a>
       <a href="https://github.com/OLAResearch/XMemTransfer" class="btn-secondary" target="_blank">Code</a>
       <a href="https://huggingface.co/collections/OLAResearchX/xmemtransfer" class="btn-secondary"
         target="_blank">Models</a>
@@ -163,7 +159,7 @@
       Ablations show that learned memory content and correct addressing both matter, but the transferred table becomes
       useful only through a reader aligned to the target model.
       On downstream tasks, a target-side dual-layer 4-branch reader on question answering nearly closes the gap between
-      same-model and cross-model transfer, reaching a 38.8 average score, a state-of-the-art result.
+      same-model and cross-model transfer, reaching a 38.8 average score, a strong controlled result.
       These results suggest that Engram can serve as a reusable external knowledge artifact, provided that a
       target-specific reader is trained to align and integrate the retrieved representations.
     </p>
@@ -373,7 +369,8 @@
       <li><strong>RQ2: How much does reader design matter?</strong> Varying memory placement (layers) and retrieval capacity (branches) to optimize how the target backbone integrates memory representations.</li>
       <li><strong>RQ3: When does transferred memory help downstream?</strong> Evaluating the practical limits of transfer, observing strong gains on factual QA and evidence-matching tasks but not on truthfulness-oriented calibration.</li>
       <li><strong>RQ4: Does transferred memory improve answer-token support in question answering?</strong> Investigating whether memory transfer directly boosts log-probability support for gold-standard answers rather than relying solely on overall generation accuracy.</li>
-      <li><strong>RQ5: What drives the gains, and how data-efficient is transfer?</strong> Determining whether improvements originate from structured knowledge transfer or simply parameter capacity through ablations, and measuring target adaptation data efficiency.</li>
+      <li><strong>RQ5: How data-efficient is frozen-memory transfer?</strong> Measuring whether frozen-memory transfer reduces the amount of target-side training required to reach competitive performance compared to learning memory from scratch.</li>
+      <li><strong>RQ6: What drives the gains from memory transfer?</strong> Determining whether improvements originate from structured knowledge transfer or simply parameter capacity through ablations of memory addressing and reader interfaces.</li>
     </ul>
 
     <h3 class="title is-3" style="font-size: 1.5rem; margin-bottom: 2rem;">Key Findings</h3>
@@ -384,33 +381,61 @@
           <h4
             style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; font-family: var(--font-sans);">
             1. Portability Across Tokenizers and Architectures</h4>
-          <span style="color: var(--text-secondary);">Using tokenizer-agnostic canonicalization to map inputs, frozen memory transfer consistently improves targets across diverse families (Pythia, Qwen, TinyLlama). The same transferred memory continues to help as the target scales, proving its utility outside the source backbone.</span>
+          <span style="color: var(--text-secondary);">Frozen memory transfer remains effective across backbone families, tokenizer boundaries, and target scales, with gains in all nine main source-target pairs; the same Qwen3.5 target family also retains selective downstream gains beyond perplexity, and successful transfer ultimately depends on whether the target reader can extract the stored structure.</span>
         </li>
         <li style="margin-bottom: 1.5rem;">
           <h4
             style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; font-family: var(--font-sans);">
-            2. Reader Adaptation is First-Order</h4>
-          <span style="color: var(--text-secondary);">Memory presence alone is not enough; successful transfer depends primarily on adapting the reader to the target backbone. Dual-layer injection recovers most gains, while multi-branch gating further improves integration, nearly closing the performance gap between same-model and cross-model reuse.</span>
+            2. Reader Design is a First-Order Determinant</h4>
+          <span style="color: var(--text-secondary);">Reader design is a first-order determinant of transfer quality. Dual-layer injection recovers most of the available gain, while multi-branch gating provides an additional improvement by allowing the same retrieved value representation to be conditioned through multiple target-dependent key-gate pathways. Together, these design choices raise average QA accuracy from 34.2 to 38.5 without changing the transferred memory itself.</span>
         </li>
         <li style="margin-bottom: 1.5rem;">
           <h4
             style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; font-family: var(--font-sans);">
             3. Task-Dependent Downstream Enhancements</h4>
-          <span style="color: var(--text-secondary);">Memory transfer has a high practical ceiling (reaching 38.8 average score across QA tasks), but gains are highly selective. It excels on factual question answering and evidence-matching, but can be mildly harmful on tasks like TruthfulQA that require calibrated resistance to misleading associations.</span>
+          <span style="color: var(--text-secondary);">Memory transfer has a high practical ceiling: with a sufficiently expressive target-side reader, cross-model transfer nearly matches same-model reuse and saturates at approximately 38.5-38.8 average QA accuracy. This ceiling, however, is task-dependent rather than universal. Transferred memory provides the clearest gains on factual and evidence-oriented tasks, has little effect on broader reading comprehension, and can be mildly harmful on TruthfulQA.</span>
         </li>
         <li style="margin-bottom: 1.5rem;">
           <h4
             style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; font-family: var(--font-sans);">
             4. Improved Answer-Token Support</h4>
-          <span style="color: var(--text-secondary);">Transferred memory demonstrably increases log-probability support for gold-standard answers compared to random or disabled memory. The benefit stems from useful factual support during context processing rather than direct answer-token injection at the final positions.</span>
+          <span style="color: var(--text-secondary);">Transferred memory improves answer-token support selectively but positively: it increases gold-answer support on NQ, WebQA, TriviaQA, and HotpotQA relative to both random memory and no memory, while the near-zero answer-position ablation effects indicate that the gain comes more from useful factual support than from direct answer-token injection.</span>
+        </li>
+        <li style="margin-bottom: 1.5rem;">
+          <h4
+            style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; font-family: var(--font-sans);">
+            5. Target-Data Efficiency</h4>
+          <span style="color: var(--text-secondary);">Frozen-memory transfer is target-data efficient: it reaches strong perplexity with substantially fewer target-side updates than learning a new memory from scratch, while downstream gains remain positive but task-dependent.</span>
         </li>
         <li style="margin-bottom: 0;">
           <h4
             style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; font-family: var(--font-sans);">
-            5. Gains Cannot Be Explained by Parameters Alone</h4>
-          <span style="color: var(--text-secondary);">Extensive ablations reveal that the downstream gains originate from structured knowledge extraction. The transferred reader significantly outperforms parameter-matched FFN controls, random-memory, permuted-key, and affine-stitch baselines.</span>
+            6. Gains Cannot Be Explained by Parameters Alone</h4>
+          <span style="color: var(--text-secondary);">The downstream gains cannot be explained by parameter count alone: successful transfer depends on meaningful memory addressing and a sufficiently expressive reader interface, while its main advantage over scratch training is better target-side data efficiency rather than a higher asymptotic ceiling.</span>
         </li>
       </ul>
+    </div>
+
+    <h3 class="title is-3" style="font-size: 1.5rem; margin-bottom: 2rem;">Resources</h3>
+    <div class="research-grid" style="margin-top: 0; margin-bottom: 4rem;">
+      <a href="https://arxiv.org/abs/2608.17050" class="research-card" target="_blank" rel="noopener">
+        <span class="tag">Paper</span>
+        <h3>arXiv Preprint</h3>
+        <p>Read the full paper on cross-model frozen-memory transfer and target-side reader adaptation.</p>
+        <div class="card-arrow">Open Paper <i class="fas fa-arrow-right"></i></div>
+      </a>
+      <a href="https://github.com/OLAResearch/XMemTransfer" class="research-card" target="_blank" rel="noopener">
+        <span class="tag">Code</span>
+        <h3>GitHub Repository</h3>
+        <p>Access the implementation, training configuration, and evaluation scripts for XMemTransfer.</p>
+        <div class="card-arrow">View Code <i class="fas fa-arrow-right"></i></div>
+      </a>
+      <a href="https://huggingface.co/collections/OLAResearchX/xmemtransfer" class="research-card" target="_blank" rel="noopener">
+        <span class="tag">Models</span>
+        <h3>Hugging Face Collection</h3>
+        <p>Explore the released model artifacts and resources for cross-model memory transfer.</p>
+        <div class="card-arrow">View Models <i class="fas fa-arrow-right"></i></div>
+      </a>
     </div>
 
     <section id="bibtex" style="margin-top: 6rem;">
@@ -421,8 +446,11 @@
           style="margin: 0; color: var(--text-primary); font-family: 'Courier New', monospace; font-size: 0.85rem;"><code style="color: var(--text-primary); background: transparent;">@article{li2026cross,
   title   = {Cross-Model Memory Transfer via Target-Side Reader Adaptation},
   author  = {Li, Mingyuan and Yu, Guangsheng and Wang, Xu and Ji, Shaoxiong},
-  journal = {arXiv preprint arXiv:2607.xxxxx},
-  url     = {https://olaresearch.org/XMemTransfer},
+  journal = {arXiv preprint arXiv:2608.17050},
+  eprint  = {2608.17050},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  url     = {https://arxiv.org/abs/2608.17050},
   year    = {2026}
 }</code></pre>
       </div>
