@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="Cross-Model Memory Transfer via Target-Side Reader Adaptation - Omni Language AI Research">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cross-Model Memory Transfer via Target-Side Reader Adaptation | OLAResearch</title>
+
+  <!-- OpenGraph Metadata for AI Search & Social Previews -->
+  <meta property="og:title" content="Cross-Model Memory Transfer via Target-Side Reader Adaptation">
+  <meta property="og:description"
+    content="We study cross-model frozen-memory transfer, showing that target-side readers can extract and align representations across model architectures and tokenizers.">
+  <meta property="og:image" content="https://www.olaresearch.org/XMemTransfer/overview.png">
+  <meta property="og:url" content="https://arxiv.org/abs/2608.17050">
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2026-08-17">
+  <meta property="article:author" content="Mingyuan Li">
+  <meta property="article:author" content="Guangsheng Yu">
+  <meta property="article:author" content="Xu Wang">
+  <meta property="article:author" content="Shaoxiong Ji">
+  <meta property="og:site_name" content="OLAResearch">
+
+  <!-- Twitter Card Metadata -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cross-Model Memory Transfer via Target-Side Reader Adaptation">
+  <meta name="twitter:description"
+    content="Can external memory represent a portable knowledge artifact? We study cross-model memory transfer with target-side reader adaptation.">
+  <meta name="twitter:image" content="https://www.olaresearch.org/XMemTransfer/overview.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="../static/css/index.css">
+  <link rel="icon" href="../images/logos/olar.svg">
+
+  <!-- Schema.org JSON-LD Structured Data for Publications (ScholarlyArticle) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Cross-Model Memory Transfer via Target-Side Reader Adaptation",
+    "description": "We study cross-model frozen-memory transfer, showing that target-side readers can extract and align representations across model architectures and tokenizers.",
+    "image": "https://www.olaresearch.org/XMemTransfer/overview.png",
+    "datePublished": "2026-08-17",
+    "identifier": "arXiv:2608.17050",
+    "url": "https://arxiv.org/abs/2608.17050",
+    "sameAs": [
+      "https://arxiv.org/abs/2608.17050",
+      "https://github.com/OLAResearch/XMemTransfer"
+    ],
+    "author": [
+      {
+        "@type": "Person",
+        "name": "Mingyuan Li",
+        "url": "https://www.olaresearch.org/alumnus.html"
+      },
+      {
+        "@type": "Person",
+        "name": "Guangsheng Yu"
+      },
+      {
+        "@type": "Person",
+        "name": "Xu Wang"
+      },
+      {
+        "@type": "Person",
+        "name": "Shaoxiong Ji",
+        "url": "https://www.olaresearch.org/jis/"
+      }
+    ],
+    "publisher": {
+      "@type": "ResearchOrganization",
+      "name": "Omni Language AI Research",
+      "url": "https://www.olaresearch.org/"
+    },
+    "mainEntityOfPage": "https://arxiv.org/abs/2608.17050"
+  }
+  </script>
+  <style>
+    @media (max-width: 768px) {
+      .navbar-menu {
+        display: flex !important;
+        gap: 1.5rem;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.olaresearch.org/">
+        <img src="../images/logos/olar.svg" alt="OLAR Home" style="height: 2rem;">
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <a class="navbar-item" href="https://www.olaresearch.org/publications.html" style="display: flex; align-items: center; gap: 0.5rem; font-weight: 500;"><i class="fas fa-arrow-left"></i> Back to Publications</a>
+    </div>
+  </nav>
+
+  <header class="paper-hero">
+    <h1 class="title is-1 paper-title-small">Cross-Model Memory Transfer via Target-Side Reader Adaptation</h1>
+
+    <div class="paper-meta">
+      <div class="meta-item">
+        <span class="meta-label">Authors</span>
+        <span class="meta-value">Mingyuan Li, Guangsheng Yu, Xu Wang, Shaoxiong Ji</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Venue</span>
+        <span class="meta-value">Preprint</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Date</span>
+        <span class="meta-value">August 2026</span>
+      </div>
+    </div>
+
+    <div class="hero-links-container is-centered">
+      <div class="hero-affiliations">
+        <a href="https://www.ellisinstitute.fi" target="_blank"><img
+            src="../images/logos/ellis-logo_horizontal_black_2023-FINLAND.png" alt="ELLIS"
+            class="hero-affiliation-logo"></a>
+        <a href="https://www.utu.fi/en" target="_blank"><img src="../images/logos/UTU_logo_EN_RGB.png" alt="UTU"
+            class="hero-affiliation-logo"></a>
+        <a href="https://www.uts.edu.au" target="_blank"><img src="../images/logos/uts.png" alt="UTS"
+            class="hero-affiliation-logo"></a>
+      </div>
+    </div>
+
+    <div class="action-buttons">
+      <a href="https://arxiv.org/abs/2608.17050" class="btn-primary" target="_blank" rel="noopener">Read Paper</a>
+      <a href="https://github.com/OLAResearch/XMemTransfer" class="btn-secondary" target="_blank">Code</a>
+      <a href="https://huggingface.co/collections/OLAResearchX/xmemtransfer" class="btn-secondary"
+        target="_blank">Models</a>
+    </div>
+
+  </header>
+  <main class="paper-content">
+    <h3 class="title is-3" style="font-size: 1.5rem; margin-bottom: 2rem;">Abstract</h3>
+    <p class="abstract-small">
+      Methods for improving knowledge use in large language models typically fall into two regimes.
+      Non-parametric retrieval offers flexible access to external knowledge, but adds retrieval latency, context
+      overhead, and only shallow integration with the backbone.
+      Parametric adaptation is efficient at inference time, but entangles knowledge with model weights and can be hard
+      to update, audit, or transfer.
+      Engram-style hashed memory occupies a middle regime: it stores learned information in an external, addressable
+      table, yet consumes that table through a small learned reader.
+      This raises a basic question: when such a memory is moved across backbones, what matters more, the frozen memory
+      itself or the target-side reader?
+      We study this question through cross-model frozen-memory extraction, where a memory trained on a source model is
+      frozen and attached to a different target model while only a lightweight reader is trained.
+      Ablations show that learned memory content and correct addressing both matter, but the transferred table becomes
+      useful only through a reader aligned to the target model.
+      On downstream tasks, a target-side dual-layer 4-branch reader on question answering nearly closes the gap between
+      same-model and cross-model transfer, reaching a 38.8 average score, a strong controlled result.
+      These results suggest that Engram can serve as a reusable external knowledge artifact, provided that a
+      target-specific reader is trained to align and integrate the retrieved representations.
+    </p>
+
+    <div style="margin: 4rem 0;">
+        <div class="xmem-animation-wrapper" style="width: 100%; overflow: hidden; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid var(--border-color); background: #ffffff;">
+          <svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto; font-family: var(--font-sans, 'Inter', sans-serif); display: block;">
+            <defs>
+              <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#9ca3af" />
+              </marker>
+              <marker id="arrow-active" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#6366f1" />
+              </marker>
+              <marker id="arrow-train" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#ec4899" />
+              </marker>
+
+              <linearGradient id="grad-source" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#fdf2f8" />
+                <stop offset="100%" stop-color="#fce7f3" />
+              </linearGradient>
+              <linearGradient id="grad-target" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#f0fdf4" />
+                <stop offset="100%" stop-color="#dcfce7" />
+              </linearGradient>
+              <linearGradient id="grad-memory" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#eef2ff" />
+                <stop offset="100%" stop-color="#e0e7ff" />
+              </linearGradient>
+              <linearGradient id="grad-reader" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#fefce8" />
+                <stop offset="100%" stop-color="#fef08a" />
+              </linearGradient>
+
+              <style>
+                .xmem-box { rx: 8px; ry: 8px; stroke-width: 2px; }
+                .xmem-source { fill: url(#grad-source); stroke: #f472b6; }
+                .xmem-target { fill: url(#grad-target); stroke: #4ade80; }
+                .xmem-memory { fill: url(#grad-memory); stroke: #818cf8; }
+                .xmem-reader { fill: url(#grad-reader); stroke: #facc15; }
+                .xmem-canonical { fill: #f9fafb; stroke: #9ca3af; stroke-dasharray: 4; }
+                
+                .xmem-title { font-weight: 600; font-size: 16px; fill: #111827; text-anchor: middle; }
+                .xmem-sub { font-size: 13px; fill: #4b5563; text-anchor: middle; }
+                .xmem-tiny { font-size: 11px; fill: #6b7280; text-anchor: middle; font-weight: 500; }
+                
+                .xmem-line { fill: none; stroke: #9ca3af; stroke-width: 2px; marker-end: url(#arrow); }
+                .xmem-line-active { fill: none; stroke: #6366f1; stroke-width: 2px; marker-end: url(#arrow-active); stroke-dasharray: 6; animation: xmem-dash 1s linear infinite; }
+                .xmem-line-train { fill: none; stroke: #ec4899; stroke-width: 2px; marker-end: url(#arrow-train); stroke-dasharray: 6; animation: xmem-dash 1s linear infinite; }
+                
+                @keyframes xmem-dash {
+                  to { stroke-dashoffset: -12; }
+                }
+                
+                .xmem-freeze-icon { font-size: 24px; animation: xmem-float 3s ease-in-out infinite; }
+                @keyframes xmem-float {
+                  0%, 100% { transform: translateY(0); }
+                  50% { transform: translateY(-5px); }
+                }
+                
+                .xmem-pulse-border {
+                  animation: xmem-pulseBorder 2s infinite;
+                }
+                @keyframes xmem-pulseBorder {
+                  0% { filter: drop-shadow(0 0 0 rgba(250, 204, 21, 0)); }
+                  50% { filter: drop-shadow(0 0 8px rgba(250, 204, 21, 0.6)); }
+                  100% { filter: drop-shadow(0 0 0 rgba(250, 204, 21, 0)); }
+                }
+                
+                .xmem-memory-row {
+                  animation: xmem-slideIn 2s infinite;
+                  opacity: 0.8;
+                }
+                .xmem-memory-row:nth-child(2) { animation-delay: 0.2s; }
+                .xmem-memory-row:nth-child(3) { animation-delay: 0.4s; }
+                .xmem-memory-row:nth-child(4) { animation-delay: 0.6s; }
+                
+                @keyframes xmem-slideIn {
+                  0%, 100% { transform: translateX(0); }
+                  50% { transform: translateX(5px); }
+                }
+                
+                .xmem-gear {
+                  transform-origin: 60px 85px;
+                  animation: xmem-spin 6s linear infinite;
+                }
+                @keyframes xmem-spin {
+                  100% { transform: rotate(360deg); }
+                }
+              </style>
+            </defs>
+
+            <!-- Title -->
+            <text x="400" y="40" class="xmem-title" style="font-size: 22px;">Cross-Model Memory Transfer Framework</text>
+
+            <!-- 1. Source Model -->
+            <g transform="translate(50, 100)">
+              <rect width="180" height="80" class="xmem-box xmem-source" />
+              <text x="90" y="35" class="xmem-title">Source Model A</text>
+              <text x="90" y="55" class="xmem-sub">e.g., Pythia-1B</text>
+            </g>
+
+            <!-- Train Path -->
+            <path d="M 230 140 L 310 140" class="xmem-line-train" />
+            <text x="270" y="130" class="xmem-tiny" style="fill: #ec4899;">Trains</text>
+
+            <!-- 2. Memory Table -->
+            <g transform="translate(310, 100)">
+              <rect width="180" height="180" class="xmem-box xmem-memory" />
+              <text x="90" y="35" class="xmem-title">Memory Table</text>
+              <text x="90" y="55" class="xmem-tiny">Addressable Key-Value</text>
+              
+              <rect x="25" y="70" width="130" height="14" rx="4" fill="#818cf8" class="xmem-memory-row" />
+              <rect x="25" y="94" width="130" height="14" rx="4" fill="#818cf8" class="xmem-memory-row" />
+              <rect x="25" y="118" width="130" height="14" rx="4" fill="#818cf8" class="xmem-memory-row" />
+              <rect x="25" y="142" width="130" height="14" rx="4" fill="#818cf8" class="xmem-memory-row" />
+              
+              <text x="90" y="172" class="xmem-title" style="fill: #4338ca;">Frozen Space</text>
+              <text x="145" y="172" class="xmem-freeze-icon">❄️</text>
+            </g>
+
+            <!-- 3. Target Model -->
+            <g transform="translate(50, 320)">
+              <rect width="180" height="80" class="xmem-box xmem-target" />
+              <text x="90" y="35" class="xmem-title">Target Model B</text>
+              <text x="90" y="55" class="xmem-sub">e.g., Qwen-1.5B</text>
+            </g>
+
+            <!-- Query Path -->
+            <path d="M 230 350 L 310 350" class="xmem-line-active" />
+            <text x="270" y="340" class="xmem-tiny" style="fill: #6366f1;">Query</text>
+
+            <!-- 4. Canonicalization -->
+            <g transform="translate(310, 320)">
+              <rect width="180" height="60" rx="30" ry="30" class="xmem-box xmem-canonical" />
+              <text x="90" y="26" class="xmem-title" style="font-size: 14px;">Canonicalization</text>
+              <text x="90" y="44" class="xmem-tiny">Tokenizer-Agnostic Map</text>
+            </g>
+
+            <!-- Address Lookup Path -->
+            <path d="M 400 320 L 400 280" class="xmem-line-active" />
+            <text x="440" y="305" class="xmem-tiny" style="fill: #6366f1;">Address</text>
+
+            <!-- Read Value Path -->
+            <path d="M 490 220 L 570 220" class="xmem-line-active" />
+            <text x="530" y="210" class="xmem-tiny" style="fill: #6366f1;">Value</text>
+
+            <!-- 5. Target-side Reader -->
+            <g transform="translate(570, 160)">
+              <rect width="180" height="120" class="xmem-box xmem-reader xmem-pulse-border" />
+              <text x="90" y="35" class="xmem-title">Target-Side Reader</text>
+              <text x="90" y="55" class="xmem-sub">Adaptation Layer</text>
+              
+              <g class="xmem-gear">
+                <circle cx="60" cy="85" r="14" fill="none" stroke="#eab308" stroke-width="5" stroke-dasharray="5 4" />
+                <circle cx="60" cy="85" r="8" fill="none" stroke="#eab308" stroke-width="2" />
+                <circle cx="60" cy="85" r="3" fill="#eab308" />
+              </g>
+              
+              <rect x="85" y="75" width="65" height="20" rx="10" fill="#fef08a" stroke="#eab308" stroke-width="1.5" />
+              <text x="117.5" y="89" class="xmem-tiny" style="fill: #854d0e; font-weight: 700;">TRAINED</text>
+            </g>
+
+            <!-- Write Back Path -->
+            <path d="M 660 280 L 660 380 L 230 380" class="xmem-line-active" />
+            <text x="660" y="340" class="xmem-tiny" style="fill: #6366f1;" text-anchor="middle">Integrate</text>
+            <text x="445" y="372" class="xmem-tiny" style="fill: #6366f1;">Aligned Representations</text>
+          </svg>
+        </div>
+    </div>
+
+    <h3 class="title is-3" style="font-size: 1.5rem; margin-bottom: 2rem;">Methods</h3>
+    
+    <p>
+      We study the portability of external memory structures through the lens of cross-model frozen-memory extraction.
+      Given an Engram-style hashed memory table trained with a source model A, we attach it to a different target model B to evaluate if the knowledge can be extracted outside its source backbone.
+      Relative to the native Engram architecture, our framework introduces three key methodological components:
+    </p>
+    <ul class="info-list" style="margin-bottom: 2rem;">
+      <li><strong>Tokenizer-Agnostic Addressing:</strong> Replaces model-specific token-ID lookup with a shared canonicalization function based on word boundaries, keeping the memory address space entirely stable across different target tokenizers.</li>
+      <li><strong>Target-Side Reader:</strong> Employs a shared-value reader family (including multi-layer and multi-branch variants) to align and project the retrieved memory vectors into the target model's residual stream.</li>
+      <li><strong>Training Regime:</strong> Adapts the target model using a standard next-token language modeling loss where only the target-side reader parameters are updated; both the exported source memory table and the target backbone remain strictly frozen.</li>
+    </ul>
+
+    <div style="margin: 3rem 0;">
+      <figure style="text-align: center;">
+        <img src="./overview.png" alt="Overview of the cross-model memory transfer framework."
+          style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid var(--border-color);">
+        <figcaption
+          style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 1rem; text-align: left; line-height: 1.5;">
+          <strong>Figure 1:</strong> Overview of the cross-model memory transfer framework. A memory table trained with
+          source model A is frozen and attached to target model B. Tokenizer-agnostic canonicalization keeps the address
+          space fixed across tokenizers, and only the target-side reader (including multi-branch and multi-layer
+          variants) is trained. This setup operationalizes whether external memory remains reusable outside its source
+          backbone. [<a href="overview.pdf">Download vector graphics</a>]
+        </figcaption>
+      </figure>
+    </div>
+
+    <h3 class="title is-3" style="font-size: 1.5rem; margin-bottom: 2rem;">Research Questions</h3>
+    <p>
+      By separating memory storage from model-specific readers, we seek to evaluate the true reusability of the artifact:
+    </p>
+    <ul class="info-list" style="margin-bottom: 3rem;">
+      <li><strong>RQ1: Does frozen memory transfer across backbones, tokenizers, and scales?</strong> Evaluating if an exported memory table remains useful when attached to a completely different model with distinct tokenizer boundaries and size.</li>
+      <li><strong>RQ2: How much does reader design matter?</strong> Varying memory placement (layers) and retrieval capacity (branches) to optimize how the target backbone integrates memory representations.</li>
+      <li><strong>RQ3: When does transferred memory help downstream?</strong> Evaluating the practical limits of transfer, observing strong gains on factual QA and evidence-matching tasks but not on truthfulness-oriented calibration.</li>
+      <li><strong>RQ4: Does transferred memory improve answer-token support in question answering?</strong> Investigating whether memory transfer directly boosts log-probability support for gold-standard answers rather than relying solely on overall generation accuracy.</li>
+      <li><strong>RQ5: How data-efficient is frozen-memory transfer?</strong> Measuring whether frozen-memory transfer reduces the amount of target-side training required to reach competitive performance compared to learning memory from scratch.</li>
+      <li><strong>RQ6: What drives the gains from memory transfer?</strong> Determining whether improvements originate from structured knowledge transfer or simply parameter capacity through ablations of memory addressing and reader interfaces.</li>
+    </ul>
+
+    <h3 class="title is-3" style="font-size: 1.5rem; margin-bottom: 2rem;">Key Findings</h3>
+    <div
+      style="background: var(--surface-color); padding: 2.5rem; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 3rem;">
+      <ul style="list-style-type: none; padding: 0;">
+        <li style="margin-bottom: 1.5rem;">
+          <h4
+            style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; font-family: var(--font-sans);">
+            1. Portability Across Tokenizers and Architectures</h4>
+          <span style="color: var(--text-secondary);">Frozen memory transfer remains effective across backbone families, tokenizer boundaries, and target scales, with gains in all nine main source-target pairs; the same Qwen3.5 target family also retains selective downstream gains beyond perplexity, and successful transfer ultimately depends on whether the target reader can extract the stored structure.</span>
+        </li>
+        <li style="margin-bottom: 1.5rem;">
+          <h4
+            style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; font-family: var(--font-sans);">
+            2. Reader Design is a First-Order Determinant</h4>
+          <span style="color: var(--text-secondary);">Reader design is a first-order determinant of transfer quality. Dual-layer injection recovers most of the available gain, while multi-branch gating provides an additional improvement by allowing the same retrieved value representation to be conditioned through multiple target-dependent key-gate pathways. Together, these design choices raise average QA accuracy from 34.2 to 38.5 without changing the transferred memory itself.</span>
+        </li>
+        <li style="margin-bottom: 1.5rem;">
+          <h4
+            style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; font-family: var(--font-sans);">
+            3. Task-Dependent Downstream Enhancements</h4>
+          <span style="color: var(--text-secondary);">Memory transfer has a high practical ceiling: with a sufficiently expressive target-side reader, cross-model transfer nearly matches same-model reuse and saturates at approximately 38.5-38.8 average QA accuracy. This ceiling, however, is task-dependent rather than universal. Transferred memory provides the clearest gains on factual and evidence-oriented tasks, has little effect on broader reading comprehension, and can be mildly harmful on TruthfulQA.</span>
+        </li>
+        <li style="margin-bottom: 1.5rem;">
+          <h4
+            style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; font-family: var(--font-sans);">
+            4. Improved Answer-Token Support</h4>
+          <span style="color: var(--text-secondary);">Transferred memory improves answer-token support selectively but positively: it increases gold-answer support on NQ, WebQA, TriviaQA, and HotpotQA relative to both random memory and no memory, while the near-zero answer-position ablation effects indicate that the gain comes more from useful factual support than from direct answer-token injection.</span>
+        </li>
+        <li style="margin-bottom: 1.5rem;">
+          <h4
+            style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; font-family: var(--font-sans);">
+            5. Target-Data Efficiency</h4>
+          <span style="color: var(--text-secondary);">Frozen-memory transfer is target-data efficient: it reaches strong perplexity with substantially fewer target-side updates than learning a new memory from scratch, while downstream gains remain positive but task-dependent.</span>
+        </li>
+        <li style="margin-bottom: 0;">
+          <h4
+            style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; font-family: var(--font-sans);">
+            6. Gains Cannot Be Explained by Parameters Alone</h4>
+          <span style="color: var(--text-secondary);">The downstream gains cannot be explained by parameter count alone: successful transfer depends on meaningful memory addressing and a sufficiently expressive reader interface, while its main advantage over scratch training is better target-side data efficiency rather than a higher asymptotic ceiling.</span>
+        </li>
+      </ul>
+    </div>
+
+    <h3 class="title is-3" style="font-size: 1.5rem; margin-bottom: 2rem;">Resources</h3>
+    <div class="research-grid" style="margin-top: 0; margin-bottom: 4rem;">
+      <a href="https://arxiv.org/abs/2608.17050" class="research-card" target="_blank" rel="noopener">
+        <span class="tag">Paper</span>
+        <h3>arXiv Preprint</h3>
+        <p>Read the full paper on cross-model frozen-memory transfer and target-side reader adaptation.</p>
+        <div class="card-arrow">Open Paper <i class="fas fa-arrow-right"></i></div>
+      </a>
+      <a href="https://github.com/OLAResearch/XMemTransfer" class="research-card" target="_blank" rel="noopener">
+        <span class="tag">Code</span>
+        <h3>GitHub Repository</h3>
+        <p>Access the implementation, training configuration, and evaluation scripts for XMemTransfer.</p>
+        <div class="card-arrow">View Code <i class="fas fa-arrow-right"></i></div>
+      </a>
+      <a href="https://huggingface.co/collections/OLAResearchX/xmemtransfer" class="research-card" target="_blank" rel="noopener">
+        <span class="tag">Models</span>
+        <h3>Hugging Face Collection</h3>
+        <p>Explore the released model artifacts and resources for cross-model memory transfer.</p>
+        <div class="card-arrow">View Models <i class="fas fa-arrow-right"></i></div>
+      </a>
+    </div>
+
+    <section id="bibtex" style="margin-top: 6rem;">
+      <h3 class="title is-3" style="font-size: 1.5rem; margin-bottom: 2rem;">BibTeX</h3>
+      <div class="bibtex-container">
+        <button class="copy-button" onclick="copyBibTeX()">Copy</button>
+        <pre id="bibtex-code"
+          style="margin: 0; color: var(--text-primary); font-family: 'Courier New', monospace; font-size: 0.85rem;"><code style="color: var(--text-primary); background: transparent;">@article{li2026cross,
+  title   = {Cross-Model Memory Transfer via Target-Side Reader Adaptation},
+  author  = {Li, Mingyuan and Yu, Guangsheng and Wang, Xu and Ji, Shaoxiong},
+  journal = {arXiv preprint arXiv:2608.17050},
+  eprint  = {2608.17050},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  url     = {https://arxiv.org/abs/2608.17050},
+  year    = {2026}
+}</code></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>&copy; 2026 Omni Language AI Research.</div>
+    <div class="footer-logo-container">
+      <a href="https://turkunlp.org" target="_blank"><img src="../images/logos/turkunlp.png" alt="TurkuNLP"
+          class="footer-logo" title="TurkuNLP"></a>
+      <a href="https://www.ellisinstitute.fi" target="_blank"><img
+          src="../images/logos/ellis-logo_horizontal_black_2023-FINLAND.png" alt="ELLIS Institute Finland"
+          class="footer-logo" title="ELLIS Institute Finland"></a>
+      <a href="https://www.utu.fi/en" target="_blank"><img src="../images/logos/UTU_logo_EN_RGB.png"
+          alt="University of Turku" class="footer-logo" title="University of Turku"></a>
+    </div>
+    <a href="https://github.com/OLAResearch"
+      style="color: inherit; font-size: 1.5rem; transition: var(--transition-smooth);"><i class="fab fa-github"></i></a>
+  </footer>
+
+  <script src="../static/js/main.js"></script>
+
+</body>
+
+</html>
