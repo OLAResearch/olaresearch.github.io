@@ -84,9 +84,10 @@ Advancing clinical information management through automated medical coding, pati
     *   *Venue*: ACM Transactions on Information Systems (TOIS 2026)
     *   *Links*: [DOI Link](https://doi.org/10.1145/3786600)
 
-*   **XCR-Bench: A Multi-Task Benchmark for Evaluating Cultural Reasoning in LLMs**
-    *   *Authors*: Mohsinul Kabir, Tasnim Ahmed, Md Mezbaur Rahman, Shaoxiong Ji, Hassan Alhuzali, Sophia Ananiadou
-    *   *Venue*: arXiv 2601.14063
+*   **XCR-Bench: Benchmarking Cross-Cultural Reasoning in LLMs via Culture-Specific Items and Hall's Triad**
+    *   *Authors*: Mohsinul Kabir, Tasnim Ahmed, Md Mezbaur Rahman, Shaoxiong Ji, Hassan Alhuzali, Yuechen Jiang, Jimin Huang, Sophia Ananiadou
+    *   *Venue*: EMNLP 2026
+    *   *Links*: [Paper URL](https://arxiv.org/abs/2601.14063)
 
 *   **Psychologically-Grounded Graph Modeling for Interpretable Depression Detection**
     *   *Authors*: Rishitej Reddy Vyalla, Kritarth Prasad, Avinash Anand, Erik Cambria, Shaoxiong Ji, Faten S Alamri, Zhengkui Wang
@@ -95,6 +96,11 @@ Advancing clinical information management through automated medical coding, pati
 *   **Model-Based Quality Assessment for Massively Multilingual Parallel Data**
     *   *Authors*: Abdelaziz Ibrahim, Zihao Li, Jörg Tiedemann, Shaoxiong Ji
     *   *Venue*: arXiv 2606.00285
+
+*   **Are LLMs Ready to Assist Physicians? PhysAssistBench for Interactive Doctor-Patient-EHR Assistance**
+    *   *Authors*: Tianming Du, Peijie Yu, Sihan Shang, Danli Shi, My Linh Nguyen, Shengbo Gao, Guangyuan Li, Yinghong Yu, Yan Jiang, Qianlong Zhao, Behzad Bozorgtabar, Shaoxiong Ji, Jiazhen Pan, Daniel Rueckert, Jiancheng Yang
+    *   *Venue*: EMNLP Findings 2026
+    *   *Links*: [Paper URL](https://arxiv.org/abs/2606.18613)
 
 ### 2025 Publications
 
@@ -107,6 +113,11 @@ Advancing clinical information management through automated medical coding, pati
     *   *Authors*: Hengyu Luo, Zihao Li, Joseph Attieh et al. (including Shaoxiong Ji, Jörg Tiedemann)
     *   *Venue*: EMNLP 2025 System Demonstrations
     *   *Links*: [ACL Anthology](https://aclanthology.org/2025.emnlp-demos.43/)
+
+*   **Roleplaying with Structure: Synthetic Therapist-Client Conversation Generation from Questionnaires**
+    *   *Authors*: Doan Nam Long Vu, Rui Tan, Lena Moench, Svenja Jule Francke, Daniel Woiwod, Florian Thomas-Odenthal, Sanna Stroth, Tilo Kircher, Christiane Hermann, Udo Dannlowski, Hamidreza Jamalabadi, Shaoxiong Ji
+    *   *Venue*: arXiv 2510.25384
+    *   *Links*: [Paper URL](https://arxiv.org/abs/2510.25384)
 
 ---
 
@@ -133,6 +144,6 @@ Advancing clinical information management through automated medical coding, pati
 *   **[Naveen Vakada](https://scholar.google.com/citations?user=8oHYRMcAAAAJ&hl=en)** (Doctoral Researcher)
     *   *Affiliations*: ELLIS Institute Finland & University of Turku
     *   *Interests*: Multimodal AI
-*   **[Zhibo Man](https://www.utu.fi/en/people/zhibo-man)** (Visiting Researcher)
+*   **[Zhibo Man](https://www.utu.fi/en/people/zhibo-man)** (Postdoctoral Researcher)
     *   *Affiliations*: ELLIS Institute Finland & University of Turku
     *   *Interests*: NLP
