@@ -14,161 +14,33 @@
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="OLA Research">
   <title>MemoryATHENA: Adaptive Routing over Latent and Generated Memories</title>
-  <link rel="icon" href="./olar.svg" type="image/svg+xml">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Inter:wght@300;400;500;600&display=swap"
     rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="../static/css/index.css">
+  <link rel="icon" href="../images/logos/olar.svg">
 
   <style>
-    :root {
-      --bg-color: #fdfcf9;
-      --text-primary: #292826;
-      --text-secondary: #6e6b66;
-      --accent-earth: #b39371;
-      --accent-sage: #758273;
-      --surface-color: #ffffff;
-      --border-color: #ebe7df;
-      --font-serif: 'Castoro', Georgia, serif;
-      --font-sans: 'Inter', 'Noto Sans', -apple-system, sans-serif;
-      --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    @media (max-width: 768px) {
+      .navbar-menu {
+        display: flex !important;
+        gap: 1.5rem;
+      }
     }
 
-    html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      padding: 0;
-      color: var(--text-primary);
-      background: var(--bg-color);
-      font-family: var(--font-sans);
-      font-size: 16px;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a { color: inherit; }
-    img { max-width: 100%; display: block; }
-    h1, h2, h3, h4, h5, .serif { font-family: var(--font-serif); font-weight: 400; }
-    p { color: var(--text-secondary); }
-
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 4vw;
-      border-bottom: 1px solid var(--border-color);
-      background: rgba(253, 252, 249, 0.84);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-    }
-
-    .navbar-brand { display: flex; align-items: center; color: var(--text-primary); text-decoration: none; }
-
-    .brand-logo {
-      width: auto;
-      height: 2rem;
-      opacity: 0.82;
-      transition: var(--transition-smooth);
-    }
-
-    .navbar-brand:hover .brand-logo { opacity: 1; transform: scale(1.03); }
-
-    .navbar-menu { display: flex; gap: 2rem; }
-
-    .navbar-item {
-      color: var(--text-secondary);
-      font-size: 0.78rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-decoration: none;
-      text-transform: uppercase;
-      transition: var(--transition-smooth);
-    }
-
-    .navbar-item:hover { color: var(--accent-earth); }
-
-    .paper-hero {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: clamp(76px, 12vw, 150px) 6vw 6vw;
-      text-align: center;
-    }
-
-    .paper-hero h1 {
-      max-width: 850px;
-      margin: 0 auto 2rem;
-      color: var(--text-primary);
-      font-size: clamp(1.75rem, 6vw, 3rem);
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-    }
-
-    .paper-meta {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 3rem;
-      margin-top: 4rem;
-      padding: 2.5rem 0;
-      border-top: 1px solid var(--border-color);
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .meta-item { display: flex; min-width: 150px; flex-direction: column; gap: 0.6rem; }
-    .meta-label { color: var(--accent-earth); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
-    .meta-value { color: var(--text-primary); font-size: 1.04rem; }
-    .meta-value.author-names { max-width: 620px; line-height: 1.65; }
-
-    .action-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 3.5rem;
-    }
-
-    .btn-primary, .btn-secondary {
-      padding: 0.95rem 2.2rem;
-      border-radius: 100px;
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-decoration: none;
-      text-transform: uppercase;
-      transition: var(--transition-smooth);
-    }
-
-    .btn-primary { color: var(--surface-color); background: var(--text-primary); }
-    .btn-primary:hover { color: #fff; background: var(--accent-earth); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(179, 147, 113, 0.25); }
-    .btn-secondary { border: 1px solid var(--border-color); color: var(--text-primary); background: transparent; }
-    .btn-secondary:hover { border-color: var(--text-primary); background: var(--surface-color); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04); }
-
-    .paper-content {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 4vw 4vw 8vw;
-    }
-
+    /* Page-specific components; shared styles come from static/css/index.css */
     .paper-content section { margin: 0 0 6rem; }
-    .paper-content h2 { margin: 0 0 2rem; font-size: 1.75rem; }
-    .paper-content h3 { margin: 0 0 1.2rem; font-size: 1.45rem; }
-    .paper-content p { margin: 0 0 1.75rem; font-size: 1.05rem; }
-    .paper-content .lead { color: var(--text-primary); font-family: var(--font-serif); font-size: 1.25rem; line-height: 1.65; }
-    .abstract-section h2 { margin-bottom: 2rem; font-size: 1.5rem; }
-    .abstract-section p { margin-bottom: 1.75rem; color: var(--text-primary); font-size: clamp(1rem, 2.5vw, 1.1rem); line-height: 1.7; }
+    .paper-content h2 { margin: 0 0 2rem; font-size: 1.5rem; }
+    .paper-content h3 { margin: 0 0 1.2rem; font-size: 1.3rem; }
 
     .figure-frame { margin: 0 0 6rem; }
-    .figure-frame img { width: 100%; border: 1px solid var(--border-color); border-radius: 7px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); }
-    figcaption { margin-top: 1rem; color: var(--text-secondary); font-size: 0.88rem; line-height: 1.55; }
-    figcaption a { color: var(--accent-earth); }
+    .figure-frame img { width: 100%; border: 1px solid var(--border-color); border-radius: 8px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); }
+    .figure-frame figcaption { margin-top: 1rem; color: var(--text-secondary); font-size: 0.85rem; line-height: 1.5; }
+    .figure-frame figcaption a { color: var(--accent-earth); }
 
-    .section-label { margin: 0 0 0.7rem; color: var(--accent-sage); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
+    .paper-content .section-label { margin: 0 0 0.7rem; color: var(--accent-sage); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
 
     .method-list, .question-list, .finding-list { margin: 0 0 2rem; padding: 0; list-style: none; }
     .method-list li, .question-list li { display: grid; grid-template-columns: 110px 1fr; gap: 1.5rem; padding: 1.45rem 0; border-bottom: 1px solid var(--border-color); }
@@ -178,8 +50,8 @@
     .method-list p, .question-list p { margin: 0.35rem 0 0; font-size: 0.98rem; }
 
     .pathway-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 2.5rem 0 2rem; }
-    .pathway-card { min-height: 185px; padding: 1.65rem; border: 1px solid var(--border-color); border-radius: 7px; background: var(--surface-color); transition: var(--transition-smooth); }
-    .pathway-card:hover { transform: translateY(-5px); border-color: var(--accent-earth); box-shadow: 0 14px 28px rgba(0, 0, 0, 0.04); }
+    .pathway-card { min-height: 185px; padding: 1.65rem; border: 1px solid var(--border-color); border-radius: 8px; background: var(--surface-color); transition: var(--transition-smooth); }
+    .pathway-card:hover { transform: translateY(-5px); border-color: var(--accent-earth); }
     .pathway-code { display: block; margin-bottom: 1.2rem; color: var(--accent-earth); font-family: var(--font-serif); font-size: 1.65rem; }
     .pathway-card h3 { margin-bottom: 0.65rem; font-size: 1.2rem; }
     .pathway-card p { margin: 0; font-size: 0.94rem; line-height: 1.55; }
@@ -195,76 +67,54 @@
     .finding-list p { margin: 0; font-size: 1rem; }
 
     .results-summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 2rem 0 3rem; }
-    .result-stat { padding: 1.65rem; border: 1px solid var(--border-color); border-radius: 7px; background: var(--surface-color); }
+    .result-stat { padding: 1.65rem; border: 1px solid var(--border-color); border-radius: 8px; background: var(--surface-color); }
     .result-stat .value { display: block; color: var(--accent-earth); font-family: var(--font-serif); font-size: 2rem; }
     .result-stat .label { display: block; margin-top: 0.4rem; color: var(--text-secondary); font-size: 0.82rem; line-height: 1.45; }
 
-    .table-wrap { margin: 1.4rem 0 3rem; overflow-x: auto; border: 1px solid var(--border-color); border-radius: 7px; background: var(--surface-color); }
-    table { width: 100%; min-width: 760px; border-collapse: collapse; font-size: 0.82rem; }
-    th, td { padding: 0.85rem 0.9rem; border-bottom: 1px solid var(--border-color); text-align: left; vertical-align: top; }
-    th { color: var(--accent-sage); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
-    tr:last-child td { border-bottom: 0; }
-    td:first-child { color: var(--text-primary); font-family: var(--font-serif); font-size: 0.94rem; white-space: nowrap; }
+    .table-wrap { margin: 1.4rem 0 3rem; overflow-x: auto; border: 1px solid var(--border-color); border-radius: 8px; background: var(--surface-color); }
+    .table-wrap table { width: 100%; min-width: 760px; border-collapse: collapse; font-size: 0.82rem; }
+    .table-wrap th, .table-wrap td { padding: 0.85rem 0.9rem; border-bottom: 1px solid var(--border-color); text-align: left; vertical-align: top; }
+    .table-wrap th { color: var(--accent-sage); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+    .table-wrap tr:last-child td { border-bottom: 0; }
+    .table-wrap td:first-child { color: var(--text-primary); font-family: var(--font-serif); font-size: 0.94rem; white-space: nowrap; }
     .highlight { color: var(--accent-earth); font-weight: 600; }
-    .table-note { margin: -2rem 0 1.2rem !important; color: var(--text-secondary); font-size: 0.82rem !important; }
-
-    .research-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
-    .research-card { position: relative; display: flex; height: 100%; flex-direction: column; padding: 2rem 1.7rem; border: 1px solid var(--border-color); border-radius: 7px; background: var(--surface-color); text-decoration: none; transition: var(--transition-smooth); overflow: hidden; }
-    .research-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent-earth); transform: scaleX(0); transform-origin: left; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
-    .research-card:hover { transform: translateY(-7px); box-shadow: 0 18px 36px rgba(0, 0, 0, 0.04); }
-    .research-card:hover::before { transform: scaleX(1); }
-    .research-card .tag { margin-bottom: 1rem; color: var(--accent-sage); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
-    .research-card h3 { margin-bottom: 0.8rem; color: var(--text-primary); font-size: 1.25rem; line-height: 1.3; }
-    .research-card p { flex-grow: 1; margin: 0; font-size: 0.92rem; line-height: 1.5; }
-    .card-arrow { display: flex; gap: 0.5rem; align-items: center; margin-top: 1.8rem; color: var(--text-primary); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: var(--transition-smooth); }
-    .research-card:hover .card-arrow { gap: 1rem; color: var(--accent-earth); }
-
-    .bibtex-container { position: relative; padding: 1.75rem; overflow-x: auto; border: 1px solid var(--border-color); border-radius: 7px; background: var(--surface-color); }
-    .copy-button { position: absolute; top: 0.9rem; right: 0.9rem; padding: 0.45rem 0.8rem; border: 0; border-radius: 4px; color: var(--text-primary); background: var(--border-color); cursor: pointer; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
-    .copy-button:hover, .copy-button.copied { color: #fff; background: var(--accent-earth); }
-    #bibtex-code { margin: 0; color: var(--text-primary); font: 0.82rem/1.7 ui-monospace, SFMono-Regular, Menlo, monospace; }
-
-    .footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem; padding: 4vw; border-top: 1px solid var(--border-color); color: var(--text-secondary); font-size: 0.88rem; }
-    .footer a { color: var(--text-secondary); text-decoration: none; }
-    .footer a:hover { color: var(--accent-earth); }
+    .paper-content .table-note { margin: -2rem 0 1.2rem; font-size: 0.82rem; }
 
     @media (max-width: 768px) {
-      .navbar-menu { gap: 1rem; }
-      .navbar-item { font-size: 0.68rem; }
-      .paper-meta { flex-direction: column; gap: 1.5rem; align-items: center; text-align: center; }
-      .action-buttons { flex-direction: column; width: 100%; gap: 0.8rem; }
-      .btn-primary, .btn-secondary { width: 100%; text-align: center; }
       .pathway-strip, .results-summary { grid-template-columns: 1fr; }
       .method-list li, .question-list li { grid-template-columns: 1fr; gap: 0.45rem; }
-      .footer { align-items: flex-start; flex-direction: column; }
-    }
-
-    @media (max-width: 520px) {
-      .navbar { padding: 0.85rem 5vw; }
-      .paper-hero { padding-top: 4.5rem; }
-      .paper-content { padding-right: 5vw; padding-left: 5vw; }
       .paper-content section { margin-bottom: 4.5rem; }
     }
   </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LHSMW4F3Y"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-5LHSMW4F3Y');
+  </script>
 </head>
 
 <body>
-  <nav class="navbar" role="navigation" aria-label="Primary navigation">
+  <nav class="navbar" role="navigation">
     <div class="navbar-brand">
-      <a href="https://www.olaresearch.org/" target="_blank" rel="noopener" aria-label="OLA Research home">
-        <img class="brand-logo" src="./olar.svg" alt="OLA Research logo">
+      <a class="navbar-item" href="https://www.olaresearch.org/">
+        <img src="../images/logos/olar.svg" alt="OLAR Home" style="height: 2rem;">
       </a>
     </div>
     <div class="navbar-menu">
-      <a class="navbar-item" href="https://www.olaresearch.org/publications.html" target="_blank" rel="noopener">← Back to Publications</a>
+      <a class="navbar-item" href="https://www.olaresearch.org/publications.html" style="display: flex; align-items: center; gap: 0.5rem; font-weight: 500;"><i class="fas fa-arrow-left"></i> Back to Publications</a>
     </div>
   </nav>
 
   <header class="paper-hero">
-    <h1>MemoryATHENA: Adaptive Routing over Latent and Generated Memories</h1>
+    <h1 class="title is-1 paper-title-small">MemoryATHENA: Adaptive Routing over Latent and Generated Memories</h1>
 
     <div class="paper-meta">
-      <div class="meta-item"><span class="meta-label">Authors</span><span class="meta-value author-names">Mingyuan Li, Guangsheng Yu, Juyuan Zhang, Xu Wang, Zhibo Man, Haonan Zhang, Shaoxiong Ji</span></div>
+      <div class="meta-item"><span class="meta-label">Authors</span><span class="meta-value">Mingyuan Li, Guangsheng Yu, Juyuan Zhang, Xu Wang, Zhibo Man, Haonan Zhang, Shaoxiong Ji</span></div>
       <div class="meta-item"><span class="meta-label">Venue</span><span class="meta-value">Preprint</span></div>
       <div class="meta-item"><span class="meta-label">Date</span><span class="meta-value">September 2026</span></div>
     </div>
@@ -274,12 +124,22 @@
       <a class="btn-secondary" href="https://github.com/OLAResearch/ATHENA" target="_blank" rel="noopener">Code</a>
       <a class="btn-secondary" href="https://huggingface.co/collections/OLAResearchX/memoryathena" target="_blank" rel="noopener">Models</a>
     </div>
+
+    <div class="hero-links-container is-centered">
+      <div class="hero-affiliations">
+        <a href="https://www.ellisinstitute.fi" target="_blank"><img
+            src="../images/logos/ellis-logo_horizontal_black_2023-FINLAND.png" alt="ELLIS"
+            class="hero-affiliation-logo"></a>
+        <a href="https://www.utu.fi/en" target="_blank"><img src="../images/logos/UTU_logo_EN_RGB.png" alt="UTU"
+            class="hero-affiliation-logo"></a>
+      </div>
+    </div>
   </header>
 
   <main class="paper-content">
-    <section id="abstract" class="abstract-section">
+    <section id="abstract">
       <h2>Abstract</h2>
-      <p>Learned-memory methods store information in an explicit table and consume it through a separate reader, allowing addressing, storage, and reading to be modified independently. Prior work on cross-model memory transfer exploits this separation to reuse learned memory across frozen backbones through an adapted reader, while the representation consumed by the model still originates from stored memory. This raises a natural question: must useful memory always be retrieved from storage, or can it also be generated? We investigate this question with <em>MemoryAthena</em>, a memory interface with three pathways: direct Engram retrieval (E), generation from retrieved Engram cues (GE), and generation from causal backbone states without consulting the memory table (GH). Generated memory is not uniformly better than direct retrieval: it can complement E in one context but interfere with it in another. <em>MemoryAthena</em> therefore treats E as an explicit anchor and learns when a generated representation should intervene. With the backbone, memory, generators, and readers frozen, a lightweight causal routing head is trained from counterfactual future-token likelihood advantages of GE and GH relative to E. At inference time, an admitted candidate modifies the E residual through bounded interpolation, while rejection recovers the direct pathway exactly. On question answering, <em>MemoryAthena</em> raises the five-task average from 37.65 to 39.28 over the direct pathway of the same checkpoint, while the six-task general-NLP average increases from 76.73 to 79.13. The complete memory-side system contains approximately 201M parameters, excluding the frozen backbone. Further analyses show that the utility of E, GE, and GH varies across tasks and inputs, while gold-label oracles reveal additional complementarity among the three pathways. These results support generated memory as a selective correction to direct retrieval rather than a universal replacement, and highlight routing when, which, and how strongly to intervene as the central challenge.</p>
+      <p class="abstract-small">Learned-memory methods store information in an explicit table and consume it through a separate reader, allowing addressing, storage, and reading to be modified independently. Prior work on cross-model memory transfer exploits this separation to reuse learned memory across frozen backbones through an adapted reader, while the representation consumed by the model still originates from stored memory. This raises a natural question: must useful memory always be retrieved from storage, or can it also be generated? We investigate this question with <em>MemoryAthena</em>, a memory interface with three pathways: direct Engram retrieval (E), generation from retrieved Engram cues (GE), and generation from causal backbone states without consulting the memory table (GH). Generated memory is not uniformly better than direct retrieval: it can complement E in one context but interfere with it in another. <em>MemoryAthena</em> therefore treats E as an explicit anchor and learns when a generated representation should intervene. With the backbone, memory, generators, and readers frozen, a lightweight causal routing head is trained from counterfactual future-token likelihood advantages of GE and GH relative to E. At inference time, an admitted candidate modifies the E residual through bounded interpolation, while rejection recovers the direct pathway exactly. On question answering, <em>MemoryAthena</em> raises the five-task average from 37.65 to 39.28 over the direct pathway of the same checkpoint, while the six-task general-NLP average increases from 76.73 to 79.13. The complete memory-side system contains approximately 201M parameters, excluding the frozen backbone. Further analyses show that the utility of E, GE, and GH varies across tasks and inputs, while gold-label oracles reveal additional complementarity among the three pathways. These results support generated memory as a selective correction to direct retrieval rather than a universal replacement, and highlight routing when, which, and how strongly to intervene as the central challenge.</p>
     </section>
 
     <figure class="figure-frame">
@@ -364,18 +224,18 @@
       <h2>Read, reproduce, inspect</h2>
       <p>The public release separates code, model artifacts, and compact experiment metadata. Large scratch paths and raw task data are intentionally not part of the web page.</p>
       <div class="research-grid">
-        <a href="https://github.com/OLAResearch/ATHENA" class="research-card" target="_blank" rel="noopener"><span class="tag">Code</span><h3>GitHub repository</h3><p>Access implementation, configs, tests, paper-facing evidence, and the project page source.</p><div class="card-arrow">View Code →</div></a>
-        <a href="https://arxiv.org/abs/2609.25853" class="research-card" target="_blank" rel="noopener"><span class="tag">Paper</span><h3>arXiv paper page</h3><p>Open the official arXiv entry for the MemoryAthena paper and its latest public version.</p><div class="card-arrow">View arXiv →</div></a>
-        <a href="https://huggingface.co/collections/OLAResearchX/memoryathena" class="research-card" target="_blank" rel="noopener"><span class="tag">Models</span><h3>Hugging Face collection</h3><p>Explore the released QA and six-task general-NLP model artifacts.</p><div class="card-arrow">View Models →</div></a>
-        <a href="https://huggingface.co/datasets/OLAResearchX/MemoryATHENA" class="research-card" target="_blank" rel="noopener"><span class="tag">Dataset</span><h3>Result dataset</h3><p>Inspect compact metadata and the aggregate experiment result ledger.</p><div class="card-arrow">View Dataset →</div></a>
+        <a href="https://github.com/OLAResearch/ATHENA" class="research-card" target="_blank" rel="noopener"><span class="tag">Code</span><h3>GitHub repository</h3><p>Access implementation, configs, tests, paper-facing evidence, and the project page source.</p><div class="card-arrow">View Code <i class="fas fa-arrow-right"></i></div></a>
+        <a href="https://arxiv.org/abs/2609.25853" class="research-card" target="_blank" rel="noopener"><span class="tag">Paper</span><h3>arXiv paper page</h3><p>Open the official arXiv entry for the MemoryAthena paper and its latest public version.</p><div class="card-arrow">View arXiv <i class="fas fa-arrow-right"></i></div></a>
+        <a href="https://huggingface.co/collections/OLAResearchX/memoryathena" class="research-card" target="_blank" rel="noopener"><span class="tag">Models</span><h3>Hugging Face collection</h3><p>Explore the released QA and six-task general-NLP model artifacts.</p><div class="card-arrow">View Models <i class="fas fa-arrow-right"></i></div></a>
+        <a href="https://huggingface.co/datasets/OLAResearchX/MemoryATHENA" class="research-card" target="_blank" rel="noopener"><span class="tag">Dataset</span><h3>Result dataset</h3><p>Inspect compact metadata and the aggregate experiment result ledger.</p><div class="card-arrow">View Dataset <i class="fas fa-arrow-right"></i></div></a>
       </div>
     </section>
 
     <section id="bibtex">
       <h2>BibTeX</h2>
       <div class="bibtex-container">
-        <button class="copy-button" type="button" onclick="copyBibTeX()">Copy</button>
-        <pre id="bibtex-code"><code>@misc{li2026memoryathenaadaptiveroutinglatent,
+        <button class="copy-button" onclick="copyBibTeX()">Copy</button>
+        <pre id="bibtex-code" style="margin: 0; color: var(--text-primary); font-family: 'Courier New', monospace; font-size: 0.85rem;"><code style="color: var(--text-primary); background: transparent;">@misc{li2026memoryathenaadaptiveroutinglatent,
   title = {MemoryAthena: Adaptive Routing over Latent and Generated Memories},
   author = {Mingyuan Li and Guangsheng Yu and Juyuan Zhang and Xu Wang and Zhibo Man and Haonan Zhang and Shaoxiong Ji},
   year = {2026},
@@ -389,24 +249,22 @@
   </main>
 
   <footer class="footer">
-    <div>© 2026 OLA Research · MemoryATHENA</div>
-    <div><a href="https://www.olaresearch.org/XMemTransfer/" target="_blank" rel="noopener">Inspired by the XMemTransfer project-page structure</a> · <a href="https://github.com/OLAResearch" target="_blank" rel="noopener">OLAResearch ↗</a></div>
+    <div>&copy; 2026 Omni Language AI Research.</div>
+    <div class="footer-logo-container">
+      <a href="https://turkunlp.org" target="_blank"><img src="../images/logos/turkunlp.png" alt="TurkuNLP"
+          class="footer-logo" title="TurkuNLP"></a>
+      <a href="https://www.ellisinstitute.fi" target="_blank"><img
+          src="../images/logos/ellis-logo_horizontal_black_2023-FINLAND.png" alt="ELLIS Institute Finland"
+          class="footer-logo" title="ELLIS Institute Finland"></a>
+      <a href="https://www.utu.fi/en" target="_blank"><img src="../images/logos/UTU_logo_EN_RGB.png"
+          alt="University of Turku" class="footer-logo" title="University of Turku"></a>
+    </div>
+    <a href="https://github.com/OLAResearch"
+      style="color: inherit; font-size: 1.5rem; transition: var(--transition-smooth);"><i class="fab fa-github"></i></a>
   </footer>
 
-  <script>
-    function copyBibTeX() {
-      const code = document.querySelector('#bibtex-code code').innerText;
-      const button = document.querySelector('.copy-button');
-      navigator.clipboard.writeText(code).then(() => {
-        button.textContent = 'Copied';
-        button.classList.add('copied');
-        setTimeout(() => {
-          button.textContent = 'Copy';
-          button.classList.remove('copied');
-        }, 1800);
-      });
-    }
-  </script>
+  <script src="../static/js/main.js"></script>
+
 </body>
 
 </html>
