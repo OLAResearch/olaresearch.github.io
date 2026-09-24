@@ -46,6 +46,12 @@ Advancing clinical information management through automated medical coding, pati
     *   *Links*: [Paper URL](https://arxiv.org/abs/2606.03782) | [Code](https://github.com/OLAResearch/LingReason) | [Dataset](https://huggingface.co/datasets/OLAResearchX/LingReason)
     *   *Summary*: Proposes a pipeline for automatically generating step-by-step linguistic reasoning traces from Universal Dependencies treebanks, dictionaries, and grammar-rule banks to improve low-resource machine translation.
 
+*   **[Label-Free Steering: Compressing Test-Time Reinforcement Learning into Bias-Only Subspaces](https://www.olaresearch.org/LabelFreeSteering/)**
+    *   *Authors*: Naveen Vakada, Mingyuan Li, Shaoxiong Ji
+    *   *Venue*: Preprint / arXiv 2609.18587
+    *   *Links*: [Paper URL](https://arxiv.org/abs/2609.18587) | [Models](https://huggingface.co/collections/OLAResearchX/LabelFreeSteering)
+    *   *Summary*: Shows that test-time reinforcement learning still works when both the reward and the optimization space are severely restricted: majority-vote pseudo-labels replace ground-truth rewards and only ~100K additive bias parameters are trained, reaching 76.67% on MATH-500 with 76,000x fewer trained parameters than full-parameter TTRL, with gains that transfer to held-out problems and across text, vision-language, and audio benchmarks.
+
 *   **[Cross-Model Memory Transfer via Target-Side Reader Adaptation](https://www.olaresearch.org/XMemTransfer/)**
     *   *Authors*: Mingyuan Li, Guangsheng Yu, Xu Wang, Shaoxiong Ji
     *   *Venue*: Preprint

@@ -6,9 +6,27 @@
   --accent-sage: #758273;
   --surface-color: #ffffff;
   --border-color: #ebe7df;
+
+  /* Brand tints for external-resource buttons: light fill, brand-dark label */
+  --gh-bg: #f3f1ed;
+  --gh-bg-hover: #e8e5de;
+  --gh-fg: #24292e;
+  --gh-border: #ddd9d0;
+  --hf-bg: #fff5d1;
+  --hf-bg-hover: #ffeeb4;
+  --hf-fg: #6b5200;
+  --hf-border: #f0de9f;
+  --portal-bg: #e9eee8;
+  --portal-bg-hover: #dee5dc;
+  --portal-fg: #3b4a39;
+  --portal-border: #cdd6ca;
+  --discord-bg: #edeefd;
+  --discord-bg-hover: #e1e3fb;
+  --discord-fg: #363da8;
+  --discord-border: #cfd3f8;
   
   --font-serif: 'Castoro', 'Georgia', serif;
-  --font-sans: 'Inter', 'Noto Sans', -apple-system, sans-serif;
+  --font-sans: 'Inter', 'Noto Sans', -apple-system, "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
   
   --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -491,6 +509,39 @@ h1, h2, h3, h4, .serif {
 .btn-secondary { border: 1px solid var(--border-color); color: var(--text-primary); }
 .btn-secondary:hover { border-color: var(--text-primary); background: var(--surface-color); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.04); }
 
+/* Resource / CTA Buttons
+   Brand-tinted links to external resources (GitHub, Hugging Face, Discord, ...).
+   Light fill + brand-dark label, so they sit quietly on the warm page background.
+   All label/fill pairs pass WCAG AA. */
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.7rem 1.4rem;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s, transform 0.1s, box-shadow 0.2s;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(41, 40, 38, 0.10);
+}
+
+.cta-github { background: var(--gh-bg); color: var(--gh-fg); border-color: var(--gh-border); }
+.cta-github:hover { background: var(--gh-bg-hover); }
+
+.cta-hf { background: var(--hf-bg); color: var(--hf-fg); border-color: var(--hf-border); }
+.cta-hf:hover { background: var(--hf-bg-hover); }
+
+.cta-portal { background: var(--portal-bg); color: var(--portal-fg); border-color: var(--portal-border); }
+.cta-portal:hover { background: var(--portal-bg-hover); }
+
+.cta-discord { background: var(--discord-bg); color: var(--discord-fg); border-color: var(--discord-border); }
+.cta-discord:hover { background: var(--discord-bg-hover); }
+
 /* Footer */
 .footer {
   padding: 4vw 4vw;
@@ -698,6 +749,196 @@ h1, h2, h3, h4, .serif {
   border-left: 4px solid var(--accent-earth);
   padding-left: 2rem;
   margin: 4rem 0;
+}
+
+/* Inline Text Links
+   Links in body copy had no rule of their own, so they fell back to the
+   browser's blue-and-purple defaults and were patched page by page with inline
+   styles. This puts them on the palette instead, following the .email-link
+   idiom: earth tone, a soft rule underneath, sage on hover.
+
+   Underlined with text-decoration rather than a border so the rule skips
+   descenders and follows a link that wraps across lines. Scoped to text
+   blocks, and only to anchors holding words -- an anchor with a class is a
+   component (card, button, nav item) and one wrapping an image is a logo or a
+   badge, so both keep their own styling. A leading Font Awesome icon does not
+   disqualify a link: the text beside it is still prose. */
+p a:not([class]):not(:has(img, svg)),
+li a:not([class]):not(:has(img, svg)),
+td a:not([class]):not(:has(img, svg)),
+dd a:not([class]):not(:has(img, svg)),
+figcaption a:not([class]):not(:has(img, svg)),
+blockquote a:not([class]):not(:has(img, svg)) {
+  color: var(--accent-earth);
+  text-decoration: underline;
+  text-decoration-color: rgba(179, 147, 113, 0.4);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+p a:not([class]):not(:has(img, svg)):hover,
+li a:not([class]):not(:has(img, svg)):hover,
+td a:not([class]):not(:has(img, svg)):hover,
+dd a:not([class]):not(:has(img, svg)):hover,
+figcaption a:not([class]):not(:has(img, svg)):hover,
+blockquote a:not([class]):not(:has(img, svg)):hover {
+  color: var(--accent-sage);
+  text-decoration-color: var(--accent-sage);
+}
+
+/* A leading icon keeps clear of the underline: an inline-block child is an
+   atomic box, so the parent's text-decoration stops at its edge. */
+p a:not([class]) > i,
+li a:not([class]) > i,
+td a:not([class]) > i,
+dd a:not([class]) > i,
+figcaption a:not([class]) > i,
+blockquote a:not([class]) > i {
+  display: inline-block;
+}
+
+/* A visible ring for keyboard users, which the underline alone does not give. */
+p a:not([class]):focus-visible,
+li a:not([class]):focus-visible,
+td a:not([class]):focus-visible,
+dd a:not([class]):focus-visible,
+figcaption a:not([class]):focus-visible,
+blockquote a:not([class]):focus-visible {
+  outline: 2px solid var(--accent-earth);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Email / Contact Links
+   Keeps an address on the site's palette instead of browser-default blue, and
+   keeps the icon and the address on one line so it never breaks mid-address. */
+.email-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  color: var(--accent-earth);
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(179, 147, 113, 0.35);
+  white-space: nowrap;
+  transition: var(--transition-smooth);
+}
+
+.email-link:hover {
+  color: var(--accent-sage);
+  border-bottom-color: var(--accent-sage);
+}
+
+.email-link i { font-size: 0.85em; }
+
+/* Long-form Article Components
+   Shared by blog posts and other narrative pages: inline code, prose tables,
+   figures with captions, section dividers and closing notes. */
+.narrative-container code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.85em;
+  background: #f3efe9;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+}
+
+/* ...but not inside a BibTeX block, which brings its own monospace styling */
+.bibtex-container code {
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
+  background: transparent;
+}
+
+.post-table-wrap {
+  overflow-x: auto;
+  margin: 0 0 2.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--surface-color);
+}
+
+.post-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.post-table th {
+  padding: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+  background: #faf8f5;
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: bottom;
+  white-space: nowrap;
+}
+
+.post-table td {
+  padding: 1rem;
+  vertical-align: top;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.post-table tbody tr:last-child td { border-bottom: none; }
+
+.post-table .num { text-align: right; white-space: nowrap; font-weight: 600; }
+.post-table .id { white-space: nowrap; font-weight: 600; }
+
+.post-table sub {
+  display: inline-block;
+  margin-top: 0.25rem;
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+.post-table details { margin-bottom: 0.5rem; color: var(--text-secondary); }
+.post-table details:last-child { margin-bottom: 0; }
+.post-table details[open] summary { margin-bottom: 0.45rem; }
+
+.post-table summary {
+  cursor: pointer;
+  color: var(--accent-earth);
+  font-weight: 500;
+  font-size: 0.82rem;
+}
+
+.post-figure { margin: 3.5rem 0; }
+
+.post-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.post-figure figcaption {
+  margin-top: 0.9rem;
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.post-divider {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 4rem 0 2rem;
+}
+
+.post-outro {
+  font-size: 0.92rem;
+  font-style: italic;
+  color: var(--text-secondary);
 }
 
 /* Visual Layout Specifics */

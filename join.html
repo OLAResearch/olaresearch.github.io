@@ -19,6 +19,60 @@
         gap: 1.5rem;
       }
     }
+
+    /* Job opening call-outs */
+    .opening {
+      border: 1px solid var(--border-color);
+      border-left: 3px solid var(--accent-earth);
+      border-radius: 8px;
+      background: var(--surface-color);
+      padding: 1.75rem;
+      margin: 1.75rem 0 2rem;
+    }
+
+    .opening-status {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent-earth);
+      margin-bottom: 0.6rem;
+    }
+
+    .opening h4 {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 400;
+      margin: 0 0 0.85rem;
+    }
+
+    .opening p { margin: 0 0 1.15rem; }
+    .opening p:last-child { margin-bottom: 0; }
+    .opening a { color: var(--accent-earth); }
+
+    .opening-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+    .opening-actions a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.55rem 1.1rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+
+    .opening-actions .apply-primary { background: var(--accent-earth); color: #fff; }
+    .opening-actions .apply-primary:hover { background: var(--accent-sage); color: #fff; }
+
+    .opening-actions .apply-secondary { border: 1px solid var(--border-color); color: var(--text-primary); }
+    .opening-actions .apply-secondary:hover { border-color: var(--accent-earth); color: var(--accent-earth); }
+
+    .opening.is-closed { border-left-color: var(--border-color); background: transparent; }
+    .opening.is-closed .opening-status { color: var(--text-secondary); }
   </style>
 </head>
 <body>
@@ -48,8 +102,35 @@
 
       <h3 class="title is-3" style="margin-top: 2.5rem;">PhD &amp; Postdoc Positions</h3>
       <p>
-        We recruit funded PhD students and postdocs to work on key themes in multilingual NLP, reinforcement learning for healthcare, mental health modeling, and multimodal reasoning. In particular, we are currently recruiting a Doctoral Researcher and a Postdoctoral Researcher to work on the <a href="fine-health-foundry.html" style="color: var(--accent-earth); text-decoration: underline; font-weight: 500;">FINe-Health Foundry</a> project. For more details, see our <a href="news/job-openings-foundation-health-models.html" style="color: var(--accent-earth); text-decoration: underline; font-weight: 500;">job openings announcement</a> (Application deadline: August 17, 2026).
+        We recruit funded PhD students and postdocs to work on key themes across our three research directions &mdash; natural language processing, multimodal learning, and health intelligence.
       </p>
+
+      <div class="opening">
+        <span class="opening-status">Now open</span>
+        <h4>ELLIS Institute Finland &mdash; Autumn 2026 recruitment</h4>
+        <p>
+          We are recruiting <strong>PhD and Postdoctoral Researchers</strong> through the ELLIS Institute Finland Autumn 2026 call, working on fundamental machine learning, natural language processing, and medical AI. A separate <strong>Entrepreneurial Postdoc</strong> track is open to candidates who want to translate research into practice, particularly in health technology.
+        </p>
+        <div class="opening-actions">
+          <a class="apply-primary" href="https://www.ellisinstitute.fi/postdoc-and-phd-recruit-autumn-2026" target="_blank">PhD &amp; Postdoc positions <i class="fas fa-external-link-alt" style="font-size: 0.7rem;"></i></a>
+          <a class="apply-secondary" href="https://www.ellisinstitute.fi/entrepreneurial-postdoc-recruit-autumn-2026" target="_blank">Entrepreneurial Postdoc <i class="fas fa-external-link-alt" style="font-size: 0.7rem;"></i></a>
+          <a class="apply-secondary" href="news/ellis-recruitment-autumn-2026.html">Read the announcement <i class="fas fa-arrow-right" style="font-size: 0.7rem;"></i></a>
+        </div>
+        <p style="margin: 1.25rem 0 0; font-size: 0.85rem; color: var(--text-secondary);">
+          Applications are reviewed by the ELLIS Institute Finland recruitment committee, so there is no need to contact us before applying.
+        </p>
+      </div>
+
+      <div class="opening is-closed">
+        <span class="opening-status">Closed</span>
+        <h4>FINe-Health Foundry &mdash; Doctoral &amp; Postdoctoral Researcher</h4>
+        <p>
+          Applications for the Doctoral Researcher and Postdoctoral Researcher positions on the <a href="fine-health-foundry.html">FINe-Health Foundry</a> project closed on August 17, 2026.
+        </p>
+        <div class="opening-actions">
+          <a class="apply-secondary" href="news/job-openings-foundation-health-models.html">Read the announcement <i class="fas fa-arrow-right" style="font-size: 0.7rem;"></i></a>
+        </div>
+      </div>
 
       <h3 class="title is-3" style="margin-top: 3rem;">MSc Thesis</h3>
       <p style="margin-bottom: 1rem;">
@@ -84,13 +165,13 @@
       </p>
       <ul style="padding-left: 1.5rem; margin-bottom: 2.5rem; list-style-type: disc;">
         <li style="margin-bottom: 1rem;">
-          <strong>Multilingual NLP &amp; Reasoning:</strong> Researching methods to scale systems globally, including massively multilingual NLP, continual learning architectures to prevent catastrophic forgetting, reinforcement learning for alignment, and test-time compute scaling (inference-time search and verification).
+          <strong>Natural Language Processing:</strong> Researching methods to scale systems globally, including massively multilingual NLP, continual learning architectures to prevent catastrophic forgetting, reinforcement learning for alignment, and test-time compute scaling (inference-time search and verification).
         </li>
         <li style="margin-bottom: 1rem;">
-          <strong>Clinical Intelligence &amp; Health AI:</strong> Developing robust and interpretable models for clinical environments, including reinforcement learning for personalized care treatment paths, mental health monitoring and psychotherapy support, and multimodal pathology models integrating histopathology, text, and genomics.
+          <strong>Health Intelligence:</strong> Developing robust and interpretable models for clinical environments, including reinforcement learning for personalized care treatment paths, mental health monitoring and psychotherapy support, and multimodal pathology models integrating histopathology, text, and genomics.
         </li>
         <li style="margin-bottom: 1rem;">
-          <strong>Multimodal AI &amp; Reasoning:</strong> Designing architectures that integrate and reason across modalities, including vision-language models for complex documents and scenes, joint visual-textual multi-step reasoning, and evaluation/benchmarking for safety and factual consistency in real-world environments.
+          <strong>Multimodal Learning:</strong> Designing architectures that integrate and reason across modalities, including vision-language models for complex documents and scenes, joint visual-textual multi-step reasoning, and evaluation/benchmarking for safety and factual consistency in real-world environments.
         </li>
       </ul>
     </div>
@@ -110,7 +191,7 @@
         There are some external funding opportunities that prospective students and researchers may explore, for example, the EDUFI Fellowship for doctoral researchers. If you have an external fellowship or self-support for your visit, we encourage you to reach out and explore potential collaborations.
       </p>
       <p>
-        For additional information, kindly contact ELLIS PI, Assistant Professor Shaoxiong Ji at <a href="mailto:shaoxiong.ji@utu.fi">shaoxiong.ji@utu.fi</a>.
+        For additional information, kindly contact ELLIS PI, Assistant Professor Shaoxiong Ji at <a class="email-link" href="mailto:shaoxiong.ji@utu.fi"><i class="fas fa-envelope"></i>shaoxiong.ji@utu.fi</a>.
       </p>
     </div>
   </section>

@@ -139,6 +139,33 @@
       color: var(--text-primary);
       font-weight: 600;
     }
+    .publication-authors .authors-ellipsis {
+      color: var(--text-secondary);
+      opacity: 0.7;
+      letter-spacing: 0.05em;
+    }
+    .authors-toggle {
+      display: inline-block;
+      margin-left: 0.2rem;
+      padding: 0.05rem 0.45rem;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      background: transparent;
+      color: var(--text-secondary);
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 500;
+      line-height: 1.5;
+      white-space: nowrap;
+      cursor: pointer;
+      vertical-align: baseline;
+      transition: var(--transition-smooth);
+    }
+    .authors-toggle:hover {
+      border-color: var(--accent-earth);
+      color: var(--accent-earth);
+      background-color: rgba(179, 147, 113, 0.03);
+    }
     .publication-venue {
       font-size: 0.9rem;
       color: var(--accent-sage);
@@ -314,7 +341,7 @@
         </div>
         <div id="bib-ji-etal-2026-data" class="bibtex-box">
           <pre id="code-ji-etal-2026-data" class="bibtex-pre">@inproceedings{ji-etal-2026-data,
-  title     = {Data-Centric Continual Pre-training for 500+ Languages: A New Bilingual Translation Corpus and Multilingual Models},
+  title     = {{Data-Centric Continual Pre-training} for 500+ Languages: A New Bilingual Translation Corpus and Multilingual Models},
   author    = {Ji, Shaoxiong  and
                Li, Zihao  and
                Paavola, Jaakko  and
@@ -349,7 +376,7 @@
         </div>
         <div id="bib-ji2026mala" class="bibtex-box">
           <pre id="code-ji2026mala" class="bibtex-pre">@inproceedings{ji2026mala,
-  title     = {MaLA: A Corpus and Data Mix for Massive Language Adaptation of Large Language Models},
+  title     = {{MaLA}: A Corpus and Data Mix for Massive Language Adaptation of Large Language Models},
   author    = {Ji, Shaoxiong and Li, Zihao and Paavola, Jaakko and Lin, Peiqin and Chen, Pinzhen and O'Brien, Dayy{\'a}n and Luo, Hengyu and Sch{\"u}tze, Hinrich and Tiedemann, J{\"o}rg and Haddow, Barry},
   booktitle = {Proceedings of Conference on Language Modeling (COLM)},
   year      = {2026},
@@ -370,11 +397,11 @@
         </div>
         <div id="bib-kabir2026xcr" class="bibtex-box">
           <pre id="code-kabir2026xcr" class="bibtex-pre">@inproceedings{kabir2026xcr,
-  title     = {XCR-Bench: Benchmarking Cross-Cultural Reasoning in LLMs via Culture-Specific Items and Hall's Triad},
+  title     = {{XCR-Bench}: Benchmarking Cross-Cultural Reasoning in {LLMs} via Culture-Specific Items and Hall's Triad},
   author    = {Kabir, Mohsinul and Ahmed, Tasnim and Rahman, Md Mezbaur and Ji, Shaoxiong and Alhuzali, Hassan and Jiang, Yuechen and Huang, Jimin and Ananiadou, Sophia},
   booktitle = {Proceedings of EMNLP},
   year      = {2026},
-  url = {https://arxiv.org/abs/2601.14063}
+  url       = {https://arxiv.org/abs/2601.14063}
 }</pre>
         </div>
       </div>
@@ -391,11 +418,11 @@
         </div>
         <div id="bib-li2026cross" class="bibtex-box">
           <pre id="code-li2026cross" class="bibtex-pre">@article{li2026cross,
-  title={Cross-Model Memory Transfer via Target-Side Reader Adaptation},
-  author={Li, Mingyuan and Yu, Guangsheng and Wang, Xu and Ji, Shaoxiong},
-  journal={arXiv preprint arXiv:2608.17050},
-  year={2026},
-  url={https://arxiv.org/abs/2608.17050}
+  title   = {Cross-Model Memory Transfer via Target-Side Reader Adaptation},
+  author  = {Li, Mingyuan and Yu, Guangsheng and Wang, Xu and Ji, Shaoxiong},
+  journal = {arXiv preprint arXiv:2608.17050},
+  year    = {2026},
+  url     = {https://arxiv.org/abs/2608.17050}
 }</pre>
         </div>
       </div>
@@ -428,6 +455,29 @@
   doi       = {10.18653/v1/2026.eacl-long.133},
   pages     = {2902--2917},
   isbn      = {979-8-89176-380-7}
+}</pre>
+        </div>
+      </div>
+
+      <div class="publication-item" data-title="MemoryAthena: Adaptive Routing over Latent and Generated Memories" data-authors="Mingyuan Li, Guangsheng Yu, Juyuan Zhang, Xu Wang, Zhibo Man, Haonan Zhang, Shaoxiong Ji" data-venue="arXiv preprint arXiv:2609.25853" data-year="2026">
+        <div class="publication-content">
+          <div class="publication-title">MemoryAthena: Adaptive Routing over Latent and Generated Memories</div>
+          <div class="publication-authors"><strong>Mingyuan Li</strong>, Guangsheng Yu, Juyuan Zhang, Xu Wang, <strong>Zhibo Man</strong>, Haonan Zhang, and <strong>Shaoxiong Ji</strong></div>
+          <div class="publication-venue">arXiv preprint arXiv:2609.25853, 2026</div>
+        </div>
+        <div class="publication-actions">
+          <a href="https://arxiv.org/abs/2609.25853" target="_blank" class="action-btn"><i class="fas fa-external-link-alt"></i> Paper</a>
+          <button id="btn-li2026memoryathenaadaptiveroutinglatent" onclick="toggleBibtex('li2026memoryathenaadaptiveroutinglatent')" class="action-btn bibtex-toggle-btn"><i class="fas fa-quote-right"></i> BibTeX</button>
+        </div>
+        <div id="bib-li2026memoryathenaadaptiveroutinglatent" class="bibtex-box">
+          <pre id="code-li2026memoryathenaadaptiveroutinglatent" class="bibtex-pre">@article{li2026memoryathenaadaptiveroutinglatent,
+      title={MemoryAthena: Adaptive Routing over Latent and Generated Memories}, 
+      author={Mingyuan Li and Guangsheng Yu and Juyuan Zhang and Xu Wang and Zhibo Man and Haonan Zhang and Shaoxiong Ji},
+      year={2026},
+      journal={arXiv preprint arXiv:2609.25853},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2609.25853}, 
 }</pre>
         </div>
       </div>
@@ -531,7 +581,28 @@
   author    = {Pei, Renhao and Liu, Yihong and Pyysalo, Sampo and Sch{\"u}tze, Hinrich and Ji, Shaoxiong},
   booktitle = {Findings of the Association for Computational Linguistics: EMNLP 2026},
   year      = {2026},
-  url = {https://arxiv.org/abs/2606.03782}
+  url       = {https://arxiv.org/abs/2606.03782}
+}</pre>
+        </div>
+      </div>
+
+      <div class="publication-item" data-title="CulturALL: Benchmarking Multilingual and Multicultural Competence of LLMs on Grounded Tasks" data-authors="Peiqin Lin, Chenyang Lyu, Wenjiang Luo, Haotian Ye, Md Mehrab Hossain, Chunlan Ma, Shaoxiong Ji, Younes Samih, Bo Zeng, Fan Jiang, Yuanbin Cao, Dilda Duisenbek, Adrian Neo Sau Xun, Daria Pozdniakova, Liubou Misevich, Nevena Marinković, Ngoc Gia Linh Nguyen, Thi Khanh Linh Do, Sarakmatak Sophy, Baotian Hu, Guanhua Chen, Gongbo Tang, Alham Fikri Aji, Longyue Wang, Weihua Luo" data-venue="Proceedings of AACL-IJCNLP" data-year="2026">
+        <div class="publication-content">
+          <div class="publication-title">CulturALL: Benchmarking Multilingual and Multicultural Competence of LLMs on Grounded Tasks</div>
+          <div class="publication-authors"><span id="authors-short-lin2026culturall" class="authors-short">Peiqin Lin, Chenyang Lyu, Wenjiang Luo, Haotian Ye, Md Mehrab Hossain, Chunlan Ma, <strong>Shaoxiong Ji</strong>, Younes Samih, Bo Zeng, Fan Jiang, Yuanbin Cao, <span class="authors-ellipsis">&hellip;</span>, Weihua Luo</span><span id="authors-full-lin2026culturall" class="authors-full" hidden>Peiqin Lin, Chenyang Lyu, Wenjiang Luo, Haotian Ye, Md Mehrab Hossain, Chunlan Ma, <strong>Shaoxiong Ji</strong>, Younes Samih, Bo Zeng, Fan Jiang, Yuanbin Cao, Dilda Duisenbek, Adrian Neo Sau Xun, Daria Pozdniakova, Liubou Misevich, Nevena Marinković, Ngoc Gia Linh Nguyen, Thi Khanh Linh Do, Sarakmatak Sophy, Baotian Hu, Guanhua Chen, Gongbo Tang, Alham Fikri Aji, Longyue Wang, and Weihua Luo</span> <button type="button" id="authors-btn-lin2026culturall" class="authors-toggle" onclick="toggleAuthors('lin2026culturall')" aria-expanded="false" aria-controls="authors-full-lin2026culturall">+13 more</button></div>
+          <div class="publication-venue">Proceedings of AACL-IJCNLP, 2026</div>
+        </div>
+        <div class="publication-actions">
+          <a href="https://arxiv.org/abs/2604.19262" target="_blank" class="action-btn"><i class="fas fa-external-link-alt"></i> Paper</a>
+          <button id="btn-lin2026culturall" onclick="toggleBibtex('lin2026culturall')" class="action-btn bibtex-toggle-btn"><i class="fas fa-quote-right"></i> BibTeX</button>
+        </div>
+        <div id="bib-lin2026culturall" class="bibtex-box">
+          <pre id="code-lin2026culturall" class="bibtex-pre">@inproceedings{lin2026culturall,
+  title     = {{CulturALL}: Benchmarking Multilingual and Multicultural Competence of {LLMs} on Grounded Tasks},
+  author    = {Peiqin Lin and Chenyang Lyu and Wenjiang Luo and Haotian Ye and Md Mehrab Hossain and Chunlan Ma and Shaoxiong Ji and Younes Samih and Bo Zeng and Fan Jiang and Yuanbin Cao and Dilda Duisenbek and Adrian Neo Sau Xun and Daria Pozdniakova and Liubou Misevich and Nevena Marinković and Ngoc Gia Linh Nguyen and Thi Khanh Linh Do and Sarakmatak Sophy and Baotian Hu and Guanhua Chen and Gongbo Tang and Alham Fikri Aji and Longyue Wang and Weihua Luo},
+  booktitle = {Proceedings of AACL-IJCNLP},
+  url       = {https://arxiv.org/abs/2604.19262},
+  year      = {2026}
 }</pre>
         </div>
       </div>
@@ -539,7 +610,7 @@
       <div class="publication-item" data-title="Are LLMs Ready to Assist Physicians? PhysAssistBench for Interactive Doctor-Patient-EHR Assistance" data-authors="Tianming Du, Peijie Yu, Sihan Shang, Danli Shi, My Linh Nguyen, Shengbo Gao, Guangyuan Li, Yinghong Yu, Yan Jiang, Qianlong Zhao, Behzad Bozorgtabar, Shaoxiong Ji, Jiazhen Pan, Daniel Rueckert, Jiancheng Yang" data-venue="Findings of the Association for Computational Linguistics: EMNLP 2026" data-year="2026">
         <div class="publication-content">
           <div class="publication-title">Are LLMs Ready to Assist Physicians? PhysAssistBench for Interactive Doctor-Patient-EHR Assistance</div>
-          <div class="publication-authors">Tianming Du, Peijie Yu, Sihan Shang, Danli Shi, My Linh Nguyen, Shengbo Gao, Guangyuan Li, Yinghong Yu, Yan Jiang, Qianlong Zhao, Behzad Bozorgtabar, <strong>Shaoxiong Ji</strong>, Jiazhen Pan, Daniel Rueckert, and Jiancheng Yang</div>
+          <div class="publication-authors"><span id="authors-short-du2026llms" class="authors-short">Tianming Du, Peijie Yu, Sihan Shang, Danli Shi, My Linh Nguyen, Shengbo Gao, Guangyuan Li, Yinghong Yu, Yan Jiang, Qianlong Zhao, <span class="authors-ellipsis">&hellip;</span>, <strong>Shaoxiong Ji</strong>, <span class="authors-ellipsis">&hellip;</span>, Jiancheng Yang</span><span id="authors-full-du2026llms" class="authors-full" hidden>Tianming Du, Peijie Yu, Sihan Shang, Danli Shi, My Linh Nguyen, Shengbo Gao, Guangyuan Li, Yinghong Yu, Yan Jiang, Qianlong Zhao, Behzad Bozorgtabar, <strong>Shaoxiong Ji</strong>, Jiazhen Pan, Daniel Rueckert, and Jiancheng Yang</span> <button type="button" id="authors-btn-du2026llms" class="authors-toggle" onclick="toggleAuthors('du2026llms')" aria-expanded="false" aria-controls="authors-full-du2026llms">+3 more</button></div>
           <div class="publication-venue">Findings of the Association for Computational Linguistics: EMNLP 2026, 2026</div>
         </div>
         <div class="publication-actions">
@@ -548,11 +619,11 @@
         </div>
         <div id="bib-du2026llms" class="bibtex-box">
           <pre id="code-du2026llms" class="bibtex-pre">@inproceedings{du2026llms,
-  title     = {Are LLMs Ready to Assist Physicians? PhysAssistBench for Interactive Doctor-Patient-EHR Assistance},
+  title     = {Are {LLMs} Ready to Assist Physicians? {PhysAssistBench} for Interactive Doctor-Patient-{EHR} Assistance},
   author    = {Tianming Du and Peijie Yu and Sihan Shang and Danli Shi and My Linh Nguyen and Shengbo Gao and Guangyuan Li and Yinghong Yu and Yan Jiang and Qianlong Zhao and Behzad Bozorgtabar and Shaoxiong Ji and Jiazhen Pan and Daniel Rueckert and Jiancheng Yang},
   booktitle = {Findings of the Association for Computational Linguistics: EMNLP 2026},
   year      = {2026},
-  url ={https://arxiv.org/abs/2606.18613}
+  url       = {https://arxiv.org/abs/2606.18613}
 }</pre>
         </div>
       </div>
@@ -560,7 +631,7 @@
       <div class="publication-item" data-title="A Parallel Cross-Lingual Benchmark for Multimodal Idiomaticity Understanding" data-authors="Dilara Torunoğlu-Selamet, Doğukan Arslan, Rodrigo Wilkens, Wei He, Doruk Eryiğit, Thomas Pickard, Adriana S. Pagano, Aline Villavicencio, Gülşen Eryiğit, Ágnes Abuczki, Aida Cardoso, Alesia Lazarenka, Dina Almassova, Amália Mendes, Anna Kanellopoulou, Antoni Brosa-Rodriguez, Baiba Valkovska, Beata Wojtowicz, Bolette Pedersen, Carlos Manuel Hidalgo-Ternero, Chaya Liebeskind, Danka Jokić, Diego Alves, Eleni Triantafyllidi, Erik Velldal, Fred Philippy, Giedre Valunaite Oleskeviciene, Ieva Rizgeliene, Inguna Skadina, Irina Lobzhanidze, Isabell Stinessen Haugen, Jauza Akbar Krito, Jelena M. Marković, Johanna Monti, Josue Alejandro Sauca, Kaja Dobrovoljc, Kingsley O. Ugwuanyi, Laura Rituma, Lilja Øvrelid, Maha Tufail Agro, Manzura Abjalova, Maria Chatzigrigoriou, María del Mar Sánchez Ramos, Marija Pendevska, Masoumeh Seyyedrezaei, Mehrnoush Shamsfard, Momina Ahsan, Muhammad Ahsan Riaz Khan, Nathalie Carmen Hau Norman, Nilay Erdem Ayyıldız, Nina Hosseini-Kivanani, Noémi Ligeti-Nagy, Numaan Naeem, Olha Kanishcheva, Olha Yatsyshyna, Daniil Orel, Petra Giommarelli, Petya Osenova, Radovan Garabik, Regina E. Semou, Rozane Rebechi, Salsabila Zahirah Pranida, Samia Touileb, Sanni Nimb, Sarfraz Ahmad, Sarvinoz Sharipova, Shahar Golan, Shaoxiong Ji, Sopuruchi Christian Aboh, Srdjan Sucur, Stella Markantonatou, Sussi Olsen, Vahide Tajalli, Veronika Lipp, Voula Giouli, Yelda Yeşildal Eraydın, Zahra Saaberi, Zhuohan Xie" data-venue="Proceedings of the Fifteenth Language Resources and Evaluation Conference (LREC 2026)" data-year="2026">
         <div class="publication-content">
           <div class="publication-title">A Parallel Cross-Lingual Benchmark for Multimodal Idiomaticity Understanding</div>
-          <div class="publication-authors">Dilara Torunoğlu-Selamet, Doğukan Arslan, Rodrigo Wilkens, Wei He, Doruk Eryiğit, Thomas Pickard, Adriana S. Pagano, Aline Villavicencio, Gülşen Eryiğit, Ágnes Abuczki, Aida Cardoso, Alesia Lazarenka, Dina Almassova, Amália Mendes, Anna Kanellopoulou, Antoni Brosa-Rodriguez, Baiba Valkovska, Beata Wojtowicz, Bolette Pedersen, Carlos Manuel Hidalgo-Ternero, Chaya Liebeskind, Danka Jokić, Diego Alves, Eleni Triantafyllidi, Erik Velldal, Fred Philippy, Giedre Valunaite Oleskeviciene, Ieva Rizgeliene, Inguna Skadina, Irina Lobzhanidze, Isabell Stinessen Haugen, Jauza Akbar Krito, Jelena M. Marković, Johanna Monti, Josue Alejandro Sauca, Kaja Dobrovoljc, Kingsley O. Ugwuanyi, Laura Rituma, Lilja Øvrelid, Maha Tufail Agro, Manzura Abjalova, Maria Chatzigrigoriou, María del Mar Sánchez Ramos, Marija Pendevska, Masoumeh Seyyedrezaei, Mehrnoush Shamsfard, Momina Ahsan, Muhammad Ahsan Riaz Khan, Nathalie Carmen Hau Norman, Nilay Erdem Ayyıldız, Nina Hosseini-Kivanani, Noémi Ligeti-Nagy, Numaan Naeem, Olha Kanishcheva, Olha Yatsyshyna, Daniil Orel, Petra Giommarelli, Petya Osenova, Radovan Garabik, Regina E. Semou, Rozane Rebechi, Salsabila Zahirah Pranida, Samia Touileb, Sanni Nimb, Sarfraz Ahmad, Sarvinoz Sharipova, Shahar Golan, <strong>Shaoxiong Ji</strong>, Sopuruchi Christian Aboh, Srdjan Sucur, Stella Markantonatou, Sussi Olsen, Vahide Tajalli, Veronika Lipp, Voula Giouli, Yelda Yeşildal Eraydın, Zahra Saaberi, and Zhuohan Xie</div>
+          <div class="publication-authors"><span id="authors-short-torunoluselamet-etal-2026-parallel" class="authors-short">Dilara Torunoğlu-Selamet, Doğukan Arslan, Rodrigo Wilkens, Wei He, Doruk Eryiğit, Thomas Pickard, Adriana S. Pagano, Aline Villavicencio, Gülşen Eryiğit, Ágnes Abuczki, <span class="authors-ellipsis">&hellip;</span>, <strong>Shaoxiong Ji</strong>, <span class="authors-ellipsis">&hellip;</span>, Zhuohan Xie</span><span id="authors-full-torunoluselamet-etal-2026-parallel" class="authors-full" hidden>Dilara Torunoğlu-Selamet, Doğukan Arslan, Rodrigo Wilkens, Wei He, Doruk Eryiğit, Thomas Pickard, Adriana S. Pagano, Aline Villavicencio, Gülşen Eryiğit, Ágnes Abuczki, Aida Cardoso, Alesia Lazarenka, Dina Almassova, Amália Mendes, Anna Kanellopoulou, Antoni Brosa-Rodriguez, Baiba Valkovska, Beata Wojtowicz, Bolette Pedersen, Carlos Manuel Hidalgo-Ternero, Chaya Liebeskind, Danka Jokić, Diego Alves, Eleni Triantafyllidi, Erik Velldal, Fred Philippy, Giedre Valunaite Oleskeviciene, Ieva Rizgeliene, Inguna Skadina, Irina Lobzhanidze, Isabell Stinessen Haugen, Jauza Akbar Krito, Jelena M. Marković, Johanna Monti, Josue Alejandro Sauca, Kaja Dobrovoljc, Kingsley O. Ugwuanyi, Laura Rituma, Lilja Øvrelid, Maha Tufail Agro, Manzura Abjalova, Maria Chatzigrigoriou, María del Mar Sánchez Ramos, Marija Pendevska, Masoumeh Seyyedrezaei, Mehrnoush Shamsfard, Momina Ahsan, Muhammad Ahsan Riaz Khan, Nathalie Carmen Hau Norman, Nilay Erdem Ayyıldız, Nina Hosseini-Kivanani, Noémi Ligeti-Nagy, Numaan Naeem, Olha Kanishcheva, Olha Yatsyshyna, Daniil Orel, Petra Giommarelli, Petya Osenova, Radovan Garabik, Regina E. Semou, Rozane Rebechi, Salsabila Zahirah Pranida, Samia Touileb, Sanni Nimb, Sarfraz Ahmad, Sarvinoz Sharipova, Shahar Golan, <strong>Shaoxiong Ji</strong>, Sopuruchi Christian Aboh, Srdjan Sucur, Stella Markantonatou, Sussi Olsen, Vahide Tajalli, Veronika Lipp, Voula Giouli, Yelda Yeşildal Eraydın, Zahra Saaberi, and Zhuohan Xie</span> <button type="button" id="authors-btn-torunoluselamet-etal-2026-parallel" class="authors-toggle" onclick="toggleAuthors('torunoluselamet-etal-2026-parallel')" aria-expanded="false" aria-controls="authors-full-torunoluselamet-etal-2026-parallel">+66 more</button></div>
           <div class="publication-venue">Proceedings of the Fifteenth Language Resources and Evaluation Conference (LREC 2026), pp. 9434–9448, 2026</div>
         </div>
         <div class="publication-actions">
@@ -580,7 +651,49 @@
   editor    = {Piperidis, Stelios and Bel, Núria and van den Heuvel, Henk and Ide, Nancy and Krek, Simon and Toral, Antonio},
   doi       = {10.63317/5cvnbcoktfo2},
   abstract  = {Potentially idiomatic expressions (PIEs) carry meanings inherently tied to the everyday experience of a given language community. As such, they constitute an interesting challenge for assessing the linguistic (and to some extent cultural) capabilities of NLP systems. In this paper, we present XMPIE, a parallel multilingual and multimodal dataset of potentially idiomatic expressions. The dataset, containing 34 languages and over ten thousand items, allows comparative analyses of idiomatic patterns among language-specific realisations and preferences in order to gather insights about shared cultural aspects. This parallel dataset allows evaluation of language model performance for a given PIE in different languages and whether idiomatic understanding in one language can be transferred to another. Moreover, the dataset supports the study of PIEs across textual and visual modalities, to measure to what extent PIE understanding in one modality transfers or implies in understanding in another modality (text vs. image). The data was created by language experts, with both textual and visual components crafted under multilingual guidelines, and each PIE is accompanied by five images representing a spectrum from idiomatic to literal meanings, including semantically related and random distractors. The result is a high-quality benchmark for evaluating multilingual and multimodal idiomatic language understanding.},
-  url = {https://arxiv.org/abs/2601.08645}
+  url       = {https://arxiv.org/abs/2601.08645}
+}</pre>
+        </div>
+      </div>
+
+      <div class="publication-item" data-title="Label-Free Steering: Compressing Test-Time Reinforcement Learning into Bias-Only Subspaces" data-authors="Naveen Vakada, Mingyuan Li, Shaoxiong Ji" data-venue="arXiv preprint arXiv:2609.18587" data-year="2026">
+        <div class="publication-content">
+          <div class="publication-title">Label-Free Steering: Compressing Test-Time Reinforcement Learning into Bias-Only Subspaces</div>
+          <div class="publication-authors"><strong>Naveen Vakada</strong>, <strong>Mingyuan Li</strong>, and <strong>Shaoxiong Ji</strong></div>
+          <div class="publication-venue">arXiv preprint arXiv:2609.18587, 2026</div>
+        </div>
+        <div class="publication-actions">
+          <a href="https://arxiv.org/abs/2609.18587" target="_blank" class="action-btn"><i class="fas fa-external-link-alt"></i> Paper</a>
+          <button id="btn-vakada2026labelfree" onclick="toggleBibtex('vakada2026labelfree')" class="action-btn bibtex-toggle-btn"><i class="fas fa-quote-right"></i> BibTeX</button>
+        </div>
+        <div id="bib-vakada2026labelfree" class="bibtex-box">
+          <pre id="code-vakada2026labelfree" class="bibtex-pre">@article{vakada2026labelfree,
+  title   = {Label-Free Steering: Compressing Test-Time Reinforcement Learning into Bias-Only Subspaces},
+  author  = {Vakada, Naveen and Li, Mingyuan and Ji, Shaoxiong},
+  journal = {arXiv preprint arXiv:2609.18587},
+  year    = {2026},
+  url     = {https://arxiv.org/abs/2609.18587}
+}</pre>
+        </div>
+      </div>
+
+      <div class="publication-item" data-title="Last Translation Benchmark" data-authors="Vilém Zouhar, Niyati Bafna, Mukund Choudhary, Maike Züfle, Sara Rajaee, Pinzhen Chen, Jannis Vamvas, Sara Papi, Ona de Gibert, Bhavitvya Malik, Eliya Habba, Orfeas Menis Mastromichalakis, Patrícia Schmidtová, Michelle Wastl, Sheriff Issaka, Leshem Choshen, Stella Biderman, Antonis Anastasopoulos, Jan Niehues, Rico Sennrich, Mrinmaya Sachan, Ondřej Bojar, Kenton Murray, Jörg Tiedemann, Alham Fikri Aji, Philipp Koehn, Christof Monz, Alexandra Birch, Sowmya Vajjala, Chalamalasetti Kranti, Cristina España-Bonet, Nobin Sarwar, David Kaczér, Shunta Asano, Malik Marmonier, Daban Q. Jaff, Vaisakhi Mishra, Hend Al- Khalifa, Gabriele Sarti, Sourajit Saha, Nils Rehlinger, Juan Daniel Cuervo Villa, Jonathan Tonglet, Saugata Purkayastha, Dominik Macháček, Jagannathan Ramanujam, Heejin Do, Zuzana Nadova, Fred Philippy, Fabian Retkowski, Maria Lymperaiou, Silvia Casola, Hanna Yukhymenko, Shubhashis Roy Dipta, Sangwon Ryu, Andrés Jerez, Ron Keinan, Shuaib Shuaib Yusuf, Avantica Vempati, Maria Carmen Staiano, Sukannya Purkayastha, Adrian Cosma, Vitalii Babenko, Erivan Inan, Aviral Nigam, Wafa Aissa, Fatima Haouari, Venkata Prasanth Kumar Gummadi, Mehdi Jafarzadeh, Valentin Scourneau, Lukas Edman, Kaiser Sun, Shaomu Tan, Mohammad Sadegh Gholizadeh, Johannes-Rudolf David, Dipankar Srirag, Javier García Gilabert, Ruta Binkyte, Manar Ali, Ana-Maria Bucur, Sabry E. Farrag, Youssef Saber, Yihong Liu, Jean Maillard, Cojocaru Nicoleta, Xiaochuang Yuan, Sina Ahmadi, Philipp Mondorf, Kaustubh Dhole, Roman Wixinger, Shenbin Qian, Manuel Tuor, Sergey Troshin, Jonathan Yahav, Fida Mohammad Thoker, Amir Arsalan Rezapour, Lance Calvin Lim Gamboa, Manon Reusens, Kätriin Kukk, Koel Dutta Chowdhury, Giuseppe Gallipoli, Christian Hoang, Shaswati Saha, Seth Aycock, Jan Kocoń, Bo Chen, Linh Vu, Vatsal Venkatkrishna, Arafat Ahsan, Luan Thanh Nguyen, Hassan Soliman, Daryna Dementieva, Theresia Veronika Rampisela, Ngoc Quynh Tram Do, Marius Huber, Kazuki Egashira, Azmine Toushik Wasi, Vladislav Poritski, Mike Zhang, Deep Shah, Paul Gavrikov, Luis Frentzen Salim, David Africa, R. Damanhuri, Bello Umar Bello, Anumit Garg, Gengyu Rao, Pawan Sasanka Ammanamanchi, Kamile Dementaviciute, Andrianos Michail, L D M S Sai Teja, Dawei Zhu, Yi Fan, Wei Liu, Farhan Farsi, Elias Herranen, Sankalan Pal Chowdhury, Karen Sanchez, Farzad Shami, Ashok Urlana, Zimu Wang, Tomasz Limisiewicz, Priyaranjan Pattnayak, Marii Ojastu, Hongbin Na, Emilian Radoi, Chenyi Zhao, Carlos Hinojosa, Andrea Gregor de Varda, Zaid Alyafeai, Reem Alzahrani, Nehal Kathrotia, Alex Flückiger, Ulysses Sekai Tully Carr, Jimson Paulo Layacan, Guy Kaplan, Ritwik Tiwari, Rishit Dagli, Oksana Volchek, Isaac R Caswell, Bowen Yi, Blanka Kövér, Amir Hossein Yari, Aicha Chorana, Zhengxiang Wang, Selja Keränen, Samuel Simko, Joy Olusanya, Jenny Chim, Enzo Doyen, Vivek Harsha Lakkamaneni, Sophia Conrad, Pouya Sadeghi, Panayiotis Panayiotou, Luis Lara, Jannatul Nayem, Eran Yahav, Debanshu Das, Antonia Karamolegkou, Anmol Goel, Aishik Mandal, Tommaso Cerruti, Raoyuan Zhao, Mykola Haltiuk, Thura Aung, Naser Almousa, Amir Hossein Kargaran, Rachel Bawden, Qiaoyuan Zheng, Mateusz Lango, Beni Egressy, Fidel Rodríguez Velásquez, Natchapon Jongwiriyanurak, Minh Ngoc Do, Marco Gaido, Lena Libon, Dzmitry Kuzmin, Badal Nyalang, Antoine Taroni, Andrei Niculae, Abdulaziz Nura Kani, Rushikesh Zawar, Marek Šuppa, Beatrice Savoldi, Andreas Simons, Rayyan Merchant, Ilai Yaron Levy, Francesco Pinto, Ziyi Yang, Yolanda Xavier, Samuel Frontull, Muhammad Ravi Shulthan Habibi, Kenneth Enevoldsen, Harris Abdul Majid, Francesca Padovani, Tim Graf, Tatiana Bielakova, Sharifa Djurabaeva, Shaoxiong Ji, Raia Abu Ahmad, Pavel Stepachev, Jirui Qi, Ayush Sunil Munot, Alireza Pakniat, Ayla Rigouts Terryn, Yuxing Lu, Yurii Paniv, Xiyan Fu, Tosin Adewumi, Sunisth Kumar, Stéphane J. P. S. Thunus, Shree Harsha Bokkahalli Satish, Shayan Bali, Prakhar Gupta, Papa Abdou Karim Karou Diallo, Matija Akrap, Marko Culjak, Kristýna Onderková, Joseph Attieh, Esrael Teferi Tensay, Elisabeth Fittschen, Benoît Sagot, Jingwei Ni, Yu Fan" data-venue="arXiv preprint arXiv:2609.04173" data-year="2026">
+        <div class="publication-content">
+          <div class="publication-title">Last Translation Benchmark</div>
+          <div class="publication-authors"><span id="authors-short-zouhar2026translationbenchmark" class="authors-short">Vilém Zouhar, Niyati Bafna, Mukund Choudhary, Maike Züfle, Sara Rajaee, Pinzhen Chen, Jannis Vamvas, Sara Papi, Ona de Gibert, Bhavitvya Malik, <span class="authors-ellipsis">&hellip;</span>, <strong>Shaoxiong Ji</strong>, <span class="authors-ellipsis">&hellip;</span>, Yu Fan</span><span id="authors-full-zouhar2026translationbenchmark" class="authors-full" hidden>Vilém Zouhar, Niyati Bafna, Mukund Choudhary, Maike Züfle, Sara Rajaee, Pinzhen Chen, Jannis Vamvas, Sara Papi, Ona de Gibert, Bhavitvya Malik, Eliya Habba, Orfeas Menis Mastromichalakis, Patrícia Schmidtová, Michelle Wastl, Sheriff Issaka, Leshem Choshen, Stella Biderman, Antonis Anastasopoulos, Jan Niehues, Rico Sennrich, Mrinmaya Sachan, Ondřej Bojar, Kenton Murray, Jörg Tiedemann, Alham Fikri Aji, Philipp Koehn, Christof Monz, Alexandra Birch, Sowmya Vajjala, Chalamalasetti Kranti, Cristina España-Bonet, Nobin Sarwar, David Kaczér, Shunta Asano, Malik Marmonier, Daban Q. Jaff, Vaisakhi Mishra, Hend Al- Khalifa, Gabriele Sarti, Sourajit Saha, Nils Rehlinger, Juan Daniel Cuervo Villa, Jonathan Tonglet, Saugata Purkayastha, Dominik Macháček, Jagannathan Ramanujam, Heejin Do, Zuzana Nadova, Fred Philippy, Fabian Retkowski, Maria Lymperaiou, Silvia Casola, Hanna Yukhymenko, Shubhashis Roy Dipta, Sangwon Ryu, Andrés Jerez, Ron Keinan, Shuaib Shuaib Yusuf, Avantica Vempati, Maria Carmen Staiano, Sukannya Purkayastha, Adrian Cosma, Vitalii Babenko, Erivan Inan, Aviral Nigam, Wafa Aissa, Fatima Haouari, Venkata Prasanth Kumar Gummadi, Mehdi Jafarzadeh, Valentin Scourneau, Lukas Edman, Kaiser Sun, Shaomu Tan, Mohammad Sadegh Gholizadeh, Johannes-Rudolf David, Dipankar Srirag, Javier García Gilabert, Ruta Binkyte, Manar Ali, Ana-Maria Bucur, Sabry E. Farrag, Youssef Saber, Yihong Liu, Jean Maillard, Cojocaru Nicoleta, Xiaochuang Yuan, Sina Ahmadi, Philipp Mondorf, Kaustubh Dhole, Roman Wixinger, Shenbin Qian, Manuel Tuor, Sergey Troshin, Jonathan Yahav, Fida Mohammad Thoker, Amir Arsalan Rezapour, Lance Calvin Lim Gamboa, Manon Reusens, Kätriin Kukk, Koel Dutta Chowdhury, Giuseppe Gallipoli, Christian Hoang, Shaswati Saha, Seth Aycock, Jan Kocoń, Bo Chen, Linh Vu, Vatsal Venkatkrishna, Arafat Ahsan, Luan Thanh Nguyen, Hassan Soliman, Daryna Dementieva, Theresia Veronika Rampisela, Ngoc Quynh Tram Do, Marius Huber, Kazuki Egashira, Azmine Toushik Wasi, Vladislav Poritski, Mike Zhang, Deep Shah, Paul Gavrikov, Luis Frentzen Salim, David Africa, R. Damanhuri, Bello Umar Bello, Anumit Garg, Gengyu Rao, Pawan Sasanka Ammanamanchi, Kamile Dementaviciute, Andrianos Michail, L D M S Sai Teja, Dawei Zhu, Yi Fan, Wei Liu, Farhan Farsi, Elias Herranen, Sankalan Pal Chowdhury, Karen Sanchez, Farzad Shami, Ashok Urlana, Zimu Wang, Tomasz Limisiewicz, Priyaranjan Pattnayak, Marii Ojastu, Hongbin Na, Emilian Radoi, Chenyi Zhao, Carlos Hinojosa, Andrea Gregor de Varda, Zaid Alyafeai, Reem Alzahrani, Nehal Kathrotia, Alex Flückiger, Ulysses Sekai Tully Carr, Jimson Paulo Layacan, Guy Kaplan, Ritwik Tiwari, Rishit Dagli, Oksana Volchek, Isaac R Caswell, Bowen Yi, Blanka Kövér, Amir Hossein Yari, Aicha Chorana, Zhengxiang Wang, Selja Keränen, Samuel Simko, Joy Olusanya, Jenny Chim, Enzo Doyen, Vivek Harsha Lakkamaneni, Sophia Conrad, Pouya Sadeghi, Panayiotis Panayiotou, Luis Lara, Jannatul Nayem, Eran Yahav, Debanshu Das, Antonia Karamolegkou, Anmol Goel, Aishik Mandal, Tommaso Cerruti, Raoyuan Zhao, Mykola Haltiuk, Thura Aung, Naser Almousa, Amir Hossein Kargaran, Rachel Bawden, Qiaoyuan Zheng, Mateusz Lango, Beni Egressy, Fidel Rodríguez Velásquez, Natchapon Jongwiriyanurak, Minh Ngoc Do, Marco Gaido, Lena Libon, Dzmitry Kuzmin, Badal Nyalang, Antoine Taroni, Andrei Niculae, Abdulaziz Nura Kani, Rushikesh Zawar, Marek Šuppa, Beatrice Savoldi, Andreas Simons, Rayyan Merchant, Ilai Yaron Levy, Francesco Pinto, Ziyi Yang, Yolanda Xavier, Samuel Frontull, Muhammad Ravi Shulthan Habibi, Kenneth Enevoldsen, Harris Abdul Majid, Francesca Padovani, Tim Graf, Tatiana Bielakova, Sharifa Djurabaeva, <strong>Shaoxiong Ji</strong>, Raia Abu Ahmad, Pavel Stepachev, Jirui Qi, Ayush Sunil Munot, Alireza Pakniat, Ayla Rigouts Terryn, Yuxing Lu, Yurii Paniv, Xiyan Fu, Tosin Adewumi, Sunisth Kumar, Stéphane J. P. S. Thunus, Shree Harsha Bokkahalli Satish, Shayan Bali, Prakhar Gupta, Papa Abdou Karim Karou Diallo, Matija Akrap, Marko Culjak, Kristýna Onderková, Joseph Attieh, Esrael Teferi Tensay, Elisabeth Fittschen, Benoît Sagot, Jingwei Ni, and Yu Fan</span> <button type="button" id="authors-btn-zouhar2026translationbenchmark" class="authors-toggle" onclick="toggleAuthors('zouhar2026translationbenchmark')" aria-expanded="false" aria-controls="authors-full-zouhar2026translationbenchmark">+232 more</button></div>
+          <div class="publication-venue">arXiv preprint arXiv:2609.04173, 2026</div>
+        </div>
+        <div class="publication-actions">
+          <a href="https://arxiv.org/abs/2609.04173" target="_blank" class="action-btn"><i class="fas fa-external-link-alt"></i> Paper</a>
+          <button id="btn-zouhar2026translationbenchmark" onclick="toggleBibtex('zouhar2026translationbenchmark')" class="action-btn bibtex-toggle-btn"><i class="fas fa-quote-right"></i> BibTeX</button>
+        </div>
+        <div id="bib-zouhar2026translationbenchmark" class="bibtex-box">
+          <pre id="code-zouhar2026translationbenchmark" class="bibtex-pre">@article{zouhar2026translationbenchmark,
+  title   = {Last Translation Benchmark},
+  author  = {Vilém Zouhar and Niyati Bafna and Mukund Choudhary and Maike Züfle and Sara Rajaee and Pinzhen Chen and Jannis Vamvas and Sara Papi and Ona de Gibert and Bhavitvya Malik and Eliya Habba and Orfeas Menis Mastromichalakis and Patrícia Schmidtová and Michelle Wastl and Sheriff Issaka and Leshem Choshen and Stella Biderman and Antonis Anastasopoulos and Jan Niehues and Rico Sennrich and Mrinmaya Sachan and Ondřej Bojar and Kenton Murray and Jörg Tiedemann and Alham Fikri Aji and Philipp Koehn and Christof Monz and Alexandra Birch and Sowmya Vajjala and Chalamalasetti Kranti and Cristina España-Bonet and Nobin Sarwar and David Kaczér and Shunta Asano and Malik Marmonier and Daban Q. Jaff and Vaisakhi Mishra and Hend Al- Khalifa and Gabriele Sarti and Sourajit Saha and Nils Rehlinger and Juan Daniel Cuervo Villa and Jonathan Tonglet and Saugata Purkayastha and Dominik Macháček and Jagannathan Ramanujam and Heejin Do and Zuzana Nadova and Fred Philippy and Fabian Retkowski and Maria Lymperaiou and Silvia Casola and Hanna Yukhymenko and Shubhashis Roy Dipta and Sangwon Ryu and Andrés Jerez and Ron Keinan and Shuaib Shuaib Yusuf and Avantica Vempati and Maria Carmen Staiano and Sukannya Purkayastha and Adrian Cosma and Vitalii Babenko and Erivan Inan and Aviral Nigam and Wafa Aissa and Fatima Haouari and Venkata Prasanth Kumar Gummadi and Mehdi Jafarzadeh and Valentin Scourneau and Lukas Edman and Kaiser Sun and Shaomu Tan and Mohammad Sadegh Gholizadeh and Johannes-Rudolf David and Dipankar Srirag and Javier García Gilabert and Ruta Binkyte and Manar Ali and Ana-Maria Bucur and Sabry E. Farrag and Youssef Saber and Yihong Liu and Jean Maillard and Cojocaru Nicoleta and Xiaochuang Yuan and Sina Ahmadi and Philipp Mondorf and Kaustubh Dhole and Roman Wixinger and Shenbin Qian and Manuel Tuor and Sergey Troshin and Jonathan Yahav and Fida Mohammad Thoker and Amir Arsalan Rezapour and Lance Calvin Lim Gamboa and Manon Reusens and Kätriin Kukk and Koel Dutta Chowdhury and Giuseppe Gallipoli and Christian Hoang and Shaswati Saha and Seth Aycock and Jan Kocoń and Bo Chen and Linh Vu and Vatsal Venkatkrishna and Arafat Ahsan and Luan Thanh Nguyen and Hassan Soliman and Daryna Dementieva and Theresia Veronika Rampisela and Ngoc Quynh Tram Do and Marius Huber and Kazuki Egashira and Azmine Toushik Wasi and Vladislav Poritski and Mike Zhang and Deep Shah and Paul Gavrikov and Luis Frentzen Salim and David Africa and R. Damanhuri and Bello Umar Bello and Anumit Garg and Gengyu Rao and Pawan Sasanka Ammanamanchi and Kamile Dementaviciute and Andrianos Michail and L D M S Sai Teja and Dawei Zhu and Yi Fan and Wei Liu and Farhan Farsi and Elias Herranen and Sankalan Pal Chowdhury and Karen Sanchez and Farzad Shami and Ashok Urlana and Zimu Wang and Tomasz Limisiewicz and Priyaranjan Pattnayak and Marii Ojastu and Hongbin Na and Emilian Radoi and Chenyi Zhao and Carlos Hinojosa and Andrea Gregor de Varda and Zaid Alyafeai and Reem Alzahrani and Nehal Kathrotia and Alex Flückiger and Ulysses Sekai Tully Carr and Jimson Paulo Layacan and Guy Kaplan and Ritwik Tiwari and Rishit Dagli and Oksana Volchek and Isaac R Caswell and Bowen Yi and Blanka Kövér and Amir Hossein Yari and Aicha Chorana and Zhengxiang Wang and Selja Keränen and Samuel Simko and Joy Olusanya and Jenny Chim and Enzo Doyen and Vivek Harsha Lakkamaneni and Sophia Conrad and Pouya Sadeghi and Panayiotis Panayiotou and Luis Lara and Jannatul Nayem and Eran Yahav and Debanshu Das and Antonia Karamolegkou and Anmol Goel and Aishik Mandal and Tommaso Cerruti and Raoyuan Zhao and Mykola Haltiuk and Thura Aung and Naser Almousa and Amir Hossein Kargaran and Rachel Bawden and Qiaoyuan Zheng and Mateusz Lango and Beni Egressy and Fidel Rodríguez Velásquez and Natchapon Jongwiriyanurak and Minh Ngoc Do and Marco Gaido and Lena Libon and Dzmitry Kuzmin and Badal Nyalang and Antoine Taroni and Andrei Niculae and Abdulaziz Nura Kani and Rushikesh Zawar and Marek Šuppa and Beatrice Savoldi and Andreas Simons and Rayyan Merchant and Ilai Yaron Levy and Francesco Pinto and Ziyi Yang and Yolanda Xavier and Samuel Frontull and Muhammad Ravi Shulthan Habibi and Kenneth Enevoldsen and Harris Abdul Majid and Francesca Padovani and Tim Graf and Tatiana Bielakova and Sharifa Djurabaeva and Shaoxiong Ji and Raia Abu Ahmad and Pavel Stepachev and Jirui Qi and Ayush Sunil Munot and Alireza Pakniat and Ayla Rigouts Terryn and Yuxing Lu and Yurii Paniv and Xiyan Fu and Tosin Adewumi and Sunisth Kumar and Stéphane J. P. S. Thunus and Shree Harsha Bokkahalli Satish and Shayan Bali and Prakhar Gupta and Papa Abdou Karim Karou Diallo and Matija Akrap and Marko Culjak and Kristýna Onderková and Joseph Attieh and Esrael Teferi Tensay and Elisabeth Fittschen and Benoît Sagot and Jingwei Ni and Yu Fan},
+  year    = {2026},
+  journal = {arXiv preprint arXiv:2609.04173},
+  url     = {https://arxiv.org/abs/2609.04173}
 }</pre>
         </div>
       </div>
@@ -602,6 +715,27 @@
   journal = {arXiv preprint arXiv:2604.24126},
   year    = {2026},
   url     = {https://arxiv.org/abs/2604.24126}
+}</pre>
+        </div>
+      </div>
+
+      <div class="publication-item" data-title="Training Specialist Models without Reasoning Trajectories for Domain Expert Distillation" data-authors="Yilei Tu, Zihao Li, Shaoxiong Ji, Jörg Tiedemann, Fei Yuan" data-venue="arXiv preprint arXiv:2609.13770" data-year="2026">
+        <div class="publication-content">
+          <div class="publication-title">Training Specialist Models without Reasoning Trajectories for Domain Expert Distillation</div>
+          <div class="publication-authors">Yilei Tu, <strong>Zihao Li</strong>, <strong>Shaoxiong Ji</strong>, Jörg Tiedemann, and Fei Yuan</div>
+          <div class="publication-venue">arXiv preprint arXiv:2609.13770, 2026</div>
+        </div>
+        <div class="publication-actions">
+          <a href="https://arxiv.org/abs/2609.13770" target="_blank" class="action-btn"><i class="fas fa-external-link-alt"></i> Paper</a>
+          <button id="btn-tu2026trainingspecialistmodelsreasoning" onclick="toggleBibtex('tu2026trainingspecialistmodelsreasoning')" class="action-btn bibtex-toggle-btn"><i class="fas fa-quote-right"></i> BibTeX</button>
+        </div>
+        <div id="bib-tu2026trainingspecialistmodelsreasoning" class="bibtex-box">
+          <pre id="code-tu2026trainingspecialistmodelsreasoning" class="bibtex-pre">@article{tu2026trainingspecialistmodelsreasoning,
+  title   = {Training Specialist Models without Reasoning Trajectories for Domain Expert Distillation},
+  author  = {Yilei Tu and Zihao Li and Shaoxiong Ji and Jörg Tiedemann and Fei Yuan},
+  year    = {2026},
+  journal = {arXiv preprint arXiv:2609.13770},
+  url     = {https://arxiv.org/abs/2609.13770}
 }</pre>
         </div>
       </div>
@@ -689,7 +823,7 @@
       <div class="publication-item" data-title="GlotEval: A Test Suite for Massively Multilingual Evaluation of Large Language Models" data-authors="Hengyu Luo, Zihao Li, Joseph Attieh, Sawal Devkota, Ona de Gibert, Xu Huang, Shaoxiong Ji, Peiqin Lin, Bhavani Sai Praneeth Varma Mantina, Ananda Sreenidhi, Raúl Vázquez, Mengjie Wang, Samea Yusofi, Fei Yuan, Jörg Tiedemann" data-venue="Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing: System Demonstrations" data-year="2025">
         <div class="publication-content">
           <div class="publication-title">GlotEval: A Test Suite for Massively Multilingual Evaluation of Large Language Models</div>
-          <div class="publication-authors">Hengyu Luo, <strong>Zihao Li</strong>, Joseph Attieh, Sawal Devkota, Ona de Gibert, Xu Huang, <strong>Shaoxiong Ji</strong>, Peiqin Lin, Bhavani Sai Praneeth Varma Mantina, Ananda Sreenidhi, Raúl Vázquez, Mengjie Wang, Samea Yusofi, Fei Yuan, and Jörg Tiedemann</div>
+          <div class="publication-authors"><span id="authors-short-luo2025gloteval" class="authors-short">Hengyu Luo, <strong>Zihao Li</strong>, Joseph Attieh, Sawal Devkota, Ona de Gibert, Xu Huang, <strong>Shaoxiong Ji</strong>, Peiqin Lin, Bhavani Sai Praneeth Varma Mantina, Ananda Sreenidhi, Raúl Vázquez, <span class="authors-ellipsis">&hellip;</span>, Jörg Tiedemann</span><span id="authors-full-luo2025gloteval" class="authors-full" hidden>Hengyu Luo, <strong>Zihao Li</strong>, Joseph Attieh, Sawal Devkota, Ona de Gibert, Xu Huang, <strong>Shaoxiong Ji</strong>, Peiqin Lin, Bhavani Sai Praneeth Varma Mantina, Ananda Sreenidhi, Raúl Vázquez, Mengjie Wang, Samea Yusofi, Fei Yuan, and Jörg Tiedemann</span> <button type="button" id="authors-btn-luo2025gloteval" class="authors-toggle" onclick="toggleAuthors('luo2025gloteval')" aria-expanded="false" aria-controls="authors-full-luo2025gloteval">+3 more</button></div>
           <div class="publication-venue">Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing: System Demonstrations, pp. 602–614, 2025</div>
         </div>
         <div class="publication-actions">
@@ -724,6 +858,25 @@
     <a href="https://github.com/OLAResearch" style="color: inherit; font-size: 1.5rem; transition: var(--transition-smooth);"><i class="fab fa-github"></i></a>
   </footer>
 
+  <script>
+    // Expand/collapse long author lists.
+    function toggleAuthors(key) {
+      var short = document.getElementById('authors-short-' + key);
+      var full = document.getElementById('authors-full-' + key);
+      var btn = document.getElementById('authors-btn-' + key);
+      if (!short || !full || !btn) return;
+      var expand = short.hidden !== true;
+      short.hidden = expand;
+      full.hidden = !expand;
+      btn.setAttribute('aria-expanded', expand ? 'true' : 'false');
+      if (expand) {
+        btn.dataset.collapsedLabel = btn.textContent;
+        btn.textContent = 'show less';
+      } else {
+        btn.textContent = btn.dataset.collapsedLabel || 'show all';
+      }
+    }
+  </script>
   <script src="./static/js/main.js"></script>
 </body>
 </html>

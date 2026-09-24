@@ -14,6 +14,138 @@
   <link rel="icon" href="./images/logos/olar.svg">
 
   <style>
+    /* ---- Direction accent tokens (derived from the site palette) ---- */
+    :root {
+      --dir-lang: #b39371;   /* earth  - multilingual */
+      --dir-mm:   #758273;   /* sage   - multimodal   */
+      --dir-med:  #a8766c;   /* clay   - health       */
+      --fig-ink:  #c4bcae;
+    }
+
+    /* ---- Inline schematic figures ---- */
+    .figure { margin: 0 0 1.75rem; }
+    .figure-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .figure svg { display: block; width: 100%; height: auto; min-width: 620px; }
+    .figure-hub svg { min-width: 680px; }
+    .figure-caption {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin: 0.9rem 0 0;
+    }
+    .figure-hint { display: none; font-size: 0.75rem; color: var(--text-secondary); opacity: 0.8; margin-top: 0.4rem; }
+    @media (max-width: 720px) { .figure-hint { display: block; } }
+
+    .figure text { font-family: var(--font-sans); fill: var(--text-primary); }
+    .fg-micro { font-size: 10.5px; font-weight: 600; letter-spacing: 0.12em; fill: var(--text-secondary); }
+    .fg-body { font-size: 12px; fill: var(--text-secondary); }
+    .fg-small { font-size: 10.5px; fill: var(--text-secondary); }
+    .fg-node { font-size: 11.5px; fill: var(--text-primary); }
+    .fg-card { fill: var(--surface-color); stroke: var(--border-color); stroke-width: 1.5; }
+    .fg-inner { fill: #f6f3ed; stroke: var(--border-color); stroke-width: 1.2; }
+    .fg-band { fill: #f6f3ed; stroke: var(--border-color); stroke-width: 1.5; }
+    .fg-rule { stroke: var(--border-color); stroke-width: 1; }
+    .fg-line { fill: none; stroke: var(--fig-ink); stroke-width: 1.5; }
+    .fg-line-strong { fill: none; stroke: var(--accent-earth); stroke-width: 2.2; }
+    .fg-dash { fill: none; stroke: var(--fig-ink); stroke-width: 1.4; stroke-dasharray: 5 5; }
+    .fg-dot { fill: none; stroke: var(--fig-ink); stroke-width: 1.4; stroke-dasharray: 2 4; }
+    .fg-muted { stroke: var(--fig-ink); stroke-width: 1.6; opacity: 0.7; }
+
+    .intro-mark {
+      float: left;
+      height: 46px;
+      width: auto;
+      margin: 0.3rem 1.15rem 0.4rem 0;
+    }
+
+    .dir-figure {
+      float: right;
+      width: 280px;
+      max-width: 40%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      margin: 0.3rem 0 1.25rem 1.75rem;
+    }
+
+    @media (max-width: 620px) {
+      .intro-mark { float: none; display: block; margin: 0 0 1rem; }
+      .dir-figure { float: none; width: 100%; max-width: 100%; margin: 0 0 1.5rem; }
+    }
+
+    .hub-title { font-size: 14.5px; font-weight: 600; }
+    .hub-lead { font-size: 13px; fill: var(--text-primary); }
+
+    /* ---- Direction section headings ---- */
+    .dir-heading { display: flex; align-items: center; gap: 0.85rem; margin-top: 4rem; margin-bottom: 1.25rem; }
+    .dir-heading h3 { margin: 0; }
+    .dir-icon {
+      flex: 0 0 auto;
+      width: 2.6rem; height: 2.6rem;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      background: #f6f3ed;
+      border: 1px solid var(--border-color);
+    }
+
+    .dir-links { clear: both; margin: 1.75rem 0 0; display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .dir-link {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-earth);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: var(--transition-smooth);
+    }
+    .dir-link:hover { color: var(--text-primary); }
+    .dir-link i { font-size: 0.7rem; }
+    .dir-link.is-archived { color: var(--text-secondary); opacity: 0.7; }
+    .dir-link.is-archived:hover { color: var(--text-primary); opacity: 1; }
+
+    /* ---- Jump chips under the schematic ---- */
+    .jump-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.5rem 0 0; }
+    .jump-chip {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.45rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      background: var(--surface-color);
+      color: var(--text-secondary);
+      font-size: 0.82rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+    .jump-chip:hover { border-color: var(--accent-earth); color: var(--text-primary); }
+    .jump-chip .swatch { width: 8px; height: 8px; border-radius: 50%; }
+
+    /* ---- Publications call-out ---- */
+    .pub-callout {
+      margin-top: 4rem;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      background: var(--surface-color);
+      padding: 2rem 2.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      transition: var(--transition-smooth);
+    }
+    .pub-callout:hover { border-color: var(--accent-earth); box-shadow: 0 10px 24px rgba(0,0,0,0.03); }
+    .pub-callout h4 { font-family: var(--font-serif); font-size: 1.35rem; font-weight: 400; margin: 0 0 0.35rem; }
+    .pub-callout p { margin: 0; font-size: 0.9rem; color: var(--text-secondary); }
+    .pub-callout-text { flex: 1 1 320px; min-width: 0; }
+    .pub-callout-cta { flex: 0 0 auto; }
+
     /* Custom page styles for Collaborators section */
     .collaborator-grid {
       display: grid;
@@ -71,8 +203,16 @@
     @media (max-width: 768px) {
       .navbar-menu {
         display: flex !important;
-        gap: 1.5rem;
+        gap: 1.25rem;
       }
+      .pub-callout { padding: 1.5rem; }
+    }
+
+    @media (max-width: 560px) {
+      .dir-heading { gap: 0.7rem; margin-top: 3.25rem; }
+      .dir-heading h3.title.is-3 { font-size: 1.35rem; }
+      .dir-icon { width: 2.2rem; height: 2.2rem; font-size: 0.85rem; }
+      .dir-links { gap: 1rem; }
     }
   </style>
 
@@ -94,7 +234,8 @@
     </a>
 </div>
   <div class="navbar-menu">
-    <a class="navbar-item" href="index.html" style="display: flex; align-items: center; gap: 0.5rem; font-weight: 500;"><i class="fas fa-home"></i> Back to Home</a>
+    <a class="navbar-item" href="publications.html" style="display: flex; align-items: center; gap: 0.5rem; font-weight: 500;"><i class="fas fa-book-open"></i> Publications</a>
+    <a class="navbar-item" href="index.html" style="display: flex; align-items: center; gap: 0.5rem; font-weight: 500;"><i class="fas fa-home"></i> Home</a>
   </div>
 </nav>
 
@@ -112,14 +253,226 @@
       <p class="lead" style="font-size: 1.2rem; color: var(--text-primary); margin-bottom: 2.5rem; font-family: var(--font-serif); font-style: italic;">
         "We aim to build intelligent and versatile systems that address high-impact societal needs across language boundaries, multimodal contexts, and specialized domains."
       </p>
-      
+
       <p>
+        <img src="./images/logos/olar.svg" alt="" aria-hidden="true" class="intro-mark">
         Omni Language AI Research is a dedicated research collective operating at the intersection of deep learning, linguistics, and multimodal intelligence. By blending rigorous academic methodology with modern engineering, we create systems that don't just process text but comprehend context, reason over complex modalities, and adapt dynamically to new domains.
       </p>
 
-      <h3 class="title is-3" style="margin-top: 3.5rem;">Multilingual NLP & Reasoning</h3>
-      <img src="images/generation/multilingual_nlp.jpg" alt="Multilingual NLP & Reasoning, generated by Gemini 3.1 Pro" style="width: 100%; border-radius: 8px; margin-bottom: 1.5rem; object-fit: cover; aspect-ratio: 16/9;">
       <p>
+        Our work runs along three directions. They are not separate programmes: they sit on one shared methodological base &mdash; data and corpora, continual learning, memory, reinforcement learning, and evaluation &mdash; and they feed one another, so a result in one direction usually changes what is possible in the others.
+      </p>
+
+      <!-- ================= Overarching schematic ================= -->
+      <figure class="figure figure-hub" style="margin-top: 3rem;">
+        <div class="figure-scroll">
+          <svg viewBox="0 0 900 480" role="img" aria-labelledby="hub-t hub-d">
+            <title id="hub-t">How our three research directions connect</title>
+            <desc id="hub-d">A shared foundation of data and corpora, continual learning, memory systems, reinforcement learning, and evaluation supports three directions: natural language processing, multimodal learning, and health intelligence. The directions exchange methods with one another and together produce equitable language access, trustworthy clinical decision support, and reproducible evaluation.</desc>
+
+            <defs>
+              <marker id="hub-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+                <path d="M0 0 L10 5 L0 10 z" fill="#c4bcae"/>
+              </marker>
+            </defs>
+
+            <!-- Outcomes band -->
+            <rect x="45" y="14" width="810" height="66" rx="12" class="fg-band"/>
+            <image href="./images/logos/olar.svg" x="357" y="28" width="20.6" height="18"/>
+            <text x="464" y="41" class="fg-micro" text-anchor="middle">SOCIETAL OUTCOMES</text>
+            <text x="450" y="64" class="hub-lead" text-anchor="middle">Equitable language access &#183; Trustworthy clinical decision support &#183; Reproducible evaluation</text>
+
+            <!-- Directions to outcomes -->
+            <path d="M150 116 L150 86" class="fg-line" marker-end="url(#hub-arrow)"/>
+            <path d="M450 116 L450 86" class="fg-line" marker-end="url(#hub-arrow)"/>
+            <path d="M750 116 L750 86" class="fg-line" marker-end="url(#hub-arrow)"/>
+
+            <!-- Direction 1: Multilingual -->
+            <rect x="45" y="120" width="210" height="190" rx="12" class="fg-card"/>
+            <circle cx="67" cy="141" r="5" fill="var(--dir-lang)"/>
+            <text x="81" y="146" class="hub-title">Natural Language</text>
+            <text x="81" y="165" class="hub-title">Processing</text>
+            <line x1="67" y1="184" x2="233" y2="184" class="fg-rule"/>
+            <rect x="67" y="202" width="4" height="4" fill="var(--dir-lang)" opacity="0.6"/>
+            <text x="80" y="208" class="fg-body">Multilingual NLP</text>
+            <rect x="67" y="224" width="4" height="4" fill="var(--dir-lang)" opacity="0.6"/>
+            <text x="80" y="230" class="fg-body">Continual learning</text>
+            <rect x="67" y="246" width="4" height="4" fill="var(--dir-lang)" opacity="0.6"/>
+            <text x="80" y="252" class="fg-body">Memory systems</text>
+            <rect x="67" y="268" width="4" height="4" fill="var(--dir-lang)" opacity="0.6"/>
+            <text x="80" y="274" class="fg-body">RL &amp; test-time scaling</text>
+
+            <!-- Direction 2: Multimodal -->
+            <rect x="345" y="120" width="210" height="190" rx="12" class="fg-card"/>
+            <circle cx="367" cy="141" r="5" fill="var(--dir-mm)"/>
+            <text x="381" y="146" class="hub-title">Multimodal</text>
+            <text x="381" y="165" class="hub-title">Learning</text>
+            <line x1="367" y1="184" x2="533" y2="184" class="fg-rule"/>
+            <rect x="367" y="202" width="4" height="4" fill="var(--dir-mm)" opacity="0.6"/>
+            <text x="380" y="208" class="fg-body">Vision&#8211;language models</text>
+            <rect x="367" y="224" width="4" height="4" fill="var(--dir-mm)" opacity="0.6"/>
+            <text x="380" y="230" class="fg-body">Grounded reasoning</text>
+            <rect x="367" y="246" width="4" height="4" fill="var(--dir-mm)" opacity="0.6"/>
+            <text x="380" y="252" class="fg-body">Multimodal steering</text>
+            <rect x="367" y="268" width="4" height="4" fill="var(--dir-mm)" opacity="0.6"/>
+            <text x="380" y="274" class="fg-body">Benchmarking &amp; evaluation</text>
+
+            <!-- Direction 3: Health -->
+            <rect x="645" y="120" width="210" height="190" rx="12" class="fg-card"/>
+            <circle cx="667" cy="141" r="5" fill="var(--dir-med)"/>
+            <text x="681" y="146" class="hub-title">Health</text>
+            <text x="681" y="165" class="hub-title">Intelligence</text>
+            <line x1="667" y1="184" x2="833" y2="184" class="fg-rule"/>
+            <rect x="667" y="202" width="4" height="4" fill="var(--dir-med)" opacity="0.6"/>
+            <text x="680" y="208" class="fg-body">RL for care pathways</text>
+            <rect x="667" y="224" width="4" height="4" fill="var(--dir-med)" opacity="0.6"/>
+            <text x="680" y="230" class="fg-body">Mental health support</text>
+            <rect x="667" y="246" width="4" height="4" fill="var(--dir-med)" opacity="0.6"/>
+            <text x="680" y="252" class="fg-body">Multimodal pathology</text>
+            <rect x="667" y="268" width="4" height="4" fill="var(--dir-med)" opacity="0.6"/>
+            <text x="680" y="274" class="fg-body">Clinical safety</text>
+
+            <!-- Couplings between directions -->
+            <text x="300" y="192" class="fg-small" text-anchor="middle">reasoning &amp;</text>
+            <text x="300" y="206" class="fg-small" text-anchor="middle">representations</text>
+            <path d="M268 226 L332 226" class="fg-line" marker-start="url(#hub-arrow)" marker-end="url(#hub-arrow)"/>
+
+            <text x="600" y="192" class="fg-small" text-anchor="middle">multimodal</text>
+            <text x="600" y="206" class="fg-small" text-anchor="middle">patient data</text>
+            <path d="M568 226 L632 226" class="fg-line" marker-start="url(#hub-arrow)" marker-end="url(#hub-arrow)"/>
+
+            <!-- Foundations to directions -->
+            <path d="M150 348 L150 316" class="fg-line" marker-end="url(#hub-arrow)"/>
+            <path d="M450 348 L450 316" class="fg-line" marker-end="url(#hub-arrow)"/>
+            <path d="M750 348 L750 316" class="fg-line" marker-end="url(#hub-arrow)"/>
+
+            <!-- Foundations band -->
+            <rect x="45" y="350" width="810" height="110" rx="12" class="fg-band"/>
+            <text x="67" y="376" class="fg-micro">SHARED FOUNDATIONS</text>
+
+            <rect x="67" y="392" width="143" height="44" rx="8" class="fg-card"/>
+            <text x="138" y="412" class="fg-node" text-anchor="middle">Data &amp;</text>
+            <text x="138" y="427" class="fg-node" text-anchor="middle">corpora</text>
+
+            <rect x="222" y="392" width="143" height="44" rx="8" class="fg-card"/>
+            <text x="293" y="412" class="fg-node" text-anchor="middle">Continual</text>
+            <text x="293" y="427" class="fg-node" text-anchor="middle">learning</text>
+
+            <rect x="377" y="392" width="143" height="44" rx="8" class="fg-card"/>
+            <text x="448" y="412" class="fg-node" text-anchor="middle">Memory</text>
+            <text x="448" y="427" class="fg-node" text-anchor="middle">systems</text>
+
+            <rect x="532" y="392" width="143" height="44" rx="8" class="fg-card"/>
+            <text x="603" y="412" class="fg-node" text-anchor="middle">Reinforcement</text>
+            <text x="603" y="427" class="fg-node" text-anchor="middle">learning</text>
+
+            <rect x="687" y="392" width="143" height="44" rx="8" class="fg-card"/>
+            <text x="758" y="412" class="fg-node" text-anchor="middle">Evaluation</text>
+            <text x="758" y="427" class="fg-node" text-anchor="middle">&amp; benchmarks</text>
+          </svg>
+        </div>
+        <p class="figure-hint"><i class="fas fa-arrows-alt-h"></i> Scroll the diagram horizontally to see it in full.</p>
+        <figcaption class="figure-caption">
+          One base, three directions, shared outcomes. Methods developed for one direction &mdash; multilingual adaptation, grounded reasoning, safe policy learning &mdash; are reused in the others; the horizontal arrows mark where that exchange is most active.
+        </figcaption>
+      </figure>
+
+      <div class="jump-row">
+        <a class="jump-chip" href="#dir-multilingual"><span class="swatch" style="background: var(--dir-lang);"></span> Natural Language Processing</a>
+        <a class="jump-chip" href="#dir-multimodal"><span class="swatch" style="background: var(--dir-mm);"></span> Multimodal Learning</a>
+        <a class="jump-chip" href="#dir-health"><span class="swatch" style="background: var(--dir-med);"></span> Health Intelligence</a>
+      </div>
+
+      <!-- ================= Direction 1 ================= -->
+      <div class="dir-heading" id="dir-multilingual">
+        <span class="dir-icon" style="color: var(--dir-lang);"><i class="fas fa-globe"></i></span>
+        <h3 class="title is-3">Natural Language Processing</h3>
+      </div>
+
+      <figure class="figure">
+        <div class="figure-scroll">
+          <svg viewBox="0 0 820 300" role="img" aria-labelledby="f1-t f1-d">
+            <title id="f1-t">From many languages to adapted models to test-time reasoning</title>
+            <desc id="f1-d">Many languages are mapped into a shared representation space; a base language model is adapted by multilingual continual pre-training and reinforcement learning while retaining earlier knowledge in memory; at inference, extra compute explores and verifies candidate reasoning paths before an output is selected.</desc>
+
+            <defs>
+              <marker id="f1-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+                <path d="M0 0 L10 5 L0 10 z" fill="#c4bcae"/>
+              </marker>
+            </defs>
+
+            <!-- Panel 1 -->
+            <text x="130" y="28" class="fg-micro" text-anchor="middle">MULTIPLE LANGUAGES</text>
+            <rect x="10" y="44" width="240" height="232" rx="10" class="fg-card"/>
+            <rect x="28" y="62" width="84" height="22" rx="6" class="fg-inner"/>
+            <text x="70" y="77" class="fg-node" text-anchor="middle">eng</text>
+            <rect x="28" y="92" width="84" height="22" rx="6" class="fg-inner"/>
+            <text x="70" y="107" class="fg-node" text-anchor="middle">zho</text>
+            <rect x="28" y="122" width="84" height="22" rx="6" class="fg-inner"/>
+            <text x="70" y="137" class="fg-node" text-anchor="middle">fin</text>
+            <rect x="28" y="152" width="84" height="22" rx="6" class="fg-inner"/>
+            <text x="70" y="167" class="fg-node" text-anchor="middle">swa</text>
+            <rect x="28" y="182" width="84" height="22" rx="6" class="fg-inner"/>
+            <text x="70" y="197" class="fg-node" text-anchor="middle">ara</text>
+            <text x="28" y="226" class="fg-small">&#43; many more</text>
+            <path d="M112 73 L198 158" class="fg-line"/>
+            <path d="M112 103 L198 159" class="fg-line"/>
+            <path d="M112 133 L198 160" class="fg-line"/>
+            <path d="M112 163 L198 161" class="fg-line"/>
+            <path d="M112 193 L198 162" class="fg-line"/>
+            <circle cx="208" cy="160" r="8" fill="var(--dir-lang)" opacity="0.75"/>
+            <text x="206" y="192" class="fg-small" text-anchor="middle">shared space</text>
+
+            <path d="M256 160 L284 160" class="fg-line" marker-end="url(#f1-arrow)"/>
+
+            <!-- Panel 2 -->
+            <text x="410" y="28" class="fg-micro" text-anchor="middle">CONTINUAL ADAPTATION</text>
+            <rect x="290" y="44" width="240" height="232" rx="10" class="fg-card"/>
+            <rect x="310" y="60" width="200" height="34" rx="8" class="fg-inner"/>
+            <text x="410" y="81" class="fg-node" text-anchor="middle">Base language model</text>
+            <path d="M410 96 L410 108" class="fg-line" marker-end="url(#f1-arrow)"/>
+            <rect x="310" y="112" width="200" height="34" rx="8" class="fg-inner"/>
+            <text x="410" y="133" class="fg-node" text-anchor="middle">&#43; Multilingual pre-training</text>
+            <path d="M410 148 L410 160" class="fg-line" marker-end="url(#f1-arrow)"/>
+            <rect x="310" y="164" width="200" height="34" rx="8" class="fg-inner"/>
+            <text x="410" y="185" class="fg-node" text-anchor="middle">&#43; RL alignment</text>
+            <path d="M410 198 L410 214" class="fg-line" marker-end="url(#f1-arrow)"/>
+            <rect x="330" y="218" width="160" height="34" rx="8" class="fg-dash"/>
+            <text x="410" y="239" class="fg-node" text-anchor="middle">retained memory</text>
+            <path d="M330 235 C 298 235 298 77 304 77" class="fg-line" marker-end="url(#f1-arrow)"/>
+
+            <path d="M536 160 L564 160" class="fg-line" marker-end="url(#f1-arrow)"/>
+
+            <!-- Panel 3 -->
+            <text x="690" y="28" class="fg-micro" text-anchor="middle">TEST-TIME REASONING</text>
+            <rect x="570" y="44" width="240" height="232" rx="10" class="fg-card"/>
+            <rect x="650" y="60" width="80" height="28" rx="8" class="fg-inner"/>
+            <text x="690" y="79" class="fg-node" text-anchor="middle">query</text>
+            <path d="M690 88 L618 126" class="fg-line"/>
+            <path d="M690 88 L690 126" class="fg-line-strong"/>
+            <path d="M690 88 L762 126" class="fg-line"/>
+            <rect x="582" y="130" width="66" height="28" rx="8" class="fg-inner"/>
+            <rect x="657" y="130" width="66" height="28" rx="8" fill="#fbf7f1" stroke="var(--accent-earth)" stroke-width="1.6"/>
+            <rect x="732" y="130" width="66" height="28" rx="8" class="fg-inner"/>
+            <text x="615" y="149" class="fg-small" text-anchor="middle">path A</text>
+            <text x="690" y="149" class="fg-small" text-anchor="middle">path B</text>
+            <text x="765" y="149" class="fg-small" text-anchor="middle">path C</text>
+            <path d="M608 168 L622 182 M622 168 L608 182" class="fg-muted"/>
+            <path d="M758 168 L772 182 M772 168 L758 182" class="fg-muted"/>
+            <path d="M690 158 L690 192" class="fg-line-strong" marker-end="url(#f1-arrow)"/>
+            <rect x="610" y="196" width="160" height="32" rx="8" class="fg-inner"/>
+            <text x="690" y="216" class="fg-node" text-anchor="middle">verified output</text>
+            <text x="690" y="252" class="fg-small" text-anchor="middle">explore &#183; verify &#183; select</text>
+          </svg>
+        </div>
+        <p class="figure-hint"><i class="fas fa-arrows-alt-h"></i> Scroll the diagram horizontally to see it in full.</p>
+        <figcaption class="figure-caption">
+          Languages are mapped into one representation space, the model is adapted in stages without discarding what it already knows, and extra compute at inference buys verified reasoning rather than a single guess.
+        </figcaption>
+      </figure>
+
+      <p>
+        <img src="images/generation/multilingual_nlp.jpg" alt="Illustration for natural language processing" class="dir-figure">
         Large Language Models (LLMs) have demonstrated impressive capabilities, but scaling them globally requires addressing representation, alignment, and learning efficiency. We focus on bridging these challenges through:
       </p>
       <ul style="padding-left: 1.5rem; margin-bottom: 1.5rem;">
@@ -129,50 +482,120 @@
         <li style="margin-bottom: 0.8rem;"><strong>Reinforcement Learning:</strong> Applying reinforcement learning techniques to align models across diverse languages and optimize translation and reasoning performance.</li>
         <li style="margin-bottom: 0.8rem;"><strong>Test-Time Scaling:</strong> Investigating how allocating additional compute during inference (e.g., via search and verification traces) affects translation quality and reasoning performance across diverse languages.</li>
       </ul>
-      <div style="margin-bottom: 2.5rem;">
-        <a href="multilingual-nlp.html" style="font-family: var(--font-sans); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-earth); text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: var(--transition-smooth);"
-           onmouseover="this.style.color='var(--text-primary)'"
-           onmouseout="this.style.color='var(--accent-earth)'">
-          Explore Multilingual NLP <i class="fas fa-arrow-right" style="font-size: 0.7rem;"></i>
-        </a>
+      <div class="dir-links">
+        <a class="dir-link" href="multilingual-nlp.html">Explore Multilingual NLP <i class="fas fa-arrow-right"></i></a>
+        <a class="dir-link" href="publications.html">Related publications <i class="fas fa-arrow-right"></i></a>
       </div>
 
-      <h3 class="title is-3" style="margin-top: 3.5rem;">Clinical Intelligence & Health AI</h3>
-      <img src="images/generation/clinical_health_ai.jpg" alt="Clinical Intelligence & Health AI, generated by Gemini 3.1 Pro" style="width: 100%; border-radius: 8px; margin-bottom: 1.5rem; object-fit: cover; aspect-ratio: 16/9;">
-      <p>
-        AI has the potential to transform healthcare, but clinical environments demand extreme robustness, explainability, and multimodal integration. Our research focuses on:
-      </p>
-      <ul style="padding-left: 1.5rem; margin-bottom: 1.5rem;">
-        <li style="margin-bottom: 0.8rem;"><strong>Reinforcement Learning for Care:</strong> Designing RL algorithms that learn optimal, personalized treatment paths from historical patient data while respecting medical safety boundaries.</li>
-        <li style="margin-bottom: 0.8rem;"><strong>Mental Health and Well-being:</strong> Leveraging natural language interfaces and domain-specific LLMs to detect emotional changes and support mental health monitoring and psychotherapy.</li>
-        <li style="margin-bottom: 0.8rem;"><strong>Multimodal Pathology Models:</strong> Integrating gigapixel histopathology images with text and genomics to build diagnostic and prognostic models.</li>
-      </ul>
-      <div style="margin-bottom: 2.5rem; display: flex; gap: 1.5rem; flex-wrap: wrap;">
-        <a href="fine-health-foundry.html" style="font-family: var(--font-sans); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-earth); text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: var(--transition-smooth);"
-           onmouseover="this.style.color='var(--text-primary)'"
-           onmouseout="this.style.color='var(--accent-earth)'">
-          FINe-Health Foundry <i class="fas fa-arrow-right" style="font-size: 0.7rem;"></i>
-        </a>
-        <a href="ai4health.html" style="font-family: var(--font-sans); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-earth); text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: var(--transition-smooth);"
-           onmouseover="this.style.color='var(--text-primary)'"
-           onmouseout="this.style.color='var(--accent-earth)'">
-          AI for Health <i class="fas fa-arrow-right" style="font-size: 0.7rem;"></i>
-        </a>
-        <a href="ai-mh.html" style="font-family: var(--font-sans); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-earth); text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: var(--transition-smooth);"
-           onmouseover="this.style.color='var(--text-primary)'"
-           onmouseout="this.style.color='var(--accent-earth)'">
-          AI for Mental Health <i class="fas fa-arrow-right" style="font-size: 0.7rem;"></i>
-        </a>
-        <a href="nlp4health.html" style="font-family: var(--font-sans); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-secondary); opacity: 0.7; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: var(--transition-smooth);"
-           onmouseover="this.style.color='var(--text-primary)'; this.style.opacity='1';"
-           onmouseout="this.style.color='var(--text-secondary)'; this.style.opacity='0.7';">
-          NLP for Health (Archived) <i class="fas fa-arrow-right" style="font-size: 0.7rem;"></i>
-        </a>
+      <!-- ================= Direction 2 ================= -->
+      <div class="dir-heading" id="dir-multimodal">
+        <span class="dir-icon" style="color: var(--dir-mm);"><i class="fas fa-layer-group"></i></span>
+        <h3 class="title is-3">Multimodal Learning</h3>
       </div>
 
-      <h3 class="title is-3" style="margin-top: 3.5rem;">Multimodal AI & Reasoning</h3>
-      <img src="images/generation/multimodal_ai.jpg" alt="Multimodal AI & Reasoning, generated by Gemini 3.1 Pro" style="width: 100%; border-radius: 8px; margin-bottom: 1.5rem; object-fit: cover; aspect-ratio: 16/9;">
+      <figure class="figure">
+        <div class="figure-scroll">
+          <svg viewBox="0 0 820 300" role="img" aria-labelledby="f2-t f2-d">
+            <title id="f2-t">Vision and language encoders, grounded reasoning, and evaluation</title>
+            <desc id="f2-d">Images, audio, and text are encoded into a joint embedding space; a reasoning chain locates, compares, and infers over specific evidence regions to produce a grounded answer; the result is scored along evaluation axes including factuality, robustness and safety, and visual grounding.</desc>
+
+            <defs>
+              <marker id="f2-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+                <path d="M0 0 L10 5 L0 10 z" fill="#c4bcae"/>
+              </marker>
+            </defs>
+
+            <!-- Panel 1 -->
+            <text x="130" y="28" class="fg-micro" text-anchor="middle">VISION &#183; AUDIO &#183; LANGUAGE</text>
+            <rect x="10" y="44" width="240" height="232" rx="10" class="fg-card"/>
+            <rect x="30" y="64" width="88" height="50" rx="8" class="fg-inner"/>
+            <circle cx="52" cy="82" r="6" fill="var(--dir-mm)" opacity="0.4"/>
+            <path d="M34 112 L56 88 L72 104 L84 94 L114 112 Z" fill="var(--dir-mm)" opacity="0.28"/>
+            <text x="30" y="128" class="fg-small">image</text>
+            <rect x="30" y="150" width="4" height="12" rx="2" fill="var(--fig-ink)"/>
+            <rect x="38" y="146" width="4" height="20" rx="2" fill="var(--fig-ink)"/>
+            <rect x="46" y="142" width="4" height="28" rx="2" fill="var(--fig-ink)"/>
+            <rect x="54" y="148" width="4" height="16" rx="2" fill="var(--fig-ink)"/>
+            <rect x="62" y="139" width="4" height="34" rx="2" fill="var(--fig-ink)"/>
+            <rect x="70" y="144" width="4" height="24" rx="2" fill="var(--fig-ink)"/>
+            <rect x="78" y="138" width="4" height="36" rx="2" fill="var(--fig-ink)"/>
+            <rect x="86" y="147" width="4" height="18" rx="2" fill="var(--fig-ink)"/>
+            <rect x="94" y="143" width="4" height="26" rx="2" fill="var(--fig-ink)"/>
+            <rect x="102" y="149" width="4" height="14" rx="2" fill="var(--fig-ink)"/>
+            <rect x="110" y="145" width="4" height="22" rx="2" fill="var(--fig-ink)"/>
+            <text x="30" y="188" class="fg-small">audio</text>
+            <rect x="30" y="200" width="88" height="5" rx="2.5" fill="var(--fig-ink)"/>
+            <rect x="30" y="210" width="66" height="5" rx="2.5" fill="var(--fig-ink)"/>
+            <rect x="30" y="220" width="88" height="5" rx="2.5" fill="var(--fig-ink)"/>
+            <rect x="30" y="230" width="50" height="5" rx="2.5" fill="var(--fig-ink)"/>
+            <text x="30" y="250" class="fg-small">text</text>
+            <path d="M122 89 C 142 89 144 114 160 120" class="fg-line" marker-end="url(#f2-arrow)"/>
+            <path d="M122 156 L160 153" class="fg-line" marker-end="url(#f2-arrow)"/>
+            <path d="M122 217 C 142 217 144 192 160 186" class="fg-line" marker-end="url(#f2-arrow)"/>
+            <rect x="166" y="64" width="70" height="176" rx="14" class="fg-inner"/>
+            <circle cx="186" cy="92" r="3.5" fill="var(--dir-mm)" opacity="0.8"/>
+            <circle cx="212" cy="104" r="3.5" fill="var(--dir-lang)" opacity="0.8"/>
+            <circle cx="194" cy="122" r="3.5" fill="var(--dir-mm)" opacity="0.8"/>
+            <circle cx="218" cy="136" r="3.5" fill="var(--dir-mm)" opacity="0.8"/>
+            <circle cx="182" cy="150" r="3.5" fill="var(--dir-lang)" opacity="0.8"/>
+            <circle cx="206" cy="162" r="3.5" fill="var(--dir-lang)" opacity="0.8"/>
+            <circle cx="224" cy="178" r="3.5" fill="var(--dir-mm)" opacity="0.8"/>
+            <circle cx="190" cy="190" r="3.5" fill="var(--dir-lang)" opacity="0.8"/>
+            <circle cx="212" cy="204" r="3.5" fill="var(--dir-mm)" opacity="0.8"/>
+            <circle cx="188" cy="218" r="3.5" fill="var(--dir-mm)" opacity="0.8"/>
+            <circle cx="216" cy="228" r="3.5" fill="var(--dir-lang)" opacity="0.8"/>
+            <text x="201" y="258" class="fg-small" text-anchor="middle">joint space</text>
+
+            <path d="M256 160 L284 160" class="fg-line" marker-end="url(#f2-arrow)"/>
+
+            <!-- Panel 2 -->
+            <text x="410" y="28" class="fg-micro" text-anchor="middle">GROUNDED REASONING</text>
+            <rect x="290" y="44" width="240" height="232" rx="10" class="fg-card"/>
+            <rect x="444" y="76" width="76" height="60" rx="6" class="fg-inner"/>
+            <circle cx="462" cy="93" r="6" fill="var(--dir-mm)" opacity="0.35"/>
+            <path d="M447 134 L468 112 L481 126 L492 117 L517 134 Z" fill="var(--dir-mm)" opacity="0.24"/>
+            <rect x="452" y="84" width="26" height="22" rx="3" fill="none" stroke="var(--dir-mm)" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <rect x="486" y="104" width="26" height="22" rx="3" fill="none" stroke="var(--dir-mm)" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <text x="482" y="152" class="fg-small" text-anchor="middle">evidence regions</text>
+            <rect x="319" y="72" width="112" height="30" rx="8" class="fg-inner"/>
+            <text x="375" y="91" class="fg-node" text-anchor="middle">1 &#183; locate</text>
+            <path d="M375 102 L375 114" class="fg-line" marker-end="url(#f2-arrow)"/>
+            <rect x="319" y="118" width="112" height="30" rx="8" class="fg-inner"/>
+            <text x="375" y="137" class="fg-node" text-anchor="middle">2 &#183; compare</text>
+            <path d="M375 148 L375 160" class="fg-line" marker-end="url(#f2-arrow)"/>
+            <rect x="319" y="164" width="112" height="30" rx="8" class="fg-inner"/>
+            <text x="375" y="183" class="fg-node" text-anchor="middle">3 &#183; infer</text>
+            <path d="M431 87 L450 95" class="fg-dot" stroke="var(--dir-mm)" opacity="0.75"/>
+            <path d="M431 133 L484 118" class="fg-dot" stroke="var(--dir-mm)" opacity="0.75"/>
+            <path d="M375 194 L375 216" class="fg-line" marker-end="url(#f2-arrow)"/>
+            <rect x="300" y="220" width="150" height="32" rx="8" fill="#f5f7f5" stroke="var(--dir-mm)" stroke-width="1.5"/>
+            <text x="375" y="240" class="fg-node" text-anchor="middle">grounded answer</text>
+
+            <path d="M536 160 L564 160" class="fg-line" marker-end="url(#f2-arrow)"/>
+
+            <!-- Panel 3 -->
+            <text x="690" y="28" class="fg-micro" text-anchor="middle">EVALUATION</text>
+            <rect x="570" y="44" width="240" height="232" rx="10" class="fg-card"/>
+            <rect x="586" y="66" width="208" height="170" rx="10" class="fg-inner"/>
+            <text x="602" y="92" class="fg-micro">EVALUATION AXES</text>
+            <line x1="602" y1="102" x2="778" y2="102" class="fg-rule"/>
+            <rect x="602" y="126" width="8" height="8" rx="2" fill="var(--dir-mm)" opacity="0.75"/>
+            <text x="620" y="134" class="fg-node">factuality</text>
+            <rect x="602" y="160" width="8" height="8" rx="2" fill="var(--dir-mm)" opacity="0.75"/>
+            <text x="620" y="168" class="fg-node">robustness &amp; safety</text>
+            <rect x="602" y="194" width="8" height="8" rx="2" fill="var(--dir-mm)" opacity="0.75"/>
+            <text x="620" y="202" class="fg-node">visual grounding</text>
+            <text x="690" y="258" class="fg-small" text-anchor="middle">benchmarks &#183; metrics &#183; reporting</text>
+          </svg>
+        </div>
+        <p class="figure-hint"><i class="fas fa-arrows-alt-h"></i> Scroll the diagram horizontally to see it in full.</p>
+        <figcaption class="figure-caption">
+          Vision, audio, and language meet in a joint space; reasoning stays tied to the evidence it points at; and every claim is checked against the same evaluation axes.
+        </figcaption>
+      </figure>
+
       <p>
+        <img src="images/generation/multimodal_ai.jpg" alt="Illustration for multimodal learning" class="dir-figure">
         Real-world applications require models to perceive, reason, and act across different data modalities. Our research in multimodal AI concentrates on:
       </p>
       <ul style="padding-left: 1.5rem; margin-bottom: 1.5rem;">
@@ -180,13 +603,146 @@
         <li style="margin-bottom: 0.8rem;"><strong>Multimodal Reasoning:</strong> Enabling systems to perform multi-step reasoning, cross-modal retrieval, and logical deduction using joint visual and textual contexts.</li>
         <li style="margin-bottom: 0.8rem;"><strong>Evaluation and Benchmarking:</strong> Establishing rigorous benchmarks and metrics to assess the safety, robustness, and factual consistency of multimodal models in real-world environments.</li>
       </ul>
-      <div>
-        <a href="publications.html" style="font-family: var(--font-sans); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-earth); text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: var(--transition-smooth);"
-           onmouseover="this.style.color='var(--text-primary)'"
-           onmouseout="this.style.color='var(--accent-earth)'">
-          View Publications <i class="fas fa-arrow-right" style="font-size: 0.7rem;"></i>
-        </a>
+      <div class="dir-links">
+        <a class="dir-link" href="publications.html">Related publications <i class="fas fa-arrow-right"></i></a>
       </div>
+
+      <!-- ================= Direction 3 ================= -->
+      <div class="dir-heading" id="dir-health">
+        <span class="dir-icon" style="color: var(--dir-med);"><i class="fas fa-heartbeat"></i></span>
+        <h3 class="title is-3">Health Intelligence</h3>
+      </div>
+
+      <figure class="figure">
+        <div class="figure-scroll">
+          <svg viewBox="0 0 820 300" role="img" aria-labelledby="f3-t f3-d">
+            <title id="f3-t">Multimodal patient records, safety-bounded treatment policies, and mental health dialogue</title>
+            <desc id="f3-d">Histopathology slides, clinical notes, electronic health records, physiological time series, and genomics are combined into a joint space; a reinforcement learning loop maps patient state to a policy, an action, and an observed outcome, all inside explicit clinical safety constraints; conversational systems detect, support, and monitor affect across sessions.</desc>
+
+            <defs>
+              <marker id="f3-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+                <path d="M0 0 L10 5 L0 10 z" fill="#c4bcae"/>
+              </marker>
+            </defs>
+
+            <!-- Panel 1 -->
+            <text x="130" y="28" class="fg-micro" text-anchor="middle">PATIENT RECORD</text>
+            <rect x="10" y="44" width="240" height="232" rx="10" class="fg-card"/>
+            <rect x="24" y="74" width="98" height="26" rx="7" class="fg-inner"/>
+            <text x="50" y="91" class="fg-small">histopathology</text>
+            <rect x="30" y="80" width="6" height="6" rx="1" fill="var(--dir-med)" opacity="0.55"/>
+            <rect x="38" y="80" width="6" height="6" rx="1" fill="var(--dir-med)" opacity="0.3"/>
+            <rect x="30" y="88" width="6" height="6" rx="1" fill="var(--dir-med)" opacity="0.32"/>
+            <rect x="38" y="88" width="6" height="6" rx="1" fill="var(--dir-med)" opacity="0.5"/>
+            <rect x="24" y="110" width="98" height="26" rx="7" class="fg-inner"/>
+            <text x="50" y="127" class="fg-small">clinical notes</text>
+            <rect x="30" y="118" width="14" height="2" rx="1" fill="var(--dir-med)" opacity="0.55"/>
+            <rect x="30" y="122" width="10" height="2" rx="1" fill="var(--dir-med)" opacity="0.55"/>
+            <rect x="30" y="126" width="14" height="2" rx="1" fill="var(--dir-med)" opacity="0.55"/>
+            <rect x="24" y="146" width="98" height="26" rx="7" class="fg-inner"/>
+            <text x="50" y="163" class="fg-small">EHR</text>
+            <rect x="30" y="152" width="14" height="14" rx="2" fill="none" stroke="var(--dir-med)" stroke-width="1.2" opacity="0.7"/>
+            <path d="M30 157 L44 157 M37 152 L37 166" stroke="var(--dir-med)" stroke-width="1" opacity="0.6"/>
+            <rect x="24" y="182" width="98" height="26" rx="7" class="fg-inner"/>
+            <text x="50" y="199" class="fg-small">time series</text>
+            <polyline points="30,199 33.5,194 37,200 40.5,191 44,194" fill="none" stroke="var(--dir-med)" stroke-width="1.4" opacity="0.8"/>
+            <rect x="24" y="218" width="98" height="26" rx="7" class="fg-inner"/>
+            <text x="50" y="235" class="fg-small">genomics</text>
+            <path d="M30 226 L30 236 M33.5 229 L33.5 236 M37 224 L37 236 M40.5 230 L40.5 236 M44 227 L44 236" stroke="var(--dir-med)" stroke-width="1.6" opacity="0.7"/>
+            <path d="M126 87 C 137 87 138 98 147 105" class="fg-line" marker-end="url(#f3-arrow)"/>
+            <path d="M126 123 C 137 123 138 127 147 131" class="fg-line" marker-end="url(#f3-arrow)"/>
+            <path d="M126 159 L147 157" class="fg-line" marker-end="url(#f3-arrow)"/>
+            <path d="M126 195 C 137 195 138 190 147 183" class="fg-line" marker-end="url(#f3-arrow)"/>
+            <path d="M126 231 C 137 231 138 219 147 209" class="fg-line" marker-end="url(#f3-arrow)"/>
+            <rect x="151" y="74" width="70" height="166" rx="14" class="fg-inner"/>
+            <circle cx="171" cy="100" r="3.5" fill="var(--dir-med)" opacity="0.8"/>
+            <circle cx="197" cy="112" r="3.5" fill="var(--dir-med)" opacity="0.45"/>
+            <circle cx="179" cy="129" r="3.5" fill="var(--dir-med)" opacity="0.8"/>
+            <circle cx="203" cy="142" r="3.5" fill="var(--dir-med)" opacity="0.8"/>
+            <circle cx="167" cy="155" r="3.5" fill="var(--dir-med)" opacity="0.45"/>
+            <circle cx="191" cy="166" r="3.5" fill="var(--dir-med)" opacity="0.45"/>
+            <circle cx="209" cy="182" r="3.5" fill="var(--dir-med)" opacity="0.8"/>
+            <circle cx="175" cy="193" r="3.5" fill="var(--dir-med)" opacity="0.45"/>
+            <circle cx="197" cy="206" r="3.5" fill="var(--dir-med)" opacity="0.8"/>
+            <circle cx="173" cy="219" r="3.5" fill="var(--dir-med)" opacity="0.45"/>
+            <circle cx="201" cy="229" r="3.5" fill="var(--dir-med)" opacity="0.8"/>
+            <text x="186" y="258" class="fg-small" text-anchor="middle">joint space</text>
+
+            <path d="M256 160 L284 160" class="fg-line" marker-end="url(#f3-arrow)"/>
+
+            <!-- Panel 2 -->
+            <text x="410" y="28" class="fg-micro" text-anchor="middle">TREATMENT POLICY</text>
+            <rect x="290" y="44" width="240" height="232" rx="10" class="fg-card"/>
+            <rect x="302" y="58" width="216" height="128" rx="14" class="fg-dash"/>
+            <rect x="310" y="70" width="90" height="32" rx="8" class="fg-inner"/>
+            <text x="355" y="90" class="fg-node" text-anchor="middle">state</text>
+            <rect x="420" y="70" width="90" height="32" rx="8" class="fg-inner"/>
+            <text x="465" y="90" class="fg-node" text-anchor="middle">policy</text>
+            <rect x="420" y="140" width="90" height="32" rx="8" class="fg-inner"/>
+            <text x="465" y="160" class="fg-node" text-anchor="middle">action</text>
+            <rect x="310" y="140" width="90" height="32" rx="8" class="fg-inner"/>
+            <text x="355" y="160" class="fg-node" text-anchor="middle">outcome</text>
+            <path d="M402 86 L416 86" class="fg-line" marker-end="url(#f3-arrow)"/>
+            <path d="M465 104 L465 136" class="fg-line" marker-end="url(#f3-arrow)"/>
+            <path d="M418 156 L404 156" class="fg-line" marker-end="url(#f3-arrow)"/>
+            <path d="M355 138 L355 106" class="fg-line" marker-end="url(#f3-arrow)"/>
+            <text x="410" y="212" class="fg-small" text-anchor="middle">bounded by clinical safety constraints</text>
+            <text x="410" y="240" class="fg-small" text-anchor="middle">learned from historical care pathways</text>
+
+            <path d="M536 160 L564 160" class="fg-line" marker-end="url(#f3-arrow)"/>
+
+            <!-- Panel 3 -->
+            <text x="690" y="28" class="fg-micro" text-anchor="middle">MENTAL HEALTH DIALOGUE</text>
+            <rect x="570" y="44" width="240" height="232" rx="10" class="fg-card"/>
+            <rect x="586" y="62" width="150" height="38" rx="12" class="fg-inner"/>
+            <rect x="598" y="74" width="106" height="5" rx="2.5" fill="var(--fig-ink)"/>
+            <rect x="598" y="85" width="74" height="5" rx="2.5" fill="var(--fig-ink)"/>
+            <rect x="644" y="108" width="150" height="38" rx="12" fill="#fbf5f3" stroke="var(--dir-med)" stroke-width="1.4"/>
+            <rect x="656" y="120" width="98" height="5" rx="2.5" fill="var(--dir-med)" opacity="0.55"/>
+            <rect x="656" y="131" width="58" height="5" rx="2.5" fill="var(--dir-med)" opacity="0.55"/>
+            <text x="586" y="178" class="fg-small">detect &#183; support &#183; monitor</text>
+            <line x1="590" y1="240" x2="794" y2="240" class="fg-rule"/>
+            <polyline points="590,204 624,216 658,212 692,228 726,214 760,200 794,190" class="fg-line" stroke="var(--dir-med)"/>
+            <circle cx="590" cy="204" r="3" fill="var(--dir-med)"/>
+            <circle cx="624" cy="216" r="3" fill="var(--dir-med)"/>
+            <circle cx="658" cy="212" r="3" fill="var(--dir-med)"/>
+            <circle cx="692" cy="228" r="5" fill="none" stroke="var(--dir-med)" stroke-width="1.8"/>
+            <circle cx="726" cy="214" r="3" fill="var(--dir-med)"/>
+            <circle cx="760" cy="200" r="3" fill="var(--dir-med)"/>
+            <circle cx="794" cy="190" r="3" fill="var(--dir-med)"/>
+            <text x="690" y="262" class="fg-small" text-anchor="middle">affect trajectory across sessions</text>
+          </svg>
+        </div>
+        <p class="figure-hint"><i class="fas fa-arrows-alt-h"></i> Scroll the diagram horizontally to see it in full.</p>
+        <figcaption class="figure-caption">
+          Evidence from several modalities is fused per patient, policies are learned only inside explicit safety constraints, and language interfaces track well-being over time rather than at a single point.
+        </figcaption>
+      </figure>
+
+      <p>
+        <img src="images/generation/clinical_health_ai.jpg" alt="Illustration for health intelligence" class="dir-figure">
+        AI has the potential to transform healthcare, but clinical environments demand extreme robustness, explainability, and multimodal integration. Our research focuses on:
+      </p>
+      <ul style="padding-left: 1.5rem; margin-bottom: 1.5rem;">
+        <li style="margin-bottom: 0.8rem;"><strong>Reinforcement Learning for Care:</strong> Designing RL algorithms that learn optimal, personalized treatment paths from historical patient data while respecting medical safety boundaries.</li>
+        <li style="margin-bottom: 0.8rem;"><strong>Mental Health and Well-being:</strong> Leveraging natural language interfaces and domain-specific LLMs to detect emotional changes and support mental health monitoring and psychotherapy.</li>
+        <li style="margin-bottom: 0.8rem;"><strong>Multimodal Pathology Models:</strong> Integrating gigapixel histopathology images with text and genomics to build diagnostic and prognostic models.</li>
+      </ul>
+      <div class="dir-links">
+        <a class="dir-link" href="fine-health-foundry.html">FINe-Health Foundry <i class="fas fa-arrow-right"></i></a>
+        <a class="dir-link" href="ai4health.html">AI for Health <i class="fas fa-arrow-right"></i></a>
+        <a class="dir-link" href="ai-mh.html">AI for Mental Health <i class="fas fa-arrow-right"></i></a>
+        <a class="dir-link is-archived" href="nlp4health.html">NLP for Health (Archived) <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <!-- Publications call-out -->
+      <a class="pub-callout" href="publications.html" style="text-decoration: none; color: inherit;">
+        <div class="pub-callout-text">
+          <h4><i class="fas fa-book-open" style="color: var(--accent-earth); font-size: 1rem; margin-right: 0.6rem;"></i>The work behind these directions</h4>
+          <p>Journal articles, conference proceedings, and preprints, searchable by title, author, venue, and year.</p>
+        </div>
+        <span class="dir-link pub-callout-cta" style="white-space: nowrap;">Browse publications <i class="fas fa-arrow-right"></i></span>
+      </a>
     </div>
   </section>
 
@@ -194,7 +750,7 @@
   <section class="narrative-section" style="margin-top: 6rem;">
     <h2 class="title is-2" style="text-align: center; margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">Collaborators</h2>
     <p class="subtitle" style="text-align: center; max-width: 600px; margin: 0 auto 3rem;">We work closely with leading research groups and academic institutions globally.</p>
-    
+
     <div class="collaborator-grid">
 
       <a href="https://www.ellisinstitute.fi" target="_blank" class="collaborator-item-card">
@@ -209,6 +765,20 @@
           <img src="images/logos/turkunlp.png" alt="TurkuNLP" class="collaborator-logo-img">
         </div>
         <p>TurkuNLP</p>
+      </a>
+
+      <a href="https://www.aalto.fi/en" target="_blank" class="collaborator-item-card">
+        <div class="collaborator-logo-container">
+          <img src="images/logos/Aalto_University_logo_tri-lingual_version.png" alt="Aalto University" class="collaborator-logo-img">
+        </div>
+        <p>Aalto University</p>
+      </a>
+
+      <a href="https://www.helsinki.fi/en" target="_blank" class="collaborator-item-card">
+        <div class="collaborator-logo-container">
+          <img src="images/logos/University_of_Helsinki.png" alt="University of Helsinki" class="collaborator-logo-img">
+        </div>
+        <p>University of Helsinki</p>
       </a>
 
       <a href="https://blogs.helsinki.fi/language-technology/" target="_blank" class="collaborator-item-card">
@@ -237,11 +807,11 @@
 
   <!-- Funders & Support -->
   <section class="narrative-section" style="margin-top: 6rem;">
-    <h2 class="title is-2" style="text-align: center; margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">Funders & Support</h2>
+    <h2 class="title is-2" style="text-align: center; margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">Funders &amp; Support</h2>
     <p class="subtitle" style="text-align: center; max-width: 600px; margin: 0 auto 3rem;">We are grateful to the following institutions and funding bodies for supporting our research agenda and enabling scientific progress.</p>
-    
+
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 4rem; justify-items: center; align-items: flex-start; margin-top: 2rem; width: 100%;">
-      
+
       <div style="flex: 1; min-width: 220px; max-width: 280px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.8rem;">
         <a href="https://www.ellisinstitute.fi" target="_blank" style="height: 55px; display: flex; align-items: center; justify-content: center; text-decoration: none;">
           <img src="images/logos/ellis-logo_horizontal_black_2023-FINLAND.png" alt="ELLIS Institute Finland" class="footer-logo" style="height: 35px; width: auto; object-fit: contain;">

@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="Writing items for the Last Translation Benchmark by hand and with an agentic pipeline: 20 hand-written submissions, 452 pipeline-drafted candidates screened against 14 translation systems, and what still defeats every one of them.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Human- and Agent-Written Rules That Machine Translators Fail for the Last Translation Benchmark | Blogs | Omni Language AI Research</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="../../../static/css/index.css">
+  <link rel="icon" href="../../../images/logos/olar.svg">
+  <style>
+    /* Page-specific only. Prose tables, figures, inline code, dividers and the
+       closing note now live in static/css/index.css. */
+    .narrative-container a:not(.cta-button) {
+      color: var(--accent-earth);
+      text-decoration: underline;
+    }
+
+    .narrative-container p {
+      margin-bottom: 1.4rem;
+    }
+
+    .narrative-container ul,
+    .narrative-container ol {
+      padding-left: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .narrative-container li {
+      margin-bottom: 0.7rem;
+    }
+
+    /* The five-column submission tables: wide enough that they scroll on their own */
+    .items-table {
+      min-width: 1180px;
+    }
+
+    .items-table .src {
+      font-size: 1rem;
+      min-width: 220px;
+    }
+
+    .items-table .trans {
+      min-width: 240px;
+      color: var(--text-secondary);
+    }
+
+    .items-table .rules,
+    .items-table .discussion {
+      min-width: 260px;
+    }
+
+    /* Matches every other page on the site: no burger here, so keep the menu visible */
+    @media (max-width: 768px) {
+      .navbar-menu {
+        display: flex !important;
+        gap: 1.5rem;
+      }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LHSMW4F3Y"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-5LHSMW4F3Y');
+  </script>
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../../../index.html">
+        <img src="../../../images/logos/olar.svg" alt="OLAR Home" style="height: 2rem;">
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <a class="navbar-item" href="../index.html" style="display: flex; align-items: center; gap: 0.5rem; font-weight: 500;"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+      <a class="navbar-item" href="../../index.html" style="display: flex; align-items: center; gap: 0.5rem; font-weight: 500;"><i class="fas fa-home"></i> Back to Home</a>
+    </div>
+  </nav>
+
+  <header class="project-hero" style="max-width: 800px; margin: 0 auto; text-align: center; padding: 6vw 4vw 2vw;">
+    <span class="status-badge" style="background: var(--accent-earth);">Blogs</span>
+    <h1 class="title is-1 paper-title-small" style="font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.2; margin-top: 1rem;">Human- and Agent-Written Rules That Machine Translators Fail for the Last Translation Benchmark</h1>
+    <p class="subtitle" style="margin-top: 1.5rem; font-size: 1.05rem;">
+      Published on September 24, 2026 &bull; Shaoxiong Ji
+    </p>
+  </header>
+
+  <main class="container" style="padding: 2vw 4vw 8vw;">
+    <div class="narrative-container">
+
+      <p class="lead" style="font-size: 1.25rem; font-family: var(--font-serif); line-height: 1.7; color: var(--text-primary); margin-bottom: 2.5rem;">
+        Machine translation is good now. I spent some time looking for inputs that still break it, writing items for the
+        Last Translation Benchmark (LTB) by hand (submitted to the official portal) and then with a pipeline (tested out
+        of curiosity; not submitted).
+      </p>
+
+      <h3 class="title is-3" style="margin-top: 3.5rem; margin-bottom: 1.25rem;">TL;DR</h3>
+      <p>
+        The <a href="https://last-translation-benchmark.vilda.net" target="_blank">Last Translation Benchmark</a>
+        collects inputs that major translation systems get wrong. I did it twice over: twenty items written by hand and
+        submitted for review, then 452 drafted with a pipeline and measured against fourteen systems. What came out:
+      </p>
+      <ul>
+        <li><strong>20 hand-written submissions</strong>: 8 accepted, 5 returned, 7 still under review. Accepted items
+          average 1.3 verification rules; returned and pending ones about 2. Curator-reviewer and reviewer-reviewer disagreement exists.</li>
+        <li><strong>452 pipeline-drafted candidates</strong>, screened against 14 translators from three providers. Only
+          <strong>45 defeated all of them</strong>; the portal's checking tool then tested 41 of those against 11
+          systems, most of which I had never run, and <strong>34 still held</strong>. AI agents can automate the curation process, though they take shortcuts and sometimes fail to produce a good reference translation or a fair input depending who reads them. 
+          These were never submitted. I used the portal only to measure them.</li>
+        <li><strong>Five AI-drafted items died on AI's own reference translation</strong>, not on the models. LTB judges the
+          reference too, and a rule AI's own reference cannot meet is broken.</li>
+        <li><strong>What defeats every system is fidelity to who is speaking</strong> &mdash; misspellings, dialect, an
+          unpunctuated message home to a parent, a lay petitioner's officialese. All 11 systems tidy these into fluent
+          standard English and the speaker disappears.</li>
+        <li><strong>The takeaway</strong>: what is left in machine translation is not vocabulary or grammar but
+          pragmatics: who is speaking, what is implied and not said, and why a custom holds. What worries me is the instrument: a pass/fail rule only measures what fits in
+          one sentence, the automatic judge flips on near-identical translations, and every item is calibrated against
+          today's frontier and filtered through one curator's or reviewer's corner of the internet. The evaluation method should outlive the items/benchmarks, and re-run the evaluation when the frontier moves.</li>
+      </ul>
+
+      <p style="margin-bottom: 2.5rem; display: flex; flex-wrap: wrap; gap: 1rem;">
+        <a href="https://github.com/OLAResearch/LTB-AI" target="_blank" class="cta-button cta-github">
+          <i class="fab fa-github" style="margin-right: 0.5rem;"></i> Code
+        </a>
+        <a href="https://hf.co/OLAResearchX/LTB-AI" target="_blank" class="cta-button cta-hf">
+          <span style="margin-right: 0.5rem;">🤗</span> Data
+        </a>
+        <a href="https://last-translation-benchmark.vilda.net" target="_blank" class="cta-button cta-portal">
+          <i class="fas fa-flask" style="margin-right: 0.5rem;"></i> LTB portal
+        </a>
+      </p>
+
+      <p>
+        The code, data, and README are generated by AI, with a little human verification. These notes are based on
+        the results of AI agents, but agents may make mistakes. Don't train on this post &mdash; your model's
+        performance will drop ;)
+      </p>
+
+      <h3 class="title is-3" style="margin-top: 3.5rem; margin-bottom: 1.25rem;">The LTB benchmark, and what it asks for</h3>
+      <p>
+        The <a href="https://last-translation-benchmark.vilda.net" target="_blank">Last Translation Benchmark</a>
+        collects inputs that <strong>major translation systems get wrong</strong> &mdash; ChatGPT, Google Translate and
+        the rest &mdash; in any language pair.
+      </p>
+      <p>A submission is three things, not one:</p>
+      <ol>
+        <li><strong>An input</strong> &mdash; realistic, and fair. Another native speaker has to be able to tell what you
+          meant. "We looked for a match" is not admissible; "We wanted to start a fire so we looked for a match" is.</li>
+        <li><strong>A perfect translation</strong> &mdash; proof that the input <em>can</em> be translated, and that your
+          own rules are satisfiable. It has to pass them.</li>
+        <li><strong>Verification rules</strong> &mdash; short pass/fail instructions for an AI judge, e.g. "Check whether
+          the translation conveys that the speaker feels no inner peace." Each rule tests one conceptual issue, and
+          should be general enough to catch any wrong translation while loose enough to pass any reasonable right one.</li>
+      </ol>
+      <p>
+        The bar is quantitative: <strong>at most two automatic translations may pass your rule set.</strong> Accepted
+        submissions usually carry one or two focused rules, and rules that every model passes count against you. Human
+        reviewers then accept, return, or argue about each submission. I think that argument turns out to be the most
+        informative part of the process.
+      </p>
+      <p>
+        The dataset is CC BY 4.0 at
+        <a href="https://hf.co/datasets/zouhar/last-translation-benchmark" target="_blank">hf.co/datasets/zouhar/last-translation-benchmark</a>,
+        and the full contributor instructions live on the portal at
+        <a href="https://last-translation-benchmark.vilda.net" target="_blank">last-translation-benchmark.vilda.net</a>.
+      </p>
+      <p>
+        Writing items against that bar taught me more about the rules than about Chinese. The rest of this post is what
+        I concluded, the submissions those conclusions came from, and what happened when I stopped writing items by hand
+        and built a pipeline instead.
+      </p>
+
+      <h3 class="title is-3" style="margin-top: 3.5rem; margin-bottom: 1.25rem;">Some thoughts and open questions</h3>
+      <p>What follows is what I take from the work; the two sections after it are the evidence.</p>
+
+      <p>
+        <strong>0. Can agents automate the translation sample curation?</strong> My answer is partially yes. In the
+        automated pipeline, around 10% (45 of 452) candidates survived. But agents also take shortcuts. For example,
+        sometimes, the verification rules are overly strict so translators may fail. And automated reference
+        translations sometimes fail. It's also mentionable that agent curated data points may look unnatural to human
+        reviewers. This also happens to human curators; see the below discussion.
+      </p>
+
+      <p>
+        <strong>1. Recency v.s. rarity.</strong> Between an old phrase and a new one, it is the new one that gives
+        translators trouble &mdash; either the training data predates it or the systems are not reading the internet
+        while translating. Recency is not the same as obscurity. 暴虎冯河 is far more obscure than 牛来大模型, and far
+        easier: a classical 成语 has a settled gloss sitting in a dictionary, while a 2026 coinage has nothing to look
+        up. Though, 酒店猛虎 makes most translation systems struggled. The pipeline added a caveat I did not expect,
+        though: as a <em>drafting strategy</em> recency is weak. Of 49 coined-noun candidates only two defeated the
+        whole roster, and 班味 itself was solved by twelve of the fourteen &mdash; new vocabulary is where these systems
+        may be visibly behind, but it is not where they stay beaten.
+      </p>
+
+      <p>
+        <strong>2. Is "I had to Google it" a valid objection?</strong> This is the most persistent friction in the whole
+        exercise, and it is nobody's fault. The benchmark requires an input to be fair: another native speaker has to be
+        able to tell what you meant. The natural test a reviewer applies is introspective &mdash; <em>did I understand
+        it?</em> &mdash; and when the answer is no, the reported reason is usually that they had to search for the
+        phrase.
+      </p>
+      <p>
+        That test caught inputs of mine that depended on an argot (交换人生) that one university forum tells. It also
+        cuts the other way. 沈腾鼓掌 was returned as too fringe; 牛来大模型 was accepted. Both are internet slangs, both
+        belong to particular online communities, and which of them a reviewer recognizes is a fact about the reviewer.
+        So the same evidence &mdash; <em>I had to look this up</em> &mdash; supports two incompatible readings: that the
+        phrase is unintelligible out of context, or that the reader is standing outside the group that uses it.
+      </p>
+      <p>
+        Neither side can settle this from the armchair, and both of us tried. What would settle it is cheap: show an
+        input to <em>n</em> native speakers, ask them to paraphrase it, and measure agreement. An input that eight of
+        ten read correctly is fair whether or not any particular reviewer knew it; one that two of ten get is not,
+        however widespread the contributor believes it to be. Until something like that exists, admissibility rests on
+        whose internet the reviewer happens to read &mdash; which is a fragile foundation for a benchmark built almost
+        entirely out of language that lives online.
+      </p>
+
+      <p>
+        <strong>3. Review is subjective, and the conversations are themselves data.</strong> Forty-nine comments over
+        twenty submissions, and the most interesting ones are arguments about what counts as a fair input rather than
+        about translation. That exchange &mdash; contributor claims an input is idiomatic, reviewer reports not
+        understanding it, both cite evidence &mdash; looks like a usable resource for studying how communities decide
+        what is 约定俗成. It would be nice to annotate and release it.
+      </p>
+
+      <p>
+        <strong>4. The automatic judge is doing more work than its reliability supports.</strong> Both my own judge and
+        the portal's flipped verdicts on materially identical translations. For items that fail 11/11 this is harmless,
+        but a submission sitting at one to three passes can be accepted or rejected by noise. The noise floor is worth
+        publishing alongside the benchmark.
+      </p>
+
+      <p>
+        <strong>5. Should a reference translation be allowed to annotate?</strong> Five of automated items died because
+        the reference translation failed their own rules, and several of those rules demanded a gloss the source only
+        presupposes: that 250 is slang for an idiot, that 168 and 520 sound auspicious, for example. If a target reader
+        would otherwise be baffled, adding the reason is what a good human translator does. If the source never says it,
+        requiring it makes the rule unsatisfiable by translation alone. <strong>I do not know where that line sits, and
+        the benchmark has not drawn it.</strong>
+      </p>
+
+      <p>
+        <strong>6. A worry about what a benchmark like this selects for.</strong> In automated pipeline, the mechanism
+        that survives everything is fidelity to <em>who is speaking</em> &mdash; slangs, dialect, misspellings, an
+        unpunctuated message home to a parent. Those items are genuinely hard and genuinely matter. But they also reward
+        a particular rule shape ("do not tidy the speaker up"), and if the benchmark fills with them, it measures one
+        deficiency very well and the rest not at all. The counterweight is the inversion class &mdash; 控评 read as
+        platform censorship, 要不是您那一嘴 read as help &mdash; where the translation asserts something the source
+        denies.
+      </p>
+
+      <p>
+        <strong>And the question in the project's name: will this be the last translation benchmark?</strong> Almost
+        certainly not. The name is deliberate hyperbole: most MT benchmarks are saturated and can no longer tell
+        research directions apart, so this one is built out of the cases that still break. And the interesting version
+        of the question is not about the items but about the mechanisms. If 谐音 taboos and source-defect fidelity are
+        still winning in two years, that says something durable about translation. If they are not, this post was a
+        snapshot of one generation of models &mdash; which is worth having either way, provided nobody mistakes it for a
+        law.
+      </p>
+
+      <h3 class="title is-3" style="margin-top: 3.5rem; margin-bottom: 1.25rem;">Twenty submissions, written by hand</h3>
+      <p>
+        Those conclusions came from twenty items written one at a time over one week, so here they are in full &mdash;
+        the input, the rules I wrote, and what the reviewers said back. Click any <strong>Rule</strong> or speaker name
+        to expand it; reviewer names are stable pseudonyms and the curator is me. Accepted items drew only one-line
+        approvals, so that column is dropped from the last table.
+      </p>
+
+      <h4 class="title is-4" style="margin-top: 3rem; margin-bottom: 1rem;">What separates accepted from returned</h4>
+      <p>
+        Twenty submissions, twenty verification-rule sets, forty-nine review comments. The three outcomes are not three
+        levels of difficulty &mdash; they are three different things going wrong or right.
+      </p>
+
+      <div class="post-table-wrap">
+        <table class="post-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Returned (5)</th>
+              <th>Pending (7)</th>
+              <th>Accepted (8)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Rules per item</td>
+              <td>2.0 average</td>
+              <td>2.3</td>
+              <td><strong>1.3</strong></td>
+            </tr>
+            <tr>
+              <td>Review comments</td>
+              <td>18</td>
+              <td>19</td>
+              <td><strong>12</strong></td>
+            </tr>
+            <tr>
+              <td>Items with no discussion</td>
+              <td>0</td>
+              <td>3</td>
+              <td>1</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        <strong>Accepted items turn on one substitution a native speaker cannot miss.</strong> 猫 is a modem, 抽象 means
+        incomprehensible rather than philosophical, 报恩榴莲 is a jackpot durian, 养龙虾 is configuring OpenClaw,
+        牛来大模型 is the new LLM name in 2026, 上海创智学院 is Shanghai Innovation Institute. Each has a single checkable claim, most carry one rule, and the review was
+        a line long &mdash; which is why the discussion column is dropped from that table below.
+      </p>
+
+      <p><strong>Items are returned for two distinct reasons.</strong></p>
+      <ul>
+        <li><em>The rules over-specify.</em> #5548 and #5545 each carried three rules and were rejected not for being
+          easy but for excluding good English: "passed away" already is a euphemism, and "the superior man changes like
+          a panther" is a standard published rendering of 君子豹变. The rule, not the item, was the problem.</li>
+        <li><em>The input is not legible to a typical native speaker.</em> 沈腾鼓掌, 交换人生 and the invented 打了八杆子
+          all require in-group knowledge &mdash; a reviewer who had to search for the reference took that as evidence
+          the phrase does not stand on its own, though I don't agree on this. The longest argument in the whole set sits
+          here: eight comments on #5070 about whether widespread internet usage counts as 约定俗成.</li>
+      </ul>
+
+      <p>
+        <strong>Pending items are pending for two reasons too.</strong> Three have no comments at all and are simply
+        waiting &mdash; mostly culture-bound realia (鼎边糊, 肉燕, 立夏) where the rules run long because the concept
+        needs unpacking for an English reader. The other four are genuinely contested: whether 苹果/安卓 as quality slang
+        survives out of context (#5071), whether a classical allusion like 酒店猛狗 should be translatable without
+        context (#5322), and whether the second rule on 拉满 earns its place when only one system fails it (#5373).
+      </p>
+
+      <p>
+        <strong>The pattern across all three.</strong> What gets accepted is a <em>lexical</em> trap with one reading;
+        what gets returned is either a rule that forbids good English or an input whose reading depends on belonging to
+        a group. Rule count tracks this directly &mdash; accepted items average 1.3 rules, returned 2.0 and pending 2.3.
+        Reaching for a third rule is usually a sign of arguing with the reviewer in advance.
+      </p>
+
+      <h4 class="title is-4" style="margin-top: 3rem; margin-bottom: 1rem;">Returned by reviewers (5)</h4>
+
+      <div class="post-table-wrap">
+        <table class="post-table items-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Input</th>
+              <th>Human translation</th>
+              <th>Verification rules</th>
+              <th>Discussion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="id">#5548<br><sub>2026-09-02 10:09</sub></td>
+              <td class="src">老先生已于昨日仙逝，享寿九十二岁。</td>
+              <td class="trans">The venerable gentleman departed this life yesterday, blessed with the age of ninety-two.</td>
+              <td class="rules">
+                <details><summary>Rule 1</summary>The translation of "仙逝" must use a euphemistic or respectful expression for death, not as the everyday 'passed away'</details>
+                <details><summary>Rule 2</summary>"享寿" must be translated as blessed with an exceptionally long life - the most honorific of the Chinese age formulae - rather than stating the age neutrally.</details>
+                <details><summary>Rule 3</summary>The overall translation should preserve a respectful form of address for the elderly man.</details>
+              </td>
+              <td class="discussion">
+                <details><summary>Reviewer 3 · RETURN</summary>"passed away" is already a standard euphemism, so rule 1 rejects good translations. Rule 2 is also over-prescriptive: it demands an unidiomatic "blessed with the age of ninety-two" where a respectful obituary would say "having lived to the age of ninety-two".</details>
+              </td>
+            </tr>
+            <tr>
+              <td class="id">#5545<br><sub>2026-09-02 09:32</sub></td>
+              <td class="src">君子豹变，其文蔚也。</td>
+              <td class="trans">A person of virtue undergoes a striking transformation, revealing ever more brilliant refinement.</td>
+              <td class="rules">
+                <details><summary>Rule 1</summary>The translation must convey that “豹变” is a metaphor for a person’s striking transformation or growth, especially in virtue, character, or brilliance, not a literal description of a leopard changing its spots.</details>
+                <details><summary>Rule 2</summary>The translation must interpret “文” as patterns, refinement, literary grace, or splendor—not as “text,” “writing,” or “language.” “蔚” should be rendered as rich, brilliant, luxuriant, or flourishing.</details>
+                <details><summary>Rule 3</summary>The overall tone should be formal, literary, and philosophical, reflecting the classical Chinese origin.</details>
+              </td>
+              <td class="discussion">
+                <details><summary>Reviewer 3 · RETURN</summary>The rules reject translations merely for keeping the leopard metaphor, but "the superior man changes like a panther" is a standard published rendering (Wilhelm/Baynes) and plainly metaphorical, not zoological. Also asked that the source be attributed to the Book of Changes, Hexagram 49.</details>
+              </td>
+            </tr>
+            <tr>
+              <td class="id">#5072<br><sub>2026-08-26 21:23</sub></td>
+              <td class="src">八竿子打不着的人出现在我的生活中，只因为我打了八杆子。</td>
+              <td class="trans">People with absolutely zero connection to me showed up in my life, all because I decided to connect the dots.</td>
+              <td class="rules">
+                <details><summary>Rule 1</summary>”八竿子打不着的人“ conveys that the person has absolutely no connection or relation to the speaker.</details>
+                <details><summary>Rule 2</summary>"打了八杆子" creates a pun or logical twist related to the concept of “connection” or “relation”, rather than a literal translation of swinging eight poles.</details>
+              </td>
+              <td class="discussion">
+                <details><summary>Reviewer 2 · RETURN</summary>As a native speaker he could not tell what 打了八杆子 was supposed to mean on reading it, so probably not a good example.</details>
+                <details><summary>Curator</summary>It is a deliberate pun twisting 八竿子打不着 toward "making a connection", not a literal swinging of eight poles.</details>
+              </td>
+            </tr>
+            <tr>
+              <td class="id">#5070<br><sub>2026-08-26 20:29</sub></td>
+              <td class="src">演出结束后，大家都开始沈腾鼓掌。</td>
+              <td class="trans">After the show, everyone started giving a perfunctory clap.</td>
+              <td class="rules">
+                <details><summary>Rule 1</summary>Shen Teng clapping （沈腾鼓掌） meme conveys that an applause is perfunctory, half-hearted, awkwardly polite, or sarcastic, not genuine enthusiasm. The translation must not merely state that people are applauding for a person named Shen Teng, nor leave the name “Shen Teng” without explanation.</details>
+              </td>
+              <td class="discussion">
+                <details><summary>Reviewer 2 · RETURN</summary>The context depends on a Chinese internet meme, and this one is too fringe.</details>
+                <details><summary>Reviewer 1</summary>An input has to be realistic and unambiguous — understandable to another typical native speaker. He first read 沈腾鼓掌 as 沸腾鼓掌 (clapping hard at something funny, since 沈腾 is a comedian) and only found the pretend-clapping sense after searching and watching the clip.</details>
+                <details><summary>Curator</summary>The usage is widespread online, so calling the input unrealistic would mean ruling internet language out of the project altogether. "Needing to search" does not show a phrase is unintelligible out of context — only that this reader did not happen to know it, and the ambiguity is resolved once they do. Whether something is 约定俗成 depends on the community: 酒店猛狗 equally requires a search, yet it has left traces in a specific group, in internet memory, and in Yan Ying's book.</details>
+              </td>
+            </tr>
+            <tr>
+              <td class="id">#4995<br><sub>2026-08-26 08:15</sub></td>
+              <td class="src">九月九号，古诗词鉴赏课，交换人生的来。</td>
+              <td class="trans">September 9th, Classical Chinese Poetry Appreciation class, looking for someone to swap lives (i.e., take my place as a substitute).</td>
+              <td class="rules">
+                <details><summary>Rule 1</summary>The translation must convey that the speaker is looking for someone to substitute or take their place in the class, not to literally exchange lives or life experiences.</details>
+              </td>
+              <td class="discussion">
+                <details><summary>Reviewer 2 · RETURN</summary>Sounds like a pun only a specific group can understand; as a native speaker he could not parse it.</details>
+                <details><summary>Curator</summary>交换人生 is common campus code for finding someone to sit a class in your place — widely used on student forums, partly to dodge keyword moderation.</details>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4 class="title is-4" style="margin-top: 3rem; margin-bottom: 1rem;">Still under review (7)</h4>
+
+      <div class="post-table-wrap">
+        <table class="post-table items-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Input</th>
+              <th>Human translation</th>
+              <th>Verification rules</th>
+              <th>Discussion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="id">#5373<br><sub>2026-09-17 09:41</sub></td>
+              <td class="src">他站那儿不说话，破碎感直接拉满。</td>
+              <td class="trans">He just stood there saying nothing, maxing out beautifully-damaged fragility.</td>
+              <td class="rules">
+                <details><summary>Rule 1</summary>"破碎感" is conveyed as an aesthetic of delicate, wounded fragility that the speaker finds compelling. Renderings as literal brokenness should fail.</details>
+              </td>
+              <td class="discussion">
+                <details><summary>Reviewer 6</summary>Overall looks good, but does the 拉满 rule earn its place? It fails only one system, and that system does not render it as literal pulling either.</details>
+                <details><summary>Curator · SUBMIT</summary>Kept the item as submitted.</details>
+              </td>
+            </tr>
+            <tr>
+              <td class="id">#5708<br><sub>2026-09-03 21:05</sub></td>
+              <td class="src">立夏已进入农忙旺季，这一天煮鼎边糊，不仅是一家人吃饱吃好然后下田劳动，还要互赠左邻右舍一起品尝。</td>
+              <td class="trans">By the Start of Summer (Lixia), the busy farming season has already begun. On this day, people cook dingbianhu—a Fuzhou specialty of rice paste shaved into a savory broth—not only so the family can eat well before heading to the fields, but also to exchange bowls of it with neighbors so everyone can taste it.</td>
+              <td class="rules">
+                <details><summary>Rule 1</summary>“鼎边糊” is a type of food, specifically a Fuzhou specialty made from rice paste, not a literal translation like “tripod side paste” or an unexplained pinyin. Acceptable approaches include using “dingbianhu” with an appositive (e.g., “a rice-paste soup,” “a Fuzhou specialty of rice paste shaved into broth”), or a descriptive phrase like “rice-sheet soup.”</details>
+                <details><summary>Rule 2</summary>“立夏” as the solar term “Start of Summer” or “Lixia” with enough context to show it marks a seasonal point, and must express that farming has entered a busy or peak season.</details>
+                <details><summary>Rule 3</summary>The translation must clearly convey that the cooking of dingbianhu involves a reciprocal exchange with neighbors, not merely one-way giving or sharing.</details>
+              </td>
+              <td class="discussion">&mdash;</td>
+            </tr>
+            <tr>
+              <td class="id">#5704<br><sub>2026-09-03 20:36</sub></td>
+              <td class="src">肉燕外观看似普通肉丸，最大特色是实现了”肉包肉“的独特口感。</td>
+              <td class="trans">Rouyan—a type of meat dumpling—looks like an ordinary meatball on the outside, but its most distinctive feature is the unique ‘meat-wrapped-in-meat’ texture, where both the wrapper and the filling are made from pounded pork.</td>
+              <td class="rules">
+                <details><summary>Rule 1</summary>“肉燕” is a specific type of food. Pinyin is ok, but not a generic word or a literal translation such as “meat swallow” or “bird’s nest meat.” will fail.</details>
+                <details><summary>Rule 2</summary>The translation must clearly explain that “肉包肉” means the outer wrapper and the inner filling are both made of meat, specifically pork. Acceptable renderings include “meat-wrapped-in-meat texture” with clarification, or a phrase like “the wrapper itself is made from pounded pork, and the filling is also meat.” A bare literal translation such as “meat bag meat,” “meat wraps meat,” or “meat package meat” without any explanation is considered a failure because English readers will not understand the concept.</details>
+                <details><summary>Rule 3</summary>The translation should convey that the special quality lies in the texture or mouthfeel, not merely the taste or flavor. Words like “texture,” “mouthfeel,” or “consistency” are appropriate; “taste” alone is insufficient because the uniqueness is structural, not just flavor.</details>
+              </td>
+              <td class="discussion">&mdash;</td>
+            </tr>
+            <tr>
+              <td class="id">#5147<br><sub>2026-09-02 10:15</sub></td>
+              <td class="src">会就是会，不会就是不会，“约会”是什么意思？</td>
+              <td class="trans">If you can, you can. If you cannot, you cannot. So what exactly is a “peli-can”?</td>
+              <td class="rules">
+                <details><summary>Rule 1</summary>The translation must preserve the parallel repetitive structure of the first two clauses, using an affirmative and negative form of the same keyword (e.g., “can/cannot,” “do/don’t”), with the keyword repeated clearly.</details>
+                <details><summary>Rule 2</summary>The final question must not be a direct translation of “dating” or “date.” Instead, it must contain an English compound word that includes the same keyword from the first clauses (e.g., “pelican” containing “can,” “donut” containing “do”). Merely translating “约会” as “date” or “dating” is insufficient and fails this rule.</details>
+              </td>
+              <td class="discussion">
+                <details><summary>Reviewer 1 · RETURN</summary>A good input, but an English reader may not follow the human translation or rule 2. Proposed conveying the sense instead — "Either you can, or you can't; what do you mean by 'might'?" — then noticed the source reads 约会 rather than 大约会, which makes the input unnatural.</details>
+                <details><summary>Curator · SUBMIT</summary>Inside a 会/不会 frame, 约会 reads as 大约会, exactly as 约等 reads as 大约等 in a 等/不等 frame — no maths teacher insists on the full 大约等. Resubmitted with quotation marks in the source and a hyphen in the human translation to remove the residual awkwardness.</details>
+                <details><summary>Reviewer 1</summary>Has never heard 约会 used to mean {大约 / 也许 / 可能} 会.</details>
+              </td>
+            </tr>
+            <tr>
+              <td class="id">#5546<br><sub>2026-09-02 09:54</sub></td>
+              <td class="src">这孩子从小就懂事，想要什么从来不开口。</td>
+              <td class="trans">This child has been so considerate and mature since childhood—he never asks for anything he wants.</td>
+              <td class="rules">
+                <details><summary>Rule 1</summary>The translation of "懂事" must convey that the child is not just obedient or well-behaved, but also considerate, mature, understanding, and unburdensome. Acceptable phrases include “considerate and mature,” “sensible beyond his years,” or similar combinations that capture the layered meaning. A bare translation as “sensible” or “obedient” without any additional nuance is considered inadequate.</details>
+                <details><summary>Rule 2</summary>The translation of "从来不开口" must express that the child never asks for or voices what he wants.</details>
+                <details><summary>Rule 3</summary>The overall tone should be warm, affectionate, or slightly pitying, reflecting the speaker’s appreciation or concern for the child’s restraint.</details>
+              </td>
+              <td class="discussion">&mdash;</td>
+            </tr>
+            <tr>
+              <td class="id">#5322<br><sub>2026-08-29 21:36</sub></td>
+              <td class="src">这家公司里净是一群酒店猛狗。</td>
+              <td class="trans">This company is full of people who are like the vicious dog at the tavern—they scare away talent and ruin everything.</td>
+              <td class="rules">
+                <details><summary>Rule 1</summary>The translation must convey that the people in the company are harmful, obstructive, or morally corrupt—like a vicious dog that scares away good people or ruins things. It must not contain the literal words “hotel,” “dog,” or “fierce dog” unless accompanied by a clear explanation of the metaphor. Acceptable options include English idioms such as “bad apples,” “snakes in the grass,” “vipers,” “a cancer,” or a formal explanation like “people who hinder good work and scare away talent.”</details>
+              </td>
+              <td class="discussion">
+                <details><summary>Reviewer 1</summary>Leaning toward accepting. 酒店猛狗 is a fable by Yan Ying: a tavern's vicious dog keeps customers away and the wine sours — a figure for courtiers who block worthy men from reaching the ruler.</details>
+                <details><summary>Reviewer 3</summary>Also leaning toward accepting: if 酒店猛狗 counts as a 成语, an ideal translator should render it without context.</details>
+              </td>
+            </tr>
+            <tr>
+              <td class="id">#5071<br><sub>2026-08-27 10:06</sub></td>
+              <td class="src">这会议真是苹果，那个就是安卓，没法比。</td>
+              <td class="trans">This conference is absolutely premium; that one is just trash. There’s simply no comparison.</td>
+              <td class="rules">
+                <details><summary>Rule 1</summary>In Internet slang, 苹果 is of top quality, excellent, or premium, not merely that it is related to Apple as a brand.</details>
+                <details><summary>Rule 2</summary>In Internet slang, 安卓 is of poor quality, worthless, or inferior, not merely that it is related to Android as a brand.</details>
+                <details><summary>Rule 3</summary>会议 should be translated to conference or meeting. The translation shouldn't be mistranslate to smart phone.</details>
+              </td>
+              <td class="discussion">
+                <details><summary>Reviewer 2 · RETURN</summary>The meme is somewhat ambiguous taken out of context, and the rules as written produced a misjudgment on one system.</details>
+                <details><summary>Curator · SUBMIT</summary>A common piece of internet usage, and 会议 already supplies enough context to remove the ambiguity. Added a third rule to check that 会议 is not mistranslated as a phone.</details>
+                <details><summary>Reviewer 1</summary>Also unsure — could the sentence be read as the conference being <em>about</em> Apple?</details>
+                <details><summary>Curator</summary>On the first clause alone, yes; but the following clause — 那个就是安卓，没法比 — rules that reading out.</details>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4 class="title is-4" style="margin-top: 3rem; margin-bottom: 1rem;">Accepted (8)</h4>
+
+      <div class="post-table-wrap">
+        <table class="post-table items-table" style="min-width: 900px;">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Input</th>
+              <th>Human translation</th>
+              <th>Verification rules</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="id">#5371<br><sub>2026-08-30 20:32</sub></td>
+              <td class="src">他俩聊天太抽象了，我一个字看不懂。</td>
+              <td class="trans">The way those two talk to each other is peak absurdist nonsense — I can't follow a word of it.</td>
+              <td class="rules">
+                <details><summary>Rule 1</summary>The translation must convey that the conversation was incomprehensible, nonsensical, or weird in a colloquial sense, not merely “abstract” as in philosophical or artistic abstraction.</details>
+              </td>
+            </tr>
+            <tr>
+              <td class="id">#5332<br><sub>2026-08-30 09:43</sub></td>
+              <td class="src">头层竹牙签大多数使用的是毛竹。</td>
+              <td class="trans">Most outermost-layer bamboo toothpicks use the moso bamboo.</td>
+              <td class="rules">
+                <details><summary>Rule 1</summary>“头层” refers to the outermost, hardest, and most dense part of the bamboo, not merely a numerical or positional “first layer” or "top layer."</details>
+                <details><summary>Rule 2</summary>"头层竹牙签" is usually premium. But "头层" should not be translated to premium or top-grade.</details>
+              </td>
+            </tr>
+            <tr>
+              <td class="id">#5188<br><sub>2026-08-29 10:07</sub></td>
+              <td class="src">王警官执勤任务的时候睡着了，他说这是“警觉”。</td>
+              <td class="trans">Officer Wang fell asleep on duty. He said he was just making an ‘a-rest’.</td>
+              <td class="rules">
+                <details><summary>Rule 1</summary>The translation must include a pun that connects sleeping/resting with a police-related term or concept. Acceptable examples include “a-rest” (playing on “arrest” and “rest”), “under covers” (playing on “undercover” and “covers”), or other creative English puns. Direct translations of “警觉” are insufficient</details>
+              </td>
+            </tr>
+            <tr>
+              <td class="id">#5151<br><sub>2026-08-27 10:00</sub></td>
+              <td class="src">今天开出了一个六瓣报恩榴莲。</td>
+              <td class="trans">Today I cracked open a six-lobe, top-tier durian.</td>
+              <td class="rules">
+                <details><summary>Rule 1</summary>For "报恩榴莲", the translation must convey that the durian is of exceptional quality, with generous flesh, and that the speaker feels lucky or thrilled. It must not contain literal translations like “gratitude durian,” “thank-you durian,” “repaying kindness,” or any reference to gratitude or repayment. Acceptable expressions include “hit the jackpot,” “top-tier,” “jackpot quality,” “absolute win,” or similar.</details>
+              </td>
+            </tr>
+            <tr>
+              <td class="id">#5068<br><sub>2026-08-26 19:10</sub></td>
+              <td class="src">这个猫连不上网的话，可以退吗？</td>
+              <td class="trans">If this modem can’t connect to the internet, can I return it?</td>
+              <td class="rules">
+                <details><summary>Rule 1</summary>The translation must refer to a modem (the networking device in Chinese tech slang), not a cat (the animal).</details>
+              </td>
+            </tr>
+            <tr>
+              <td class="id">#4994<br><sub>2026-08-26 08:10</sub></td>
+              <td class="src">在这次养龙虾热潮中，云厂商赚得盆满钵满。</td>
+              <td class="trans">Amid the rush to configure and train OpenClaw, cloud providers have raked in enormous profits.</td>
+              <td class="rules">
+                <details><summary>Rule 1</summary>“养龙虾” refers to configuring and training OpenClaw, not to literal lobster farming.</details>
+                <details><summary>Rule 2</summary>The translation must convey that the cloud vendors earned a very large amount of money.</details>
+              </td>
+            </tr>
+            <tr>
+              <td class="id">#4974<br><sub>2026-08-25 20:10</sub></td>
+              <td class="src">上海创智学院将举办“高规格、小而精”的人才交流会。</td>
+              <td class="trans">Shanghai Innovation Institute will host a "high-level, small but refined" talent exchange event.</td>
+              <td class="rules">
+                <details><summary>Rule 1</summary>"上海创智学院" as a new research institute, has an official name, Shanghai Innovation Institute.</details>
+              </td>
+            </tr>
+            <tr>
+              <td class="id">#4973<br><sub>2026-08-25 19:51</sub></td>
+              <td class="src">牛来大模型不演了。</td>
+              <td class="trans">The Ox Alpha LLM isn't holding back anymore.</td>
+              <td class="rules">
+                <details><summary>Rule 1</summary>In this context, "牛来大模型" refers to the LLM called Ox Alpha.</details>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4 class="title is-4" style="margin-top: 3rem; margin-bottom: 1rem;">What I expected to be hard, and was not (3)</h4>
+      <p>
+        Those twenty are the ones that made it as far as a submission. The three below did not: every system handled them
+        on the first try. They are worth keeping because they mark the boundary of where difficulty actually lives.
+      </p>
+      <p>
+        <strong>暴虎冯河</strong> &mdash; <em>Fighting a tiger bare-handed and wading across a river; a metaphor for
+        reckless courage or foolhardy bravery.</em><br>
+        I picked it for being classical and metaphorical. That is exactly why it is easy: a high-frequency 成语 out of
+        the Analects has a settled English gloss (though I am not familiar with it.), and the models may simply reproduce
+        it from the dictionary entry rather than reasoning about tigers. Age is not difficulty &mdash; <strong>a
+        classical idiom is lexicalized, and lexicalized is solved.</strong> The classical items that did give trouble
+        (丁忧, 得年) are the ones encoding an institution or a social distinction, not a picture.
+      </p>
+      <p>
+        <strong>生活千疮百孔，但是这样很透气啊。</strong> &mdash; <em>Life is full of holes, but at least it's very
+        breathable that way.</em><br>
+        I expected the joke to break, because it depends on reading 千疮百孔 literally so that 透气 lands. It survives
+        because English happens to offer the same double reading: "full of holes" is idiomatic for ruined <em>and</em>
+        literally perforated, so "breathable" follows for free.
+      </p>
+      <p>
+        <strong>我如果只申请一块钱国自然面上，自筹六十万，能立项吗？</strong> &mdash; <em>If I only apply for one yuan
+        from the NSFC General Program and self-fund 600,000 yuan, can the project get approved?</em><br>
+        This one I thought was safe institutional realia &mdash; 国自然面上 is the NSFC General Program, opaque unless you
+        know the funding system. But it is a <em>named, documented program with an official English name</em>, so every
+        system rendered it. Realia defeats translators only when the term is recent, informal, or unofficial; anything
+        with a homepage is in the training data.
+      </p>
+      <p>
+        The common thread: <em>I kept mistaking obscurity for difficulty.</em> Something can be unknown to most readers
+        and still be a solved translation problem, because it is written down somewhere. What actually defeats systems is
+        not rare vocabulary but information the source carries without stating &mdash; who is speaking, why a taboo
+        holds, which way an implication runs.
+      </p>
+
+      <h3 class="title is-3" style="margin-top: 3.5rem; margin-bottom: 1.25rem;">Scaling it up: 452 drafts, 45 candidates, 41 checked</h3>
+      <p>
+        Twenty items, however, is too few to tell a mechanism from a coincidence. If source-defect fidelity really
+        defeats translators and 成语 really do not, that should hold over hundreds of items and more than one provider
+        &mdash; so I stopped writing submissions one at a time and built a pipeline.
+      </p>
+
+      <h4 class="title is-4" style="margin-top: 3rem; margin-bottom: 1rem;">The setup</h4>
+      <p>
+        Everything runs off one dataset file, one item per line, carrying the source, the reference translation, the
+        verification rules, and every translator's output with a pass/fail verdict per rule.
+      </p>
+
+      <div class="post-table-wrap">
+        <table class="post-table">
+          <tbody>
+            <tr>
+              <td style="width: 160px;"><strong>Translators</strong></td>
+              <td>14 &mdash; Claude Sonnet 5 / Haiku 4.5 / Sonnet 4.5 / Opus 4.5; Gemini 2.5 Pro, 2.5 / 3.5 / 3.5 Lite /
+                3.6 / 3.7 / 3.8 Flash; Gemma 4 26B / 31B; GPT-5.6 Luna</td>
+            </tr>
+            <tr>
+              <td><strong>Judges</strong></td>
+              <td>Claude Opus 5 for the Claude column, Gemini 3.7 Flash for the rest, each rule judged in its own call</td>
+            </tr>
+            <tr>
+              <td><strong>Scale</strong></td>
+              <td>452 items, 615 rules, 6,327 translations and 8,608 rule judgments</td>
+            </tr>
+            <tr>
+              <td><strong>Pass rule</strong></td>
+              <td>a model passes an item only if its translation satisfies <em>every</em> rule of that item</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Two design choices matter for reading the numbers. Rules are judged <em>one call each</em>, because rules are
+        written to be atomic and judging them together invites the judge to average over them. And the two provider
+        groups have <em>different judges</em>, so the ranking <em>within</em> a group is measured while the gap
+        <em>between</em> groups is only indicative.
+      </p>
+      <p>
+        Vibe code and data are public: the pipeline, the probes and the figure scripts are at
+        <a href="https://github.com/OLAResearch/LTB-AI" target="_blank">github.com/OLAResearch/LTB-AI</a>, and the item
+        dataset with all model outputs and judgment is at
+        <a href="https://hf.co/OLAResearchX/LTB-AI" target="_blank">hf.co/OLAResearchX/LTB-AI</a>.
+      </p>
+
+      <h4 class="title is-4" style="margin-top: 3rem; margin-bottom: 1rem;">The loop</h4>
+      <p>My own pipeline covers only the first half:</p>
+      <ol>
+        <li><strong>Draft</strong> &mdash; write the source, the reference translation and the verification rules into a
+          staging file.</li>
+        <li><strong>Probe with Claude</strong> &mdash; four Claude translators, with Opus 5 judging every rule
+          separately.</li>
+        <li><strong>Probe with the rest</strong> &mdash; ten Gemini / Gemma / GPT translators, judged by Gemini 3.7
+          Flash.</li>
+        <li><strong>Select</strong> &mdash; of the 451 drafts the full roster was run on, <strong>45 defeated all
+          fourteen translators</strong>. Those 45 are the ones I took to the portal, and credits ran out after 41.</li>
+      </ol>
+      <p>
+        <strong>None of these went in as submissions.</strong> The portal's <em>Translate by all models</em> and
+        <em>Verify</em> buttons are a checking tool. Everything below is a measurement. And the analyses below are also
+        led by AI agents.
+      </p>
+
+      <figure class="post-figure">
+        <img src="yield_funnel.png"
+          alt="Candidate yield funnel, pairwise co-failure matrix, and verdicts by number of passing translators">
+        <figcaption>Candidate yield funnel, pairwise co-failure matrix, and verdicts by number of passing translators.
+        </figcaption>
+      </figure>
+
+      <p>
+        Most drafts die at step 4. Of 451 items measured against the full roster, 247 break at least one translator, 67
+        clear LTB's bar of at most two passing translations, and only 45 defeat everything. The middle panel is the
+        reason the funnel narrows so fast: failures overlap heavily &mdash; every pair of the fourteen systems shares
+        between 71 and 110 of its failures &mdash; so an item that fools one model usually fools its neighbors too, and
+        an item that any model solves is rarely saved by the others.
+      </p>
+
+      <figure class="post-figure">
+        <img src="provider_comparison.png" alt="Per-translator pass rate, and a model by mechanism-family heatmap">
+        <figcaption>Per-translator pass rate, and a model by mechanism-family heatmap.</figcaption>
+      </figure>
+
+      <p>
+        The roster itself holds few surprises and one useful one. Gemini 3.8 Flash leads at 80% and Claude Haiku 4.5
+        trails at 62%, with the other twelve between 70% and 79% &mdash; <strong>model size and generation buy
+        remarkably little</strong>. Claude Opus 4.5, likely the largest model here, sits at 73%, below five Gemini Flash
+        variants. The right-hand panel is what matters for drafting: for thirteen of the fourteen systems the two lowest
+        columns are 谐音 taboos and source-defect fidelity, and the exception is only an exception on a technicality
+        &mdash; Claude Opus 4.5 puts irony a single point below taboo homophony.
+      </p>
+
+      <h4 class="title is-4" style="margin-top: 3rem; margin-bottom: 1rem;">What the portal does differently</h4>
+      <p>
+        Passing my own screen is not the same as passing the portal's, because it tests mostly against systems I never
+        ran &mdash; only Claude Sonnet 4.5, Claude Haiku 4.5, Gemini 3.8 Flash and a Gemma 4 overlap with my roster
+        &mdash; and applies one check I cannot apply to myself.
+      </p>
+      <p>
+        The portal runs its own roster of <strong>eleven systems</strong> &mdash; Lara, Google Translate, Gemini 3.1 Pro,
+        Gemma 4, Llama 4 Maverick, GPT-6 Astra, GPT-5.6 Sol, DeepSeek V4 Pro, Claude Sonnet 4.5, Gemini 3.8 Flash, Claude
+        Haiku 4.5 &mdash; marks each rule ✓/✗ for each system, and judges your reference translation alongside them. An
+        item clears the bar when at most two automatic translations pass every rule.
+      </p>
+      <p>
+        Results come back as a table per item, which
+        <a href="https://github.com/OLAResearch/LTB-AI/blob/main/benchmark/record_portal_result.py" target="_blank"><code>benchmark/record_portal_result.py</code></a>
+        parses straight from a paste: it extracts each system's translation and verdicts, derives the status, and writes
+        it back. It also raises two warnings of its own &mdash; when a translation is <strong>byte-identical to the
+        reference</strong> (meaning the reference leaked into the run, so that row is not evidence. Note: I don't know
+        what happened.), and when a system's verdict is <strong>missing</strong> from a truncated paste, which it records
+        as unknown rather than guessing.
+      </p>
+
+      <h4 class="title is-4" style="margin-top: 3rem; margin-bottom: 1rem;">What came back</h4>
+
+      <figure class="post-figure">
+        <img src="portal_results.png" alt="Portal outcome, which rules do the work, and outcome by mechanism">
+        <figcaption>Portal outcome, which rules do the work, and outcome by mechanism.</figcaption>
+      </figure>
+
+      <div class="post-table-wrap">
+        <table class="post-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th style="text-align: right;">Items</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Selected for checking</td>
+              <td class="num">45</td>
+            </tr>
+            <tr>
+              <td>Checked</td>
+              <td class="num">41</td>
+            </tr>
+            <tr>
+              <td><strong>Cleared the bar</strong> (≤2 systems passed, reference valid)</td>
+              <td class="num"><strong>34</strong></td>
+            </tr>
+            <tr>
+              <td>Over the bar (3 systems passed)</td>
+              <td class="num">1</td>
+            </tr>
+            <tr>
+              <td>Invalid (my reference failed its own rules)</td>
+              <td class="num">5</td>
+            </tr>
+            <tr>
+              <td>Unresolved (my reference leaked into the portal's run)</td>
+              <td class="num">1</td>
+            </tr>
+            <tr>
+              <td>Not checked (credits ran out)</td>
+              <td class="num">4</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        One item is unresolved rather than decided: three systems passed it, but two of those rows came back
+        byte-identical to my own reference translation, misspelling included, so the reference had leaked into the run
+        and those rows are not evidence either way.
+      </p>
+      <p>
+        The portal and my own probe agreed on <strong>36 of 41</strong> items about whether everything was defeated. Of
+        the 68 rules checked, <strong>38 were failed by all eleven systems</strong> &mdash; the spike at the right of the
+        middle panel. The spike at the left is the problem: rules that almost nobody fails.
+      </p>
+
+      <h4 class="title is-4" style="margin-top: 3rem; margin-bottom: 1rem;">Four lessons, in order of what they cost</h4>
+      <p>
+        The headline numbers hide where the losses actually came from, and none of the four is about items being too
+        easy.
+      </p>
+
+      <p>
+        <strong>1. My references were the biggest source of loss.</strong> Five items were invalidated not because they
+        were too easy but because <strong>the reference translation failed the rules written for it</strong>. LTB
+        requires the perfect translation to pass &mdash; that is what demonstrates the item is translatable and the rules
+        are satisfiable &mdash; and the portal checks it:
+      </p>
+      <ul>
+        <li>红包别包250 &mdash; the rules demand that 250 be conveyed as slang for an idiot and 168 / 520 as
+          auspicious-sounding sums. My reference said only "something with a lucky ring to it".</li>
+        <li>上眼药 &mdash; the rule explicitly excludes open badmouthing; the remarks must look offhand. My reference
+          wrote "dripping poison in the boss's ear", which is precisely the excluded reading.</li>
+        <li>电子木鱼 &mdash; the rule requires an English reader to understand this is a phone app imitating a temple
+          woodblock. My reference said "the merit app" and dropped the woodblock.</li>
+      </ul>
+      <p>
+        <em>Lesson:</em> judge the reference blind, as if it were a candidate, before trusting it. I built
+        <a href="https://github.com/OLAResearch/LTB-AI/blob/main/benchmark/check_reference.py" target="_blank"><code>benchmark/check_reference.py</code></a>
+        to do exactly that, but it matched the portal on only three of seven adjudicated items &mdash; two misses and two
+        false positives. Treat it as a filter, not a gate.
+      </p>
+
+      <p>
+        <strong>2. Almost every item was carried by a single rule.</strong> Of 68 rules, <strong>19 were passed by nine
+        or more of the eleven systems</strong>, several by all eleven. LTB explicitly discourages rules that most models
+        pass. The recurring shape was a fidelity or pragmatic rule failing 11/11, paired with a comprehension rule ("did
+        you understand this word?") that nobody failed. The clearest case pulls in two directions at once: one rule wants
+        the romanized <code>bu xing</code> rendered so a reader understands it, the other wants the message to still read
+        as hurried code-switching. All eleven systems passed the first and none passed the second, so the comprehension
+        rule did no filtering whatever while sitting in obvious tension with the rule that did all of it.
+      </p>
+      <p>
+        <em>Lesson:</em> after writing two rules, ask which one is actually filtering. The other should usually go.
+      </p>
+
+      <p>
+        <strong>3. My roster overstates difficulty.</strong> The one genuine failure, the e-commerce 亲, scored
+        <strong>0/14 on my own roster and 3/11 on the portal</strong>. Google Translate, GPT-5.6 Sol and Deepseek V4 Pro
+        all passed simply by not calquing 亲 as "Dear" &mdash; they wrote "Hi" or "Hey there". Not one of the three was
+        in my roster.
+      </p>
+      <p>
+        <em>Lesson:</em> a Claude-and-Gemini roster is not what a reviewer will run. Discount your own difficulty
+        estimate accordingly.
+      </p>
+
+      <p>
+        <strong>4. The automatic judge has a noise floor.</strong> At least four times, materially identical content
+        received opposite verdicts. GPT-6 Astra's "a date chosen to symbolize a long and lasting marriage" passed while
+        GPT-5.6 Sol's near-identical sentence failed; "a bit opportunistic" passed for Gemma and failed for Deepseek; ten
+        of the eleven systems wrote the literal "a little red flower", and nine of those passed while Claude Haiku 4.5
+        failed on the same phrase. This does not threaten items that fail 11/11, but for anything landing at one to three
+        passes, <strong>the pass/fail line is partly luck</strong>.
+      </p>
+
+      <h4 class="title is-4" style="margin-top: 3rem; margin-bottom: 1rem;">What actually defeats every system</h4>
+
+      <figure class="post-figure">
+        <img src="family_outcomes.png" alt="Stacked composition per mechanism family">
+        <figcaption>Stacked composition per mechanism family.</figcaption>
+      </figure>
+
+      <p>
+        The 34 passing items, by mechanism: source-defect fidelity 12, 谐音 taboo 7, politeness bias 3, pragmatic
+        self-reference 3, regional dialect 3, and six spread across formal register, irony, address terms and coined
+        nouns.
+      </p>
+      <p>
+        This is the pattern the whole post converges on. Misspellings, an unpunctuated message home to a parent, dialect,
+        a child's excuse note, drunk texting, a lay petitioner's imitation of officialese &mdash; all eleven systems tidy
+        these into fluent standard English, and everything that identified the writer goes with the tidying. The dialect
+        items are the same mechanism in different clothing: the meaning transfers intact, the regional marking does not.
+      </p>
+
+      <figure class="post-figure">
+        <img src="mechanism_heatmap.png" alt="Family by failure-mode heatmap">
+        <figcaption>Family by failure-mode heatmap.</figcaption>
+      </figure>
+
+      <p>
+        The heatmap says the same thing from the other direction, and adds a useful control: the mechanisms at the bottom
+        &mdash; vacuous negation, zero anaphora, chat ellipsis, numeral idioms &mdash; are structural asymmetries between
+        Chinese and English that I expected to be productive, and the roster very nearly sweeps them: every system solves
+        every vacuous negation and chat-ellipsis item, and only a handful of zero-anaphora and numeral-idiom items break
+        anything at all. <strong>Asymmetry alone is not difficulty.</strong> What survives is at the top: source-defect
+        fidelity and 谐音, hard for all three providers alike.
+      </p>
+      <p>
+        The second productive class is <strong>inversion of agent or evaluation</strong>, and it is the easiest to defend
+        to a reviewer because the damage is factual rather than tonal. In 要不是您那一嘴 all eleven systems have the man
+        <em>helping</em> the speaker win an award when the sentence means his remark cost it. In 控评 &mdash; fans
+        mass-posting to bury criticism &mdash; the translations say "the comment section is tightly controlled",
+        relocating the agent from a fanbase to the platform.
+      </p>
+
+      <h4 class="title is-4" style="margin-top: 3rem; margin-bottom: 1rem;">Two rule types to use carefully</h4>
+      <p>
+        <strong>Rules demanding that a pun be explained.</strong> Seven of the eight 谐音 items cleared the portal's
+        automatic check &mdash; the eighth is one of the invalid references above &mdash; but the rules effectively ask
+        the translator to annotate. A useful test is whether the English becomes a <em>non sequitur</em> without the
+        gloss: 碎/岁, 九/久, 鱼/余 and the Cantonese 吉屋/胜瓜, where both halves of the pun are on the page, survive it;
+        the building with no fourth floor does not &mdash; the English reads perfectly well, the reader simply doesn't
+        learn why. That one should be withdrawn.
+      </p>
+      <p>
+        <strong>Rules demanding that errors be reproduced.</strong> Five of the checked items ask for the source's
+        spelling slips to survive into English, and every one of those rules was failed by all eleven systems &mdash;
+        they work. The objection is not that they are easy but that a reviewer can argue with them, since a reasonable
+        translation could preserve the writer through run-on phrasing alone and still fail. The sturdier formulation asks
+        only that the translator <strong>not upgrade the speaker</strong> &mdash; "the sign still reads as amateur
+        signage rather than correct official English" failed 11/11 just as reliably, without prescribing which errors to
+        make.
+      </p>
+
+      <h3 class="title is-3" style="margin-top: 3.5rem; margin-bottom: 1.25rem;">What I take away</h3>
+
+      <h4 class="title is-4" style="margin-top: 3rem; margin-bottom: 1rem;">What worries me about this kind of benchmark</h4>
+      <p>
+        <strong>The rule format decides what can be measured.</strong> A verification rule has to reduce to pass/fail on
+        a single sentence, which is a good fit for lexical traps and for "do not normalize the speaker", and a poor fit
+        for everything that goes wrong at length &mdash; terminology drifting across a document, an anaphor resolved
+        differently on page three, register sliding halfway through. My inputs have a median length of nineteen
+        characters. That is not because short inputs are where translation fails; it is because short inputs are where a
+        pass/fail rule can be written.
+      </p>
+      <p>
+        <strong>Items are selected against today's systems, so the benchmark dates itself.</strong> The ≤2 rule makes the
+        set self-calibrating against the current frontier, which is exactly right for keeping it unsaturated and exactly
+        wrong for measuring progress over time: an item that survives is evidence about September 2026 and nothing else.
+        And publishing the data &mdash; which is the point of releasing it &mdash; puts it in the next training run. The
+        joke at the top of this post is only half a joke.
+      </p>
+      <p>
+        <strong>The judge is load-bearing and imperfect.</strong> The judge may flip verdicts on materially identical
+        translations. Items failing 11/11 are safe; anything near the boundary is partly decided by noise.
+      </p>
+      <p>
+        <strong>And the pool inherits its curator.</strong> Every item here reflects what one person reads, which corner
+        of the Chinese internet they inhabit, and which failures they thought to look for. The reviewer disagreements are
+        the visible part of that bias; the items I never thought to write are the invisible part.
+      </p>
+
+      <h4 class="title is-4" style="margin-top: 3rem; margin-bottom: 1rem;">What LTB does differently</h4>
+      <p>
+        Most MT benchmarks are corpora with reference translations and an automatic metric, and they have stopped
+        discriminating: the top systems cluster within noise of each other, so the score no longer tells you which
+        direction to walk. LTB inverts the construction in two ways worth naming.
+      </p>
+      <p>
+        It replaces <em>similarity to a reference</em> with <strong>explicit pass/fail conditions</strong>. A score of
+        0.87 tells you nothing about what was lost; "the translation must convey that 控评 is fans burying criticism, not
+        the platform doing it" tells you exactly what was lost, and the verdict is auditable by anyone who reads both
+        languages. The dataset that results is not a pile of sentence pairs but <strong>a catalog of named failure
+        modes</strong> &mdash; which is what made the mechanism analysis in this post possible at all.
+      </p>
+      <p>
+        And it is <strong>built by the people who own the language</strong>. The hard items here came from Chinese
+        internet usage, dialect, funeral formulae and campus code &mdash; material no curated newswire corpus contains
+        and no single annotator could enumerate. The cost is the subjectivity documented above; the benefit is coverage
+        that cannot be bought.
+      </p>
+
+      <h4 class="title is-4" style="margin-top: 3rem; margin-bottom: 1rem;">Where translation systems actually are</h4>
+      <p>
+        It is worth saying plainly that these systems are now good. Translation used to fail in ways anyone could see
+        &mdash; word salad, mangled syntax, a name rendered as a common noun. AI agents drafted 452 candidates
+        deliberately hunting for failures, and only <strong>45 defeated all fourteen systems</strong>.
+      </p>
+      <p>
+        What is left is not vocabulary or grammar. It is pragmatics: who is speaking, what is implied and not said, why a
+        custom holds. And the shape of the remaining failure is instructive &mdash; <em>model size and generation buy
+        almost nothing here</em>. Claude Opus 4.5, likely the largest model in my roster, sits below five Gemini Flash
+        variants. The systems fail not because they are too small to understand 班味 or 上眼药, but because they are
+        trained to produce fluent, clean, standard prose, and fluency is precisely what erases a drunk texter, a dialect
+        speaker or a semi-literate petitioner. The failure is an objective problem, not a capacity problem. More
+        parameters will not fix a system that is doing what it was asked to do.
+      </p>
+      <p>
+        Which is why this will not be the last translation benchmark, and should not be. The items in it will be solved
+        &mdash; some of them within a year, some of them by the next model that happens to read more of the Chinese
+        internet. What should outlive them is the method: keep the bar defined relative to the current frontier, keep the
+        failures named rather than scored, and re-run the hunt when the frontier moves. <strong>A benchmark that cannot
+        be re-made is a benchmark that expires.</strong> This one is built to be re-made.
+      </p>
+
+      <h3 class="title is-3" style="margin-top: 3.5rem; margin-bottom: 1.25rem;">Acknowledgments</h3>
+      <p>
+        <strong>The LTB team, for the translation credits.</strong> Every press of <em>Translate by all models</em> or
+        <em>Verify</em> costs a credit, and the scaling-up experiment in this post burned roughly 90 of them &mdash;
+        checking 41 of 45 AI-drafted candidates against the portal's eleven systems is what produced almost every number
+        in that section. To be explicit, since it matters for how the benchmark is read: <strong>those AI-drafted items
+        were never submitted.</strong> The credits were spent on <em>validating what an AI agent generates</em> &mdash;
+        which mechanisms survive an independent roster, and how often my own reference translations failed my own rules.
+      </p>
+      <p>
+        <strong>Google Cloud, for the research credits.</strong> The nine Gemini and Gemma translators in the
+        fourteen-model roster ran on those credits.
+      </p>
+      <p>
+        <strong>And an ask, to OpenAI, Anthropic and everyone else.</strong> The GPT column here is one model.
+        Cross-provider evidence is precisely what makes a translation benchmark worth anything: a failure that shows up
+        in one lab's models is a quirk, and a failure that shows up in all of them is a finding. Right now the second
+        kind of claim is gated on who hands out credits. <strong>Send credits to researchers &mdash; now.</strong> It is
+        cheap, and you will get published measurements of your own systems' blind spots in return.
+      </p>
+
+      <h3 id="citation" class="title is-3" style="margin-top: 4rem; margin-bottom: 1.25rem;">Citation</h3>
+      <p>If you find this post useful, please cite it as:</p>
+      <div class="bibtex-container">
+        <button class="copy-button" onclick="copyBibTeX()">Copy</button>
+        <pre id="bibtex-code"
+          style="margin: 0; color: var(--text-primary); font-family: 'Courier New', monospace; font-size: 0.85rem;"><code style="color: var(--text-primary); background: transparent;">@misc{ji2026ltbai,
+  title        = {Human- and Agent-Written Rules That Machine Translators Fail for the Last Translation Benchmark},
+  author       = {Ji, Shaoxiong},
+  year         = {2026},
+  month        = sep,
+  howpublished = {\url{https://www.olaresearch.org/jis/blog/LTB-AI/}},
+  note         = {Omni Language AI Research blog}
+}</code></pre>
+      </div>
+
+      <hr class="post-divider">
+
+      <p class="post-outro">
+        Agentic Pipeline-drafted Chinese&rarr;English Items for the Last Translation Benchmark, September 2026. Code:
+        <a href="https://github.com/OLAResearch/LTB-AI" target="_blank">github.com/OLAResearch/LTB-AI</a> ·
+        Data: <a href="https://hf.co/OLAResearchX/LTB-AI" target="_blank">hf.co/OLAResearchX/LTB-AI</a> ·
+        The LTB benchmark itself:
+        <a href="https://last-translation-benchmark.vilda.net" target="_blank">last-translation-benchmark.vilda.net</a>
+      </p>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div>&copy; 2026 Omni Language AI Research.</div>
+    <div class="footer-logo-container">
+      <a href="https://turkunlp.org" target="_blank"><img src="../../../images/logos/turkunlp.png" alt="TurkuNLP"
+          class="footer-logo" title="TurkuNLP"></a>
+      <a href="https://www.ellisinstitute.fi" target="_blank"><img
+          src="../../../images/logos/ellis-logo_horizontal_black_2023-FINLAND.png" alt="ELLIS Institute Finland"
+          class="footer-logo" title="ELLIS Institute Finland"></a>
+      <a href="https://www.utu.fi/en" target="_blank"><img src="../../../images/logos/UTU_logo_EN_RGB.png"
+          alt="University of Turku" class="footer-logo" title="University of Turku"></a>
+    </div>
+    <a href="https://github.com/OLAResearch"
+      style="color: inherit; font-size: 1.5rem; transition: var(--transition-smooth);"><i class="fab fa-github"></i></a>
+  </footer>
+
+  <script src="../../../static/js/main.js"></script>
+
+</body>
+
+</html>
