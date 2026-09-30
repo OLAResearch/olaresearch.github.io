@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//OLAR Research//TurkuNLP Research Seminar//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+SUMMARY:TurkuNLP Research Seminar: From Portable Memory to Adaptive Memory: Building Reusable Memory Interfaces for Large Language Models
+UID:turkunlp-seminar-mingyuan-li-20261007@olaresearch.github.io
+SEQUENCE:0
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+DTSTART:20261007T100000Z
+DTEND:20261007T110000Z
+DTSTAMP:20260930T160126Z
+LOCATION:Maarintie 8\, 1171 TU3\, Aalto University or Zoom (https://utu.zoom.us/j/65116868774)
+DESCRIPTION:Speaker: Mingyuan Li (ELLIS Institute Finland & University of Turku)\n\nAbstract: Memory-augmented language models offer an appealing alternative to storing all knowledge in model parameters or repeatedly retrieving raw text at inference time. However\, two fundamental questions remain largely unresolved: Can learned memory be reused across different language models\, and how should a model decide when and how to use that memory?\n\nIn this talk\, I will present our recent work toward building portable and adaptive memory interfaces for large language models. I will first discuss cross-model memory transfer\, where a learned external memory is detached from its original backbone\, frozen\, and reused by a different target model. By separating memory addressing\, storage\, and reading\, we show that useful information can survive the removal of the source model\, but effective transfer critically depends on aligning the memory with the target model through a lightweight reader. Across heterogeneous model families\, frozen memory provides consistent gains\, while stronger target-side readers substantially improve downstream knowledge extraction.\n\nI will then move beyond direct memory retrieval and introduce MemoryAthena\, which asks whether useful memory must always be retrieved from storage or can instead be generated dynamically. MemoryAthena combines direct learned-memory retrieval with two generated-memory pathways and treats direct retrieval as an anchor. A lightweight causal router predicts when generated memories are likely to improve upon the direct-memory pathway and controls how strongly they intervene. This adaptive routing strategy improves both question answering and general NLP performance\, showing that generated memory is most effective not as a universal replacement for retrieval\, but as a selective correction to it.\n\nTogether\, these studies suggest a broader view of memory for language models: rather than treating memory as a model-specific component or a passive datastore\, we can view it as a reusable computational substrate whose knowledge can be transferred\, interpreted\, generated\, and adaptively routed across models. I will conclude by discussing how this perspective may enable modular knowledge sharing\, continual adaptation\, and self-evolving language-model systems.\n\nJoin Zoom Link: https://utu.zoom.us/j/65116868774 (Meeting ID: 651 1686 8774)\n\nDetails: https://www.olaresearch.org/seminar/20261007-li.html
+URL:https://www.olaresearch.org/seminar/20261007-li.html
+END:VEVENT
+END:VCALENDAR
