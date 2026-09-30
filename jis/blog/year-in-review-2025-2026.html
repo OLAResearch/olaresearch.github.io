@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="A look back at 2025–2026: papers at NeurIPS, COLM, EMNLP and ACL, the FINe-Health Foundry project, FineOPUS, the junior researchers I work with, and the community events we organized.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Looking Back on 2025–2026: Research, Supervision and Community | Blogs | Omni Language AI Research</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="../../static/css/index.css">
+  <link rel="icon" href="../../images/logos/olar.svg">
+  <style>
+    @media (max-width: 768px) {
+      .navbar-menu {
+        display: flex !important;
+        gap: 1.5rem;
+      }
+    }
+    .narrative-container a:not(.cta-button) {
+      color: var(--accent-earth);
+      text-decoration: underline;
+    }
+    .narrative-container p {
+      margin-bottom: 1.4rem;
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LHSMW4F3Y"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-5LHSMW4F3Y');
+  </script>
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../../index.html">
+        <img src="../../images/logos/olar.svg" alt="OLAR Home" style="height: 2rem;">
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <a class="navbar-item" href="index.html" style="display: flex; align-items: center; gap: 0.5rem; font-weight: 500;"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+      <a class="navbar-item" href="../index.html" style="display: flex; align-items: center; gap: 0.5rem; font-weight: 500;"><i class="fas fa-home"></i> Back to Home</a>
+    </div>
+  </nav>
+
+  <header class="project-hero" style="max-width: 800px; margin: 0 auto; text-align: center; padding: 6vw 4vw 2vw;">
+    <span class="status-badge" style="background: var(--accent-earth);">Blogs</span>
+    <h1 class="title is-1 paper-title-small" style="font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.2; margin-top: 1rem;">Looking Back on 2025–2026: Research, Supervision and Community</h1>
+    <p class="subtitle" style="margin-top: 1.5rem; font-size: 1.05rem;">
+      Published on September 30, 2026 &bull; Shaoxiong Ji
+    </p>
+  </header>
+
+  <main class="container" style="padding: 2vw 4vw 8vw;">
+    <div class="narrative-container">
+
+      <p class="lead" style="font-size: 1.25rem; font-family: var(--font-serif); line-height: 1.7; color: var(--text-primary); margin-bottom: 2.5rem;">
+        One year ago, I moved my research group to ELLIS Institute Finland and the University of Turku, after a year as a research group leader at the Technical University of Darmstadt. Today marks exactly one year since the move. Over the past year, as an ELLIS PI, I have broadened the scope of our research. We focused on three areas: multilingual LLMs, LLM reasoning and memory, and AI for health and mental health. We published papers at ACL, COLM, EMNLP and NeurIPS, started a national foundation health model project, released a trillion-token parallel corpus, and ran a shared task and a workshop. This post looks back on what the group did with our collaborators, and on the people who made it happen.
+      </p>
+
+      <h3 class="title is-3" style="margin-top: 3.5rem; margin-bottom: 1.25rem;">Research</h3>
+      <p>
+        Counting papers is a bad practice, but it is hard to avoid in an end-of-year review like this one. Across 2025 and 2026 I co-authored 22 papers. Fifteen of them are accepted or published at peer-reviewed venues, and the other seven are preprints currently under review. The full list is on the <a href="../../publications.html">publications page</a>. The work falls into three connected lines.
+      </p>
+
+      <h4 class="title is-4" style="margin-top: 2.5rem; margin-bottom: 1rem;">Multilingual large language models</h4>
+      <p>
+        This is the longest-running line, and the one I wrote about in <a href="MaLA-LM.html">The MaLA-LM Journey</a>. After several rounds of review, two papers finally landed this year. The first is <a href="../../MaLA/">MaLA: A Corpus and Data Mix for Massive Language Adaptation of Large Language Models</a> at COLM 2026. The second is <a href="https://aclanthology.org/2026.findings-acl.937/" target="_blank">Data-Centric Continual Pre-training for 500+ Languages</a> (<a href="../../EMMA-500-Gen2/">project page</a>) in ACL 2026 Findings. They join <a href="https://openreview.net/pdf?id=mpTIzK4Zca" target="_blank">Rethinking Multilingual Continual Pretraining</a> (COLM 2025), in which we studied data-mixing strategies for multilingual continual pretraining, and the <a href="https://aclanthology.org/2025.emnlp-demos.43/" target="_blank">GlotEval</a> evaluation suite (EMNLP 2025 System Demonstrations), which we built to enable massively multilingual evaluation.
+      </p>
+      <p>
+        Translation for low-resource languages was a recurring theme. Two papers asked whether reasoning helps translation: <a href="https://aclanthology.org/2026.eacl-long.133/" target="_blank">Test-Time Scaling of Reasoning Models for Machine Translation</a> (<a href="../../TTS4MT/">project page</a>) (EACL 2026) and <a href="https://arxiv.org/abs/2606.03782" target="_blank">Reasoning over Grammar</a> (<a href="../../LingReason/">project page</a>), which tests whether synthetic linguistic reasoning traces help low-resource MT (EMNLP 2026 Findings). On the cultural side, we contributed to <a href="https://arxiv.org/abs/2601.14063" target="_blank">XCR-Bench</a> (EMNLP 2026) and <a href="https://arxiv.org/abs/2604.19262" target="_blank">CulturALL</a> (AACL-IJCNLP 2026), two benchmarks for cross-cultural competence in LLMs, and to <a href="https://arxiv.org/abs/2601.08645" target="_blank">a cross-lingual benchmark for multimodal idiomaticity</a> at LREC 2026.
+      </p>
+
+      <h4 class="title is-4" style="margin-top: 2.5rem; margin-bottom: 1rem;">LLM reasoning and memory</h4>
+      <p>
+        This line grew quickly this year. <a href="https://arxiv.org/abs/2608.17050" target="_blank">Cross-Model Memory Transfer via Target-Side Reader Adaptation</a> (<a href="../../XMemTransfer/">project page</a>), accepted at NeurIPS 2026, asks how memories built by one model can be read by another. Follow-up work is under review. <a href="https://arxiv.org/abs/2609.25853" target="_blank">MemoryAthena</a> (<a href="../../MemoryATHENA/">project page</a>) routes adaptively between latent and generated memories, and <a href="https://arxiv.org/abs/2609.18587" target="_blank">Label-Free Steering</a> (<a href="../../LabelFreeSteering/">project page</a>) compresses test-time reinforcement learning into bias-only subspaces. The latter is our first step into multimodality. I hope to continue and expand this line of work in the future, and to see more students and researchers advance through their next milestones.
+      </p>
+
+      <h4 class="title is-4" style="margin-top: 2.5rem; margin-bottom: 1rem;">AI for health and mental health</h4>
+      <p>
+        In mental health, our ACL 2026 Findings paper <a href="https://aclanthology.org/2026.findings-acl.708/" target="_blank">You Never Know a Person, You Only Know Their Defenses</a> introduced the task of detecting levels of psychological defense mechanisms in supportive conversations. That task became a shared task (more below). SQPsych on <a href="https://arxiv.org/abs/2510.25384" target="_blank">generating synthetic therapist-client conversations from questionnaires</a> was accepted at EMNLP 2026 workshops. A reprint on <a href="https://arxiv.org/abs/2604.24126" target="_blank">interpretable depression detection</a> is under review. On the health side, <a href="https://arxiv.org/abs/2606.18613" target="_blank">PhysAssistBench</a> (EMNLP 2026 Findings) evaluates whether LLMs are ready to assist physicians in interactive doctor, patient and EHR settings.
+      </p>
+      <p>
+        One more paper that does not fit neatly into these lines: a perspective on LLMs for graph learning, <a href="https://doi.org/10.1145/3786600" target="_blank">Graph2text or Graph2token</a>, appeared in ACM Transactions on Information Systems.
+      </p>
+
+      <p>
+      Of course, some (perhaps many) of our submissions were rejected at venues such as ACL, EMNLP and NeurIPS. This is a normal part of research. I am glad to see that those rejected papers are still read and cited by others, which is a good sign that the work is useful to the community.
+      </p>
+
+      <h3 class="title is-3" style="margin-top: 3.5rem; margin-bottom: 1.25rem;">Funding and a national health model</h3>
+      <p>
+        The biggest new project this year is the <a href="../../fine-health-foundry.html">FINe-Health Foundry</a>. It is a consortium, funded by Business Finland's Rise to Challenge (Näytönpaikka) programme, that is building a nationwide foundation health model from Finnish national health data. The consortium is led by ELLIS Institute Finland with Aalto University, the University of Helsinki and the University of Turku. Our group at the University of Turku contributes to three research lines: pretraining the foundation health model, medical reasoning and grounding, and agentic "virtual lab" methods where clinicians can audit and give feedback to medical agents.
+      </p>
+      <p>
+        On the compute side, Microsoft's LINGUA programme supported FineOPUS with compute credits.
+      </p>
+
+      <p>
+        Unfortunately, my application to the Research Council of Finland's Academy Project call was unsuccessful. The main criticism I read in the reviews was that the proposal was too ambitious. Even so, I hope the group will keep working on ambitious problems; that is why we are researchers. I also hope to see more funding opportunities for ambitious research in Finland, and more researchers and students taking on ambitious problems.
+      </p>
+
+      <h3 class="title is-3" style="margin-top: 3.5rem; margin-bottom: 1.25rem;">Open science</h3>
+      <p>
+        FineOPUS is our attempt to do for parallel data what FineWeb did for web text: take the open OPUS repository and refine it into a clean, high-quality corpus. The current release has 1.65 trillion tokens across 9,532 language pairs, filtered from 83.9 billion raw lines down to 36.1 billion high-quality lines. In June I <a href="../../news/fineopus-lingua.html">presented FineOPUS</a> at the LINGUA Community Day at the Council of Europe in Strasbourg, and pitched it at an MEP dinner at the European Parliament. The project is an example of open science, and of ambition, in action. The dataset, the pipeline and a technical report will all be released openly. Best wishes to the project!
+      </p>
+
+      <p>
+      We also developed and released GlotEval, a massively multilingual evaluation suite for LLMs, which is open source and available on GitHub. Somewhat disappointingly, the suite is not actively maintained at the moment, but I hope to find funding to continue the work and extend it to more languages and tasks.
+      </p>
+
+      <p>
+        I also contributed to the <a href="https://arxiv.org/abs/2609.04173" target="_blank">Last Translation Benchmark</a>, a large community effort to collect inputs that current translation systems still get wrong. What I learned from writing items by hand and with an agentic pipeline is in <a href="LTB-AI/">my previous post</a>.
+      </p>
+
+      <h3 class="title is-3" style="margin-top: 3.5rem; margin-bottom: 1.25rem;">Supervision and teaching</h3>
+      <p>
+        Much of this work belongs to the students and junior researchers I am lucky to work with. I supervise three PhD students and co-supervise two more, at the University of Helsinki and the University of Manchester. The process is sometimes hard: the research itself is difficult, our review system is somewhat broken, and competition in our field is harsh. But we all need to keep calm, carry on, and work on things that are worth doing.
+      </p>
+      <p>
+        I also supervised four MSc theses at the University of Jyväskylä, the University of Turku and Aalto University. Two are completed, on multilingual NLP and multimodal AI. The first grew into our preprint <a href="https://arxiv.org/abs/2606.00285" target="_blank">Model-Based Quality Assessment for Massively Multilingual Parallel Data</a>, and a preprint based on the second is in preparation. Two more, on AI for health and AI agents, are in progress.
+      </p>
+      <p>
+        In teaching, I co-teach the Deep Learning in Language Technology course at the University of Turku.
+      </p>
+
+      <h3 class="title is-3" style="margin-top: 3.5rem; margin-bottom: 1.25rem;">Community</h3>
+      <p>
+        Two events I co-organized this year both grew out of our mental health research. The <a href="../../news/psydefdetect.html">PsyDefDetect Shared Task</a> at BioNLP 2026, co-located with ACL 2026 in San Diego, asked systems to detect levels of psychological defense mechanisms in emotional support conversations (<a href="https://aclanthology.org/2026.bionlp-1.75/" target="_blank">overview paper</a>). It drew 172 registered participants, 563 submissions and 21 ranked teams, well beyond what we expected. The <a href="../../news/multipsyche-aacl-2026.html">MultiPsyche Workshop</a> at AACL-IJCNLP 2026 is the first workshop on multimodal, multilingual and multicultural mental health and psychotherapy. It takes place on 9 November in Hengqin, Zhuhai.
+      </p>
+      <p>
+        I also served as Publication Chair of EMNLP 2026 and Workshop Chair of NoDaLiDa 2027. At ELLIS Institute Finland and the University of Turku, I sat on the search committee for the institute's second PI and joined the buddy programme for new PIs. I am also on the secondment committee of the HAIF COFUND programme.
+      </p>
+      <p>
+        I gave two invited talks: <a href="../talk/20260629-multilingual-LM.pdf" target="_blank">Continual Training, Reasoning, and Evaluation in Multilingual LLMs</a> at the TruX Distinguished Seminar Series, University of Luxembourg (29 June 2026), and <a href="../talk/20260810-LLM-for-mental-health.pdf" target="_blank">Large Language Models for Scalable Mental Health Support</a> at the Planetary Health Symposium in Turku (10 August 2026).
+      </p>
+
+      <h3 class="title is-3" style="margin-top: 3.5rem; margin-bottom: 1.25rem;">Looking ahead</h3>
+      <p>
+        The coming year will be shaped by the FINe-Health Foundry and by releasing FineOPUS in full. I also want to keep the reasoning and memory work moving and scaling up, and to see the MSc and PhD students through their next milestones. Thank you to all my students, collaborators and colleagues at ELLIS Institute Finland, TurkuNLP, Helsinki-NLP and all collaborating institutions such as the University of Manchester, LMU Munich and Aalto University. If any of this work interests you, whether as a student, collaborator or sponsor, please <a href="../../join.html">get in touch</a>.
+      </p>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div>&copy; 2026 Omni Language AI Research.</div>
+    <div class="footer-logo-container">
+      <a href="https://turkunlp.org" target="_blank"><img src="../../images/logos/turkunlp.png" alt="TurkuNLP"
+          class="footer-logo" title="TurkuNLP"></a>
+      <a href="https://www.ellisinstitute.fi" target="_blank"><img
+          src="../../images/logos/ellis-logo_horizontal_black_2023-FINLAND.png" alt="ELLIS Institute Finland"
+          class="footer-logo" title="ELLIS Institute Finland"></a>
+      <a href="https://www.utu.fi/en" target="_blank"><img src="../../images/logos/UTU_logo_EN_RGB.png"
+          alt="University of Turku" class="footer-logo" title="University of Turku"></a>
+    </div>
+    <a href="https://github.com/OLAResearch"
+      style="color: inherit; font-size: 1.5rem; transition: var(--transition-smooth);"><i class="fab fa-github"></i></a>
+  </footer>
+
+  <script src="../../static/js/main.js"></script>
+
+</body>
+
+</html>
