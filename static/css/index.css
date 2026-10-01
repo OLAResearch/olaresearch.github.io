@@ -751,6 +751,67 @@ h1, h2, h3, h4, .serif {
   margin: 4rem 0;
 }
 
+/* Headline Figures
+   The two or three numbers that carry a paper's result at a glance, sitting
+   between the abstract and the method on a paper page. */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 1.5rem;
+  margin: 3rem 0 4rem;
+}
+
+.stat {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.75rem 1.5rem;
+  text-align: center;
+}
+
+.stat .num {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 4vw, 2rem);
+  line-height: 1.1;
+  color: var(--accent-earth);
+  margin-bottom: 0.6rem;
+}
+
+.stat .lab {
+  display: block;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+/* Collapsible Theory Notes
+   A formal result folded away so the narrative keeps moving: the summary
+   states the claim, the body carries the statement for whoever wants it. */
+.theory-note {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-left: 3px solid var(--accent-earth);
+  border-radius: 6px;
+  padding: 1rem 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.theory-note summary {
+  cursor: pointer;
+  color: var(--accent-earth);
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.theory-note[open] summary { margin-bottom: 0.8rem; }
+
+.theory-note p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
 /* Inline Text Links
    Links in body copy had no rule of their own, so they fell back to the
    browser's blue-and-purple defaults and were patched page by page with inline
