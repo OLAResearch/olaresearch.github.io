@@ -54,7 +54,7 @@ Advancing clinical information management through automated medical coding, pati
 
 *   **[Cross-Model Memory Transfer via Target-Side Reader Adaptation](https://www.olaresearch.org/XMemTransfer/)**
     *   *Authors*: Mingyuan Li, Guangsheng Yu, Xu Wang, Shaoxiong Ji
-    *   *Venue*: Preprint
+    *   *Venue*: NeurIPS 2026
     *   *Links*: [Paper URL](https://www.olaresearch.org/XMemTransfer/paper.pdf) | [Code](https://github.com/OLAResearch/XMemTransfer) | [Models](https://huggingface.co/collections/OLAResearchX/xmemtransfer)
     *   *Summary*: Investigates the portability of external memory structures (Engram) across different model backbones and tokenizers via target-side reader adaptation.
 
