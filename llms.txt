@@ -52,7 +52,7 @@ Advancing clinical information management through automated medical coding, pati
     *   *Links*: [Paper URL](https://arxiv.org/abs/2609.18587) | [Code](https://github.com/OLAResearch/LabelFreeSteering) | [Models](https://huggingface.co/collections/OLAResearchX/label-free-bias-only-steering)
     *   *Summary*: Shows that test-time reinforcement learning still works when both the reward and the optimization space are severely restricted: majority-vote pseudo-labels replace ground-truth rewards and only ~100K additive bias parameters are trained, reaching 76.67% on MATH-500 with 76,000x fewer trained parameters than full-parameter TTRL and a 16-18.5x cut in GPU-hours. The pseudo-label reward slightly exceeds its own labeled counterpart, the frozen bias vectors transfer to 4,500 held-out MATH problems (+22.9 to +24.6 points), and the same recipe carries across text, vision-language, and audio benchmarks.
 
-*   **[Cross-Model Memory Transfer via Target-Side Reader Adaptation](https://www.olaresearch.org/XMemTransfer/)**
+*   **[Frozen Memory Is Not Enough: Rethinking External Memory as Extraction](https://www.olaresearch.org/XMemTransfer/)**
     *   *Authors*: Mingyuan Li, Guangsheng Yu, Xu Wang, Shaoxiong Ji
     *   *Venue*: NeurIPS 2026
     *   *Links*: [Paper URL](https://www.olaresearch.org/XMemTransfer/paper.pdf) | [Code](https://github.com/OLAResearch/XMemTransfer) | [Models](https://huggingface.co/collections/OLAResearchX/xmemtransfer)
