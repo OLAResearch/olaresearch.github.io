@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Memory in LLMs and Agents - Omni Language AI Research">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Memory in LLMs and Agents | OLAResearch Project</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="../static/css/index.css">
+  <link rel="icon" href="../images/logos/olar.svg">
+  <style>
+    @media (max-width: 768px) {
+      .navbar-menu {
+        display: flex !important;
+        gap: 1.5rem;
+      }
+    }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LHSMW4F3Y"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LHSMW4F3Y');
+  </script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="../index.html">
+      <img src="../images/logos/olar.svg" alt="OLAR Home" style="height: 2rem;">
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <a class="navbar-item" href="index.html" style="display: flex; align-items: center; gap: 0.5rem; font-weight: 500;"><i class="fas fa-arrow-left"></i> Back to Projects</a>
+  </div>
+</nav>
+
+<header class="project-hero">
+  <div class="status-badge">Active Direction</div>
+  <h1 class="title is-1 paper-title-small">Memory in LLMs and Agents</h1>
+  <p class="subtitle">Building memory that language models and agents can store, transfer, generate, and use adaptively.</p>
+</header>
+
+<main class="container" style="padding: 4vw;">
+
+  <!-- Overview -->
+  <section class="narrative-section" style="background: var(--surface-color); border: 1px solid var(--border-color); padding: 4rem; border-radius: 12px; margin-bottom: 6rem;">
+    <div style="display: flex; gap: 4rem; align-items: flex-start; flex-wrap: wrap;">
+      <p class="lead" style="font-size: 1.1rem; margin-bottom: 0rem;">
+        Rather than storing all knowledge in model parameters or repeatedly retrieving raw text, we study <strong>memory as a reusable computational substrate</strong> for large language models and the agents built on them.
+      </p>
+      <p style="margin-bottom: 0; color: var(--text-secondary);">
+        The project has two parts: <strong>native model memory</strong>, which looks at learned memory modules inside language models, and <strong>memory mechanisms for LLM agents</strong>, which looks at how agents keep and use what they learn over long, multi-step interactions.
+      </p>
+    </div>
+  </section>
+
+  <!-- Part 1: Native Model Memory -->
+  <section class="narrative-section">
+    <h2 class="title is-2">Part 1: Native Model Memory</h2>
+    <p style="color: var(--text-secondary); margin-bottom: 3rem;">
+      Learned external memory can be separated from the backbone that produced it. We study whether such memory can be frozen and reused by different target models, and how a model should decide when to rely on retrieved memory and when to generate memory instead.
+    </p>
+    <div class="objective-grid">
+      <div class="objective-card">
+        <div class="icon"><i class="fas fa-exchange-alt"></i></div>
+        <h4>Portable Memory</h4>
+        <p>Detaching learned memory from its source model and reusing it across model families and tokenizers through lightweight, target-side readers.</p>
+      </div>
+      <div class="objective-card">
+        <div class="icon"><i class="fas fa-random"></i></div>
+        <h4>Adaptive Memory</h4>
+        <p>Routing between direct learned-memory retrieval and generated memories, so that generated memory acts as a selective correction rather than a replacement.</p>
+      </div>
+    </div>
+
+    <h3 class="title is-3" style="margin-top: 4rem;">Publications</h3>
+    <div class="publication-list">
+
+      <div class="publication-item">
+        <div class="publication-info">
+          <span class="venue">NeurIPS 2026</span>
+          <h5>Frozen Memory Is Not Enough: Rethinking External Memory as Extraction</h5>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">Mingyuan Li, Guangsheng Yu, Xu Wang, and Shaoxiong Ji</p>
+        </div>
+        <a href="../XMemTransfer/" class="btn-secondary" style="padding: 0.5rem 1.2rem; font-size: 0.7rem;">Read Paper</a>
+      </div>
+
+      <div class="publication-item">
+        <div class="publication-info">
+          <span class="venue">arXiv 2026</span>
+          <h5>MemoryATHENA: Adaptive Routing over Latent and Generated Memories</h5>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">Mingyuan Li, Guangsheng Yu, Juyuan Zhang, Xu Wang, Zhibo Man, Haonan Zhang, and Shaoxiong Ji</p>
+        </div>
+        <a href="../MemoryATHENA/" class="btn-secondary" style="padding: 0.5rem 1.2rem; font-size: 0.7rem;">Read Paper</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Part 2: Memory Mechanisms for LLM Agents -->
+  <section class="narrative-section">
+    <h2 class="title is-2">Part 2: Memory Mechanisms for LLM Agents</h2>
+    <p style="color: var(--text-secondary); margin-bottom: 3rem;">
+      Agents that act over many steps and sessions need to keep track of past actions, context, and acquired knowledge beyond a single context window. We study mechanisms for what agents should remember, how that memory is organized and retrieved, and how it is updated as tasks and environments change.
+    </p>
+    <div class="objective-grid">
+      <div class="objective-card">
+        <div class="icon"><i class="fas fa-pen"></i></div>
+        <h4>Writing &amp; Consolidation</h4>
+        <p>Deciding what an agent should store from its interactions, and how to summarize and consolidate experience into lasting memory.</p>
+      </div>
+      <div class="objective-card">
+        <div class="icon"><i class="fas fa-search"></i></div>
+        <h4>Retrieval &amp; Context Management</h4>
+        <p>Bringing the right memories into the context at the right time across long-horizon, multi-step tasks.</p>
+      </div>
+      <div class="objective-card">
+        <div class="icon"><i class="fas fa-sync"></i></div>
+        <h4>Updating &amp; Forgetting</h4>
+        <p>Keeping agent memory accurate and compact by revising outdated entries and discarding what is no longer useful.</p>
+      </div>
+    </div>
+    <p style="color: var(--text-secondary); margin-top: 3rem; text-align: center;">Publications from this part are in progress.</p>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div>&copy; 2026 Omni Language AI Research.</div>
+  <div class="footer-logo-container">
+    <a href="https://turkunlp.org" target="_blank"><img src="../images/logos/turkunlp.png" alt="TurkuNLP" class="footer-logo" title="TurkuNLP"></a>
+    <a href="https://www.ellisinstitute.fi" target="_blank"><img src="../images/logos/ellis-logo_horizontal_black_2023-FINLAND.png" alt="ELLIS Institute Finland" class="footer-logo" title="ELLIS Institute Finland"></a>
+    <a href="https://www.utu.fi/en" target="_blank"><img src="../images/logos/UTU_logo_EN_RGB.png" alt="University of Turku" class="footer-logo" title="University of Turku"></a>
+  </div>
+  <a href="https://github.com/OLAResearch" style="color: inherit; font-size: 1.5rem; transition: var(--transition-smooth);"><i class="fab fa-github"></i></a>
+</footer>
+
+<script src="../static/js/main.js"></script>
+
+</body>
+</html>

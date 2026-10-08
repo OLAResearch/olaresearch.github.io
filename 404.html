@@ -6,6 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>404 Not Found - Omni Language AI Research</title>
 
+  <script>
+    // Project pages moved under /projects/ — forward old URLs to the new location.
+    (function () {
+      var moved = /^\/(ai-mh\.html|ai4health\.html|fine-health-foundry\.html|multilingual-nlp\.html|nlp4health\.html)$/;
+      var path = window.location.pathname;
+      if (moved.test(path)) {
+        window.location.replace('/projects' + path + window.location.search + window.location.hash);
+      }
+    })();
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Inter:wght@300;400;500;600&display=swap"

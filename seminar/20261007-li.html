@@ -167,7 +167,7 @@
 
 <main class="container" style="padding: 2vw 4vw 8vw; max-width: 800px;">
   <div class="narrative-container">
-    <span class="status-badge" style="background: var(--accent-earth); margin-bottom: 1rem; display: inline-block;">Upcoming Seminar</span>
+    <span class="status-badge" style="background: var(--text-secondary); margin-bottom: 1rem; display: inline-block;">Past Seminar</span>
     
     <h2 class="title is-2" style="font-size: clamp(1.5rem, 3vw, 2.25rem); line-height: 1.3; margin-top: 0.5rem; margin-bottom: 1.5rem;">
       From Portable Memory to Adaptive Memory: Building Reusable Memory Interfaces for Large Language Models
@@ -188,25 +188,6 @@
       </div>
     </div>
     
-    <div class="zoom-callout">
-      <div class="zoom-callout-info">
-        <h4 class="title is-4" style="margin-bottom: 0.25rem; font-size: 1.15rem;">Hybrid Seminar Session</h4>
-        <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0; line-height: 1.5;">
-          Join us in room <strong>1171 TU3, Maarintie 8 (Aalto University)</strong> or join the online broadcast via Zoom (Meeting ID: 651 1686 8774).
-        </p>
-      </div>
-      <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center;">
-        <a href="https://utu.zoom.us/j/65116868774" target="_blank" class="btn-primary">
-          <i class="fas fa-video"></i> Join Zoom
-        </a>
-        <a href="20261007-li.ics" class="btn-calendar" style="padding: 0.75rem 1.5rem; font-size: 0.95rem;">
-          <i class="fas fa-calendar-alt" style="color: var(--accent-earth); margin-right: 0.25rem;"></i> iCal / ICS
-        </a>
-        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=TurkuNLP+Research+Seminar%3A+From+Portable+Memory+to+Adaptive+Memory%3A+Building+Reusable+Memory+Interfaces+for+Large+Language+Models&amp;dates=20261007T100000Z%2F20261007T110000Z&amp;details=Speaker%3A+Mingyuan+Li+%28ELLIS+Institute+Finland+%26+University+of+Turku%29%0A%0AAbstract%3A+Memory-augmented+language+models+offer+an+appealing+alternative+to+storing+all+knowledge+in+model+parameters+or+repeatedly+retrieving+raw+text+at+inference+time.+However%2C+two+fundamental+questions+remain+largely+unresolved%3A+Can+learned+memory+be+reused+across+different+language+models%2C+and+how+should+a+model+decide+when+and+how+to+use+that+memory%3F%0A%0AIn+this+talk%2C+I+will+present+our+recent+work+toward+building+portable+and+adaptive+memory+interfaces+for+large+language+models.+I+will+first+discuss+cross-model+memory+transfer%2C+where+a+learned+external+memory+is+detached+from+its+original+backbone%2C+frozen%2C+and+reused+by+a+different+target+model.+By+separating+memory+addressing%2C+storage%2C+and+reading%2C+we+show+that+useful+information+can+survive+the+removal+of+the+source+model%2C+but+effective+transfer+critically+depends+on+aligning+the+memory+with+the+target+model+through+a+lightweight+reader.+Across+heterogeneous+model+families%2C+frozen+memory+provides+consistent+gains%2C+while+stronger+target-side+readers+substantially+improve+downstream+knowledge+extraction.%0A%0AI+will+then+move+beyond+direct+memory+retrieval+and+introduce+MemoryAthena%2C+which+asks+whether+useful+memory+must+always+be+retrieved+from+storage+or+can+instead+be+generated+dynamically.+MemoryAthena+combines+direct+learned-memory+retrieval+with+two+generated-memory+pathways+and+treats+direct+retrieval+as+an+anchor.+A+lightweight+causal+router+predicts+when+generated+memories+are+likely+to+improve+upon+the+direct-memory+pathway+and+controls+how+strongly+they+intervene.+This+adaptive+routing+strategy+improves+both+question+answering+and+general+NLP+performance%2C+showing+that+generated+memory+is+most+effective+not+as+a+universal+replacement+for+retrieval%2C+but+as+a+selective+correction+to+it.%0A%0ATogether%2C+these+studies+suggest+a+broader+view+of+memory+for+language+models%3A+rather+than+treating+memory+as+a+model-specific+component+or+a+passive+datastore%2C+we+can+view+it+as+a+reusable+computational+substrate+whose+knowledge+can+be+transferred%2C+interpreted%2C+generated%2C+and+adaptively+routed+across+models.+I+will+conclude+by+discussing+how+this+perspective+may+enable+modular+knowledge+sharing%2C+continual+adaptation%2C+and+self-evolving+language-model+systems.%0A%0AJoin+Zoom+Link%3A+https%3A%2F%2Futu.zoom.us%2Fj%2F65116868774+%28Meeting+ID%3A+651+1686+8774%29%0A%0ADetails%3A+https%3A%2F%2Fwww.olaresearch.org%2Fseminar%2F20261007-li.html&amp;location=Maarintie+8%2C+1171+TU3%2C+Aalto+University+or+Zoom+%28https%3A%2F%2Futu.zoom.us%2Fj%2F65116868774%29" target="_blank" class="btn-calendar" style="padding: 0.75rem 1.5rem; font-size: 0.95rem;">
-          <i class="fab fa-google" style="color: var(--accent-earth); margin-right: 0.25rem;"></i> Google Calendar
-        </a>
-      </div>
-    </div>
     
     <h3 class="title is-3" style="margin-top: 2.5rem; margin-bottom: 1rem;">Abstract</h3>
     <p style="line-height: 1.7; margin-bottom: 1.5rem; text-align: justify;">
@@ -221,6 +202,12 @@
     <p style="line-height: 1.7; margin-bottom: 1.5rem; text-align: justify;">
       Together, these studies suggest a broader view of memory for language models: rather than treating memory as a model-specific component or a passive datastore, we can view it as a <strong>reusable computational substrate</strong> whose knowledge can be transferred, interpreted, generated, and adaptively routed across models. I will conclude by discussing how this perspective may enable modular knowledge sharing, continual adaptation, and self-evolving language-model systems.
     </p>
+
+    <div style="margin-top: 2rem; margin-bottom: 2rem; display: flex; flex-wrap: wrap; gap: 1rem;">
+      <a href="slides/Memory.pdf" target="_blank" class="btn-primary" style="padding: 0.75rem 1.5rem; font-size: 0.95rem;">
+        <i class="fas fa-file-pdf" style="margin-right: 0.5rem;"></i> View Slides
+      </a>
+    </div>
 
     <h3 class="title is-3" style="margin-top: 2.5rem; margin-bottom: 1rem;">Related Papers</h3>
     <div class="research-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 0; margin-bottom: 2rem;">
