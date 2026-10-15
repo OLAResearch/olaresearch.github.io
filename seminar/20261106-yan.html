@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="TurkuNLP Research Seminar - Learning to Remember: Adaptive Memory for Long-Horizon Language and Multimodal Agents by Sikuan Yan.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seminar Details | TurkuNLP Research Seminar</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="../static/css/index.css">
+  <link rel="icon" href="../images/logos/olar.svg">
+  <style>
+    .seminar-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .meta-item {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+    
+    .meta-item i {
+      color: var(--accent-earth);
+      font-size: 1.15rem;
+      width: 1.25rem;
+      text-align: center;
+    }
+    
+    .zoom-callout {
+      background: rgba(179, 147, 113, 0.06);
+      border-left: 4px solid var(--accent-earth);
+      border-radius: 4px;
+      padding: 1rem 1.25rem;
+      margin: 2rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .zoom-callout-info {
+      flex: 1;
+      min-width: 250px;
+    }
+    
+    .speaker-section {
+      display: flex;
+      gap: 2rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-color);
+    }
+    
+    .speaker-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: var(--text-secondary);
+      flex-shrink: 0;
+    }
+    
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--text-primary);
+      color: var(--bg-color);
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition-smooth);
+      font-size: 0.95rem;
+    }
+    
+    .btn-primary:hover {
+      background: var(--accent-earth);
+      transform: translateY(-2px);
+      color: var(--bg-color);
+    }
+
+    .btn-calendar {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--surface-color);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+      padding: 0.5rem 1.25rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.85rem;
+      transition: var(--transition-smooth);
+    }
+    
+    .btn-calendar:hover {
+      background: var(--accent-earth);
+      color: var(--bg-color) !important;
+      border-color: var(--accent-earth);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .navbar-menu {
+        display: flex !important;
+        gap: 1.5rem;
+      }
+      .seminar-card {
+        padding: 2rem 1.5rem;
+      }
+      .speaker-section {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .speaker-avatar {
+        align-self: center;
+      }
+    }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LHSMW4F3Y"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5LHSMW4F3Y');
+  </script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="../index.html">
+      <img src="../images/logos/olar.svg" alt="OLAR Home" style="height: 2rem;">
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <a class="navbar-item" href="index.html" style="display: flex; align-items: center; gap: 0.5rem; font-weight: 500;"><i class="fas fa-arrow-left"></i> Back to Seminars</a>
+  </div>
+</nav>
+
+<header class="project-hero" style="text-align: center; margin: 0 auto; padding: 6vw 4vw 2vw;">
+  <span class="status-badge" style="background: var(--accent-sage);">Seminar Session</span>
+  <h1 class="title is-1 paper-title-small" style="font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.2; margin-top: 1rem;">TurkuNLP Research Seminar</h1>
+  <p class="subtitle" style="margin-top: 1.5rem; font-size: 1.05rem;">A collaborative forum co-organized with TurkuNLP featuring distinguished talks in NLP and AI.</p>
+</header>
+
+<main class="container" style="padding: 2vw 4vw 8vw; max-width: 800px;">
+  <div class="narrative-container">
+    <span class="status-badge" style="background: var(--accent-earth); margin-bottom: 1rem; display: inline-block;">Upcoming Seminar</span>
+    
+    <h2 class="title is-2" style="font-size: clamp(1.5rem, 3vw, 2.25rem); line-height: 1.3; margin-top: 0.5rem; margin-bottom: 1.5rem;">
+      Learning to Remember: Adaptive Memory for Long-Horizon Language and Multimodal Agents
+    </h2>
+    
+    <div class="seminar-meta">
+      <div class="meta-item">
+        <i class="fas fa-user"></i>
+        <span><strong>Speaker:</strong> Sikuan Yan (LMU Munich)</span>
+      </div>
+      <div class="meta-item">
+        <i class="fas fa-calendar-alt"></i>
+        <span><strong>Time:</strong> Friday, November 6, 2026, 16:00 - 17:00 (UTC+2)</span>
+      </div>
+      <div class="meta-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <span><strong>Place:</strong> Zoom (online only)</span>
+      </div>
+    </div>
+    
+    <div class="zoom-callout">
+      <div class="zoom-callout-info">
+        <h4 class="title is-4" style="margin-bottom: 0.25rem; font-size: 1.15rem;">Online Seminar Session</h4>
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0; line-height: 1.5;">
+          This seminar is held online only. Join via Zoom (Meeting ID: 611 3259 9577).
+        </p>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center;">
+        <a href="https://utu.zoom.us/j/61132599577" target="_blank" class="btn-primary">
+          <i class="fas fa-video"></i> Join Zoom
+        </a>
+        <a href="20261106-yan.ics" class="btn-calendar" style="padding: 0.75rem 1.5rem; font-size: 0.95rem;">
+          <i class="fas fa-calendar-alt" style="color: var(--accent-earth); margin-right: 0.25rem;"></i> iCal / ICS
+        </a>
+        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=TurkuNLP+Research+Seminar%3A+Learning+to+Remember%3A+Adaptive+Memory+for+Long-Horizon+Language+and+Multimodal+Agents&amp;dates=20261106T140000Z%2F20261106T150000Z&amp;details=Speaker%3A+Sikuan+Yan+%28LMU+Munich%29%0A%0AAbstract%3A+Large+language+model+agents+are+increasingly+expected+to+operate+over+interactions+and+experiences+that+extend+far+beyond+their+context+windows.+Building+effective+long-term+memory%2C+however%2C+requires+more+than+simply+storing+additional+information%3A+an+agent+must+learn+what+to+remember%2C+how+to+organize+its+experience%2C+and+how+to+assign+credit+to+memory+decisions+whose+consequences+may+only+become+apparent+much+later.%0A%0AIn+this+talk%2C+I+will+present+three+works+that+address+these+challenges+from+complementary+perspectives.+Memory-R1+formulates+memory+management+and+utilization+as+learned+policies+optimized+through+outcome-driven+reinforcement+learning%2C+enabling+agents+to+decide+when+to+add%2C+update%2C+delete%2C+or+retain+information+and+how+to+reason+over+retrieved+memories.+PyraVid+extends+this+perspective+to+multimodal+experience+by+organizing+long+videos+into+a+coarse-to-fine+event+hierarchy%2C+supporting+structured+retrieval+and+evidence+aggregation+across+different+temporal+granularities.+Finally%2C+Memory-R2+investigates+reinforcement+learning+in+environments+where+an+agent%E2%80%99s+memory+continuously+changes+its+future+state.+It+introduces+local+and+global+group-relative+optimization+to+provide+fairer+credit+assignment+for+individual+memory+operations+while+preserving+end-to-end+learning+over+long+interaction+horizons.%0A%0ATogether%2C+these+works+explore+how+memory+systems+can+move+beyond+static+retrieval+pipelines+toward+adaptive%2C+structured%2C+and+trainable+components+of+persistent+agents.%0A%0AJoin+Zoom+Link%3A+https%3A%2F%2Futu.zoom.us%2Fj%2F61132599577+%28Meeting+ID%3A+611+3259+9577%29%0A%0ADetails%3A+https%3A%2F%2Fwww.olaresearch.org%2Fseminar%2F20261106-yan.html&amp;location=Zoom+%28https%3A%2F%2Futu.zoom.us%2Fj%2F61132599577%29" target="_blank" class="btn-calendar" style="padding: 0.75rem 1.5rem; font-size: 0.95rem;">
+          <i class="fab fa-google" style="color: var(--accent-earth); margin-right: 0.25rem;"></i> Google Calendar
+        </a>
+      </div>
+    </div>
+    
+    <h3 class="title is-3" style="margin-top: 2.5rem; margin-bottom: 1rem;">Abstract</h3>
+    <p style="line-height: 1.7; margin-bottom: 1.5rem; text-align: justify;">
+      Large language model agents are increasingly expected to operate over interactions and experiences that extend far beyond their context windows. Building effective long-term memory, however, requires more than simply storing additional information: an agent must learn what to remember, how to organize its experience, and how to assign credit to memory decisions whose consequences may only become apparent much later.
+    </p>
+    <p style="line-height: 1.7; margin-bottom: 1.5rem; text-align: justify;">
+      In this talk, I will present three works that address these challenges from complementary perspectives. <strong>Memory-R1</strong> formulates memory management and utilization as learned policies optimized through outcome-driven reinforcement learning, enabling agents to decide when to add, update, delete, or retain information and how to reason over retrieved memories. <strong>PyraVid</strong> extends this perspective to multimodal experience by organizing long videos into a coarse-to-fine event hierarchy, supporting structured retrieval and evidence aggregation across different temporal granularities. Finally, <strong>Memory-R2</strong> investigates reinforcement learning in environments where an agent’s memory continuously changes its future state. It introduces local and global group-relative optimization to provide fairer credit assignment for individual memory operations while preserving end-to-end learning over long interaction horizons.
+    </p>
+    <p style="line-height: 1.7; margin-bottom: 1.5rem; text-align: justify;">
+      Together, these works explore how memory systems can move beyond static retrieval pipelines toward adaptive, structured, and trainable components of persistent agents.
+    </p>
+
+    <div class="speaker-section">
+      <div class="speaker-avatar">
+        <i class="fas fa-user-tie"></i>
+      </div>
+      <div>
+        <h4 class="title is-4" style="margin-bottom: 0.5rem;">About the Speaker</h4>
+        <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-secondary); text-align: justify; margin: 0; margin-bottom: 1.25rem;">
+          <strong>Sikuan Yan</strong> is a Ph.D. candidate in Artificial Intelligence at <strong>LMU Munich</strong>, advised by Prof. Volker Tresp, and a researcher at the <strong>Munich Center for Machine Learning</strong>. His research focuses on agent memory, agentic reinforcement learning, multimodal agents, and multi-agent systems. In particular, he studies how intelligent agents can construct, organize, and evolve memory over long interaction horizons, and how reinforcement learning can enable agents to improve these processes from delayed outcome-based feedback. He received his M.Sc. in Informatics from LMU Munich and his B.Sc. in Informatics from the Technical University of Munich.
+        </p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div>&copy; 2026 Omni Language AI Research.</div>
+  <div class="footer-logo-container">
+    <a href="https://turkunlp.org" target="_blank"><img src="../images/logos/turkunlp.png" alt="TurkuNLP" class="footer-logo" title="TurkuNLP"></a>
+    <a href="https://www.ellisinstitute.fi" target="_blank"><img src="../images/logos/ellis-logo_horizontal_black_2023-FINLAND.png" alt="ELLIS Institute Finland" class="footer-logo" title="ELLIS Institute Finland"></a>
+    <a href="https://www.utu.fi/en" target="_blank"><img src="../images/logos/UTU_logo_EN_RGB.png" alt="University of Turku" class="footer-logo" title="University of Turku"></a>
+  </div>
+  <a href="https://github.com/OLAResearch" style="color: inherit; font-size: 1.5rem; transition: var(--transition-smooth);"><i class="fab fa-github"></i></a>
+</footer>
+
+<script src="../static/js/main.js"></script>
+
+</body>
+</html>

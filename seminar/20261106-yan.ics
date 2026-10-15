@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//OLAR Research//TurkuNLP Research Seminar//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+SUMMARY:TurkuNLP Research Seminar: Learning to Remember: Adaptive Memory for Long-Horizon Language and Multimodal Agents
+UID:turkunlp-seminar-sikuan-yan-20261106@olaresearch.github.io
+SEQUENCE:0
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+DTSTART:20261106T140000Z
+DTEND:20261106T150000Z
+DTSTAMP:20261015T124951Z
+LOCATION:Zoom (https://utu.zoom.us/j/61132599577)
+DESCRIPTION:Speaker: Sikuan Yan (LMU Munich)\n\nAbstract: Large language model agents are increasingly expected to operate over interactions and experiences that extend far beyond their context windows. Building effective long-term memory\, however\, requires more than simply storing additional information: an agent must learn what to remember\, how to organize its experience\, and how to assign credit to memory decisions whose consequences may only become apparent much later.\n\nIn this talk\, I will present three works that address these challenges from complementary perspectives. Memory-R1 formulates memory management and utilization as learned policies optimized through outcome-driven reinforcement learning\, enabling agents to decide when to add\, update\, delete\, or retain information and how to reason over retrieved memories. PyraVid extends this perspective to multimodal experience by organizing long videos into a coarse-to-fine event hierarchy\, supporting structured retrieval and evidence aggregation across different temporal granularities. Finally\, Memory-R2 investigates reinforcement learning in environments where an agent’s memory continuously changes its future state. It introduces local and global group-relative optimization to provide fairer credit assignment for individual memory operations while preserving end-to-end learning over long interaction horizons.\n\nTogether\, these works explore how memory systems can move beyond static retrieval pipelines toward adaptive\, structured\, and trainable components of persistent agents.\n\nJoin Zoom Link: https://utu.zoom.us/j/61132599577 (Meeting ID: 611 3259 9577)\n\nDetails: https://www.olaresearch.org/seminar/20261106-yan.html
+URL:https://www.olaresearch.org/seminar/20261106-yan.html
+END:VEVENT
+END:VCALENDAR
