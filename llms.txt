@@ -24,8 +24,8 @@ Developing next-generation AI systems for pathology, treatment optimization, and
 ### [AI for Mental Health](https://www.olaresearch.org/projects/ai-mh.html)
 Advancing automated mental health analysis through domain-specific LLMs, emotional analysis, and resource-driven modeling.
 
-### [Memory in LLMs and Agents](https://www.olaresearch.org/projects/llm-memory.html)
-Two parts: native model memory (portable, frozen memory reused across models via target-side readers, and adaptive routing between retrieved and generated memories; see XMemTransfer and MemoryATHENA), and memory mechanisms for LLM agents.
+### [Mnemosyne: Memory for LLMs and Agents](https://www.olaresearch.org/projects/mnemosyne.html)
+Two parts: Anamnesis, native model memory (portable, frozen memory reused across models via target-side readers, and adaptive routing between retrieved and generated memories; see XMemTransfer and MemoryATHENA), and Memory Palace, memory mechanisms for LLM agents.
 
 ### [Multilingual NLP](https://www.olaresearch.org/projects/multilingual-nlp.html)
 Multilingual NLP for low-resource languages, ensuring global applicability of language technology.
