@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//OLAR Research//HAIF Seminar Series//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+SUMMARY:HAIF Seminar Series: Label-Free Steering: Compressing Test-Time Reinforcement Learning into Bias-Only Subspaces
+UID:haif-seminar-naveen-vakada-20261111@olaresearch.github.io
+SEQUENCE:0
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+DTSTART:20261111T083000Z
+DTEND:20261111T090000Z
+DTSTAMP:20261027T090000Z
+LOCATION:Säästöpankki lecture room\, Main Building (1st floor)\, University of Turku / Zoom (https://utu.zoom.us/j/66723983300)
+DESCRIPTION:Speaker: Naveen Vakada (University of Turku)\n\nAbstract: Test-time reinforcement learning (TTRL) lets models improve their reasoning without labelled data\, but usually updates a large share of the model’s parameters. This study asks whether adaptation still works when both the reward and the trainable parameters are severely restricted. Label-free bias-only TTRL rewards the model with majority-vote pseudo-labels and tunes only ~100K bias parameters\, keeping the pretrained backbone frozen. With Qwen2.5-7B it reaches 76.67% accuracy on MATH-500 while training 76\,000× fewer parameters than full-parameter TTRL\, also improves vision-language and audio reasoning\, and transfers to 4\,500 unseen MATH problems.\n\nVenue: Säästöpankki lecture room\, Main Building (1st floor)\, University of Turku / Zoom\n\nJoin Zoom Link: https://utu.zoom.us/j/66723983300 (Meeting ID: 667 2398 3300)\n\nDetails: https://www.olaresearch.org/seminar/20261111-vakada.html
+URL:https://www.olaresearch.org/seminar/20261111-vakada.html
+END:VEVENT
+END:VCALENDAR

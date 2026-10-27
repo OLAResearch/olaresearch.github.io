@@ -47,7 +47,7 @@ Advancing clinical information management through automated medical coding, pati
 
 *   **[Reasoning over Grammar: Can Synthetic Linguistic Reasoning Traces Enhance Low-Resource Machine Translation?](https://www.olaresearch.org/LingReason/)**
     *   *Authors*: Renhao Pei, Yihong Liu, Sampo Pyysalo, Hinrich Schuetze, Shaoxiong Ji
-    *   *Venue*: Preprint / arXiv 2606.03782
+    *   *Venue*: EMNLP 2026 Findings
     *   *Links*: [Paper URL](https://arxiv.org/abs/2606.03782) | [Code](https://github.com/OLAResearch/LingReason) | [Dataset](https://huggingface.co/datasets/OLAResearchX/LingReason)
     *   *Summary*: Proposes a pipeline for automatically generating step-by-step linguistic reasoning traces from Universal Dependencies treebanks, dictionaries, and grammar-rule banks to improve low-resource machine translation.
 
