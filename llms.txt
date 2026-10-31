@@ -63,6 +63,12 @@ Advancing clinical information management through automated medical coding, pati
     *   *Links*: [Paper URL](https://www.olaresearch.org/XMemTransfer/paper.pdf) | [Code](https://github.com/OLAResearch/XMemTransfer) | [Models](https://huggingface.co/collections/OLAResearchX/xmemtransfer)
     *   *Summary*: Investigates the portability of external memory structures (Engram) across different model backbones and tokenizers via target-side reader adaptation.
 
+*   **[MemoryATHENA: Adaptive Routing over Latent and Generated Memories](https://www.olaresearch.org/MemoryATHENA/)**
+    *   *Authors*: Mingyuan Li, Guangsheng Yu, Juyuan Zhang, Xu Wang, Zhibo Man, Haonan Zhang, Shaoxiong Ji
+    *   *Venue*: Preprint / arXiv 2609.25853
+    *   *Links*: [Paper URL](https://arxiv.org/abs/2609.25853) | [Code](https://github.com/OLAResearch/ATHENA) | [Models](https://huggingface.co/collections/OLAResearchX/memoryathena) | [Dataset](https://huggingface.co/datasets/OLAResearchX/MemoryATHENA)
+    *   *Summary*: A memory interface with three pathways (direct Engram retrieval, generation from retrieved Engram cues, and generation from backbone states) plus a lightweight causal routing head that learns when generated memory should modify the direct retrieval pathway, raising the five-task QA average from 37.65 to 39.28.
+
 *   **[Test-Time Scaling of Reasoning Models for Machine Translation](https://www.olaresearch.org/TTS4MT/)**
     *   *Authors*: Zihao Li, Shaoxiong Ji, Jörg Tiedemann
     *   *Venue*: EACL 2026 (Long Papers)
@@ -158,3 +164,9 @@ Advancing clinical information management through automated medical coding, pati
 *   **[Zhibo Man](https://www.utu.fi/en/people/zhibo-man)** (Postdoctoral Researcher)
     *   *Affiliations*: ELLIS Institute Finland & University of Turku
     *   *Interests*: NLP
+*   **[Chenxin Chen](https://www.utu.fi/en/people/chenxin-chen)** (Doctoral Researcher)
+    *   *Affiliations*: University of Turku (co-supervised with Pasi Liljeberg)
+    *   *Interests*: AI for Health
+*   **Haonan Zhang** (Visiting PhD Researcher)
+    *   *Affiliations*: Shanghai Jiao Tong University
+    *   *Interests*: AI for Health
