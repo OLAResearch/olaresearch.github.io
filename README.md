@@ -54,7 +54,7 @@ To add a personal bio page for a team member:
 ### 2. Configure Relative Paths
 Since the page is nested inside a subdirectory, make sure all relative asset paths in your HTML file point back to the root correctly:
 *   Main stylesheet: `<link rel="stylesheet" href="../static/css/index.css">`
-*   Brand logo: `<img src="../images/logos/olar.svg" ...>`
+*   Brand logo: `<img src="../images/logos/olaresearch.svg" ...>`
 *   Main JavaScript file: `<script src="../static/js/main.js"></script>`
 
 ### 3. Add to the Homepage Team Grid
