@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script src="./static/js/theme.js"></script>
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./images/logos/olaresearch.svg">
 
@@ -20,6 +21,20 @@
       --dir-mm:   #758273;   /* sage   - multimodal   */
       --dir-med:  #a8766c;   /* clay   - health       */
       --fig-ink:  #c4bcae;
+      /* node fills tinted toward each direction */
+      --tint-lang: #fbf7f1;
+      --tint-mm:   #f5f7f5;
+      --tint-med:  #fbf5f3;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --dir-lang: #c9a77f; --dir-mm: #9aab96; --dir-med: #c4948a; --fig-ink: #5c574f;
+        --tint-lang: #2a251e; --tint-mm: #212620; --tint-med: #2a2120;
+      }
+    }
+    :root[data-theme="dark"] {
+      --dir-lang: #c9a77f; --dir-mm: #9aab96; --dir-med: #c4948a; --fig-ink: #5c574f;
+      --tint-lang: #2a251e; --tint-mm: #212620; --tint-med: #2a2120;
     }
 
     /* ---- Inline schematic figures ---- */
@@ -42,8 +57,8 @@
     .fg-small { font-size: 10.5px; fill: var(--text-secondary); }
     .fg-node { font-size: 11.5px; fill: var(--text-primary); }
     .fg-card { fill: var(--surface-color); stroke: var(--border-color); stroke-width: 1.5; }
-    .fg-inner { fill: #f6f3ed; stroke: var(--border-color); stroke-width: 1.2; }
-    .fg-band { fill: #f6f3ed; stroke: var(--border-color); stroke-width: 1.5; }
+    .fg-inner { fill: var(--subtle-bg); stroke: var(--border-color); stroke-width: 1.2; }
+    .fg-band { fill: var(--subtle-bg); stroke: var(--border-color); stroke-width: 1.5; }
     .fg-rule { stroke: var(--border-color); stroke-width: 1; }
     .fg-line { fill: none; stroke: var(--fig-ink); stroke-width: 1.5; }
     .fg-line-strong { fill: none; stroke: var(--accent-earth); stroke-width: 2.2; }
@@ -86,7 +101,7 @@
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       font-size: 1rem;
-      background: #f6f3ed;
+      background: var(--subtle-bg);
       border: 1px solid var(--border-color);
     }
 
@@ -140,7 +155,7 @@
       flex-wrap: wrap;
       transition: var(--transition-smooth);
     }
-    .pub-callout:hover { border-color: var(--accent-earth); box-shadow: 0 10px 24px rgba(0,0,0,0.03); }
+    .pub-callout:hover { border-color: var(--accent-earth); box-shadow: 0 10px 24px var(--shadow); }
     .pub-callout h4 { font-family: var(--font-serif); font-size: 1.35rem; font-weight: 400; margin: 0 0 0.35rem; }
     .pub-callout p { margin: 0; font-size: 0.9rem; color: var(--text-secondary); }
     .pub-callout-text { flex: 1 1 320px; min-width: 0; }
@@ -190,13 +205,13 @@
       height: auto;
       width: auto;
       object-fit: contain;
-      filter: grayscale(100%);
+      filter: var(--logo-filter);
       opacity: 0.6;
       transition: all 0.3s ease;
     }
 
     .collaborator-item-card:hover .collaborator-logo-img {
-      filter: grayscale(0%);
+      filter: var(--logo-filter-hover);
       opacity: 0.95;
     }
 
@@ -240,7 +255,8 @@
 </nav>
 
 <header class="project-hero" style="text-align: center; margin: 0 auto;">
-  <img src="images/logos/olaresearch-lockup-horizontal-light.svg" alt="OLAResearch: Omni Language AI Research" style="display: block; width: 100%; max-width: 420px; height: auto; margin: 1.5rem auto 2rem;">
+  <img src="images/logos/olaresearch-lockup-horizontal-light.svg" alt="OLAResearch: Omni Language AI Research" class="theme-light-only" style="display: block; width: 100%; max-width: 420px; height: auto; margin: 1.5rem auto 2rem;">
+  <img src="images/logos/olaresearch-lockup-horizontal-dark.svg" alt="OLAResearch: Omni Language AI Research" class="theme-dark-only" style="display: block; width: 100%; max-width: 420px; height: auto; margin: 1.5rem auto 2rem;">
   <p class="subtitle">Understanding our mission, our collaborative network, and the organizations supporting our vision.</p>
 </header>
 
@@ -272,7 +288,7 @@
 
             <defs>
               <marker id="hub-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
-                <path d="M0 0 L10 5 L0 10 z" fill="#c4bcae"/>
+                <path d="M0 0 L10 5 L0 10 z" style="fill: var(--fig-ink)"/>
               </marker>
             </defs>
 
@@ -397,7 +413,7 @@
 
             <defs>
               <marker id="f1-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
-                <path d="M0 0 L10 5 L0 10 z" fill="#c4bcae"/>
+                <path d="M0 0 L10 5 L0 10 z" style="fill: var(--fig-ink)"/>
               </marker>
             </defs>
 
@@ -452,7 +468,7 @@
             <path d="M690 88 L690 126" class="fg-line-strong"/>
             <path d="M690 88 L762 126" class="fg-line"/>
             <rect x="582" y="130" width="66" height="28" rx="8" class="fg-inner"/>
-            <rect x="657" y="130" width="66" height="28" rx="8" fill="#fbf7f1" stroke="var(--accent-earth)" stroke-width="1.6"/>
+            <rect x="657" y="130" width="66" height="28" rx="8" style="fill: var(--tint-lang)" stroke="var(--accent-earth)" stroke-width="1.6"/>
             <rect x="732" y="130" width="66" height="28" rx="8" class="fg-inner"/>
             <text x="615" y="149" class="fg-small" text-anchor="middle">path A</text>
             <text x="690" y="149" class="fg-small" text-anchor="middle">path B</text>
@@ -501,7 +517,7 @@
 
             <defs>
               <marker id="f2-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
-                <path d="M0 0 L10 5 L0 10 z" fill="#c4bcae"/>
+                <path d="M0 0 L10 5 L0 10 z" style="fill: var(--fig-ink)"/>
               </marker>
             </defs>
 
@@ -568,7 +584,7 @@
             <path d="M431 87 L450 95" class="fg-dot" stroke="var(--dir-mm)" opacity="0.75"/>
             <path d="M431 133 L484 118" class="fg-dot" stroke="var(--dir-mm)" opacity="0.75"/>
             <path d="M375 194 L375 216" class="fg-line" marker-end="url(#f2-arrow)"/>
-            <rect x="300" y="220" width="150" height="32" rx="8" fill="#f5f7f5" stroke="var(--dir-mm)" stroke-width="1.5"/>
+            <rect x="300" y="220" width="150" height="32" rx="8" style="fill: var(--tint-mm)" stroke="var(--dir-mm)" stroke-width="1.5"/>
             <text x="375" y="240" class="fg-node" text-anchor="middle">grounded answer</text>
 
             <path d="M536 160 L564 160" class="fg-line" marker-end="url(#f2-arrow)"/>
@@ -621,7 +637,7 @@
 
             <defs>
               <marker id="f3-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
-                <path d="M0 0 L10 5 L0 10 z" fill="#c4bcae"/>
+                <path d="M0 0 L10 5 L0 10 z" style="fill: var(--fig-ink)"/>
               </marker>
             </defs>
 
@@ -697,7 +713,7 @@
             <rect x="586" y="62" width="150" height="38" rx="12" class="fg-inner"/>
             <rect x="598" y="74" width="106" height="5" rx="2.5" fill="var(--fig-ink)"/>
             <rect x="598" y="85" width="74" height="5" rx="2.5" fill="var(--fig-ink)"/>
-            <rect x="644" y="108" width="150" height="38" rx="12" fill="#fbf5f3" stroke="var(--dir-med)" stroke-width="1.4"/>
+            <rect x="644" y="108" width="150" height="38" rx="12" style="fill: var(--tint-med)" stroke="var(--dir-med)" stroke-width="1.4"/>
             <rect x="656" y="120" width="98" height="5" rx="2.5" fill="var(--dir-med)" opacity="0.55"/>
             <rect x="656" y="131" width="58" height="5" rx="2.5" fill="var(--dir-med)" opacity="0.55"/>
             <text x="586" y="178" class="fg-small">detect &#183; support &#183; monitor</text>
@@ -830,7 +846,7 @@
 
       <div style="flex: 1; min-width: 220px; max-width: 280px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.8rem;">
         <a href="https://foundationps.com" target="_blank" style="height: 55px; width: 100%; max-width: 220px; display: flex; align-items: center; justify-content: center; background: #292826; border-radius: 6px; padding: 0.5rem; text-decoration: none;">
-          <img src="images/logos/202505-Foundation-PS-Logo-White.svg" alt="Foundation PS" class="footer-logo" style="height: 40px; width: auto; object-fit: contain;">
+          <img src="images/logos/202505-Foundation-PS-Logo-White.svg" alt="Foundation PS" class="footer-logo no-invert" style="height: 40px; width: auto; object-fit: contain;">
         </a>
         <div style="font-size: 0.85rem; font-weight: 600; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 0.5rem;">Foundation PS</div>
         <p style="font-size: 0.8rem; color: var(--text-secondary); margin: 0; line-height: 1.4;">Supporting AI research excellence and competitiveness.</p>

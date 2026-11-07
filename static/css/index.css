@@ -24,12 +24,177 @@
   --discord-bg-hover: #e1e3fb;
   --discord-fg: #363da8;
   --discord-border: #cfd3f8;
-  
+
+  /* Surfaces and inks that used to be hard-coded. Light values are the
+     originals (the Bulma ones match Bulma 0.9.1), so light mode is unchanged. */
+  --on-accent: #ffffff;              /* text on an accent-filled badge/button */
+  --nav-bg: rgba(253, 252, 249, 0.8);
+  --nav-menu-bg: rgba(253, 252, 249, 0.98);
+  --hero-glow: rgba(179, 147, 113, 0.12);
+  --subtle-bg: #f6f3ed;              /* recessed fill: icons, figure bands */
+  --code-bg: #f3efe9;
+  --table-head-bg: #faf8f5;
+  --figure-bg: #ffffff;              /* figures stay on paper in both themes */
+  --caption-bg: rgba(253, 252, 249, 0.9);
+  --link-rule: rgba(179, 147, 113, 0.4);
+  --shadow: rgba(0, 0, 0, 0.03);
+  /* Partner logos are dark artwork, shown greyscale and tinted on hover */
+  --logo-filter: grayscale(100%);
+  --logo-filter-hover: grayscale(0%);
+  /* People's photos: no-op in light, dimmed a little in dark */
+  --avatar-filter: brightness(1);
+
+  color-scheme: light;
+
   --font-serif: 'Castoro', 'Georgia', serif;
   --font-sans: 'Inter', 'Noto Sans', -apple-system, "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
   
   --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
+/* Dark theme
+   Warm charcoal, keeping the light theme's earth/sage palette, lifted for
+   contrast on a dark ground. Follows the OS setting unless the visitor has
+   picked a theme with the navbar toggle (static/js/theme.js sets data-theme).
+   The token list is repeated because one selector cannot cover both cases. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg-color: #161513;
+    --text-primary: #ebe6dd;
+    --text-secondary: #a59f95;
+    --accent-earth: #c9a77f;
+    --accent-sage: #9aab96;
+    --surface-color: #1e1c19;
+    --border-color: #34302a;
+
+    --gh-bg: #23252a;
+    --gh-bg-hover: #2c2f35;
+    --gh-fg: #e6e8eb;
+    --gh-border: #3a3d44;
+    --hf-bg: #2d2510;
+    --hf-bg-hover: #3a3015;
+    --hf-fg: #f5d06a;
+    --hf-border: #574618;
+    --portal-bg: #1e281d;
+    --portal-bg-hover: #263325;
+    --portal-fg: #b7cbb3;
+    --portal-border: #384a36;
+    --discord-bg: #1e2040;
+    --discord-bg-hover: #272a52;
+    --discord-fg: #bcc1fa;
+    --discord-border: #3a3f7a;
+
+    --on-accent: #161513;
+    --nav-bg: rgba(22, 21, 19, 0.8);
+    --nav-menu-bg: rgba(22, 21, 19, 0.98);
+    --hero-glow: rgba(201, 167, 127, 0.10);
+    --subtle-bg: #25221e;
+    --code-bg: #2a2722;
+    --table-head-bg: #23201c;
+    --figure-bg: #f4f1ea;
+    --caption-bg: rgba(22, 21, 19, 0.9);
+    --link-rule: rgba(201, 167, 127, 0.45);
+    --shadow: rgba(0, 0, 0, 0.35);
+    --logo-filter: grayscale(100%) invert(1);
+    --logo-filter-hover: grayscale(100%) invert(1);
+    --avatar-filter: brightness(0.82) contrast(1.05) saturate(0.9);
+
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg-color: #161513;
+  --text-primary: #ebe6dd;
+  --text-secondary: #a59f95;
+  --accent-earth: #c9a77f;
+  --accent-sage: #9aab96;
+  --surface-color: #1e1c19;
+  --border-color: #34302a;
+
+  --gh-bg: #23252a;
+  --gh-bg-hover: #2c2f35;
+  --gh-fg: #e6e8eb;
+  --gh-border: #3a3d44;
+  --hf-bg: #2d2510;
+  --hf-bg-hover: #3a3015;
+  --hf-fg: #f5d06a;
+  --hf-border: #574618;
+  --portal-bg: #1e281d;
+  --portal-bg-hover: #263325;
+  --portal-fg: #b7cbb3;
+  --portal-border: #384a36;
+  --discord-bg: #1e2040;
+  --discord-bg-hover: #272a52;
+  --discord-fg: #bcc1fa;
+  --discord-border: #3a3f7a;
+
+  --on-accent: #161513;
+  --nav-bg: rgba(22, 21, 19, 0.8);
+  --nav-menu-bg: rgba(22, 21, 19, 0.98);
+  --hero-glow: rgba(201, 167, 127, 0.10);
+  --subtle-bg: #25221e;
+  --code-bg: #2a2722;
+  --table-head-bg: #23201c;
+  --figure-bg: #f4f1ea;
+  --caption-bg: rgba(22, 21, 19, 0.9);
+  --link-rule: rgba(201, 167, 127, 0.45);
+  --shadow: rgba(0, 0, 0, 0.35);
+  --logo-filter: grayscale(100%) invert(1);
+  --logo-filter-hover: grayscale(100%) invert(1);
+  --avatar-filter: brightness(0.82) contrast(1.05) saturate(0.9);
+
+  color-scheme: dark;
+}
+
+/* Paint the canvas behind the page too (overscroll, short pages) */
+html { background-color: var(--bg-color); }
+
+/* Images that should not follow the logo inversion (already light-on-dark) */
+img.no-invert { filter: none !important; }
+
+/* Artwork with separate light and dark files: <img class="theme-light-only">
+   next to <img class="theme-dark-only">.
+   Only the inactive one is hidden, so the visible one keeps its own display. */
+@media not (prefers-color-scheme: dark) {
+  :root:not([data-theme="dark"]) .theme-dark-only { display: none !important; }
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-light-only { display: none !important; }
+}
+:root[data-theme="light"] .theme-dark-only { display: none !important; }
+:root[data-theme="dark"] .theme-light-only { display: none !important; }
+
+/* Theme toggle (injected into the navbar by theme.js) */
+.navbar-brand { margin-right: auto; }
+.theme-toggle {
+  margin-left: 1.75rem;
+  flex: 0 0 auto;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.theme-toggle:hover { color: var(--accent-earth); border-color: var(--accent-earth); }
+.theme-toggle:focus-visible { outline: 2px solid var(--accent-earth); outline-offset: 2px; }
+.theme-toggle svg { width: 1rem; height: 1rem; }
+/* Show the icon of the theme you would switch to */
+.theme-toggle .icon-sun { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: block; }
+  :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
+}
+:root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+:root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+@media (max-width: 768px) { .theme-toggle { margin-left: 0.75rem; } }
 
 html {
   scroll-behavior: smooth;
@@ -63,7 +228,7 @@ h1, h2, h3, h4, .serif {
 
 /* Navigation */
 .navbar {
-  background: rgba(253, 252, 249, 0.8);
+  background: var(--nav-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-color);
@@ -114,6 +279,7 @@ h1, h2, h3, h4, .serif {
 
 .hero-content {
   max-width: 800px;
+  min-width: 0; /* a flex item: without this the logo row sets its width and it overflows on phones */
   z-index: 2;
   position: relative;
 }
@@ -143,7 +309,7 @@ h1, h2, h3, h4, .serif {
   right: -10%;
   width: 55vw;
   height: 55vw;
-  background: radial-gradient(circle, rgba(179, 147, 113, 0.12) 0%, rgba(253, 252, 249, 0) 70%);
+  background: radial-gradient(circle, var(--hero-glow) 0%, transparent 70%);
   border-radius: 50%;
   z-index: 0;
 }
@@ -212,7 +378,7 @@ h1, h2, h3, h4, .serif {
 
 .research-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+  box-shadow: 0 20px 40px var(--shadow);
 }
 
 .research-card:hover::before { transform: scaleX(1); }
@@ -296,7 +462,7 @@ h1, h2, h3, h4, .serif {
 .long-button-card:hover {
   transform: translateX(6px);
   border-color: var(--accent-earth);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 10px 30px var(--shadow);
 }
 
 .long-button-card:hover::before {
@@ -562,8 +728,8 @@ h1, h2, h3, h4, .serif {
   flex-wrap: wrap;
 }
 
-.footer-logo { height: 26px; opacity: 0.6; filter: grayscale(100%); transition: var(--transition-smooth); }
-.footer-logo:hover { opacity: 1; filter: grayscale(0%); }
+.footer-logo { height: 26px; opacity: 0.6; filter: var(--logo-filter); transition: var(--transition-smooth); }
+.footer-logo:hover { opacity: 1; filter: var(--logo-filter-hover); }
 
 /* BibTeX Copy Button */
 .bibtex-container {
@@ -594,12 +760,12 @@ h1, h2, h3, h4, .serif {
 
 .copy-button:hover {
   background: var(--accent-earth);
-  color: white;
+  color: var(--on-accent);
 }
 
 .copy-button.copied {
   background: var(--accent-sage);
-  color: white;
+  color: var(--on-accent);
 }
 
 /* Paper Page Refinements */
@@ -630,6 +796,7 @@ h1, h2, h3, h4, .serif {
 
 .hero-affiliations {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 2rem;
 }
@@ -637,13 +804,13 @@ h1, h2, h3, h4, .serif {
 .hero-affiliation-logo {
   height: 29px;
   opacity: 0.5;
-  filter: grayscale(100%);
+  filter: var(--logo-filter);
   transition: var(--transition-smooth);
 }
 
 .hero-affiliation-logo:hover {
   opacity: 1;
-  filter: grayscale(0%);
+  filter: var(--logo-filter-hover);
   transform: translateY(-2px);
 }
 
@@ -663,7 +830,7 @@ h1, h2, h3, h4, .serif {
   display: inline-block;
   padding: 0.4rem 1.2rem;
   background: var(--accent-sage);
-  color: white;
+  color: var(--on-accent);
   border-radius: 100px;
   font-size: 0.75rem;
   font-weight: 600;
@@ -734,6 +901,12 @@ h1, h2, h3, h4, .serif {
 }
 
 .team-member:hover img { transform: scale(1.05); border-color: var(--accent-earth); }
+
+/* Avatars: every photo under images/people/ (team, alumni, personal pages).
+   Dark mode dims them so faces and white backgrounds don't glare; hovering a
+   team card brings the photo back to full brightness. */
+img[src*="images/people/"] { filter: var(--avatar-filter); transition: var(--transition-smooth); }
+.team-member:hover img[src*="images/people/"] { filter: none; }
 .team-member h5 { font-size: 1rem; margin-bottom: 0.2rem; }
 .team-member p { font-size: 0.85rem; color: var(--text-secondary); }
 
@@ -832,7 +1005,7 @@ figcaption a:not([class]):not(:has(img, svg)),
 blockquote a:not([class]):not(:has(img, svg)) {
   color: var(--accent-earth);
   text-decoration: underline;
-  text-decoration-color: rgba(179, 147, 113, 0.4);
+  text-decoration-color: var(--link-rule);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.18em;
   transition: color 0.2s ease, text-decoration-color 0.2s ease;
@@ -881,7 +1054,7 @@ blockquote a:not([class]):focus-visible {
   color: var(--accent-earth);
   font-weight: 500;
   text-decoration: none;
-  border-bottom: 1px solid rgba(179, 147, 113, 0.35);
+  border-bottom: 1px solid var(--link-rule);
   white-space: nowrap;
   transition: var(--transition-smooth);
 }
@@ -899,7 +1072,7 @@ blockquote a:not([class]):focus-visible {
 .narrative-container code {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 0.85em;
-  background: #f3efe9;
+  background: var(--code-bg);
   padding: 0.15em 0.4em;
   border-radius: 4px;
 }
@@ -935,7 +1108,7 @@ blockquote a:not([class]):focus-visible {
   font-size: 0.7rem;
   letter-spacing: 0.05em;
   color: var(--text-primary);
-  background: #faf8f5;
+  background: var(--table-head-bg);
   border-bottom: 1px solid var(--border-color);
   vertical-align: bottom;
   white-space: nowrap;
@@ -979,7 +1152,7 @@ blockquote a:not([class]):focus-visible {
   height: auto;
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  background: #fff;
+  background: var(--figure-bg);
 }
 
 .post-figure figcaption {
@@ -1017,7 +1190,7 @@ blockquote a:not([class]):focus-visible {
   position: absolute;
   bottom: 2rem;
   right: 2rem;
-  background: rgba(253, 252, 249, 0.9);
+  background: var(--caption-bg);
   padding: 1rem 1.5rem;
   border-radius: 4px;
   font-size: 0.8rem;

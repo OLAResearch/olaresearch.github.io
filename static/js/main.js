@@ -185,7 +185,29 @@ window.addEventListener('popstate', () => {
   handleNavigation(currentUrl.pathname + currentUrl.search, currentUrl.hash);
 });
 
-/* Publications Page Functionality (Persists across SPA navigations) */
+/* Publications Page Functionality (Persists across SPA navigations)
+   These live here, not in publications.html: the router swaps pages in with
+   innerHTML, which never runs a page's own <script> blocks, so a function
+   defined inline there would be missing after an in-site navigation. */
+
+/* Expand/collapse a long author list ("+N more" / "show less") */
+function toggleAuthors(key) {
+  const short = document.getElementById('authors-short-' + key);
+  const full = document.getElementById('authors-full-' + key);
+  const btn = document.getElementById('authors-btn-' + key);
+  if (!short || !full || !btn) return;
+  const expand = short.hidden !== true;
+  short.hidden = expand;
+  full.hidden = !expand;
+  btn.setAttribute('aria-expanded', expand ? 'true' : 'false');
+  if (expand) {
+    btn.dataset.collapsedLabel = btn.textContent;
+    btn.textContent = 'show less';
+  } else {
+    btn.textContent = btn.dataset.collapsedLabel || 'show all';
+  }
+}
+
 function toggleBibtex(key) {
   const box = document.getElementById(`bib-${key}`);
   const btn = document.getElementById(`btn-${key}`);

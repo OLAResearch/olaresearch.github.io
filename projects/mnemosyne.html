@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script src="../static/js/theme.js"></script>
   <link rel="stylesheet" href="../static/css/index.css">
   <link rel="icon" href="../images/logos/olaresearch.svg">
   <style>
@@ -44,16 +45,22 @@
 </nav>
 
 <header class="project-hero">
-  <img src="../images/logos/olaresearch-mnemosyne-lockup-light.svg" alt="Mnemosyne · OLAResearch" style="display: block; width: 100%; max-width: 420px; height: auto; margin-bottom: 2rem;">
+  <img src="../images/logos/olaresearch-mnemosyne-lockup-light.svg" alt="Mnemosyne · OLAResearch" class="theme-light-only" style="display: block; width: 100%; max-width: 420px; height: auto; margin-bottom: 2rem;">
+  <img src="../images/logos/olaresearch-mnemosyne-lockup-dark.svg" alt="Mnemosyne · OLAResearch" class="theme-dark-only" style="display: block; width: 100%; max-width: 420px; height: auto; margin-bottom: 2rem;">
   <div class="status-badge">Active Direction</div>
   <h1 class="title is-1 paper-title-small">Mnemosyne: Memory for LLMs and Agents</h1>
   <p class="subtitle">Building memory that language models and agents can store, transfer, generate, and use adaptively.</p>
+  <p style="margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 1rem;">
+    <a href="https://discord.gg/gWV8gN86YE" target="_blank" rel="noopener" class="cta-button cta-discord">
+      <i class="fab fa-discord" style="margin-right: 0.5rem;"></i> Join our Discord Server
+    </a>
+  </p>
 </header>
 
 <main class="container" style="padding: 4vw;">
 
   <!-- Overview -->
-  <section class="narrative-section" style="background: var(--surface-color); border: 1px solid var(--border-color); padding: 4rem; border-radius: 12px; margin-bottom: 6rem;">
+  <section class="narrative-section" style="background: var(--surface-color); border: 1px solid var(--border-color); padding: clamp(1.5rem, 6vw, 4rem); border-radius: 12px; margin-bottom: 6rem;">
     <div style="display: flex; gap: 4rem; align-items: flex-start; flex-wrap: wrap;">
       <p class="lead" style="font-size: 1.1rem; margin-bottom: 0rem;">
         Rather than storing all knowledge in model parameters or repeatedly retrieving raw text, we study <strong>memory as a reusable computational substrate</strong> for large language models and the agents built on them.

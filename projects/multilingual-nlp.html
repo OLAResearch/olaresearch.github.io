@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script src="../static/js/theme.js"></script>
   <link rel="stylesheet" href="../static/css/index.css">
   <link rel="icon" href="../images/logos/olaresearch.svg">
   <style>
@@ -52,9 +53,9 @@
 <main class="container" style="padding: 4vw;">
   
   <!-- Featured Subproject: MaLA-LM -->
-  <section class="narrative-section" style="background: var(--surface-color); border: 1px solid var(--border-color); padding: 4rem; border-radius: 12px; margin-bottom: 6rem;">
+  <section class="narrative-section" style="background: var(--surface-color); border: 1px solid var(--border-color); padding: clamp(1.5rem, 6vw, 4rem); border-radius: 12px; margin-bottom: 6rem;">
     <div style="display: flex; gap: 4rem; align-items: flex-start; flex-wrap: wrap;">
-      <div style="flex: 2; min-width: 300px;">
+      <div style="flex: 2; min-width: min(300px, 100%);">
     <!-- <h2 class="title is-2" style="text-align: center; margin-bottom: 1rem;">MaLA-LM</h2> -->
         <p class="lead" style="font-size: 1.1rem; margin-bottom: 2rem; margin-top: 0;">
           The <strong>MaLA-LM</strong> (Massive Language Adaptation of Large Language Models) initiative is our flagship effort to scale Large Language Models to hundreds of underrepresented languages. 
@@ -63,8 +64,8 @@
           MaLA-LM focuses on data-centric continual pre-training, developing the EMMA-500 suite of models, the MaLA corpus in 939 languages, and the MaLA translation corpus spanning over 2,500 language pairs.
         </p>
       </div>
-      <div style="flex: 1; min-width: 250px; display: flex; flex-direction: column; align-items: center; gap: 2rem;">
-        <img src="../images/projects/MaLA-LM.jpeg" alt="MaLA-LM Logo" style="width: 160px; height: 160px; border-radius: 12px; object-fit: cover; border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+      <div style="flex: 1; min-width: min(250px, 100%); display: flex; flex-direction: column; align-items: center; gap: 2rem;">
+        <img src="../images/projects/MaLA-LM.jpeg" alt="MaLA-LM Logo" style="width: 160px; max-width: 100%; height: 160px; border-radius: 12px; object-fit: cover; border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
         <a href="https://mala-lm.github.io" class="btn-primary" target="_blank" style="padding: 0.6rem 1.5rem; font-size: 0.75rem;">Project Details</a>
       </div>
     </div>

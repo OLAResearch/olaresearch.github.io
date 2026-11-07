@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script src="../static/js/theme.js"></script>
   <link rel="stylesheet" href="../static/css/index.css">
   <link rel="icon" href="../images/logos/olaresearch.svg">
   <style>
@@ -44,7 +45,8 @@
 </nav>
 
 <header class="project-hero">
-  <img src="../images/logos/olaresearch-ai4health-lockup-light.svg" alt="AI4Health · OLAResearch" style="display: block; width: 100%; max-width: 420px; height: auto; margin-bottom: 2rem;">
+  <img src="../images/logos/olaresearch-ai4health-lockup-light.svg" alt="AI4Health · OLAResearch" class="theme-light-only" style="display: block; width: 100%; max-width: 420px; height: auto; margin-bottom: 2rem;">
+  <img src="../images/logos/olaresearch-ai4health-lockup-dark.svg" alt="AI4Health · OLAResearch" class="theme-dark-only" style="display: block; width: 100%; max-width: 420px; height: auto; margin-bottom: 2rem;">
   <div class="status-badge">Active Direction</div>
   <h1 class="title is-1 paper-title-small">AI for Health: Foundation Models & Clinical Intelligence</h1>
   <p class="subtitle">Developing next-generation AI systems for intelligent clinical decision-making.</p>
@@ -53,9 +55,9 @@
 <main class="container" style="padding: 4vw;">
   
   <!-- Featured Subproject -->
-  <section class="narrative-section" style="background: var(--surface-color); border: 1px solid var(--border-color); padding: 4rem; border-radius: 12px; margin-bottom: 6rem;">
+  <section class="narrative-section" style="background: var(--surface-color); border: 1px solid var(--border-color); padding: clamp(1.5rem, 6vw, 4rem); border-radius: 12px; margin-bottom: 6rem;">
     <div style="display: flex; gap: 4rem; align-items: flex-start; flex-wrap: wrap;">
-      <div style="flex: 2; min-width: 300px;">
+      <div style="flex: 2; min-width: min(300px, 100%);">
         <p class="lead" style="font-size: 1.1rem; margin-bottom: 2rem; margin-top: 0;">
           <strong>AI for Health</strong> pushes the boundaries of medical AI by moving beyond simple classification toward comprehensive clinical reasoning and multimodal understanding.
         </p>
@@ -63,8 +65,8 @@
           We leverage massive-scale foundation models and reinforcement learning to assist clinicians in complex diagnostic and therapeutic tasks. By integrating diverse data modalities, we aim to build systems that are not only accurate but also robust and clinically insightful in real-world clinical environments.
         </p>
       </div>
-      <div style="flex: 1; min-width: 250px; display: flex; flex-direction: column; align-items: center; gap: 2rem;">
-        <img src="../images/projects/AI-health.png" alt="AI for Health" style="width: 380px; height: 306px; border-radius: 12px; object-fit: cover; border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+      <div style="flex: 1; min-width: min(250px, 100%); display: flex; flex-direction: column; align-items: center; gap: 2rem;">
+        <img src="../images/projects/AI-health.png" alt="AI for Health" style="width: 380px; max-width: 100%; height: auto; aspect-ratio: 380 / 306; border-radius: 12px; object-fit: cover; border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
       </div>
     </div>
   </section>

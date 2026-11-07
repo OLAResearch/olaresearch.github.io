@@ -24,6 +24,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script src="./static/js/theme.js"></script>
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./images/logos/olaresearch.svg">
 
@@ -212,7 +213,7 @@
     .bibtex-box {
       flex: 1 1 100%;
       margin-top: 1rem;
-      background-color: #faf8f5;
+      background-color: var(--table-head-bg);
       border: 1px solid var(--border-color);
       border-radius: 4px;
       padding: 1.25rem;
@@ -240,10 +241,18 @@
     }
 
     @media (max-width: 768px) {
+      /* Phones: logo + theme toggle on the first row, the six links on a
+         full-width second row (they don't fit beside the logo) */
+      .navbar { flex-wrap: wrap; row-gap: 0.75rem; }
       .navbar-menu {
         display: flex !important;
-        gap: 1.5rem;
+        order: 3;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem 1.1rem;
       }
+      .navbar-menu .navbar-item { font-size: 0.7rem; letter-spacing: 0.06em; white-space: nowrap; }
     }
 
     @media (max-width: 600px) {
@@ -879,25 +888,6 @@
     <a href="https://github.com/OLAResearch" style="color: inherit; font-size: 1.5rem; transition: var(--transition-smooth);"><i class="fab fa-github"></i></a>
   </footer>
 
-  <script>
-    // Expand/collapse long author lists.
-    function toggleAuthors(key) {
-      var short = document.getElementById('authors-short-' + key);
-      var full = document.getElementById('authors-full-' + key);
-      var btn = document.getElementById('authors-btn-' + key);
-      if (!short || !full || !btn) return;
-      var expand = short.hidden !== true;
-      short.hidden = expand;
-      full.hidden = !expand;
-      btn.setAttribute('aria-expanded', expand ? 'true' : 'false');
-      if (expand) {
-        btn.dataset.collapsedLabel = btn.textContent;
-        btn.textContent = 'show less';
-      } else {
-        btn.textContent = btn.dataset.collapsedLabel || 'show all';
-      }
-    }
-  </script>
   <script src="./static/js/main.js"></script>
 </body>
 </html>
